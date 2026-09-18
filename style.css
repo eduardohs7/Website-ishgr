@@ -1,0 +1,622 @@
+/* ==========================================================================
+   VARIÁVEIS DE COR E RESET
+   ========================================================================== */
+:root {
+    --bg-color: #F6F4EB; /* Fundo bege claro */
+    --bg-section: #EFECE1; /* Fundo um pouco mais escuro para seções */
+    --text-dark: #0A192F; /* Azul bem escuro para títulos */
+    --text-body: #4A5568; /* Cinza escuro para textos */
+    --accent: #C05621; /* Laranja/Terracota para destaques */
+    --border-color: #E2E8F0;
+    --footer-bg: #092635; /* Azul escuro do rodapé */
+    --footer-border: #1C3F53;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'playfair display', sans-serif !important;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* ==========================================================================
+   NAVBAR E REALIZAÇÃO
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 1.2rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logos-realizacao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.realizacao-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-body);
+}
+
+.separator {
+    width: 1px;
+    height: 35px;
+    background-color: var(--border-color);
+}
+
+.logo-placeholder {
+    width: 45px;
+    height: 45px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    display: inline-block;
+    object-fit: contain;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+}
+
+/* ==========================================================================
+   BANNER PRINCIPAL (HERO)
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    min-height: 85vh;
+    gap: 40px;
+    position: relative; /* Adicionado para conter a imagem de fundo */
+    z-index: 1; /* Garante que os textos e botões fiquem clicáveis na frente */
+}
+
+/* Nova regra que cria a imagem "apagada" no fundo */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/logos/CHAGS-Vienna-02.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2; /* Controle o fade aqui: 0.1 é muito fraco, 0.5 é médio, 1 é imagem total */
+    z-index: -1; /* Joga a imagem para trás de todos os elementos */
+}
+
+.hero-content {
+    flex: 1.2;
+}
+
+.badge-top {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    color: #1C3F53;
+}
+
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif !important;
+    font-style: italic;
+    color: #F4A900
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-body);
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.btn-dark {
+    padding: 12px 28px;
+    background-color: var(--text-dark);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-dark:hover {
+    background-color: #1A365D;
+}
+
+.btn-outline {
+    padding: 12px 28px;
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--text-dark);
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: var(--text-dark);
+    color: #fff;
+}
+
+.hero-footer-info {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-body);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.info-data {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.hero-image-container {
+    flex: 0.8;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-img-placeholder {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    background-color: #e0dcd0;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+
+/* ==========================================================================
+   SEÇÃO SOBRE (STATS)
+   ========================================================================== */
+.sobre-section {
+    padding: 80px 0;
+    background-color: var(--bg-section);
+}
+
+.sobre-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+.badge-text {
+    font-family: Montserrat, sans-serif !important;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-style: justify;
+    color: var(--accent);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.sobre-titulo-area {
+    flex: 1;
+}
+
+.sobre-titulo-area h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+
+.sobre-texto-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sobre-texto-area p {
+    font-size: 1.05rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.icon-placeholder {
+    width: 40px;
+    height: 40px;
+    background-color: var(--text-dark);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.stat-card h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   SEÇÃO ORGANIZAÇÃO
+   ========================================================================== */
+.organizacao-section {
+    padding: 80px 5%;
+}
+
+.org-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.org-titulo-area h2 {
+    font-size: 3.5rem;
+}
+
+.org-desc-area {
+    font-size: 1.05rem;
+    text-align: right;
+    max-width: 300px;
+}
+
+.org-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.org-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.org-card-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+.org-numero {
+    color: #A0AEC0;
+}
+
+.org-card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.org-logo {
+    max-height: 80px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.org-card-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.patrocinio-banner {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 6px solid #00B5D8; /* Ciano de destaque */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.patrocinio-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.patrocinio-info h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   RODAPÉ COMPLETO
+   ========================================================================== */
+.site-footer {
+    background-color: var(--footer-bg);
+    color: #E2E8F0;
+    padding-top: 60px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-logo h3 {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.footer-logo span {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: #A0AEC0;
+    margin-bottom: 20px;
+}
+
+.footer-col-identidade p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #CBD5E0;
+    max-width: 350px;
+}
+
+.footer-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    list-style: none;
+}
+
+.footer-links-grid a {
+    color: #E2E8F0;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-links-grid a:hover {
+    color: var(--accent);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.social-icons a {
+    color: #E2E8F0;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--accent);
+}
+
+.footer-col-redes p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #CBD5E0;
+}
+
+.desenvolvedor {
+    font-size: 0.8rem;
+    color: #A0AEC0 !important;
+    margin-top: 20px;
+}
+
+.sub-footer {
+    background-color: #071D28;
+    padding: 20px 0;
+    border-top: 1px solid var(--footer-border);
+}
+
+.sub-footer-flex {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #A0AEC0;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+    .hero-section, .sobre-top, .org-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hero-image-container {
+        justify-content: flex-start;
+        margin-top: 30px;
+    }
+
+    .org-desc-area {
+        text-align: left;
+        margin-top: 15px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--bg-color);
+        padding: 1rem 0;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+    
+    .logos-realizacao {
+        gap: 10px;
+    }
+    
+    .logo-placeholder {
+        width: 30px;
+        height: 30px;
+    }
+
+    .hero-title, .sobre-titulo-area h2, .org-titulo-area h2 {
+        font-size: 2.8rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-footer-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .sub-footer-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
