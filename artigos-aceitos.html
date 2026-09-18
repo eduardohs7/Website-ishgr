@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 - Trabalhos Aceitos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho e Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <span class="realizacao-text">REALIZAÇÃO</span>
+                <div class="separator"></div>
+                <!-- Insira o caminho das logos reais nos atributos src -->
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="chamadas.html">Chamadas</a></li>
+                <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                <li><a href="programacao.html">Programação</a></li>
+                <li><a href="atracoes.html">Atrações</a></li>
+                <li><a href="inscricoes.html">Inscrições</a></li>
+                <li><a href="evento.html">Evento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Cabeçalho da Página de Resultados -->
+        <section class="resultados-header container">
+            <span class="badge-text">RESULTADOS</span>
+            <h1 class="page-title">Trabalhos Aceitos.</h1>
+            <p>Confira os trabalhos e pautas aprovados para compor as mesas redondas e rodas de conversa do CHAGS 14.</p>
+        </section>
+
+        <!-- Área de Filtros e Lista de Trabalhos -->
+        <section class="lista-resultados-section container">
+            
+            <!-- Barra de Busca e Filtro -->
+            <div class="filtros-box">
+                <div class="filtro-item filtro-busca">
+                    <label>BUSCAR TRABALHO</label>
+                    <div class="input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Título, autor ou instituição">
+                    </div>
+                </div>
+                <div class="filtro-item filtro-topico">
+                    <label>FILTRAR POR TÓPICO</label>
+                    <select>
+                        <option>Todos os tópicos</option>
+                        <option>Antropologia e Arqueologia</option>
+                        <option>Bioeconomia e Sustentabilidade</option>
+                        <option>Direitos Territoriais e Indígenas</option>
+                    </select>
+                </div>
+            </div>
+            
+            <p class="resultados-count"><strong>03</strong> trabalhos encontrados</p>
+
+            <!-- Lista de Cards -->
+            <div class="trabalhos-lista">
+                
+                <!-- Card 01 -->
+                <div class="trabalho-card">
+                    <div class="trabalho-numero">01</div>
+                    <div class="trabalho-conteudo">
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">PAUTA:</span>
+                            <h3 class="trabalho-titulo">Gestão Territorial e Sustentabilidade nas Comunidades da Calha Norte</h3>
+                        </div>
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">AUTORES:</span>
+                            <p class="trabalho-autores">Maria de Fátima Souza (UFPA, Brasil), Carlos Eduardo Almeida (MPEG, Brasil)</p>
+                        </div>
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">TÓPICO:</span>
+                            <span class="topico-badge">Gestão de Recursos Naturais</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="trabalho-card">
+                    <div class="trabalho-numero">02</div>
+                    <div class="trabalho-conteudo">
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">PAUTA:</span>
+                            <h3 class="trabalho-titulo">O papel dos saberes ancestrais frente às mudanças climáticas globais</h3>
+                        </div>
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">AUTORES:</span>
+                            <p class="trabalho-autores">Richard Lee (University of Nevada, EUA), Ana Clara Nunes (UFPA, Brasil)</p>
+                        </div>
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">TÓPICO:</span>
+                            <span class="topico-badge">Mudanças Climáticas e Impactos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 03 -->
+                <div class="trabalho-card">
+                    <div class="trabalho-numero">03</div>
+                    <div class="trabalho-conteudo">
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">PAUTA:</span>
+                            <h3 class="trabalho-titulo">Inovações sociais no manejo do açaí nativo no estuário amazônico</h3>
+                        </div>
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">AUTORES:</span>
+                            <p class="trabalho-autores">Marcos Pereira Silva (UFRA, Brasil), Júlia Torres (MPEG, Brasil)</p>
+                        </div>
+                        <div class="trabalho-linha">
+                            <span class="trabalho-label">TÓPICO:</span>
+                            <span class="topico-badge">Bioeconomia e Sustentabilidade</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Completo -->
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <!-- Coluna 1: Identidade -->
+            <div class="footer-col-identidade">
+                <div class="footer-logo">
+                    <h3>CHAGS 14</h3>
+                    <span>14ª EDIÇÃO - BELÉM / PA</span>
+                </div>
+                <p>Conferência internacional da International Society for Hunter-Gatherer Research - encontro de pesquisa, ensino e inovação na Amazônia.</p>
+            </div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Chamadas</a></li>
+                    <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                    <li><a href="programacao.html">Programação</a></li>
+                    <li><a href="atracoes.html">Atrações</a></li>
+                    <li><a href="inscricoes.html">Inscrições</a></li>
+                    <li><a href="evento.html">Evento</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Redes e Créditos -->
+            <div class="footer-col-redes">
+                <h4 class="footer-title">REDES</h4>
+                <p>Siga @chags14belem</p>
+                <p class="desenvolvedor">Desenvolvido por Eduardo Maia &lt;/&gt;</p>
+            </div>
+        </div>
+        
+        <!-- Sub-footer -->
+        <div class="sub-footer">
+            <div class="container sub-footer-flex">
+                <p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p>
+                <p>12 a 16 de julho - Belém, Pará</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

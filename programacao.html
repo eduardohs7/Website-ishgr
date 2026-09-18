@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 - Programação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho e Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <span class="realizacao-text">REALIZAÇÃO</span>
+                <div class="separator"></div>
+                <!-- Insira o caminho das logos reais nos atributos src -->
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="chamadas.html">Chamadas</a></li>
+                <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                <li><a href="programacao.html">Programação</a></li>
+                <li><a href="atracoes.html">Atrações</a></li>
+                <li><a href="inscricoes.html">Inscrições</a></li>
+                <li><a href="evento.html">Evento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Cabeçalho da Programação -->
+        <section class="prog-header container">
+            <span class="badge-text">12 A 16 DE JULHO • BELÉM</span>
+            <h1 class="page-title">Programação.</h1>
+            <p class="prog-desc">Confira a programação completa do CHAGS 14. Clique nas atividades para expandir detalhes sobre palestrantes, prédios e mapas de localização no campus da UFPA e Museu Goeldi.</p>
+
+            <!-- Legenda por Cores -->
+            <div class="prog-legenda">
+                <span class="legenda-item"><span class="dot cerimonia"></span> CERIMÔNIA</span>
+                <span class="legenda-item"><span class="dot palestra"></span> PALESTRA / MESA</span>
+                <span class="legenda-item"><span class="dot sessao"></span> SESSÃO TEMÁTICA</span>
+                <span class="legenda-item"><span class="dot oficina"></span> OFICINA / WORKSHOP</span>
+                <span class="legenda-item"><span class="dot intervalo"></span> INTERVALO</span>
+            </div>
+        </section>
+
+        <!-- Cronograma Timeline -->
+        <section class="prog-timeline-section container">
+            
+            <!-- DIA 01 -->
+            <div class="dia-bloco">
+                <div class="dia-sidebar">
+                    <span class="dia-badge">DIA 01</span>
+                    <h2 class="dia-data">12 jul</h2>
+                    <span class="dia-semana">Segunda-feira</span>
+                </div>
+
+                <div class="timeline-lista">
+                    
+                    <!-- Atividade 01 (Credenciamento) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker dot-cerimonia"></div>
+                        <div class="atividade-card">
+                            <div class="atividade-header">
+                                <span class="atividade-horario">08h00 - 09h00</span>
+                                <div class="atividade-titulo-area">
+                                    <h3>Credenciamento e Entrega de Materiais</h3>
+                                    <span class="type-badge badge-cerimonia">CERIMÔNIA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 02 (Palestra Completa com Escopo) -->
+                    <div class="timeline-item expandable">
+                        <div class="timeline-marker dot-palestra"></div>
+                        <div class="atividade-card">
+                            <div class="atividade-header">
+                                <span class="atividade-horario">09h00 - 10h30</span>
+                                <div class="atividade-titulo-area">
+                                    <h3>Mesa de Abertura: Futuros Ancestrais e a Ecologia Humana na Amazônia</h3>
+                                    <span class="type-badge badge-palestra">PALESTRA / MESA</span>
+                                </div>
+                                <span class="expand-icon">▼</span>
+                            </div>
+
+                            <!-- Detalhes Expandidos (Escopo Completo) -->
+                            <div class="atividade-detalhes">
+                                <div class="detalhes-grid">
+                                    
+                                    <!-- Bloco do Palestrante -->
+                                    <div class="bloco-palestrante">
+                                        <h4>RESPONSÁVEL / PALESTRANTE</h4>
+                                        <div class="palestrante-info">
+                                            <div class="palestrante-foto-placeholder">👤</div>
+                                            <div>
+                                                <strong>Dr. Richard B. Lee</strong>
+                                                <p class="palestrante-bio">Antropólogo e pesquisador sênior da University of Nevada. Especialista em ecologia comportamental e sociedades de caçadores-coletores.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bloco do Local / Mapa -->
+                                    <div class="bloco-localizacao">
+                                        <h4>LOCALIZAÇÃO NO CAMPUS</h4>
+                                        <div class="local-card-box">
+                                            <div class="local-img-placeholder">🏛️ Imagem Prédio</div>
+                                            <div class="local-textos">
+                                                <p><strong>Prédio/Edifício:</strong> Centro de Eventos Benedito Nunes</p>
+                                                <p><strong>Espaço:</strong> Auditório Principal (Setor Básico)</p>
+                                                <p class="local-obs">Acesso pela entrada principal da UFPA, em frente à orla do rio Guamá.</p>
+                                                <a href="https://maps.google.com" target="_blank" class="btn-mapa">Ver localização no mapa &rarr;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 03 (Intervalo) -->
+                    <div class="timeline-item item-intervalo">
+                        <div class="timeline-marker dot-intervalo"></div>
+                        <div class="atividade-card card-intervalo">
+                            <div class="atividade-header">
+                                <span class="atividade-horario">10h30 - 11h00</span>
+                                <div class="atividade-titulo-area">
+                                    <h3>Intervalo - Coffee Break Amazônico</h3>
+                                    <span class="type-badge badge-intervalo">INTERVALO</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 04 (Sessão Temática) -->
+                    <div class="timeline-item expandable">
+                        <div class="timeline-marker dot-sessao"></div>
+                        <div class="atividade-card">
+                            <div class="atividade-header">
+                                <span class="atividade-horario">11h00 - 12h30</span>
+                                <div class="atividade-titulo-area">
+                                    <h3>Sessão Temática 1 — Saberes Tradicionais e Manejo Sustentável</h3>
+                                    <span class="type-badge badge-sessao">SESSÃO TÉCNICA</span>
+                                </div>
+                                <span class="expand-icon">▼</span>
+                            </div>
+
+                            <div class="atividade-detalhes">
+                                <div class="detalhes-grid">
+                                    <div class="bloco-palestrante">
+                                        <h4>COORDENAÇÃO DA SESSÃO</h4>
+                                        <div class="palestrante-info">
+                                            <div class="palestrante-foto-placeholder">👤</div>
+                                            <div>
+                                                <strong>Dra. Maria de Fátima Souza</strong>
+                                                <p class="palestrante-bio">Professora Titular do Instituto de Ciências Biológicas - UFPA.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bloco-localizacao">
+                                        <h4>LOCALIZAÇÃO NO CAMPUS</h4>
+                                        <div class="local-card-box">
+                                            <div class="local-img-placeholder">🏫 Imagem Auditório</div>
+                                            <div class="local-textos">
+                                                <p><strong>Prédio/Edifício:</strong> Auditório do ICEN (Ciências Exatas)</p>
+                                                <p><strong>Espaço:</strong> Sala de Conferências 02</p>
+                                                <p class="local-obs">Próximo ao Restaurante Universitário.</p>
+                                                <a href="https://maps.google.com" target="_blank" class="btn-mapa">Ver localização no mapa &rarr;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Rodapé Completo -->
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <!-- Coluna 1: Identidade -->
+            <div class="footer-col-identidade">
+                <div class="footer-logo">
+                    <h3>CHAGS 14</h3>
+                    <span>14ª EDIÇÃO - BELÉM / PA</span>
+                </div>
+                <p>Conferência internacional da International Society for Hunter-Gatherer Research - encontro de pesquisa, ensino e inovação na Amazônia.</p>
+            </div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Chamadas</a></li>
+                    <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                    <li><a href="programacao.html">Programação</a></li>
+                    <li><a href="atracoes.html">Atrações</a></li>
+                    <li><a href="inscricoes.html">Inscrições</a></li>
+                    <li><a href="evento.html">Evento</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Redes e Créditos -->
+            <div class="footer-col-redes">
+                <h4 class="footer-title">REDES</h4>
+                <p>Siga @chags14belem</p>
+                <p class="desenvolvedor">Desenvolvido por Eduardo Maia &lt;/&gt;</p>
+            </div>
+        </div>
+        
+        <!-- Sub-footer -->
+        <div class="sub-footer">
+            <div class="container sub-footer-flex">
+                <p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p>
+                <p>12 a 16 de julho - Belém, Pará</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
