@@ -199,3 +199,52 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+/* ==========================================================================
+   MODAL DA PÁGINA DE PROGRAMAÇÃO
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const botoesAbrirProg = document.querySelectorAll('.btn-abrir-modal-prog');
+    const modalProg = document.getElementById('modal-prog');
+    
+    if (botoesAbrirProg.length > 0 && modalProg) {
+        const btnFecharProg = document.querySelector('.close-modal-prog');
+
+        botoesAbrirProg.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Encontra o card pai daquele botão clicado
+                const card = btn.closest('.atividade-card');
+                
+                // Extrai as informações
+                const tipoHTML = card.querySelector('.prog-type').cloneNode(true);
+                const horario = card.querySelector('.prog-time').innerText;
+                const titulo = card.querySelector('.prog-title').innerText;
+                const palestranteHTML = card.querySelector('.data-palestrante').innerHTML;
+                const localHTML = card.querySelector('.data-local').innerHTML;
+
+                // Injeta no modal
+                document.getElementById('modal-prog-tipo').innerHTML = '';
+                document.getElementById('modal-prog-tipo').appendChild(tipoHTML);
+                document.getElementById('modal-prog-horario').innerText = horario;
+                document.getElementById('modal-prog-titulo').innerText = titulo;
+                document.getElementById('modal-prog-palestrante').innerHTML = palestranteHTML;
+                document.getElementById('modal-prog-local').innerHTML = localHTML;
+
+                // Abre o modal (o flex aplica o display flex que estava oculto)
+                modalProg.style.display = 'flex';
+            });
+        });
+
+        // Fechar pelo botão X
+        btnFecharProg.addEventListener('click', () => {
+            modalProg.style.display = 'none';
+        });
+
+        // Fechar clicando no fundo escuro fora do modal
+        modalProg.addEventListener('click', (e) => {
+            if (e.target === modalProg) {
+                modalProg.style.display = 'none';
+            }
+        });
+    }
+});

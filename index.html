@@ -4,215 +4,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 - Still We Rise | Home</title>
-    <!-- Fontes do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonte única Sans-Serif para visual moderno e acadêmico -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Cabeçalho e Navbar -->
-    <header>
+<header>
         <nav class="navbar">
             <div class="logos-realizacao">
-                <span class="realizacao-text">REALIZAÇÃO</span>
-                <div class="separator"></div>
-                <!-- Insira o caminho das logos reais nos atributos src -->
                 <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
                 <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
                 <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
-            
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
-                <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                <li><a href="artigos-aceitos.html" class="active">Trabalhos</a></li>
                 <li><a href="programacao.html">Programação</a></li>
                 <li><a href="atracoes.html">Atrações</a></li>
                 <li><a href="inscricoes.html">Inscrições</a></li>
-                <li><a href="evento.html">Evento</a></li>
+                <li><a href="evento.html">O Evento</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
-
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <div class="lang-selector"><a href="#" class="active">PT</a> | <a href="#">EN</a> | <a href="#">ES</a></div>
+                <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
             </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>
-
     <main>
-        <!-- Banner Principal (Hero) -->
-        <section class="hero-section container">
-            <div class="hero-content">
-                <span class="badge-top">• 14ª EDIÇÃO - 2027</span>
-                <h1 class="hero-title">CHAGS 14<br> <span class="hero-subtitle">Still We Rise</span></h1>
-                <p class="hero-desc">Pesquisa, ensino e inovação reunidos no coração de <strong>Belém - Pará</strong>.</p>
-                
-                <div class="hero-buttons">
-                    <!-- Novo botão adicionado aqui com a classe btn-accent -->
-                    <a href="evento.html" class="btn-accent">Conheça o Evento </a>
-                    <a href="inscricoes.html" class="btn-dark">Faça sua inscrição</a>
-                    <a href="chamadas.html" class="btn-outline">Envie seu trabalho</a>
+        <!-- Banner Principal Full Width com Gradiente -->
+        <div class="banner-gradient">
+            <section class="hero-section container">
+                <div class="hero-content">
+                    <span class="badge-top">14ª EDIÇÃO - 2027</span>
+                    <h1 class="hero-title">CHAGS 14<br><span class="hero-subtitle">Still We Rise</span></h1>
+                    <p class="hero-desc">Pesquisa, ensino e inovação sobre sociedades caçadoras-coletoras reunidos no coração de Belém - Pará, Brasil.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="evento.html" class="btn-accent">Conheça o Evento</a>
+                        <a href="chamadas.html" class="btn-outline">Chamada de Trabalhos</a>
+                    </div>
+
+                    <div class="hero-footer-info">
+                        <div class="info-block">
+                            <span class="info-label">DATA</span>
+                            <span class="info-data">12 a 16 de jul</span>
+                        </div>
+                        <div class="info-block">
+                            <span class="info-label">LOCAL</span>
+                            <span class="info-data">Belém - PA, Brasil</span>
+                        </div>
+                        <div class="info-block">
+                            <span class="info-label">SEDE</span>
+                            <span class="info-data">UFPA e Museu Goeldi</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="hero-footer-info">
-                    <div class="info-block">
-                        <span class="info-label">QUANDO</span>
-                        <span class="info-data">12 a 16 de jul</span>
-                    </div>
-                    <div class="info-block">
-                        <span class="info-label">ONDE</span>
-                        <span class="info-data">Belém - PA</span>
-                    </div>
-                    <div class="info-block">
-                        <span class="info-label">SEDE</span>
-                        <span class="info-data">UFPA e Museu Goeldi</span>
-                    </div>
+                <div class="hero-image-container">
+                    <!-- Substitua pela imagem que desejar no banner (ex: foto de Belém ou evento acadêmico) -->
+                    <img src="images/logos/hgr2_451x637.jpeg" alt="Imagem Destaque Evento" class="hero-img-placeholder">
+                </div>
+            </section>
+        </div>
+
+        <!-- Seção Sobre / Stats (Fundo Branco Limpo) -->
+        <section class="sobre-section container">
+            <div class="sobre-top">
+                <div class="sobre-titulo-area">
+                    <span class="badge-text">Sobre o Evento</span>
+                    <h2>Um encontro global às margens do Rio Guamá.</h2>
+                </div>
+                <div class="sobre-texto-area">
+                    <p>A 14ª Conferência Internacional da ISHGR (CHAGS 14) consolida-se como o principal fórum global de pesquisa sobre populações tradicionais, ancestralidade e ecologia humana.</p>
+                    <p>Com o tema central voltado à sustentabilidade e inovação social, o evento na Amazônia conecta a academia, lideranças e a sociedade civil para desenhar soluções estruturais colaborativas.</p>
                 </div>
             </div>
 
-            <div class="hero-image-container">
-                <img src="images/logos/hgr2_451x637.jpeg" alt="Imagem Destaque Evento" class="hero-img-placeholder">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon-placeholder">🔬</div>
+                    <h4>Pesquisa Global</h4>
+                    <p>Apresentações de ponta e estudos comparativos mundiais.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-placeholder">🤝</div>
+                    <h4>Inclusão</h4>
+                    <p>Tecnologias e metodologias sociais que aproximam saberes.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-placeholder">🌿</div>
+                    <h4>Sustentabilidade</h4>
+                    <p>Debates alinhados à preservação do território amazônico.</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon-placeholder">🌐</div>
+                    <h4>Conexão ISHGR</h4>
+                    <p>Construção de redes contínuas entre pesquisadores globais.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Seção Sobre / Stats -->
-        <section class="sobre-section">
+        <!-- Seção Organização (Fundo Cinza Leve) -->
+        <section class="organizacao-section">
             <div class="container">
-                <div class="sobre-top">
-                    <div class="sobre-titulo-area">
-                        <span class="badge-text">01 - SOBRE</span>
-                        <h2>Um encontro às<br>margens do Rio Guamá.</h2>
+                <div class="org-top">
+                    <div class="org-titulo-area">
+                        <span class="badge-text">Instituições</span>
+                        <h2>Quem realiza.</h2>
                     </div>
-                    <div class="sobre-texto-area">
-                        <p>A 14ª Conferência Internacional da ISHGR (CHAGS 14) consolida-se como um dos principais eventos de pesquisa da região Norte do Brasil e do mundo.</p>
-                        <p>Com tema voltado ao conhecimento de povos caçadores-coletores, sustentabilidade e inovação social, o evento é um espaço estratégico para compartilhar experiências e fortalecer redes colaborativas.</p>
-                    </div>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="icon-placeholder">🔬</div>
-                        <h4>Pesquisa</h4>
-                        <p>Investigação de ponta e estudos globais integrados.</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="icon-placeholder">🤝</div>
-                        <h4>Inclusão</h4>
-                        <p>Tecnologias e metodologias sociais que aproximam pessoas e comunidades.</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="icon-placeholder">🌿</div>
-                        <h4>Sustentabilidade</h4>
-                        <p>Soluções alinhadas à preservação e ao território amazônico.</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="icon-placeholder">🌐</div>
-                        <h4>Conexão</h4>
-                        <p>Academia, governo, pesquisadores e sociedade civil interligados.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Seção Organização -->
-        <section class="organizacao-section container">
-            <div class="org-top">
-                <div class="org-titulo-area">
-                    <span class="badge-text">02 - ORGANIZAÇÃO</span>
-                    <h2>Quem realiza.</h2>
-                </div>
-                <div class="org-desc-area">
-                    <p>Instituições que apoiam e coordenam a edição 2027 em Belém.</p>
-                </div>
-            </div>
-
-            <div class="org-grid">
-                <!-- Card UFPA -->
-                <div class="org-card">
-                    <div class="org-card-header">
-                        <span class="org-sigla">UFPA</span>
-                        <span class="org-numero">01</span>
-                    </div>
-                    <div class="org-card-body">
-                        <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="org-logo">
-                    </div>
-                    <div class="org-card-footer">
-                        <p>Universidade Federal do Pará</p>
+                    <div class="org-desc-area">
+                        <p>Apoio institucional e coordenação executiva da edição de 2027 em Belém.</p>
                     </div>
                 </div>
 
-                <!-- Card Museu Goeldi -->
-                <div class="org-card">
-                    <div class="org-card-header">
-                        <span class="org-sigla">GOELDI</span>
-                        <span class="org-numero">02</span>
+                <div class="org-grid">
+                    <div class="org-card">
+                        <div class="org-card-header">
+                            <span class="org-sigla">BRASIL</span>
+                        </div>
+                        <div class="org-card-body">
+                            <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="org-logo">
+                        </div>
+                        <div class="org-card-footer">
+                            <p>Universidade Federal do Pará</p>
+                        </div>
                     </div>
-                    <div class="org-card-body">
-                        <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="org-logo">
-                    </div>
-                    <div class="org-card-footer">
-                        <p>Museu Paraense Emílio Goeldi</p>
-                    </div>
-                </div>
 
-                <!-- Card University of Nevada -->
-                <div class="org-card">
-                    <div class="org-card-header">
-                        <span class="org-sigla">UNLV</span>
-                        <span class="org-numero">03</span>
+                    <div class="org-card">
+                        <div class="org-card-header">
+                            <span class="org-sigla">BRASIL</span>
+                        </div>
+                        <div class="org-card-body">
+                            <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="org-logo">
+                        </div>
+                        <div class="org-card-footer">
+                            <p>Museu Paraense Emílio Goeldi</p>
+                        </div>
                     </div>
-                    <div class="org-card-body">
-                        <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="org-logo">
-                    </div>
-                    <div class="org-card-footer">
-                        <p>University of Nevada</p>
+
+                    <div class="org-card">
+                        <div class="org-card-header">
+                            <span class="org-sigla">INTERNACIONAL</span>
+                        </div>
+                        <div class="org-card-body">
+                            <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="org-logo">
+                        </div>
+                        <div class="org-card-footer">
+                            <p>University of Nevada</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé Completo -->
+    <!-- Rodapé Minimalista -->
     <footer class="site-footer">
         <div class="footer-container container">
-            <!-- Coluna 1: Identidade -->
             <div class="footer-col-identidade">
                 <div class="footer-logo">
                     <h3>CHAGS 14</h3>
-                    <span>14ª EDIÇÃO - BELÉM / PA</span>
+                    <span>INTERNATIONAL CONFERENCE 2027</span>
                 </div>
-                <p>Conferência internacional da International Society for Hunter-Gatherer Research - encontro de pesquisa, ensino e inovação na Amazônia.</p>
+                <p>Conferência oficial da International Society for Hunter-Gatherer Research (ISHGR) - conectando ensino, inovação e tradição na Amazônia brasileira.</p>
             </div>
 
-            <!-- Coluna 2: Navegação -->
             <div class="footer-col-nav">
                 <h4 class="footer-title">NAVEGAÇÃO</h4>
                 <ul class="footer-links-grid">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="chamadas.html">Chamadas</a></li>
-                    <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                    <li><a href="artigos-aceitos.html">Trabalhos</a></li>
                     <li><a href="programacao.html">Programação</a></li>
                     <li><a href="atracoes.html">Atrações</a></li>
                     <li><a href="inscricoes.html">Inscrições</a></li>
-                    <li><a href="evento.html">Evento</a></li>
+                    <li><a href="evento.html">O Evento</a></li>
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>
 
-            <!-- Coluna 3: Redes e Créditos -->
             <div class="footer-col-redes">
-                <h4 class="footer-title">REDES</h4>
-                <p>Siga @chags14belem</p>
-                <p class="desenvolvedor">Desenvolvido por Eduardo Maia &lt;/&gt;</p>
+                <h4 class="footer-title">INFORMAÇÕES</h4>
+                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                    <li><a href="sistema-login.html">Área do Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
+                </ul>
             </div>
         </div>
         
-        <!-- Sub-footer -->
         <div class="sub-footer">
             <div class="container sub-footer-flex">
                 <p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p>
-                <p>12 a 16 de julho - Belém, Pará</p>
+                <p>12 a 16 de julho - Belém, Pará - Brasil</p>
             </div>
         </div>
     </footer>
