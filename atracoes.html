@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 - Still We Rise | Home</title>
+    <!-- Fontes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho e Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <span class="realizacao-text">REALIZAÇÃO</span>
+                <div class="separator"></div>
+                <!-- Insira o caminho das logos reais nos atributos src -->
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="chamadas.html">Chamadas</a></li>
+                <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                <li><a href="programacao.html">Programação</a></li>
+                <li><a href="atracoes.html">Atrações</a></li>
+                <li><a href="inscricoes.html">Inscrições</a></li>
+                <li><a href="evento.html">Evento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="atracoes-header container">
+            <span class="badge-text">CONVIDADOS CONFIRMADOS - CHAGS 14</span>
+            <h1 class="page-title">Atrações.</h1>
+            <p>Conheça os convidados das palestras, painéis e rodas de conversa da conferência em Belém.</p>
+        </section>
+
+        <section class="atracoes-tabs-section container">
+            <div class="tabs-wrapper">
+                <button class="tab-btn active" data-filter="todos">TODOS</button>
+                <button class="tab-btn" data-filter="palestra">PALESTRAS</button>
+                <button class="tab-btn" data-filter="painel">PAINÉIS</button>
+                <button class="tab-btn" data-filter="oficina">OFICINAS</button>
+            </div>
+        </section>
+
+        <section class="atracoes-grid-section container">
+            <div class="atracoes-lista">
+
+                <!-- Card 01 -->
+                <div class="atracao-card" data-category="palestra">
+                    <div class="atracao-img-col">
+                        <div class="img-decorativa bg-terracota">
+                            <!-- Use a imagem real aqui no src depois -->
+                            <div class="foto-placeholder card-foto">👤 Foto</div> 
+                        </div>
+                    </div>
+                    <div class="atracao-info-col">
+                        <span class="type-badge badge-palestra card-tipo">PALESTRA</span>
+                        <h3 class="convidado-nome card-nome">Prof. Dr. Richard B. Lee</h3>
+                        <p class="convidado-inst card-inst">UNIVERSITY OF NEVADA (UNLV)</p>
+                        
+                        <div class="convidado-tema">
+                            <strong class="card-tema">Futuros Ancestrais e a Ecologia Humana na Amazônia</strong>
+                            <p>Pesquisador sênior e um dos maiores especialistas globais em sociedades de caçadores-coletores. Sua palestra abordará os paralelos entre ecologia comportamental e sustentabilidade.</p>
+                        </div>
+                        
+                        <!-- Bio completa oculta para ir pro modal -->
+                        <div class="hidden-bio" style="display: none;">
+                            <p>A produção científica global e o estudo das sociedades ancestrais crescem de forma acelerada. Richard B. Lee possui extensa experiência analisando o comportamento de grupos caçadores-coletores e como suas dinâmicas de sustentabilidade podem guiar soluções modernas para a crise climática.</p>
+                            <p>Possui doutorado em Antropologia e é professor emérito. Tem experiência na área de Ecologia Humana, atuando principalmente em sistemas distribuídos de organização social em pequenas comunidades.</p>
+                        </div>
+                        
+                        <div class="card-footer-right">
+                            <button class="btn-dark btn-small btn-detalhes">Ver detalhes &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="atracao-card" data-category="painel">
+                    <div class="atracao-img-col">
+                        <div class="img-decorativa bg-azul">
+                            <div class="foto-placeholder card-foto">👤 Foto</div>
+                        </div>
+                    </div>
+                    <div class="atracao-info-col">
+                        <span class="type-badge badge-sessao card-tipo">PAINEL</span>
+                        <h3 class="convidado-nome card-nome">Profa. Dra. Maria de Fátima Souza</h3>
+                        <p class="convidado-inst card-inst">UNIVERSIDADE FEDERAL DO PARÁ (UFPA)</p>
+                        
+                        <div class="convidado-tema">
+                            <strong class="card-tema">Tecnologias Sociais e Inclusão em Comunidades Ribeirinhas</strong>
+                            <p>Com graduação em Ciências Biológicas e doutorado em Ecologia, a pesquisadora trará discussões sobre inovações sociais aplicadas à bioeconomia no estuário amazônico.</p>
+                        </div>
+                        
+                        <!-- Bio completa oculta -->
+                        <div class="hidden-bio" style="display: none;">
+                            <p>Professora Titular da UFPA, atua há mais de 20 anos com comunidades ribeirinhas do estuário amazônico, buscando soluções de inovação social que conectam rigor acadêmico com valor real para as populações locais.</p>
+                            <p>Seus projetos visam levar inovação com pesquisa para a sociedade, transformando cadeias produtivas locais (como o açaí) em modelos sustentáveis de bioeconomia de alto impacto.</p>
+                        </div>
+                        
+                        <div class="card-footer-right">
+                            <button class="btn-dark btn-small btn-detalhes">Ver detalhes &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <p class="nota-rodape-atracoes">O título e o conteúdo definitivo dos painéis ainda poderão receber ajustes da comissão científica.</p>
+        </section>
+
+        <!-- ESTRUTURA DO MODAL (Fica oculto por padrão) -->
+        <div class="modal-overlay" id="modal-convidado">
+            <div class="modal-content">
+                <!-- Coluna Esquerda Escura -->
+                <div class="modal-left">
+                    <div class="modal-foto-wrapper">
+                        <!-- Imagem injetada via JS -->
+                        <div id="modal-foto-img" class="foto-placeholder modal-avatar">👤</div>
+                    </div>
+                    <span id="modal-badge" class="modal-badge-text">PALESTRA</span>
+                    <p id="modal-inst" class="modal-inst-text">UNIVERSIDADE FEDERAL DE ALAGOAS (UFAL)</p>
+                </div>
+                
+                <!-- Coluna Direita Clara -->
+                <div class="modal-right">
+                    <button class="close-modal">&times;</button>
+                    <h2 id="modal-nome" class="modal-nome-text">Prof. Dr. André Luiz Lins de Aquino</h2>
+                    <h3 id="modal-tema" class="modal-tema-text">Saberes que transformam: O caminho que precisamos construir</h3>
+                    
+                    <div id="modal-bio" class="modal-bio-text">
+                        <!-- Texto injetado via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+   <!-- Rodapé Completo -->
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <!-- Coluna 1: Identidade -->
+            <div class="footer-col-identidade">
+                <div class="footer-logo">
+                    <h3>CHAGS 14</h3>
+                    <span>14ª EDIÇÃO - BELÉM / PA</span>
+                </div>
+                <p>Conferência internacional da International Society for Hunter-Gatherer Research - encontro de pesquisa, ensino e inovação na Amazônia.</p>
+            </div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Chamadas</a></li>
+                    <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                    <li><a href="programacao.html">Programação</a></li>
+                    <li><a href="atracoes.html">Atrações</a></li>
+                    <li><a href="inscricoes.html">Inscrições</a></li>
+                    <li><a href="evento.html">Evento</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Redes e Créditos -->
+            <div class="footer-col-redes">
+                <h4 class="footer-title">REDES</h4>
+                <p>Siga @chags14belem</p>
+                <p class="desenvolvedor">Desenvolvido por Eduardo Maia &lt;/&gt;</p>
+            </div>
+        </div>
+        
+        <!-- Sub-footer -->
+        <div class="sub-footer">
+            <div class="container sub-footer-flex">
+                <p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p>
+                <p>12 a 16 de julho - Belém, Pará</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

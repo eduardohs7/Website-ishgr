@@ -72,3 +72,130 @@ itemsExpansiveis.forEach(item => {
         item.classList.toggle('open');
     });
 });
+
+// Filtro da página de Atrações
+const tabBtns = document.querySelectorAll('.tab-btn');
+const atracoesCards = document.querySelectorAll('.atracao-card');
+
+if (tabBtns.length > 0 && atracoesCards.length > 0) {
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove classe ativa de todos os botões e adiciona no clicado
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Pega o filtro selecionado
+            const filtro = btn.getAttribute('data-filter');
+
+            // Mostra ou esconde os cards baseado no filtro
+            atracoesCards.forEach(card => {
+                const categoriaCard = card.getAttribute('data-category');
+                
+                if (filtro === 'todos' || categoriaCard === filtro) {
+                    card.style.display = 'flex'; // ou block, dependendo do CSS base
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+// Lógica do Modal de Atrações
+const botoesDetalhes = document.querySelectorAll('.btn-detalhes');
+const modalOverlay = document.getElementById('modal-convidado');
+const closeModalBtn = document.querySelector('.close-modal');
+
+// Elementos dentro do modal que vão receber os textos
+const modalNome = document.getElementById('modal-nome');
+const modalTema = document.getElementById('modal-tema');
+const modalBio = document.getElementById('modal-bio');
+const modalInst = document.getElementById('modal-inst');
+const modalBadge = document.getElementById('modal-badge');
+// const modalFoto = document.getElementById('modal-foto-img'); // Para quando você for usar imagens reais
+
+if (botoesDetalhes.length > 0 && modalOverlay) {
+    
+    botoesDetalhes.forEach(botao => {
+        botao.addEventListener('click', (e) => {
+            // Acha o card inteiro que o usuário clicou
+            const card = e.target.closest('.atracao-card');
+            
+            // Extrai as informações de dentro do card
+            const nome = card.querySelector('.card-nome').textContent;
+            const tema = card.querySelector('.card-tema').textContent;
+            const inst = card.querySelector('.card-inst').textContent;
+            const tipo = card.querySelector('.card-tipo').textContent;
+            const bioHTML = card.querySelector('.hidden-bio').innerHTML;
+            
+            // Joga as informações para dentro do modal
+            modalNome.textContent = nome;
+            modalTema.textContent = tema;
+            modalInst.textContent = inst;
+            modalBadge.textContent = tipo;
+            modalBio.innerHTML = bioHTML;
+            
+            // Se você tiver as imagens (tags <img>), faria:
+            // modalFoto.src = card.querySelector('.minha-imagem').src;
+            
+            // Mostra o modal na tela
+            modalOverlay.classList.add('active');
+            
+            // Impede a página de rolar enquanto o modal está aberto
+            document.body.style.overflow = 'hidden'; 
+        });
+    });
+
+    // Função para fechar o modal
+    const fecharModal = () => {
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Devolve o scroll da página
+    };
+
+    // Fecha ao clicar no X
+    closeModalBtn.addEventListener('click', fecharModal);
+
+    // Fecha ao clicar fora do modal (no fundo escuro)
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            fecharModal();
+        }
+    });
+
+    // Fecha ao apertar a tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+            fecharModal();
+        }
+    });
+}
+
+// ==========================================================================
+// DESTAQUE AUTOMÁTICO DO LINK ATIVO NA NAVBAR
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Obtém o nome do ficheiro atual no URL (ex: "contato.html")
+    const currentPath = window.location.pathname;
+    let pageName = currentPath.split('/').pop(); 
+    
+    // Se o URL estiver vazio na raiz (ex: www.seusite.com/), assume que é a home
+    if (pageName === '') {
+        pageName = 'index.html';
+    }
+
+    // 2. Seleciona todos os links dentro da navbar
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    // 3. Percorre cada link para verificar se corresponde à página atual
+    navLinks.forEach(link => {
+        // Primeiro, removemos a classe active de todos por precaução
+        link.classList.remove('active');
+
+        const linkHref = link.getAttribute('href');
+
+        // Se o href do link for exatamente igual ao nome da página atual, adicionamos a classe
+        if (linkHref === pageName) {
+            link.classList.add('active');
+        }
+    });
+});
