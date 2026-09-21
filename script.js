@@ -101,75 +101,54 @@ if (tabBtns.length > 0 && atracoesCards.length > 0) {
     });
 }
 
-// Lógica do Modal de Atrações
-const botoesDetalhes = document.querySelectorAll('.btn-detalhes');
-const modalOverlay = document.getElementById('modal-convidado');
-const closeModalBtn = document.querySelector('.close-modal');
-
-// Elementos dentro do modal que vão receber os textos
-const modalNome = document.getElementById('modal-nome');
-const modalTema = document.getElementById('modal-tema');
-const modalBio = document.getElementById('modal-bio');
-const modalInst = document.getElementById('modal-inst');
-const modalBadge = document.getElementById('modal-badge');
-// const modalFoto = document.getElementById('modal-foto-img'); // Para quando você for usar imagens reais
-
-if (botoesDetalhes.length > 0 && modalOverlay) {
+/* ==========================================================================
+   MODAL DA PÁGINA DE ATRAÇÕES (CORRIGIDO)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const botoesDetalhes = document.querySelectorAll('.btn-detalhes');
+    const modalConvidado = document.getElementById('modal-convidado');
     
-    botoesDetalhes.forEach(botao => {
-        botao.addEventListener('click', (e) => {
-            // Acha o card inteiro que o usuário clicou
-            const card = e.target.closest('.atracao-card');
-            
-            // Extrai as informações de dentro do card
-            const nome = card.querySelector('.card-nome').textContent;
-            const tema = card.querySelector('.card-tema').textContent;
-            const inst = card.querySelector('.card-inst').textContent;
-            const tipo = card.querySelector('.card-tipo').textContent;
-            const bioHTML = card.querySelector('.hidden-bio').innerHTML;
-            
-            // Joga as informações para dentro do modal
-            modalNome.textContent = nome;
-            modalTema.textContent = tema;
-            modalInst.textContent = inst;
-            modalBadge.textContent = tipo;
-            modalBio.innerHTML = bioHTML;
-            
-            // Se você tiver as imagens (tags <img>), faria:
-            // modalFoto.src = card.querySelector('.minha-imagem').src;
-            
-            // Mostra o modal na tela
-            modalOverlay.classList.add('active');
-            
-            // Impede a página de rolar enquanto o modal está aberto
-            document.body.style.overflow = 'hidden'; 
+    if (botoesDetalhes.length > 0 && modalConvidado) {
+        const btnFechar = modalConvidado.querySelector('.close-modal');
+
+        botoesDetalhes.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Impede a tela de piscar ou travar
+                
+                const card = btn.closest('.atracao-card');
+                
+                // Extrai os dados
+                const nome = card.querySelector('.card-nome').innerText;
+                const inst = card.querySelector('.card-inst').innerText;
+                const tema = card.querySelector('.card-tema').innerText;
+                const bio = card.querySelector('.hidden-bio').innerHTML;
+                const tipo = card.querySelector('.card-tipo').innerText;
+
+                // Preenche o modal
+                document.getElementById('modal-nome').innerText = nome;
+                document.getElementById('modal-inst').innerText = inst;
+                document.getElementById('modal-tema').innerText = tema;
+                document.getElementById('modal-bio').innerHTML = bio;
+                document.getElementById('modal-badge').innerText = tipo;
+
+                // Mostra o modal forçando o layout flex
+                modalConvidado.style.display = 'flex';
+            });
         });
-    });
 
-    // Função para fechar o modal
-    const fecharModal = () => {
-        modalOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Devolve o scroll da página
-    };
-
-    // Fecha ao clicar no X
-    closeModalBtn.addEventListener('click', fecharModal);
-
-    // Fecha ao clicar fora do modal (no fundo escuro)
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-            fecharModal();
+        if (btnFechar) {
+            btnFechar.addEventListener('click', () => {
+                modalConvidado.style.display = 'none';
+            });
         }
-    });
 
-    // Fecha ao apertar a tecla ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-            fecharModal();
-        }
-    });
-}
-
+        modalConvidado.addEventListener('click', (e) => {
+            if (e.target === modalConvidado) {
+                modalConvidado.style.display = 'none';
+            }
+        });
+    }
+});
 // ==========================================================================
 // DESTAQUE AUTOMÁTICO DO LINK ATIVO NA NAVBAR
 // ==========================================================================

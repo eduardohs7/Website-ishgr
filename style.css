@@ -736,36 +736,37 @@ a {
 .equipe-info { padding: 25px; display: flex; flex-direction: column; justify-content: center; }
 
 /* ==========================================================================
-   CORREÇÃO: MODAL DA PÁGINA DE ATRAÇÕES
+   MODAL DE ATRAÇÕES (FORÇADO E À PROVA DE FALHAS)
    ========================================================================== */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro transparente */
-    display: none; /* O JS muda para 'flex' ao clicar no botão */
-    align-items: center;
-    justify-content: center;
-    z-index: 2000; /* Garante que fique acima da navbar */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.8) !important; /* Fundo bem escuro */
+    display: none; /* O JS vai alterar isso */
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important; /* Fica acima de absolutamente tudo na tela */
 }
 
 .modal-content {
-    background-color: var(--bg-color);
-    border-radius: 4px;
-    display: flex; /* Coloca a lateral esquerda e direita lado a lado */
-    width: 90%;
-    max-width: 850px;
-    max-height: 90vh;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    position: relative;
+    background-color: #FFFFFF !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    width: 90% !important;
+    max-width: 850px !important;
+    max-height: 90vh !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5) !important;
 }
 
 .modal-left {
     width: 35%;
     padding: 40px 30px;
+    background-color: #F8F9FA;
+    border-right: 1px solid #E2E8F0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -777,7 +778,7 @@ a {
     width: 65%;
     padding: 40px 50px;
     position: relative;
-    overflow-y: auto; /* Permite rolar se o texto for muito grande */
+    overflow-y: auto;
 }
 
 .close-modal {
@@ -786,28 +787,22 @@ a {
     right: 25px;
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     cursor: pointer;
-    color: var(--text-body);
-    transition: color 0.3s;
+    color: #4A5568;
+    z-index: 10;
 }
 
 .close-modal:hover {
-    color: var(--text-dark);
+    color: #000;
 }
 
-/* Responsividade do Modal para celulares */
 @media screen and (max-width: 768px) {
     .modal-content {
-        flex-direction: column;
-        overflow-y: auto;
+        flex-direction: column !important;
+        overflow-y: auto !important;
     }
     .modal-left, .modal-right {
-        width: 100%;
+        width: 100% !important;
     }
-    .modal-left {
-        padding: 30px 20px;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-    }
-}   
+}

@@ -3,133 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAGS 14 - Still We Rise | Home</title>
-    <!-- Fontes do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>CHAGS 14 | Contato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Cabeçalho e Navbar -->
     <header>
         <nav class="navbar">
             <div class="logos-realizacao">
-                <span class="realizacao-text">REALIZAÇÃO</span>
-                <div class="separator"></div>
-                <!-- Insira o caminho das logos reais nos atributos src -->
                 <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
                 <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
                 <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
-            
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
-                <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                <li><a href="artigos-aceitos.html">Trabalhos</a></li>
                 <li><a href="programacao.html">Programação</a></li>
                 <li><a href="atracoes.html">Atrações</a></li>
                 <li><a href="inscricoes.html">Inscrições</a></li>
-                <li><a href="evento.html">Evento</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="evento.html">O Evento</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
             </ul>
-
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <div class="lang-selector"><a href="#" class="active">PT</a> | <a href="#">EN</a> | <a href="#">ES</a></div>
+                <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
             </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Seção de Contato -->
-        <section class="contato-hero-section container">
-            <div class="contato-texto-col">
+        <div class="page-header" style="border-bottom: none; margin-bottom: 0;">
+            <div class="container">
                 <span class="badge-text">FALE CONOSCO</span>
-                <h1 class="page-title">Entre em contato.</h1>
-                <p>Se você tiver alguma <strong>dúvida</strong>, <strong>comentário</strong> ou deseja <strong>mais informações</strong> sobre a 14ª Conferência Internacional da ISHGR (CHAGS 14), a comissão organizadora responde em até 3 dias úteis.</p>
+                <h1 class="page-title">Contato e Dúvidas.</h1>
+                <p class="page-desc">Precisa de suporte com sua inscrição, envio de resumos ou informações sobre hospedagem em Belém? A equipe do CHAGS 14 está pronta para ajudar.</p>
             </div>
-            
-            <div class="contato-atalho-col">
-                <a href="mailto:contato@chags14.org" class="atalho-card">
-                    <div class="atalho-icon">✉️</div>
-                    <span class="atalho-label">ATALHO</span>
-                    <h3>Envie-nos um e-mail</h3>
-                    <p>Mensagem direta para a Coordenação Geral.</p>
-                </a>
+        </div>
+
+        <section class="container">
+            <div class="contato-hero-section">
+                <div class="contato-info-area">
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">Nosso horário de atendimento é de segunda a sexta-feira, das 09h às 17h (Horário de Brasília).</p>
+                    <p style="color: var(--text-body); margin-bottom: 30px;">Tempo médio de resposta: 48 horas úteis.</p>
+                </div>
+                
+                <div class="contato-atalhos" style="display: flex; flex-direction: column; gap: 20px;">
+                    <a href="mailto:contato@chags14.org" class="atalho-card">
+                        <div class="atalho-icon">✉️</div>
+                        <h3 style="font-size: 1.2rem; margin-bottom: 5px;">E-mail Oficial</h3>
+                        <p style="color: #CBD5E0; font-size: 0.95rem;">contato@chags14.org</p>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Grid da Equipe / Quem Responde -->
-        <section class="contato-equipe-section container">
-            <div class="equipe-header">
-                <span class="badge-text">COORDENAÇÃO GERAL E CIENTÍFICA</span>
-                <h2>Quem responde.</h2>
-            </div>
-
+        <section class="container" style="padding: 60px 0 100px;">
+            <h2 style="margin-bottom: 40px; font-size: 2rem;">Comissão Organizadora</h2>
+            
             <div class="equipe-grid">
-                
-                <!-- Card 01 -->
+                <!-- Membro 1 -->
                 <div class="equipe-card">
-                    <div class="equipe-foto bg-terracota">
-                        <div class="foto-placeholder">👤</div>
-                    </div>
+                    <div class="equipe-foto">👤</div>
                     <div class="equipe-info">
-                        <span class="equipe-cargo">COORDENAÇÃO GERAL</span>
-                        <h3>Dr. Louis Forline</h3>
-                        <span class="equipe-instituicao">University of Nevada, Reno</span>
-                        <a href="mailto:coord-br@chags14.org" class="equipe-email">✉️ coord-br@chags14.org</a>
+                        <span class="type-badge" style="background:#E2E8F0; color:var(--text-dark); display:inline-block; width:fit-content; margin-bottom:10px;">COORDENAÇÃO GERAL</span>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Dr. Carlos Eduardo Almeida</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-body);">Museu Paraense Emílio Goeldi (MPEG)</p>
                     </div>
                 </div>
 
+                <!-- Membro 2 -->
+                <div class="equipe-card">
+                    <div class="equipe-foto">👤</div>
+                    <div class="equipe-info">
+                        <span class="type-badge" style="background:#E2E8F0; color:var(--text-dark); display:inline-block; width:fit-content; margin-bottom:10px;">COMITÊ CIENTÍFICO</span>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Dra. Maria de Fátima Souza</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-body);">Universidade Federal do Pará (UFPA)</p>
+                    </div>
+                </div>
 
+                <!-- Membro 3 -->
+                <div class="equipe-card">
+                    <div class="equipe-foto">👤</div>
+                    <div class="equipe-info">
+                        <span class="type-badge" style="background:#E2E8F0; color:var(--text-dark); display:inline-block; width:fit-content; margin-bottom:10px;">RELAÇÕES INTERNACIONAIS</span>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Dr. Louis Forline</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-body);">University of Nevada (UNLV)</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-   <!-- Rodapé Completo -->
     <footer class="site-footer">
         <div class="footer-container container">
-            <!-- Coluna 1: Identidade -->
             <div class="footer-col-identidade">
-                <div class="footer-logo">
-                    <h3>CHAGS 14</h3>
-                    <span>14ª EDIÇÃO - BELÉM / PA</span>
-                </div>
-                <p>Conferência internacional da International Society for Hunter-Gatherer Research - encontro de pesquisa, ensino e inovação na Amazônia.</p>
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conferência oficial da International Society for Hunter-Gatherer Research (ISHGR) - conectando ensino, inovação e tradição na Amazônia brasileira.</p>
             </div>
-
-            <!-- Coluna 2: Navegação -->
             <div class="footer-col-nav">
                 <h4 class="footer-title">NAVEGAÇÃO</h4>
                 <ul class="footer-links-grid">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="chamadas.html">Chamadas</a></li>
-                    <li><a href="artigos-aceitos.html">Artigos Aceitos</a></li>
+                    <li><a href="artigos-aceitos.html">Trabalhos</a></li>
                     <li><a href="programacao.html">Programação</a></li>
                     <li><a href="atracoes.html">Atrações</a></li>
                     <li><a href="inscricoes.html">Inscrições</a></li>
-                    <li><a href="evento.html">Evento</a></li>
+                    <li><a href="evento.html">O Evento</a></li>
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>
-
-            <!-- Coluna 3: Redes e Créditos -->
             <div class="footer-col-redes">
-                <h4 class="footer-title">REDES</h4>
-                <p>Siga @chags14belem</p>
-                <p class="desenvolvedor">Desenvolvido por Eduardo Maia &lt;/&gt;</p>
+                <h4 class="footer-title">INFORMAÇÕES</h4>
+                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                    <li><a href="sistema-login.html">Área do Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
+                </ul>
             </div>
         </div>
-        
-        <!-- Sub-footer -->
-        <div class="sub-footer">
-            <div class="container sub-footer-flex">
-                <p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p>
-                <p>12 a 16 de julho - Belém, Pará</p>
-            </div>
-        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
