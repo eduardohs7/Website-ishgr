@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Submissão de Trabalhos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chamadas.html">Chamadas</a></li>
+                <li><a href="programacao.html">Programação</a></li>
+                <li><a href="inscricoes.html">Inscrições</a></li>
+                <li><a href="evento.html">O Evento</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="lang-selector"><a href="#" class="active">PT</a> | <a href="#">EN</a> | <a href="#">ES</a></div>
+                <a href="sistema-login.html" class="btn-nav-login">Sair da Conta</a>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <div>
+                <span class="badge-text">PAINEL DO AUTOR</span>
+                <h1 style="font-size: 2.2rem; color: var(--text-dark);">Bem-vindo(a), Pesquisador(a).</h1>
+            </div>
+            <div>
+                <span style="font-size: 0.9rem; color: var(--text-body);">Conta conectada: <strong>autor@universidade.edu</strong></span>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Sidebar do Painel -->
+            <div class="dash-sidebar">
+                <h4 style="font-size: 0.85rem; letter-spacing: 1px; color: var(--text-dark);">NAVEGAÇÃO DO PAINEL</h4>
+                <ul class="dash-menu">
+                    <li><a href="#" class="active">Meus Trabalhos / Submissões</a></li>
+                    <li><a href="#">Dados Cadastrais</a></li>
+                    <li><a href="#">Comprovantes de Inscrição</a></li>
+                    <li><a href="sistema-login.html" style="color: #E53E3E;">Encerrar Sessão</a></li>
+                </ul>
+            </div>
+
+            <!-- Conteúdo Principal do Painel -->
+            <div class="dash-content-box">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <div>
+                        <h2>Nova Submissão de Trabalho</h2>
+                        <p style="font-size: 0.9rem; color: var(--text-body);">Preencha os campos abaixo para submeter sua proposta ao comitê científico.</p>
+                    </div>
+                </div>
+
+                <!-- Formulário de Submissão estruturado -->
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>TÍTULO DA PROPOSTA / TRABALHO</label>
+                        <input type="text" class="form-control" placeholder="Digite o título completo do trabalho" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>MODALIDADE DA SUBMISSÃO</label>
+                        <select class="form-control" required>
+                            <option value="">Selecione a categoria...</option>
+                            <option value="mesa">Mesa Redonda / Simpósio</option>
+                            <option value="sessao">Apresentação Oral (Sessão Temática)</option>
+                            <option value="conversa">Roda de Conversa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>TÓPICO DE INTERESSE</label>
+                        <select class="form-control" required>
+                            <option value="">Selecione o tópico correspondente...</option>
+                            <option>Antropologia e Arqueologia</option>
+                            <option>Bioeconomia e Sustentabilidade</option>
+                            <option>Direitos Territoriais e Indígenas</option>
+                            <option>Mudanças Climáticas e Impactos</option>
+                            <option>Tecnologias Sociais e Inclusão</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>NOME COMPLETO DOS COAUTORES (SE HOUVER)</label>
+                        <input type="text" class="form-control" placeholder="Ex: Maria Souza (UFPA), Carlos Silva (MPEG)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>RESUMO DO TRABALHO (ATÉ 500 PALAVRAS)</label>
+                        <textarea class="form-control" rows="6" placeholder="Insira o texto do resumo da sua proposta aqui..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ANEXAR DOCUMENTO EM PDF (BREVE RELATÓRIO / ARTIGO)</label>
+                        <input type="file" class="form-control" accept=".pdf" required style="padding: 10px;">
+                        <span style="font-size: 0.75rem; color: var(--text-body); display: block; margin-top: 5px;">Formato aceito exclusivamente em PDF (Máx. 10MB).</span>
+                    </div>
+
+                    <button type="submit" class="btn-submit-full" style="margin-top: 30px;">Enviar Proposta para Avaliação</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conferência oficial da International Society for Hunter-Gatherer Research (ISHGR) - conectando ensino, inovação e tradição na Amazônia brasileira.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Chamadas</a></li>
+                    <li><a href="evento.html">O Evento</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMAÇÕES</h4>
+                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                    <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

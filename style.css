@@ -806,3 +806,285 @@ a {
         width: 100% !important;
     }
 }
+
+/* ==========================================================================
+   PÁGINA: SOBRE BELÉM
+   ========================================================================== */
+.belem-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-body);
+    max-width: 900px;
+    margin-bottom: 60px;
+}
+
+.turismo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.card-turismo {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card-turismo:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.turismo-img-placeholder {
+    width: 100%;
+    height: 220px;
+    background-color: var(--bg-section);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--text-body);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.turismo-info {
+    padding: 30px;
+}
+
+.turismo-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.turismo-info p {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+.gastronomia-section {
+    background-color: var(--text-dark);
+    color: #fff;
+    padding: 80px 0;
+    margin-top: 40px;
+}
+
+.gastronomia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.gastro-item {
+    border-left: 2px solid var(--accent);
+    padding-left: 20px;
+}
+
+.gastro-item h4 {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.gastro-item p {
+    font-size: 0.95rem;
+    color: #CBD5E0;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   SEÇÃO: SUSTENTABILIDADE E MEIO AMBIENTE (BELÉM E PARÁ)
+   ========================================================================== */
+.sustentabilidade-box {
+    background-color: #F0F4F1; /* Verde acinzentado muito suave */
+    border: 1px solid #D8E2DC;
+    border-radius: 4px;
+    padding: 60px 40px;
+    margin-top: 60px;
+}
+
+.sustentabilidade-header {
+    max-width: 800px;
+    margin-bottom: 40px;
+}
+
+.sustentabilidade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.sust-card {
+    background-color: var(--bg-color);
+    padding: 30px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.sust-card h4 {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.sust-card p {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   SISTEMA DE LOGIN E SUBMISSÃO (PAINEL DO PARTICIPANTE)
+   ========================================================================== */
+.auth-wrapper {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    background-color: var(--bg-section);
+}
+
+.auth-card {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 50px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.auth-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.auth-desc {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background-color: var(--bg-color);
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--text-dark);
+}
+
+.btn-submit-full {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-submit-full:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Painel Interno do Sistema */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 5%;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+}
+
+.dash-sidebar {
+    background-color: var(--bg-section);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 30px;
+}
+
+.dash-menu {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.dash-menu li {
+    margin-bottom: 12px;
+}
+
+.dash-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-body);
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.dash-menu a.active, .dash-menu a:hover {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+.dash-content-box {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 40px;
+}
+
+.status-badge-sistema {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: #FEFCBF;
+    color: #B7791F;
+}
