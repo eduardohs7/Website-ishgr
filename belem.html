@@ -49,43 +49,76 @@
 
             <div class="secao-header" style="margin-bottom: 40px;">
                 <h2>Cultura e Turismo</h2>
-                <p style="color: var(--text-body); margin-top: 10px;">Locais imperdíveis para visitar durante sua estadia.</p>
+                <p style="color: var(--text-body); margin-top: 10px;">Locais imperdíveis para visitar durante sua estadia. Clique nas imagens para expandir.</p>
             </div>
 
             <div class="turismo-grid">
-                <!-- Card 1 -->
+                <!-- Card 1: Ver-o-Peso -->
                 <div class="card-turismo">
-                    <div class="turismo-img-placeholder">🐟</div>
+                    <div class="turismo-img-cover" data-gallery-target="gallery-veropeso">
+                        <!-- Imagem de Capa -->
+                        <img src="images/img-sobrebelem/Ver-oPeso-Belem.jpg" alt="Mercado Ver-o-Peso">
+                        <div class="turismo-gallery-badge">📸 3 fotos</div>
+                    </div>
                     <div class="turismo-info">
                         <h3>Mercado Ver-o-Peso</h3>
                         <p>A maior feira ao ar livre da América Latina. Um complexo histórico onde você encontra ervas medicinais, peixes amazônicos, artesanato e a essência da cultura paraense às margens do rio.</p>
                     </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-veropeso" style="display: none;">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/Ver-oPeso-Belem.jpg" data-desc="<strong>Mercado de Carne e Peixe:</strong> Arquitetura em ferro importada da Europa durante a Belle Époque. Aqui chegam os peixes frescos pescados nos rios da região."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/rua-das-erveiras-belem-Ver-o-peso-acervo-pessoal-scaled-e1646361754878-1536x1170-1.jpg" data-desc="<strong>Setor das Erveiras:</strong> Barracas tradicionais que vendem banhos de cheiro, raízes, cascas e óleos extraídos da floresta para curas físicas e espirituais."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/images.jpeg" data-desc="<strong>Açaí do Ver-o-Peso:</strong> O local onde os barcos atracam de madrugada trazendo toneladas do fruto fresco diretamente das ilhas vizinhas."></div>
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2: Estação das Docas -->
                 <div class="card-turismo">
-                    <div class="turismo-img-placeholder">🏗️</div>
+                    <div class="turismo-img-cover" data-gallery-target="gallery-docas">
+                        <img src="images/img-sobrebelem/doca/por-do-sol2.jpg" alt="Estação das Docas">
+                        <div class="turismo-gallery-badge">📸 2 fotos</div>
+                    </div>
                     <div class="turismo-info">
                         <h3>Estação das Docas</h3>
                         <p>Antigo porto fluvial restaurado que se transformou em um moderno complexo turístico. Excelente opção para um fim de tarde com restaurantes de alta gastronomia, cervejas artesanais e vista para a baía.</p>
                     </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-docas" style="display: none;">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/doca/por-do-sol2.jpg" data-desc="<strong>Pôr do sol na Baía do Guajará:</strong> O calçadão da Estação das Docas oferece uma das vistas mais disputadas da cidade no fim de tarde."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/doca/espaco-gastromico.jpg" data-desc="<strong>Gastronomia e Cultura:</strong> Os antigos armazéns de ferro abrigam restaurantes regionais, choperias artesanais e exposições artísticas."></div>
+                    </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 3: Theatro da Paz -->
                 <div class="card-turismo">
-                    <div class="turismo-img-placeholder">🎭</div>
+                    <div class="turismo-img-cover" data-gallery-target="gallery-teatro">
+                        <img src="images/img-sobrebelem/theatro/images.jpeg" alt="Theatro da Paz">
+                        <div class="turismo-gallery-badge">📸 2 fotos</div>
+                    </div>
                     <div class="turismo-info">
                         <h3>Theatro da Paz</h3>
                         <p>Inaugurado em 1878 durante o Ciclo da Borracha, é uma das mais belas casas de espetáculos do Brasil, com arquitetura neoclássica e materiais importados da Europa no auge da Belle Époque amazônica.</p>
                     </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-teatro" style="display: none;">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/theatro/images.jpeg" data-desc="<strong>Fachada Neoclássica:</strong> Símbolo máximo da riqueza gerada pela exportação do látex na virada do século XIX para o XX."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/theatro/interior-luxuoso.jpg" data-desc="<strong>Interior luxuoso:</strong> Lustres de cristal, mármores italianos e afrescos detalhados preservam a acústica perfeita da sala de espetáculos principal."></div>
+                    </div>
                 </div>
 
-                <!-- Card 4 -->
+                <!-- Card 4: Mangal das Garças -->
                 <div class="card-turismo">
-                    <div class="turismo-img-placeholder">🌿</div>
+                    <div class="turismo-img-cover" data-gallery-target="gallery-mangal">
+                        <img src="images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" alt="Mangal das Garças">
+                        <div class="turismo-gallery-badge">📸 1 foto</div>
+                    </div>
                     <div class="turismo-info">
                         <h3>Mangal das Garças</h3>
                         <p>Um parque zoobotânico no coração da cidade que reproduz os diferentes ecossistemas da Amazônia, abrigando aves livres, um borboletário e o Farol de Belém.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-mangal" style="display: none;">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" data-desc="<strong>Ecossistema preservado:</strong> O Mangal das Garças permite o contato direto com a flora e fauna, incluindo guarás, iguanas e garças soltas pelo parque."></div>
                     </div>
                 </div>
             </div>
@@ -153,6 +186,20 @@
                 </div>
             </div>
         </section>
+
+        <!-- LIGHTBOX / CARROSSEL HTML -->
+        <div class="lightbox-overlay" id="turismo-lightbox">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lb-close">&times;</button>
+                <button class="lightbox-nav lightbox-prev" id="lb-prev">&#10094;</button>
+                
+                <img src="" alt="Imagem ampliada" class="lightbox-img" id="lb-img">
+                <p class="lightbox-caption" id="lb-caption"></p>
+                
+                <button class="lightbox-nav lightbox-next" id="lb-next">&#10095;</button>
+            </div>
+        </div>
+
     </main>
 
     <footer class="site-footer">

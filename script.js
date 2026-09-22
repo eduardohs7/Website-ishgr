@@ -180,6 +180,78 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
+   CARROSSEL AUTOMÁTICO DE NOTÍCIAS (HOME)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('news-track');
+    
+    if (track) {
+        const slides = Array.from(track.children);
+        const nextButton = document.getElementById('news-next');
+        const prevButton = document.getElementById('news-prev');
+        const dotsNav = document.getElementById('news-dots');
+        
+        let currentIndex = 0;
+
+        // Cria as bolinhas (dots) dinamicamente com base na qtde de slides
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.dataset.slide = index;
+            dotsNav.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsNav.children);
+
+        // Função para mover o slide
+        const moveToSlide = (index) => {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(d => d.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentIndex = index;
+        };
+
+        const nextSlide = () => {
+            const nextIndex = (currentIndex + 1) % slides.length;
+            moveToSlide(nextIndex);
+        };
+
+        const prevSlide = () => {
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            moveToSlide(prevIndex);
+        };
+
+        // Ações de clique
+        nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
+        prevButton.addEventListener('click', () => { prevSlide(); resetInterval(); });
+
+        dotsNav.addEventListener('click', (e) => {
+            const targetDot = e.target.closest('.dot');
+            if (!targetDot) return;
+            const index = parseInt(targetDot.dataset.slide);
+            moveToSlide(index);
+            resetInterval();
+        });
+
+        // Passagem automática a cada 5 segundos
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Pausar o carrossel se o mouse estiver em cima da notícia
+        const wrapper = document.querySelector('.carousel-wrapper');
+        wrapper.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        wrapper.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+    }
+});
+
+/* ==========================================================================
    MODAL DA PÁGINA DE PROGRAMAÇÃO
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
@@ -223,6 +295,82 @@ document.addEventListener('DOMContentLoaded', () => {
         modalProg.addEventListener('click', (e) => {
             if (e.target === modalProg) {
                 modalProg.style.display = 'none';
+            }
+        });
+    }
+});
+
+
+/* ==========================================================================
+   CARROSSEL DE IMAGENS - PÁGINA SOBRE BELÉM
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const covers = document.querySelectorAll('.turismo-img-cover');
+    const lightbox = document.getElementById('turismo-lightbox');
+    
+    if (covers.length > 0 && lightbox) {
+        const lbImg = document.getElementById('lb-img');
+        const lbCaption = document.getElementById('lb-caption');
+        const btnPrev = document.getElementById('lb-prev');
+        const btnNext = document.getElementById('lb-next');
+        const btnClose = document.getElementById('lb-close');
+        
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // Abrir Galeria correspondente
+        covers.forEach(cover => {
+            cover.addEventListener('click', () => {
+                const galleryId = cover.getAttribute('data-gallery-target');
+                const galleryContainer = document.getElementById(galleryId);
+                
+                if (galleryContainer) {
+                    const items = galleryContainer.querySelectorAll('.gallery-item');
+                    currentGallery = Array.from(items).map(item => ({
+                        src: item.getAttribute('data-src'),
+                        desc: item.getAttribute('data-desc')
+                    }));
+                    
+                    if (currentGallery.length > 0) {
+                        currentIndex = 0;
+                        updateLightbox();
+                        lightbox.style.display = 'flex';
+                    }
+                }
+            });
+        });
+
+        // Atualizar imagem e texto
+        function updateLightbox() {
+            lbImg.src = currentGallery[currentIndex].src;
+            lbCaption.innerHTML = currentGallery[currentIndex].desc;
+            
+            // Esconder setas se houver só 1 foto
+            btnPrev.style.display = currentGallery.length > 1 ? 'flex' : 'none';
+            btnNext.style.display = currentGallery.length > 1 ? 'flex' : 'none';
+        }
+
+        // Navegação
+        btnPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : currentGallery.length - 1;
+            updateLightbox();
+        });
+
+        btnNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex < currentGallery.length - 1) ? currentIndex + 1 : 0;
+            updateLightbox();
+        });
+
+        // Fechar
+        btnClose.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+                lightbox.style.display = 'none';
             }
         });
     }
