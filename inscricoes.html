@@ -5,7 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Inscrições</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
+    
+    <!-- CSS Exclusivo da Página de Inscrições -->
+    <style>
+        /* Centralização do cabeçalho */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+
+        /* Centralização da Tabela e do Conteúdo Principal */
+        .secao-numerada {
+            max-width: 850px; /* Define uma largura máxima elegante */
+            margin: 0 auto 60px auto; /* Centraliza todo o bloco no meio da tela */
+        }
+        
+        .secao-header-flex {
+            display: flex;
+            gap: 20px;
+            align-items: baseline;
+            margin-bottom: 30px;
+            justify-content: center; /* Centraliza os títulos "01" e "02" */
+        }
+
+        /* Estilos estruturais e tipográficos */
+        .secao-padding {
+            padding-bottom: 80px;
+        }
+        .tabela-cabecalho-texto {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .linha-titulo {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .linha-subtitulo {
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+        .valor-destaque {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .info-bloco {
+            background: var(--bg-section);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        .info-bloco h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .info-bloco p.desc-principal {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .info-bloco ul {
+            padding-left: 20px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+        .info-bloco p.nota-rodape {
+            font-size: 0.85rem;
+            margin-top: 15px;
+            color: var(--text-body);
+        }
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .cta-container p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,16 +99,16 @@
             <div class="logos-realizacao">
                 <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
                 <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
-                <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+                <img src="images/logos/university-of-nevada-reno-logo-png_maior.png" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
                 <li><a href="programacao.html">Programação</a></li>
                 <li><a href="atracoes.html">Atrações</a></li>
-                <li><a href="inscricoes.html">Inscrições</a></li>
+                <li><a href="inscricoes.html" class="active">Inscrições</a></li>
                 <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html" class="active">Sobre Belém</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
             <div class="nav-actions">
@@ -35,30 +121,30 @@
 
     <main>
         <div class="page-header">
-            <div class="container">
+            <div class="container header-centralizado">
                 <span class="badge-text">PARTICIPE DO CHAGS 14</span>
                 <h1 class="page-title">Inscrições.</h1>
                 <p class="page-desc">As inscrições para a 14ª Conferência Internacional serão abertas em breve. Confira abaixo as categorias, lotes e valores previstos.</p>
             </div>
         </div>
 
-        <section class="container" style="padding-bottom: 80px;">
+        <section class="container secao-padding">
             <div class="secao-numerada">
-                <div class="secao-header" style="display: flex; gap: 20px; align-items: baseline; margin-bottom: 30px;">
+                <div class="secao-header-flex">
                     <span class="num">01</span>
                     <h2>Categorias e Valores</h2>
                 </div>
                 
                 <div class="tabela-categoria">
                     <div class="tabela-header">
-                        <span style="font-weight: 700; letter-spacing: 1px;">CATEGORIA</span>
-                        <span style="font-weight: 700; letter-spacing: 1px;">VALOR (BRL)</span>
+                        <span class="tabela-cabecalho-texto">CATEGORIA</span>
+                        <span class="tabela-cabecalho-texto">VALOR (BRL)</span>
                     </div>
                     
                     <div class="tabela-linha">
                         <div class="linha-info">
-                            <span style="display: block; font-weight: 600; color: var(--text-dark);">Pesquisadores e Professores</span>
-                            <span style="font-size: 0.85rem; color: var(--text-body);">Vínculo institucional ativo obrigatório</span>
+                            <span class="linha-titulo">Pesquisadores e Professores</span>
+                            <span class="linha-subtitulo">Vínculo institucional ativo obrigatório</span>
                         </div>
                         <div class="linha-valores">
                             <span>R$ 300,00</span>
@@ -67,66 +153,75 @@
 
                     <div class="tabela-linha">
                         <div class="linha-info">
-                            <span style="display: block; font-weight: 600; color: var(--text-dark);">Estudantes de Pós-Graduação</span>
-                            <span style="font-size: 0.85rem; color: var(--text-body);">Mestrado e Doutorado (com comprovante)</span>
+                            <span class="linha-titulo">Estudantes de Pós-Graduação</span>
+                            <span class="linha-subtitulo">Mestrado e Doutorado (com comprovante)</span>
                         </div>
                         <div class="linha-valores">
                             <span>R$ 200,00</span>
                         </div>
                     </div>
 
-
                     <div class="tabela-linha">
                         <div class="linha-info">
-                            <span style="display: block; font-weight: 600; color: var(--text-dark);">Público em Geral</span>
+                            <span class="linha-titulo">Estudantes de Graduação</span>
+                            <span class="linha-subtitulo">Com comprovante de matrícula</span>
                         </div>
                         <div class="linha-valores">
                             <span>R$ 100,00</span>
                         </div>
                     </div>
 
-                        <div class="tabela-linha destaque">
+                    <div class="tabela-linha">
                         <div class="linha-info">
-                            <span style="display: block; font-weight: 600; color: var(--text-dark);">Públicos especificos</span>
+                            <span class="linha-titulo">Público em Geral</span>
                         </div>
                         <div class="linha-valores">
-                            <span style="color: var(--accent); font-size: 1.2rem;">R$ 75,00</span>
+                            <span>R$ 100,00</span>
+                        </div>
+                    </div>
+
+                    <div class="tabela-linha destaque">
+                        <div class="linha-info">
+                            <span class="linha-titulo">Públicos especificos</span>
+                        </div>
+                        <div class="linha-valores">
+                            <span class="valor-destaque">R$ 75,00</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="secao-numerada">
-                <div class="secao-header" style="display: flex; gap: 20px; align-items: baseline; margin-bottom: 30px;">
+                <div class="secao-header-flex">
                     <span class="num">02</span>
                     <h2>Informações de Pagamento</h2>
                 </div>
                 
                 <div class="info-grid">
-                    <div style="background: var(--bg-section); padding: 30px; border-radius: 4px; border: 1px solid var(--border-color);">
-                        <h4 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--text-dark);">Métodos Aceitos</h4>
-                        <p style="font-size: 0.95rem; margin-bottom: 10px;">O pagamento poderá ser realizado diretamente pela Área do Participante utilizando:</p>
-                        <ul style="padding-left: 20px; font-size: 0.95rem; color: var(--text-dark);">
+                    <div class="info-bloco">
+                        <h4>Métodos Aceitos</h4>
+                        <p class="desc-principal">O pagamento poderá ser realizado diretamente pela Área do Participante utilizando:</p>
+                        <ul>
                             <li>Cartão de Crédito (Visa, Mastercard, Amex)</li>
                             <li>PIX (exclusivo para residentes no Brasil)</li>
                             <li>Transferência Bancária Internacional (Wire Transfer)</li>
                         </ul>
                     </div>
 
-                    <div style="background: var(--bg-section); padding: 30px; border-radius: 4px; border: 1px solid var(--border-color);">
-                        <h4 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--text-dark);">Política de Isenção</h4>
-                        <p style="font-size: 0.95rem; margin-bottom: 10px;">A organização oferecerá cotas de isenção total para:</p>
-                        <ul style="padding-left: 20px; font-size: 0.95rem; color: var(--text-dark);">
+                    <div class="info-bloco">
+                        <h4>Política de Isenção</h4>
+                        <p class="desc-principal">A organização oferecerá cotas de isenção total para:</p>
+                        <ul>
                             <li>Lideranças e representantes indígenas</li>
                             <li>Estudantes em situação de vulnerabilidade comprovada</li>
                         </ul>
-                        <p style="font-size: 0.85rem; margin-top: 15px; color: var(--text-body);">* O edital para solicitação de isenção será publicado na aba Notícias em fevereiro de 2027.</p>
+                        <p class="nota-rodape">* O edital para solicitação de isenção será publicado na aba Notícias em fevereiro de 2027.</p>
                     </div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 50px;">
-                <p style="margin-bottom: 20px; font-size: 1.1rem;">Acesse o sistema para criar seu perfil e realizar o pagamento.</p>
+            <div class="cta-container">
+                <p>Acesse o sistema para criar seu perfil e realizar o pagamento.</p>
                 <a href="sistema-login.html" class="btn-large">Acessar Área do Participante</a>
             </div>
         </section>
@@ -153,7 +248,7 @@
             </div>
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMAÇÕES</h4>
-                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                <ul class="footer-links-grid footer-col-unica">
                     <li><a href="sistema-login.html">Área do Participante</a></li>
                     <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
                 </ul>
@@ -161,6 +256,6 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>

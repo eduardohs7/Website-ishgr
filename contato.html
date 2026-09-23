@@ -5,7 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Contato</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=4">
+    
+    <!-- CSS Exclusivo da Página de Contato -->
+    <style>
+        /* Centralização Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .texto-centralizado {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Page Header */
+        .page-header-contato {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Área de Atendimento (Hero) */
+        .contato-hero-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contato-horario {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .contato-tempo {
+            color: var(--text-body);
+            margin-bottom: 30px;
+        }
+        .contato-atalhos-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            width: 100%;
+        }
+        .atalho-card {
+            width: 100%;
+            max-width: 350px;
+        }
+        .atalho-titulo {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .atalho-email {
+            color: #CBD5E0;
+            font-size: 0.95rem;
+        }
+
+        /* Comissão Organizadora */
+        .comissao-section {
+            padding: 60px 0 100px;
+        }
+        .comissao-titulo {
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        .equipe-info-centralizada {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .badge-equipe {
+            background: #E2E8F0;
+            color: var(--text-dark);
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 10px;
+        }
+        .equipe-nome {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .equipe-inst {
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,8 +116,8 @@
                 <li><a href="atracoes.html">Atrações</a></li>
                 <li><a href="inscricoes.html">Inscrições</a></li>
                 <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html" class="active">Sobre Belém</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
             </ul>
             <div class="nav-actions">
                 <div class="lang-selector"><a href="#" class="active">PT</a> | <a href="#">EN</a> | <a href="#">ES</a></div>
@@ -34,8 +128,8 @@
     </header>
 
     <main>
-        <div class="page-header" style="border-bottom: none; margin-bottom: 0;">
-            <div class="container">
+        <div class="page-header page-header-contato">
+            <div class="container header-centralizado">
                 <span class="badge-text">FALE CONOSCO</span>
                 <h1 class="page-title">Contato e Dúvidas.</h1>
                 <p class="page-desc">Precisa de suporte com sua inscrição, envio de resumos ou informações sobre hospedagem em Belém? A equipe do CHAGS 14 está pronta para ajudar.</p>
@@ -43,53 +137,53 @@
         </div>
 
         <section class="container">
-            <div class="contato-hero-section">
+            <div class="contato-hero-section contato-hero-wrapper">
                 <div class="contato-info-area">
-                    <p style="font-size: 1.1rem; margin-bottom: 20px;">Nosso horário de atendimento é de segunda a sexta-feira, das 09h às 17h (Horário de Brasília).</p>
-                    <p style="color: var(--text-body); margin-bottom: 30px;">Tempo médio de resposta: 48 horas úteis.</p>
+                    <p class="contato-horario">Nosso horário de atendimento é de segunda a sexta-feira, das 09h às 17h (Horário de Brasília).</p>
+                    <p class="contato-tempo">Tempo médio de resposta: 48 horas úteis.</p>
                 </div>
                 
-                <div class="contato-atalhos" style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="contato-atalhos-lista">
                     <a href="mailto:contato@chags14.org" class="atalho-card">
                         <div class="atalho-icon">✉️</div>
-                        <h3 style="font-size: 1.2rem; margin-bottom: 5px;">E-mail Oficial</h3>
-                        <p style="color: #CBD5E0; font-size: 0.95rem;">contato@chags14.org</p>
+                        <h3 class="atalho-titulo">E-mail Oficial</h3>
+                        <p class="atalho-email">contato@chags14.org</p>
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="container" style="padding: 60px 0 100px;">
-            <h2 style="margin-bottom: 40px; font-size: 2rem;">Comissão Organizadora</h2>
+        <section class="container comissao-section">
+            <h2 class="comissao-titulo texto-centralizado">Comissão Organizadora</h2>
             
             <div class="equipe-grid">
                 <!-- Membro 1 -->
                 <div class="equipe-card">
                     <div class="equipe-foto">👤</div>
-                    <div class="equipe-info">
-                        <span class="type-badge" style="background:#E2E8F0; color:var(--text-dark); display:inline-block; width:fit-content; margin-bottom:10px;">COORDENAÇÃO GERAL</span>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Dr. Carlos Eduardo Almeida</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-body);">Museu Paraense Emílio Goeldi (MPEG)</p>
+                    <div class="equipe-info equipe-info-centralizada">
+                        <span class="type-badge badge-equipe">COORDENAÇÃO GERAL</span>
+                        <h3 class="equipe-nome">Dr. Carlos Eduardo Almeida</h3>
+                        <p class="equipe-inst">Museu Paraense Emílio Goeldi (MPEG)</p>
                     </div>
                 </div>
 
                 <!-- Membro 2 -->
                 <div class="equipe-card">
                     <div class="equipe-foto">👤</div>
-                    <div class="equipe-info">
-                        <span class="type-badge" style="background:#E2E8F0; color:var(--text-dark); display:inline-block; width:fit-content; margin-bottom:10px;">COMITÊ CIENTÍFICO</span>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Dra. Maria de Fátima Souza</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-body);">Universidade Federal do Pará (UFPA)</p>
+                    <div class="equipe-info equipe-info-centralizada">
+                        <span class="type-badge badge-equipe">COMITÊ CIENTÍFICO</span>
+                        <h3 class="equipe-nome">Dra. Maria de Fátima Souza</h3>
+                        <p class="equipe-inst">Universidade Federal do Pará (UFPA)</p>
                     </div>
                 </div>
 
                 <!-- Membro 3 -->
                 <div class="equipe-card">
                     <div class="equipe-foto">👤</div>
-                    <div class="equipe-info">
-                        <span class="type-badge" style="background:#E2E8F0; color:var(--text-dark); display:inline-block; width:fit-content; margin-bottom:10px;">RELAÇÕES INTERNACIONAIS</span>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Dr. Louis Forline</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-body);">University of Nevada (UNLV)</p>
+                    <div class="equipe-info equipe-info-centralizada">
+                        <span class="type-badge badge-equipe">RELAÇÕES INTERNACIONAIS</span>
+                        <h3 class="equipe-nome">Dr. Louis Forline</h3>
+                        <p class="equipe-inst">University of Nevada (UNLV)</p>
                     </div>
                 </div>
             </div>
@@ -117,7 +211,7 @@
             </div>
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMAÇÕES</h4>
-                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                <ul class="footer-links-grid footer-col-unica">
                     <li><a href="sistema-login.html">Área do Participante</a></li>
                     <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
                 </ul>
@@ -125,6 +219,6 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>

@@ -5,7 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Atrações</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=5">
+
+    <!-- CSS Exclusivo da Página de Atrações -->
+    <style>
+        /* Centralização e Layout Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .nota-rodape-atracoes {
+            font-size: 0.8rem;
+            color: var(--text-body);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Estrutura dos Cards */
+        .info-col-padrao {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .foto-placeholder-custom {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #CBD5E0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Badges e Textos dos Cards */
+        .badge-palestra-custom {
+            background: #FEEBC8;
+            color: #C05621;
+            display: inline-block;
+            width: fit-content;
+        }
+        .badge-painel-custom {
+            background: #EBF8FF;
+            color: #2B6CB0;
+            display: inline-block;
+            width: fit-content;
+        }
+        .nome-destaque {
+            font-size: 1.4rem;
+            margin: 10px 0 5px;
+        }
+        .inst-destaque {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            margin-bottom: 15px;
+        }
+        
+        /* Tema e Bio */
+        .tema-box {
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        .tema-titulo {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .tema-desc {
+            font-size: 0.9rem;
+        }
+        .hidden-bio {
+            display: none;
+        }
+        
+        /* Footer do Card */
+        .rodape-card {
+            margin-top: auto;
+            text-align: right;
+        }
+        .btn-detalhes-card {
+            color: var(--text-dark);
+            border-color: var(--border-color);
+            cursor: pointer;
+        }
+
+        /* Estilos Internos do Modal */
+        .modal-foto-custom {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 20px;
+        }
+        .modal-badge-custom {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+        .modal-inst-custom {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .modal-right-custom {
+            background: #fff;
+            padding: 40px 50px;
+        }
+        .modal-nome-custom {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .modal-tema-custom {
+            font-size: 1.05rem;
+            color: var(--text-body);
+            margin-bottom: 25px;
+        }
+        .modal-bio-custom {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-body);
+        }
+
+        /* Rodapé do Site */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,10 +157,10 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
                 <li><a href="programacao.html">Programação</a></li>
-                <li><a href="atracoes.html">Atrações</a></li>
+                <li><a href="atracoes.html" class="active">Atrações</a></li>
                 <li><a href="inscricoes.html">Inscrições</a></li>
                 <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html" class="active">Sobre Belém</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
             <div class="nav-actions">
@@ -34,7 +172,7 @@
     </header>
     <main>
         <div class="page-header">
-            <div class="container">
+            <div class="container header-centralizado">
                 <span class="badge-text">CONVIDADOS CONFIRMADOS - CHAGS 14</span>
                 <h1 class="page-title">Atrações.</h1>
                 <p class="page-desc">Conheça os convidados das palestras, painéis e rodas de conversa da conferência em Belém.</p>
@@ -55,24 +193,24 @@
                 <!-- Card 01 -->
                 <div class="atracao-card" data-category="palestra">
                     <div class="atracao-img-col">
-                        <div class="img-decorativa"><div class="foto-placeholder card-foto" style="width:100%; height:100%; border-radius:50%; background:#CBD5E0; display:flex; align-items:center; justify-content:center;">👤</div></div>
+                        <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
                     </div>
-                    <div class="atracao-info-col" style="padding: 25px; flex: 1; display: flex; flex-direction: column;">
-                        <span class="type-badge badge-palestra card-tipo" style="background:#FEEBC8; color:#C05621; display:inline-block; width:fit-content;">PALESTRA</span>
-                        <h3 class="convidado-nome card-nome" style="font-size:1.4rem; margin:10px 0 5px;">Dr. Louis Forline</h3>
-                        <p class="convidado-inst card-inst" style="font-size:0.85rem; color:var(--text-body); margin-bottom:15px;">UNIVERSITY OF NEVADA (UNLV)</p>
+                    <div class="atracao-info-col info-col-padrao">
+                        <span class="type-badge badge-palestra-custom card-tipo">PALESTRA</span>
+                        <h3 class="convidado-nome card-nome nome-destaque">Dr. Louis Forline</h3>
+                        <p class="convidado-inst card-inst inst-destaque">UNIVERSITY OF NEVADA (UNLV)</p>
                         
-                        <div class="convidado-tema" style="padding-top:15px; border-top:1px solid var(--border-color); margin-bottom:20px;">
-                            <strong class="card-tema" style="display:block; margin-bottom:8px;">Futuros Ancestrais e a Ecologia Humana na Amazônia</strong>
-                            <p style="font-size:0.9rem;">Pesquisador sênior e um dos maiores especialistas globais em sociedades de caçadores-coletores.</p>
+                        <div class="convidado-tema tema-box">
+                            <strong class="card-tema tema-titulo">Futuros Ancestrais e a Ecologia Humana na Amazônia</strong>
+                            <p class="tema-desc">Pesquisador sênior e um dos maiores especialistas globais em sociedades de caçadores-coletores.</p>
                         </div>
                         
-                        <div class="hidden-bio" style="display: none;">
+                        <div class="hidden-bio">
                             <p>A produção científica global e o estudo das sociedades ancestrais crescem de forma acelerada. Richard B. Lee possui extensa experiência analisando o comportamento de grupos caçadores-coletores e como suas dinâmicas de sustentabilidade podem guiar soluções modernas para a crise climática.</p>
                         </div>
                         
-                        <div class="card-footer-right" style="margin-top:auto; text-align:right;">
-                            <button class="btn-outline btn-small btn-detalhes" style="color:var(--text-dark); border-color:var(--border-color); cursor:pointer;">Ver detalhes &rarr;</button>
+                        <div class="card-footer-right rodape-card">
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Ver detalhes &rarr;</button>
                         </div>
                     </div>
                 </div>
@@ -80,47 +218,47 @@
                 <!-- Card 02 -->
                 <div class="atracao-card" data-category="painel">
                     <div class="atracao-img-col">
-                        <div class="img-decorativa"><div class="foto-placeholder card-foto" style="width:100%; height:100%; border-radius:50%; background:#CBD5E0; display:flex; align-items:center; justify-content:center;">👤</div></div>
+                        <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
                     </div>
-                    <div class="atracao-info-col" style="padding: 25px; flex: 1; display: flex; flex-direction: column;">
-                        <span class="type-badge badge-sessao card-tipo" style="background:#EBF8FF; color:#2B6CB0; display:inline-block; width:fit-content;">PAINEL</span>
-                        <h3 class="convidado-nome card-nome" style="font-size:1.4rem; margin:10px 0 5px;">Profa. Dra. Maria de Fátima Souza</h3>
-                        <p class="convidado-inst card-inst" style="font-size:0.85rem; color:var(--text-body); margin-bottom:15px;">UNIVERSIDADE FEDERAL DO PARÁ (UFPA)</p>
+                    <div class="atracao-info-col info-col-padrao">
+                        <span class="type-badge badge-painel-custom card-tipo">PAINEL</span>
+                        <h3 class="convidado-nome card-nome nome-destaque">Profa. Dra. Maria de Fátima Souza</h3>
+                        <p class="convidado-inst card-inst inst-destaque">UNIVERSIDADE FEDERAL DO PARÁ (UFPA)</p>
                         
-                        <div class="convidado-tema" style="padding-top:15px; border-top:1px solid var(--border-color); margin-bottom:20px;">
-                            <strong class="card-tema" style="display:block; margin-bottom:8px;">Tecnologias Sociais e Inclusão em Comunidades Ribeirinhas</strong>
-                            <p style="font-size:0.9rem;">Com doutorado em Ecologia, a pesquisadora trará discussões sobre inovações sociais aplicadas à bioeconomia.</p>
+                        <div class="convidado-tema tema-box">
+                            <strong class="card-tema tema-titulo">Tecnologias Sociais e Inclusão em Comunidades Ribeirinhas</strong>
+                            <p class="tema-desc">Com doutorado em Ecologia, a pesquisadora trará discussões sobre inovações sociais aplicadas à bioeconomia.</p>
                         </div>
                         
-                        <div class="hidden-bio" style="display: none;">
+                        <div class="hidden-bio">
                             <p>Professora Titular da UFPA, atua há mais de 20 anos com comunidades ribeirinhas do estuário amazônico, buscando soluções de inovação social que conectam rigor acadêmico com valor real para as populações locais.</p>
                         </div>
                         
-                        <div class="card-footer-right" style="margin-top:auto; text-align:right;">
-                            <button class="btn-outline btn-small btn-detalhes" style="color:var(--text-dark); border-color:var(--border-color); cursor:pointer;">Ver detalhes &rarr;</button>
+                        <div class="card-footer-right rodape-card">
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Ver detalhes &rarr;</button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <p class="nota-rodape-atracoes" style="font-size:0.8rem; color:var(--text-body);">O título e o conteúdo definitivo dos painéis ainda poderão receber ajustes da comissão científica.</p>
+            <p class="nota-rodape-atracoes">O título e o conteúdo definitivo dos painéis ainda poderão receber ajustes da comissão científica.</p>
         </section>
 
         <!-- ESTRUTURA DO MODAL -->
         <div class="modal-overlay" id="modal-convidado">
             <div class="modal-content">
                 <div class="modal-left">
-                    <div class="modal-foto-wrapper" style="width:120px; height:120px; border-radius:50%; background:#E2E8F0; margin-bottom:20px; display:flex; align-items:center; justify-content:center; font-size:3rem; margin: 0 auto 20px;">👤</div>
-                    <span id="modal-badge" class="modal-badge-text" style="color:var(--text-dark); font-weight:700; font-size:0.75rem; letter-spacing:1px; margin-bottom:10px; display:block; text-align:center;">PALESTRA</span>
-                    <p id="modal-inst" class="modal-inst-text" style="font-size:0.85rem; font-weight:600; text-align:center;">INSTITUIÇÃO</p>
+                    <div class="modal-foto-custom">👤</div>
+                    <span id="modal-badge" class="modal-badge-custom">PALESTRA</span>
+                    <p id="modal-inst" class="modal-inst-custom">INSTITUIÇÃO</p>
                 </div>
                 
-                <div class="modal-right" style="background:#fff; padding: 40px 50px;">
+                <div class="modal-right-custom">
                     <button class="close-modal">&times;</button>
-                    <h2 id="modal-nome" class="modal-nome-text" style="font-size:2rem; margin-bottom:10px;">Nome</h2>
-                    <h3 id="modal-tema" class="modal-tema-text" style="font-size:1.05rem; color:var(--text-body); margin-bottom:25px;">Tema</h3>
-                    <div id="modal-bio" class="modal-bio-text" style="font-size:0.95rem; line-height:1.6; color:var(--text-body);">
-                        <!-- Bio -->
+                    <h2 id="modal-nome" class="modal-nome-custom">Nome</h2>
+                    <h3 id="modal-tema" class="modal-tema-custom">Tema</h3>
+                    <div id="modal-bio" class="modal-bio-custom">
+                        <!-- Bio inserida pelo JS -->
                     </div>
                 </div>
             </div>
@@ -148,7 +286,7 @@
             </div>
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMAÇÕES</h4>
-                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                <ul class="footer-links-grid footer-col-unica">
                     <li><a href="sistema-login.html">Área do Participante</a></li>
                     <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
                 </ul>
@@ -156,6 +294,6 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=5"></script>
 </body>
 </html>

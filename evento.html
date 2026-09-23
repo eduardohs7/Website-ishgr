@@ -5,7 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | O Evento</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=7">
+
+    <!-- CSS Exclusivo da Página O Evento -->
+    <style>
+        /* Centralização Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .texto-centralizado {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Seção Intro e Stats */
+        .evento-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Seção ISHGR */
+        .ishgr-wrapper {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+        .ishgr-header-margin {
+            margin-bottom: 50px;
+        }
+        .ishgr-desc {
+            max-width: 800px;
+            font-size: 1.05rem;
+            color: var(--text-body);
+            margin-top: 15px;
+        }
+        .ishgr-grid-custom {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+        }
+        @media (max-width: 768px) {
+            .ishgr-grid-custom {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Textos da ISHGR */
+        .ishgr-texto h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        .ishgr-texto p {
+            margin-bottom: 15px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+        .ishgr-texto p.mb-grande {
+            margin-bottom: 30px;
+        }
+        .btn-ishgr-link {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .btn-ishgr-link-icon {
+            font-size: 0.9rem;
+        }
+
+        /* Diretoria ISHGR */
+        .ishgr-diretoria-box {
+            background-color: var(--bg-section);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+        .ishgr-diretoria-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            display: inline-block;
+            color: var(--text-dark);
+        }
+        .ishgr-diretoria-box ul {
+            list-style: none;
+        }
+        .ishgr-diretoria-box li {
+            margin-bottom: 25px;
+        }
+        .ishgr-diretoria-box li:last-child {
+            margin-bottom: 0;
+        }
+        .dir-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-body);
+            display: block;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .dir-title {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+        .dir-sub {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-body);
+            margin-top: 2px;
+        }
+
+        /* Seção Marcos */
+        .marcos-wrapper {
+            padding-bottom: 80px;
+        }
+        .marcos-header-box {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Rodapé */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,8 +159,8 @@
                 <li><a href="programacao.html">Programação</a></li>
                 <li><a href="atracoes.html">Atrações</a></li>
                 <li><a href="inscricoes.html">Inscrições</a></li>
-                <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html" class="active">Sobre Belém</a></li>
+                <li><a href="evento.html" class="active">O Evento</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
             <div class="nav-actions">
@@ -35,7 +173,7 @@
 
     <main>
         <div class="page-header">
-            <div class="container">
+            <div class="container header-centralizado">
                 <span class="badge-text">14ª EDIÇÃO - BELÉM/PA - 2027</span>
                 <h1 class="page-title">Sobre o evento.</h1>
                 <p class="page-desc">A Conferência Internacional (CHAGS) é um dos eventos mais tradicionais e relevantes nas áreas de Antropologia, Arqueologia e Ecologia Humana em âmbito global.</p>
@@ -47,7 +185,7 @@
                 <div class="evento-texto-col">
                     <p>Realizada sob a chancela da ISHGR, a 14ª edição consolida-se como um espaço estratégico para o debate, formação e disseminação de conhecimentos científicos voltados à sustentabilidade, bioeconomia e povos tradicionais, tendo a Amazônia como palco central das discussões contemporâneas.</p>
                 </div>
-                <div class="evento-stats-col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="evento-stats-col evento-stats-grid">
                     <div class="stat-box"><span class="stat-label">EDIÇÃO</span><span class="stat-value">14ª</span></div>
                     <div class="stat-box"><span class="stat-label">ANO</span><span class="stat-value">2027</span></div>
                     <div class="stat-box"><span class="stat-label">SEDE</span><span class="stat-value">Belém/PA</span></div>
@@ -80,55 +218,55 @@
         </section>
 
         <!-- Seção Sobre a ISHGR -->
-        <section class="ishgr-section container" style="padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--border-color); margin-top: 40px;">
-            <div class="ishgr-header" style="margin-bottom: 50px;">
+        <section class="ishgr-section container ishgr-wrapper">
+            <div class="ishgr-header ishgr-header-margin header-centralizado">
                 <span class="badge-text">SOCIEDADE INTERNACIONAL</span>
                 <h2>Sobre a ISHGR.</h2>
-                <p style="max-width: 800px; font-size: 1.05rem; color: var(--text-body); margin-top: 15px;">
+                <p class="ishgr-desc texto-centralizado">
                     A International Society for Hunter-Gatherer Research (ISHGR) é a principal organização global dedicada ao estudo, preservação e disseminação de pesquisas sobre sociedades de caçadores-coletores.
                 </p>
             </div>
 
-            <div class="ishgr-grid" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px;">
+            <div class="ishgr-grid ishgr-grid-custom">
                 <div class="ishgr-texto">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--text-dark);">Histórico e Missão</h3>
-                    <p style="margin-bottom: 15px; color: var(--text-body); line-height: 1.7;">
+                    <h3>Histórico e Missão</h3>
+                    <p>
                         Desde sua fundação, a ISHGR tem sido o ponto de encontro para antropólogos, arqueólogos, ecologistas e populações tradicionais. A sociedade promove o intercâmbio ético de conhecimentos, respeitando a autonomia e os saberes dos povos originários.
                     </p>
-                    <p style="margin-bottom: 30px; color: var(--text-body); line-height: 1.7;">
+                    <p class="mb-grande">
                         A cada edição do CHAGS, a sociedade renova seu compromisso com a ciência inclusiva, trazendo debates urgentes sobre demarcação de terras, soberania alimentar, bioeconomia e resiliência climática para o centro das discussões globais.
                     </p>
-                    <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline" style="border-color: var(--text-dark); color: var(--text-dark); display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
+                    <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline btn-ishgr-link">
                         <span>Conheça a diretoria oficial no site da ISHGR</span>
-                        <span style="font-size: 0.9rem;">&nearr;</span>
+                        <span class="btn-ishgr-link-icon">&nearr;</span>
                     </a>
                 </div>
 
-                <div class="ishgr-diretoria" style="background-color: var(--bg-section); padding: 40px; border-radius: 4px; border: 1px solid var(--border-color); height: fit-content;">
-                    <h3 style="font-size: 1.1rem; margin-bottom: 25px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; display: inline-block; color: var(--text-dark);">Estrutura Organizacional</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 25px;">
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-body); display: block; margin-bottom: 5px; letter-spacing: 1px;">PRESIDÊNCIA</span>
-                            <strong style="color: var(--text-dark); font-size: 1.05rem;">Representante ISHGR</strong>
-                            <span style="display: block; font-size: 0.85rem; color: var(--text-body); margin-top: 2px;">Pesquisador(a) Titular</span>
-                        </li>
-                        <li style="margin-bottom: 25px;">
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-body); display: block; margin-bottom: 5px; letter-spacing: 1px;">SECRETARIA GERAL</span>
-                            <strong style="color: var(--text-dark); font-size: 1.05rem;">Membros do Conselho</strong>
-                            <span style="display: block; font-size: 0.85rem; color: var(--text-body); margin-top: 2px;">Comitê Deliberativo</span>
+                <div class="ishgr-diretoria ishgr-diretoria-box">
+                    <h3>Estrutura Organizacional</h3>
+                    <ul>
+                        <li>
+                            <span class="dir-label">PRESIDÊNCIA</span>
+                            <span class="dir-title">Representante ISHGR</span>
+                            <span class="dir-sub">Pesquisador(a) Titular</span>
                         </li>
                         <li>
-                            <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-body); display: block; margin-bottom: 5px; letter-spacing: 1px;">CHAGS 14 - LOCAL</span>
-                            <strong style="color: var(--text-dark); font-size: 1.05rem;">Comissão Belém</strong>
-                            <span style="display: block; font-size: 0.85rem; color: var(--text-body); margin-top: 2px;">UFPA e Museu Goeldi</span>
+                            <span class="dir-label">SECRETARIA GERAL</span>
+                            <span class="dir-title">Membros do Conselho</span>
+                            <span class="dir-sub">Comitê Deliberativo</span>
+                        </li>
+                        <li>
+                            <span class="dir-label">CHAGS 14 - LOCAL</span>
+                            <span class="dir-title">Comissão Belém</span>
+                            <span class="dir-sub">UFPA e Museu Goeldi</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section class="marcos-section container" style="padding-bottom: 80px;">
-            <div class="marcos-header">
+        <section class="marcos-section container marcos-wrapper">
+            <div class="marcos-header-box">
                 <h2>Marcos do CHAGS.</h2>
                 <p>Ao longo de sua trajetória, as Conferências reuniram milhares de participantes, consolidando-se como o principal fórum sobre sociedades ancestrais.</p>
             </div>
@@ -162,7 +300,7 @@
             </div>
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMAÇÕES</h4>
-                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                <ul class="footer-links-grid footer-col-unica">
                     <li><a href="sistema-login.html">Área do Participante</a></li>
                     <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
                 </ul>
@@ -170,6 +308,6 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=7"></script>
 </body>
 </html>
