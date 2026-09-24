@@ -5,7 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Trabalhos Aceitos</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=11">
+
+    <!-- CSS Exclusivo da Página Trabalhos Aceitos -->
+    <style>
+        /* Centralização Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+
+        /* Espaçamentos */
+        .secao-trabalhos {
+            padding-bottom: 80px;
+        }
+        .resultados-count-margin {
+            margin-bottom: 20px;
+        }
+
+        /* Estrutura Interna dos Cards de Trabalho */
+        .linha-info-baseline {
+            display: flex;
+            gap: 10px;
+            align-items: baseline;
+        }
+        .linha-info-center {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .trabalho-titulo-texto {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .trabalho-autores-texto {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Rodapé */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,12 +65,12 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
-                <li><a href="artigos-aceitos.html">Trabalhos</a></li>
+                <li><a href="artigos-aceitos.html" class="active">Trabalhos</a></li>
                 <li><a href="programacao.html">Programação</a></li>
                 <li><a href="atracoes.html">Atrações</a></li>
                 <li><a href="inscricoes.html">Inscrições</a></li>
                 <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html" class="active">Sobre Belém</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
             <div class="nav-actions">
@@ -36,14 +83,14 @@
 
     <main>
         <div class="page-header">
-            <div class="container">
+            <div class="container header-centralizado">
                 <span class="badge-text">RESULTADOS</span>
                 <h1 class="page-title">Trabalhos Aceitos.</h1>
                 <p class="page-desc">Confira as pautas aprovadas para compor as mesas redondas e rodas de conversa do CHAGS 14.</p>
             </div>
         </div>
 
-        <section class="container" style="padding-bottom: 80px;">
+        <section class="container secao-trabalhos">
             <div class="filtros-box">
                 <div class="filtro-item">
                     <label>BUSCAR TRABALHO</label>
@@ -60,24 +107,42 @@
                 </div>
             </div>
             
-            <p class="resultados-count" style="margin-bottom: 20px;"><strong>03</strong> trabalhos encontrados</p>
+            <p class="resultados-count resultados-count-margin"><strong>03</strong> trabalhos encontrados</p>
 
             <div class="trabalhos-lista">
                 <div class="trabalho-card">
                     <div class="trabalho-numero">01</div>
                     <div class="trabalho-conteudo">
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PAUTA:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">Gestão Territorial e Sustentabilidade nas Comunidades da Calha Norte</h3></div>
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTORES:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Maria de Fátima Souza (UFPA, Brasil), Carlos Eduardo Almeida (MPEG, Brasil)</p></div>
-                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TÓPICO:</span><span class="topico-badge">Gestão de Recursos Naturais</span></div>
+                        <div class="linha-info-baseline">
+                            <span class="trabalho-label">PAUTA:</span>
+                            <h3 class="trabalho-titulo trabalho-titulo-texto">Gestão Territorial e Sustentabilidade nas Comunidades da Calha Norte</h3>
+                        </div>
+                        <div class="linha-info-baseline">
+                            <span class="trabalho-label">AUTORES:</span>
+                            <p class="trabalho-autores trabalho-autores-texto">Maria de Fátima Souza (UFPA, Brasil), Carlos Eduardo Almeida (MPEG, Brasil)</p>
+                        </div>
+                        <div class="linha-info-center">
+                            <span class="trabalho-label">TÓPICO:</span>
+                            <span class="topico-badge">Gestão de Recursos Naturais</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="trabalho-card">
                     <div class="trabalho-numero">02</div>
                     <div class="trabalho-conteudo">
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PAUTA:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">O papel dos saberes ancestrais frente às mudanças climáticas globais</h3></div>
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTORES:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Richard Lee (University of Nevada, EUA), Ana Clara Nunes (UFPA, Brasil)</p></div>
-                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TÓPICO:</span><span class="topico-badge">Mudanças Climáticas e Impactos</span></div>
+                        <div class="linha-info-baseline">
+                            <span class="trabalho-label">PAUTA:</span>
+                            <h3 class="trabalho-titulo trabalho-titulo-texto">O papel dos saberes ancestrais frente às mudanças climáticas globais</h3>
+                        </div>
+                        <div class="linha-info-baseline">
+                            <span class="trabalho-label">AUTORES:</span>
+                            <p class="trabalho-autores trabalho-autores-texto">Richard Lee (University of Nevada, EUA), Ana Clara Nunes (UFPA, Brasil)</p>
+                        </div>
+                        <div class="linha-info-center">
+                            <span class="trabalho-label">TÓPICO:</span>
+                            <span class="topico-badge">Mudanças Climáticas e Impactos</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,13 +165,12 @@
                     <li><a href="atracoes.html">Atrações</a></li>
                     <li><a href="inscricoes.html">Inscrições</a></li>
                     <li><a href="evento.html">O Evento</a></li>
-                    <li><a href="belem.html" class="active">Sobre Belém</a></li>
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMAÇÕES</h4>
-                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                <ul class="footer-links-grid footer-col-unica">
                     <li><a href="sistema-login.html">Área do Participante</a></li>
                     <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
                 </ul>
@@ -114,6 +178,6 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=11"></script>
 </body>
 </html>
