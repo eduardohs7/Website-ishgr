@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ==========================================================================
    CARROSSEL AUTOMÁTICO DE NOTÍCIAS (HOME)
-   ========================================================================== */
+     */
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('news-track');
     
@@ -247,6 +247,45 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.addEventListener('mouseenter', () => clearInterval(slideInterval));
         wrapper.addEventListener('mouseleave', () => {
             slideInterval = setInterval(nextSlide, 5000);
+        });
+    }
+});
+
+/* 
+   LIGHTBOX DAS IMAGENS DE NOTÍCIAS (HOME)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const newsImages = document.querySelectorAll('.carousel-slide img');
+    const newsLightbox = document.getElementById('news-lightbox');
+    
+    if (newsImages.length > 0 && newsLightbox) {
+        const lbImg = document.getElementById('news-lb-img');
+        const lbCaption = document.getElementById('news-lb-caption');
+        const btnClose = document.getElementById('news-lb-close');
+
+        // Adiciona o clique em cada imagem do carrossel
+        newsImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lbImg.src = img.src;
+                
+                // Pega o título da notícia para usar de legenda
+                const title = img.parentElement.querySelector('h3').innerText;
+                lbCaption.innerText = title;
+                
+                newsLightbox.style.display = 'flex';
+            });
+        });
+
+        // Fechar no botão X
+        btnClose.addEventListener('click', () => {
+            newsLightbox.style.display = 'none';
+        });
+
+        // Fechar clicando fora da imagem
+        newsLightbox.addEventListener('click', (e) => {
+            if (e.target === newsLightbox || e.target.classList.contains('lightbox-content')) {
+                newsLightbox.style.display = 'none';
+            }
         });
     }
 });
