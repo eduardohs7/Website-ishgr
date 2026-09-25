@@ -414,3 +414,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// 1. Seleciona todos os elementos que começam escondidos
+const elementosEscondidos = document.querySelectorAll('.hidden, .hidden-left, .hidden-right, .hidden-scale');
+
+// 2. Cria o observador
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    // Se o elemento entrou na tela (na descida)
+    if (entry.isIntersecting) {
+      
+      // Adiciona as classes de exibição dependendo do tipo de animação
+      if (entry.target.classList.contains('hidden')) entry.target.classList.add('show');
+      if (entry.target.classList.contains('hidden-left')) entry.target.classList.add('show-side');
+      if (entry.target.classList.contains('hidden-right')) entry.target.classList.add('show-side');
+      if (entry.target.classList.contains('hidden-scale')) entry.target.classList.add('show-scale');
+      
+      // >>> O SEGREDO ESTÁ AQUI <<<
+      // Remove o elemento do observador. Ele NUNCA MAIS será animado ou escondido.
+      observer.unobserve(entry.target); 
+    }
+  });
+}, {
+  threshold: 0.15 // Dispara quando 15% do elemento aparece na tela
+});
+
+// 3. Ativa o monitoramento
+elementosEscondidos.forEach((el) => observer.observe(el));
+
+
+/* ==========================================================================
+   BOTÃO VOLTAR AO TOPO
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const btnTopo = document.getElementById('btn-voltar-topo');
+
+    if (btnTopo) {
+        // Mostrar ou esconder o botão conforme a rolagem do ecrã
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btnTopo.classList.add('mostrar');
+            } else {
+                btnTopo.classList.remove('mostrar');
+            }
+        });
+
+        // Ação de subir de forma suave ao clicar
+        btnTopo.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
