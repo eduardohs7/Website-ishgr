@@ -58,6 +58,8 @@ a {
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     flex-wrap: wrap;
+    border-bottom: 2px solid var(--accent-hover); /* Espessura, estilo e cor da borda */
+
 }
 
 .logos-realizacao {
@@ -91,17 +93,18 @@ a {
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    opacity: 70%;
 }
 
 .nav-links a {
     color: var(--text-dark);
-    font-size: 0.95rem;
+    font-size: 0.97rem;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--text-dark);
+    color: rgb(49, 27, 109);
     font-weight: 700;
 }
 
@@ -1913,4 +1916,11 @@ a {
 #btn-voltar-topo:hover {
     background-color: #9C4221;
     transform: scale(1.1);
+}
+
+
+/* tela de note e dividade*/
+
+@media (max-width: 1200px) {
+
 }
