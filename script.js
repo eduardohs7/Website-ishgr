@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ==========================================================================
    CARROSSEL AUTOMÁTICO DE NOTÍCIAS (HOME)
-   ========================================================================== */
+     */
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('news-track');
     
@@ -247,6 +247,45 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.addEventListener('mouseenter', () => clearInterval(slideInterval));
         wrapper.addEventListener('mouseleave', () => {
             slideInterval = setInterval(nextSlide, 5000);
+        });
+    }
+});
+
+/* 
+   LIGHTBOX DAS IMAGENS DE NOTÍCIAS (HOME)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const newsImages = document.querySelectorAll('.carousel-slide img');
+    const newsLightbox = document.getElementById('news-lightbox');
+    
+    if (newsImages.length > 0 && newsLightbox) {
+        const lbImg = document.getElementById('news-lb-img');
+        const lbCaption = document.getElementById('news-lb-caption');
+        const btnClose = document.getElementById('news-lb-close');
+
+        // Adiciona o clique em cada imagem do carrossel
+        newsImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lbImg.src = img.src;
+                
+                // Pega o título da notícia para usar de legenda
+                const title = img.parentElement.querySelector('h3').innerText;
+                lbCaption.innerText = title;
+                
+                newsLightbox.style.display = 'flex';
+            });
+        });
+
+        // Fechar no botão X
+        btnClose.addEventListener('click', () => {
+            newsLightbox.style.display = 'none';
+        });
+
+        // Fechar clicando fora da imagem
+        newsLightbox.addEventListener('click', (e) => {
+            if (e.target === newsLightbox || e.target.classList.contains('lightbox-content')) {
+                newsLightbox.style.display = 'none';
+            }
         });
     }
 });
@@ -372,6 +411,60 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
                 lightbox.style.display = 'none';
             }
+        });
+    }
+});
+
+// 1. Seleciona todos os elementos que começam escondidos
+const elementosEscondidos = document.querySelectorAll('.hidden, .hidden-left, .hidden-right, .hidden-scale');
+
+// 2. Cria o observador
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    // Se o elemento entrou na tela (na descida)
+    if (entry.isIntersecting) {
+      
+      // Adiciona as classes de exibição dependendo do tipo de animação
+      if (entry.target.classList.contains('hidden')) entry.target.classList.add('show');
+      if (entry.target.classList.contains('hidden-left')) entry.target.classList.add('show-side');
+      if (entry.target.classList.contains('hidden-right')) entry.target.classList.add('show-side');
+      if (entry.target.classList.contains('hidden-scale')) entry.target.classList.add('show-scale');
+      
+      // >>> O SEGREDO ESTÁ AQUI <<<
+      // Remove o elemento do observador. Ele NUNCA MAIS será animado ou escondido.
+      observer.unobserve(entry.target); 
+    }
+  });
+}, {
+  threshold: 0.15 // Dispara quando 15% do elemento aparece na tela
+});
+
+// 3. Ativa o monitoramento
+elementosEscondidos.forEach((el) => observer.observe(el));
+
+
+/* ==========================================================================
+   BOTÃO VOLTAR AO TOPO
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const btnTopo = document.getElementById('btn-voltar-topo');
+
+    if (btnTopo) {
+        // Mostrar ou esconder o botão conforme a rolagem do ecrã
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btnTopo.classList.add('mostrar');
+            } else {
+                btnTopo.classList.remove('mostrar');
+            }
+        });
+
+        // Ação de subir de forma suave ao clicar
+        btnTopo.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 });
