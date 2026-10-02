@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Sobre Belém</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="../style.css"></head>
     
     <!-- CSS Exclusivo da Página Sobre Belém -->
     <style>
@@ -94,18 +94,19 @@
     </style>
 </head>
 <body>
-<header>
+    <header>
+    <!-- Cabeçalho e Navbar -->
         <nav class="navbar">
             <div class="logos-realizacao">
-               <a href="index.html">
-                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
-                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
-                <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
-               </a>
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
             
             <ul class="nav-links">
-                <li><a href="index_ingles.html">Home</a></li>
+                <!-- Estes links ficam normais, pois navegam dentro da pasta pt-br -->
+                <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
                 <li><a href="artigos-aceitos.html">Trabalhos</a></li>
                 <li><a href="programacao.html">Programação</a></li>
@@ -117,16 +118,19 @@
             </ul>
             
             <div class="nav-actions">
-                <!-- Seletor de Idiomas Atualizado -->
+                <!-- Seletor de Idiomas (O Efeito Bolha) -->
                 <div class="lang-selector">
-                    <a href="#">PT-BR</a> | <a href="#">ES</a> | <a href="#">FR</a>
+                    <!-- O PT-BR fica inativo pois já estamos nele -->
+                    <a href="#" class="active">PT-BR</a> | 
+                    <!-- Os outros voltam uma pasta (../) e entram na pasta certa -->
+                    <a href="../index.html">EN</a> | 
+                    <a href="../es/index.html">ES</a> | 
+                    <a href="../fr/index.html">FR</a>
                 </div>
                 <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
             </div>
             
-            <div class="hamburger">
-                <span></span><span></span><span></span>
-            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>
 
@@ -153,7 +157,7 @@
                 <!-- Card 1: Ver-o-Peso -->
                 <div class="card-turismo">
                     <div class="turismo-img-cover" data-gallery-target="gallery-veropeso">
-                        <img src="images/img-sobrebelem/Ver-oPeso-Belem.jpg" alt="Mercado Ver-o-Peso">
+                        <img src="../images/img-sobrebelem/Ver-oPeso-Belem.jpg" alt="Mercado Ver-o-Peso">
                         <div class="turismo-gallery-badge"> 3 fotos</div>
                     </div>
                     <div class="turismo-info">
@@ -162,16 +166,16 @@
                     </div>
                     <!-- Dados Ocultos da Galeria -->
                     <div id="gallery-veropeso" class="dados-galeria">
-                        <div class="gallery-item" data-src="images/img-sobrebelem/Ver-oPeso-Belem.jpg" data-desc="<strong>Mercado de Carne e Peixe:</strong> Arquitetura em ferro importada da Europa durante a Belle Époque. Aqui chegam os peixes frescos pescados nos rios da região."></div>
-                        <div class="gallery-item" data-src="images/img-sobrebelem/rua-das-erveiras-belem-Ver-o-peso-acervo-pessoal-scaled-e1646361754878-1536x1170-1.jpg" data-desc="<strong>Setor das Erveiras:</strong> Barracas tradicionais que vendem banhos de cheiro, raízes, cascas e óleos extraídos da floresta para curas físicas e espirituais."></div>
-                        <div class="gallery-item" data-src="images/img-sobrebelem/images.jpeg" data-desc="<strong>Açaí do Ver-o-Peso:</strong> O local onde os barcos atracam de madrugada trazendo toneladas do fruto fresco diretamente das ilhas vizinhas."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/Ver-oPeso-Belem.jpg" data-desc="<strong>Mercado de Carne e Peixe:</strong> Arquitetura em ferro importada da Europa durante a Belle Époque. Aqui chegam os peixes frescos pescados nos rios da região."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/rua-das-erveiras-belem-Ver-o-peso-acervo-pessoal-scaled-e1646361754878-1536x1170-1.jpg" data-desc="<strong>Setor das Erveiras:</strong> Barracas tradicionais que vendem banhos de cheiro, raízes, cascas e óleos extraídos da floresta para curas físicas e espirituais."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/images.jpeg" data-desc="<strong>Açaí do Ver-o-Peso:</strong> O local onde os barcos atracam de madrugada trazendo toneladas do fruto fresco diretamente das ilhas vizinhas."></div>
                     </div>
                 </div>
 
                 <!-- Card 2: Estação das Docas -->
                 <div class="card-turismo">
                     <div class="turismo-img-cover" data-gallery-target="gallery-docas">
-                        <img src="images/img-sobrebelem/doca/por-do-sol2.jpg" alt="Estação das Docas">
+                        <img src="../images/img-sobrebelem/doca/por-do-sol2.jpg" alt="Estação das Docas">
                         <div class="turismo-gallery-badge"> 2 fotos</div>
                     </div>
                     <div class="turismo-info">
@@ -180,15 +184,15 @@
                     </div>
                     <!-- Dados Ocultos da Galeria -->
                     <div id="gallery-docas" class="dados-galeria">
-                        <div class="gallery-item" data-src="images/img-sobrebelem/doca/por-do-sol2.jpg" data-desc="<strong>Pôr do sol na Baía do Guajará:</strong> O calçadão da Estação das Docas oferece uma das vistas mais disputadas da cidade no fim de tarde."></div>
-                        <div class="gallery-item" data-src="images/img-sobrebelem/doca/espaco-gastromico.jpg" data-desc="<strong>Gastronomia e Cultura:</strong> Os antigos armazéns de ferro abrigam restaurantes regionais, choperias artesanais e exposições artísticas."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/doca/por-do-sol2.jpg" data-desc="<strong>Pôr do sol na Baía do Guajará:</strong> O calçadão da Estação das Docas oferece uma das vistas mais disputadas da cidade no fim de tarde."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/doca/espaco-gastromico.jpg" data-desc="<strong>Gastronomia e Cultura:</strong> Os antigos armazéns de ferro abrigam restaurantes regionais, choperias artesanais e exposições artísticas."></div>
                     </div>
                 </div>
 
                 <!-- Card 3: Theatro da Paz -->
                 <div class="card-turismo">
                     <div class="turismo-img-cover" data-gallery-target="gallery-teatro">
-                        <img src="images/img-sobrebelem/theatro/images.jpeg" alt="Theatro da Paz">
+                        <img src="../images/img-sobrebelem/theatro/images.jpeg" alt="Theatro da Paz">
                         <div class="turismo-gallery-badge">2 fotos</div>
                     </div>
                     <div class="turismo-info">
@@ -197,15 +201,15 @@
                     </div>
                     <!-- Dados Ocultos da Galeria -->
                     <div id="gallery-teatro" class="dados-galeria">
-                        <div class="gallery-item" data-src="images/img-sobrebelem/theatro/images.jpeg" data-desc="<strong>Fachada Neoclássica:</strong> Símbolo máximo da riqueza gerada pela exportação do látex na virada do século XIX para o XX."></div>
-                        <div class="gallery-item" data-src="images/img-sobrebelem/theatro/interior-luxuoso.jpg" data-desc="<strong>Interior luxuoso:</strong> Lustres de cristal, mármores italianos e afrescos detalhados preservam a acústica perfeita da sala de espetáculos principal."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/theatro/images.jpeg" data-desc="<strong>Fachada Neoclássica:</strong> Símbolo máximo da riqueza gerada pela exportação do látex na virada do século XIX para o XX."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/theatro/interior-luxuoso.jpg" data-desc="<strong>Interior luxuoso:</strong> Lustres de cristal, mármores italianos e afrescos detalhados preservam a acústica perfeita da sala de espetáculos principal."></div>
                     </div>
                 </div>
 
                 <!-- Card 4: Mangal das Garças -->
                 <div class="card-turismo">
                     <div class="turismo-img-cover" data-gallery-target="gallery-mangal">
-                        <img src="images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" alt="Mangal das Garças">
+                        <img src="../images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" alt="Mangal das Garças">
                         <div class="turismo-gallery-badge"> 1 foto</div>
                     </div>
                     <div class="turismo-info">
@@ -214,7 +218,7 @@
                     </div>
                     <!-- Dados Ocultos da Galeria -->
                     <div id="gallery-mangal" class="dados-galeria">
-                        <div class="gallery-item" data-src="images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" data-desc="<strong>Ecossistema preservado:</strong> O Mangal das Garças permite o contato direto com a flora e fauna, incluindo guarás, iguanas e garças soltas pelo parque."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" data-desc="<strong>Ecossistema preservado:</strong> O Mangal das Garças permite o contato direto com a flora e fauna, incluindo guarás, iguanas e garças soltas pelo parque."></div>
                     </div>
                 </div>
             </div>
@@ -328,6 +332,6 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-    <script src="script.js?v=3"></script>
+    <script src="../script.js?v=12"></script>
 </body>
 </html>

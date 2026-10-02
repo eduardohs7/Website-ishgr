@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | The Event</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Removido o ../ pois este arquivo ficará na raiz -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS Exclusivo da Página O Evento -->
+    <style>
+        /* Centralização Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .texto-centralizado {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Seção Intro e Stats */
+        .evento-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Seção ISHGR */
+        .ishgr-wrapper {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+        .ishgr-header-margin {
+            margin-bottom: 50px;
+        }
+        .ishgr-desc {
+            max-width: 800px;
+            font-size: 1.05rem;
+            color: var(--text-body);
+            margin-top: 15px;
+        }
+        .ishgr-grid-custom {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+        }
+        @media (max-width: 768px) {
+            .ishgr-grid-custom {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Textos da ISHGR */
+        .ishgr-texto h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        .ishgr-texto p {
+            margin-bottom: 15px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+        .ishgr-texto p.mb-grande {
+            margin-bottom: 30px;
+        }
+        .btn-ishgr-link {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .btn-ishgr-link-icon {
+            font-size: 0.9rem;
+        }
+
+        /* Diretoria ISHGR */
+        .ishgr-diretoria-box {
+            background-color: var(--bg-section);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+        .ishgr-diretoria-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            display: inline-block;
+            color: var(--text-dark);
+        }
+        .ishgr-diretoria-box ul {
+            list-style: none;
+        }
+        .ishgr-diretoria-box li {
+            margin-bottom: 25px;
+        }
+        .ishgr-diretoria-box li:last-child {
+            margin-bottom: 0;
+        }
+        .dir-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-body);
+            display: block;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .dir-title {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+        .dir-sub {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-body);
+            margin-top: 2px;
+        }
+
+        /* Seção Marcos */
+        .marcos-wrapper {
+            padding-bottom: 80px;
+        }
+        .marcos-header-box {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Rodapé */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chamadas.html">Calls for Papers</a></li>
+                <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="atracoes.html">Attractions</a></li>
+                <li><a href="inscricoes.html">Registration</a></li>
+                <li><a href="evento.html" class="active">The Event</a></li>
+                <li><a href="belem.html">About Belém</a></li>
+                <li><a href="contato.html">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <a href="pt-br/evento.html">PT-BR</a> | 
+                    <a href="#" class="active">EN</a> | 
+                    <a href="es/evento.html">ES</a> | 
+                    <a href="fr/evento.html">FR</a>
+                </div>
+                <a href="sistema-login.html" class="btn-nav-login">Participant Area</a>
+            </div>
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">14TH EDITION - BELÉM/PA - 2027</span>
+                <h1 class="page-title">About the event.</h1>
+                <p class="page-desc">The International Conference (CHAGS) is one of the most traditional and relevant global events in the fields of Anthropology, Archaeology, and Human Ecology.</p>
+            </div>
+        </div>
+
+        <section class="evento-intro-section container card hidden">
+            <div class="evento-grid-top">
+                <div class="evento-texto-col">
+                    <p>Held under the auspices of ISHGR, the 14th edition consolidates itself as a strategic space for debate, training, and the dissemination of scientific knowledge focused on sustainability, bioeconomy, and traditional peoples, with the Amazon as the central stage for contemporary discussions.</p>
+                </div>
+                <div class="evento-stats-col evento-stats-grid">
+                    <div class="stat-box"><span class="stat-label">EDITION</span><span class="stat-value">14th</span></div>
+                    <div class="stat-box"><span class="stat-label">YEAR</span><span class="stat-value">2027</span></div>
+                    <div class="stat-box"><span class="stat-label">VENUE</span><span class="stat-value">Belém/PA</span></div>
+                    <div class="stat-box"><span class="stat-label">AVERAGE</span><span class="stat-value">500+ attendees</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="evento-publico-section container card hidden">
+            <div class="evento-grid-bottom">
+                <div class="publico-texto-col">
+                    <span class="badge-text">WHO ATTENDS</span>
+                    <h2>Target audience.</h2>
+                    <p>CHAGS 14 is aimed at <strong>researchers, anthropologists, archaeologists, students</strong>, as well as indigenous leaders, policymakers, and professionals in the socio-environmental sector.</p>
+                    <p><strong>The conference promotes integration</strong> between the global academic community, traditional knowledge, and civil society.</p>
+                </div>
+                <div class="areas-box-col">
+                    <div class="areas-dark-card">
+                        <span class="areas-titulo-badge">COVERED AREAS</span>
+                        <ul class="areas-list-numerada">
+                            <li><span class="area-num">01</span> Anthropology and Archaeology</li>
+                            <li><span class="area-num">02</span> Bioeconomy and Sustainability</li>
+                            <li><span class="area-num">03</span> Territorial and Indigenous Rights</li>
+                            <li><span class="area-num">04</span> Social Technologies and Innovations</li>
+                            <li><span class="area-num">05</span> Climate Change and Local Impacts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre a ISHGR -->
+        <section class="ishgr-section container ishgr-wrapper card hidden">
+            <div class="ishgr-header ishgr-header-margin header-centralizado">
+                <span class="badge-text">INTERNATIONAL SOCIETY</span>
+                <h2>About ISHGR.</h2>
+                <p class="ishgr-desc texto-centralizado">
+                    The International Society for Hunter-Gatherer Research (ISHGR) is the leading global organization dedicated to the study, preservation, and dissemination of research on hunter-gatherer societies.
+                </p>
+            </div>
+
+            <div class="ishgr-grid ishgr-grid-custom">
+                <div class="ishgr-texto">
+                    <h3>History and Mission</h3>
+                    <p>
+                        Since its founding, ISHGR has been the meeting point for anthropologists, archaeologists, ecologists, and traditional populations. The society promotes the ethical exchange of knowledge, respecting the autonomy and wisdom of indigenous peoples.
+                    </p>
+                    <p class="mb-grande">
+                        With each edition of CHAGS, the society renews its commitment to inclusive science, bringing urgent debates on land demarcation, food sovereignty, bioeconomy, and climate resilience to the center of global discussions.
+                    </p>
+                    <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline btn-ishgr-link">
+                        <span>Meet the official board on the ISHGR website</span>
+                        <span class="btn-ishgr-link-icon">&nearr;</span>
+                    </a>
+                </div>
+
+                <div class="ishgr-diretoria ishgr-diretoria-box">
+                    <h3>Organizational Structure</h3>
+                    <ul>
+                        <li>
+                            <span class="dir-label">PRESIDENCY</span>
+                            <span class="dir-title">ISHGR Representative</span>
+                            <span class="dir-sub">Lead Researcher</span>
+                        </li>
+                        <li>
+                            <span class="dir-label">GENERAL SECRETARIAT</span>
+                            <span class="dir-title">Board Members</span>
+                            <span class="dir-sub">Deliberative Committee</span>
+                        </li>
+                        <li>
+                            <span class="dir-label">CHAGS 14 - LOCAL</span>
+                            <span class="dir-title">Belém Committee</span>
+                            <span class="dir-sub">UFPA and Goeldi Museum</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="marcos-section container marcos-wrapper card hidden">
+            <div class="marcos-header-box">
+                <h2>CHAGS Milestones.</h2>
+                <p>Throughout its history, the Conferences have gathered thousands of participants, establishing themselves as the premier forum on ancestral societies.</p>
+            </div>
+            <div class="marcos-timeline">
+                <div class="marco-item"><div class="marco-dot"></div><div class="marco-conteudo"><h3>1966</h3><p>Symposium "Man the Hunter" in Chicago (USA), the founding event.</p></div></div>
+                <div class="marco-item"><div class="marco-dot"></div><div class="marco-conteudo"><h3>1978</h3><p>CHAGS 1 in Paris (France). First official conference of the series.</p></div></div>
+                <div class="marco-item"><div class="marco-dot"></div><div class="marco-conteudo"><h3>2022</h3><p>CHAGS 13 in Dublin (Ireland).</p></div></div>
+                <div class="marco-item highlight"><div class="marco-dot"></div><div class="marco-conteudo"><h3>2027</h3><p>CHAGS 14 hosted in Belém/PA (Brazil). For the first time in the Amazon.</p></div></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Official conference of the International Society for Hunter-Gatherer Research (ISHGR) - connecting education, innovation, and tradition in the Brazilian Amazon.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVIGATION</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Calls for Papers</a></li>
+                    <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                    <li><a href="programacao.html">Schedule</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Registration</a></li>
+                    <li><a href="evento.html" class="active">The Event</a></li>
+                    <li><a href="belem.html">About Belém</a></li>
+                    <li><a href="contato.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMATION</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Participant Area</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">ISHGR Website</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - All rights reserved</p><p>July 12 to 16 - Belém, Pará - Brazil</p></div></div>
+    </footer>
+
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
+        ↑
+    </button>
+    <script src="script.js?v=12"></script>
+</body>
+</html>

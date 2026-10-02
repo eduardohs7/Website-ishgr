@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAGS 14 | Atrações</title>
+    <title>CHAGS 14 | Attractions</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css"></head>
+    <!-- Removido o ../ pois este arquivo ficará na raiz -->
+    <link rel="stylesheet" href="style.css">
 
     <!-- CSS Exclusivo da Página de Atrações -->
     <style>
@@ -147,39 +148,35 @@
 </head>
 <body>
     <header>
-    <!-- Cabeçalho e Navbar -->
         <nav class="navbar">
             <div class="logos-realizacao">
-                <!-- Imagens com ../ para buscar na pasta raiz -->
-                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
-                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
-                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+                <!-- Imagens corrigidas para a raiz -->
+                <img src="images/logos/logoufpa.png" alt="UFPA Logo" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Goeldi Museum Logo" class="logo-placeholder">
+                <img src="images/logos/logo-nevada.jpg" alt="University of Nevada Logo" class="logo-placeholder">
             </div>
             
             <ul class="nav-links">
-                <!-- Estes links ficam normais, pois navegam dentro da pasta pt-br -->
                 <li><a href="index.html">Home</a></li>
-                <li><a href="chamadas.html">Chamadas</a></li>
-                <li><a href="artigos-aceitos.html">Trabalhos</a></li>
-                <li><a href="programacao.html">Programação</a></li>
-                <li><a href="atracoes.html">Atrações</a></li>
-                <li><a href="inscricoes.html">Inscrições</a></li>
-                <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html">Sobre Belém</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="chamadas.html">Calls for Papers</a></li>
+                <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="atracoes.html" class="active">Attractions</a></li>
+                <li><a href="inscricoes.html">Registration</a></li>
+                <li><a href="evento.html">The Event</a></li>
+                <li><a href="belem.html">About Belém</a></li>
+                <li><a href="contato.html">Contact</a></li>
             </ul>
             
             <div class="nav-actions">
-                <!-- Seletor de Idiomas (O Efeito Bolha) -->
+                <!-- Seletor de Idiomas (Efeito Bolha) apontando corretamente -->
                 <div class="lang-selector">
-                    <!-- O PT-BR fica inativo pois já estamos nele -->
-                    <a href="#" class="active">PT-BR</a> | 
-                    <!-- Os outros voltam uma pasta (../) e entram na pasta certa -->
-                    <a href="../index.html">EN</a> | 
-                    <a href="../es/index.html">ES</a> | 
-                    <a href="../fr/index.html">FR</a>
+                    <a href="pt-br/atracoes.html">PT-BR</a> | 
+                    <a href="#" class="active">EN</a> | 
+                    <a href="es/atracoes.html">ES</a> | 
+                    <a href="fr/atracoes.html">FR</a>
                 </div>
-                <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
+                <a href="sistema-login.html" class="btn-nav-login">Participant Area</a>
             </div>
             
             <div class="hamburger"><span></span><span></span><span></span></div>
@@ -188,18 +185,19 @@
     <main>
         <div class="page-header">
             <div class="container header-centralizado">
-                <span class="badge-text">CONVIDADOS CONFIRMADOS - CHAGS 14</span>
-                <h1 class="page-title">Atrações.</h1>
-                <p class="page-desc">Conheça os convidados das palestras, painéis e rodas de conversa da conferência em Belém.</p>
+                <span class="badge-text">CONFIRMED GUESTS - CHAGS 14</span>
+                <h1 class="page-title">Attractions.</h1>
+                <p class="page-desc">Meet the guests for the lectures, panels, and conversation circles of the conference in Belém.</p>
             </div>
         </div>
 
-        <section class="atracoes-tabs-section containe card hidden">
+        <section class="atracoes-tabs-section container card hidden">
             <div class="tabs-wrapper">
-                <button class="tab-btn active" data-filter="todos">TODOS</button>
-                <button class="tab-btn" data-filter="palestra">PALESTRAS</button>
-                <button class="tab-btn" data-filter="painel">PAINÉIS</button>
-                <button class="tab-btn" data-filter="oficina">OFICINAS</button>
+                <!-- Mantendo o data-filter em pt-br para não quebrar o JS existente -->
+                <button class="tab-btn active" data-filter="todos">ALL</button>
+                <button class="tab-btn" data-filter="palestra">LECTURES</button>
+                <button class="tab-btn" data-filter="painel">PANELS</button>
+                <button class="tab-btn" data-filter="oficina">WORKSHOPS</button>
             </div>
         </section>
 
@@ -211,21 +209,21 @@
                         <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
                     </div>
                     <div class="atracao-info-col info-col-padrao">
-                        <span class="type-badge badge-palestra-custom card-tipo">PALESTRA</span>
+                        <span class="type-badge badge-palestra-custom card-tipo">LECTURE</span>
                         <h3 class="convidado-nome card-nome nome-destaque">Dr. Louis Forline</h3>
                         <p class="convidado-inst card-inst inst-destaque">UNIVERSITY OF NEVADA (UNLV)</p>
                         
                         <div class="convidado-tema tema-box">
-                            <strong class="card-tema tema-titulo">Futuros Ancestrais e a Ecologia Humana na Amazônia</strong>
-                            <p class="tema-desc">Pesquisador sênior e um dos maiores especialistas globais em sociedades de caçadores-coletores.</p>
+                            <strong class="card-tema tema-titulo">Ancestral Futures and Human Ecology in the Amazon</strong>
+                            <p class="tema-desc">Senior researcher and one of the leading global experts on hunter-gatherer societies.</p>
                         </div>
                         
                         <div class="hidden-bio">
-                            <p>A produção científica global e o estudo das sociedades ancestrais crescem de forma acelerada. Richard B. Lee possui extensa experiência analisando o comportamento de grupos caçadores-coletores e como suas dinâmicas de sustentabilidade podem guiar soluções modernas para a crise climática.</p>
+                            <p>Global scientific production and the study of ancestral societies are growing rapidly. Richard B. Lee has extensive experience analyzing the behavior of hunter-gatherer groups and how their sustainability dynamics can guide modern solutions to the climate crisis.</p>
                         </div>
                         
                         <div class="card-footer-right rodape-card">
-                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Ver detalhes &rarr;</button>
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">View details &rarr;</button>
                         </div>
                     </div>
                 </div>
@@ -236,27 +234,27 @@
                         <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
                     </div>
                     <div class="atracao-info-col info-col-padrao">
-                        <span class="type-badge badge-painel-custom card-tipo">PAINEL</span>
-                        <h3 class="convidado-nome card-nome nome-destaque">Profa. Dra. Maria de Fátima Souza</h3>
-                        <p class="convidado-inst card-inst inst-destaque">UNIVERSIDADE FEDERAL DO PARÁ (UFPA)</p>
+                        <span class="type-badge badge-painel-custom card-tipo">PANEL</span>
+                        <h3 class="convidado-nome card-nome nome-destaque">Prof. Dr. Maria de Fátima Souza</h3>
+                        <p class="convidado-inst card-inst inst-destaque">FEDERAL UNIVERSITY OF PARÁ (UFPA)</p>
                         
                         <div class="convidado-tema tema-box">
-                            <strong class="card-tema tema-titulo">Tecnologias Sociais e Inclusão em Comunidades Ribeirinhas</strong>
-                            <p class="tema-desc">Com doutorado em Ecologia, a pesquisadora trará discussões sobre inovações sociais aplicadas à bioeconomia.</p>
+                            <strong class="card-tema tema-titulo">Social Technologies and Inclusion in Riverside Communities</strong>
+                            <p class="tema-desc">With a PhD in Ecology, the researcher will bring discussions on social innovations applied to bioeconomy.</p>
                         </div>
                         
                         <div class="hidden-bio">
-                            <p>Professora Titular da UFPA, atua há mais de 20 anos com comunidades ribeirinhas do estuário amazônico, buscando soluções de inovação social que conectam rigor acadêmico com valor real para as populações locais.</p>
+                            <p>Full Professor at UFPA, she has been working for over 20 years with riverside communities in the Amazon estuary, seeking social innovation solutions that connect academic rigor with real value for local populations.</p>
                         </div>
                         
                         <div class="card-footer-right rodape-card">
-                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Ver detalhes &rarr;</button>
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">View details &rarr;</button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <p class="nota-rodape-atracoes">O título e o conteúdo definitivo dos painéis ainda poderão receber ajustes da comissão científica.</p>
+            <p class="nota-rodape-atracoes">The title and final content of the panels are subject to adjustments by the scientific committee.</p>
         </section>
 
         <!-- ESTRUTURA DO MODAL -->
@@ -264,14 +262,14 @@
             <div class="modal-content">
                 <div class="modal-left">
                     <div class="modal-foto-custom">👤</div>
-                    <span id="modal-badge" class="modal-badge-custom">PALESTRA</span>
-                    <p id="modal-inst" class="modal-inst-custom">INSTITUIÇÃO</p>
+                    <span id="modal-badge" class="modal-badge-custom">LECTURE</span>
+                    <p id="modal-inst" class="modal-inst-custom">INSTITUTION</p>
                 </div>
                 
                 <div class="modal-right-custom">
                     <button class="close-modal">&times;</button>
-                    <h2 id="modal-nome" class="modal-nome-custom">Nome</h2>
-                    <h3 id="modal-tema" class="modal-tema-custom">Tema</h3>
+                    <h2 id="modal-nome" class="modal-nome-custom">Name</h2>
+                    <h3 id="modal-tema" class="modal-tema-custom">Topic</h3>
                     <div id="modal-bio" class="modal-bio-custom">
                         <!-- Bio inserida pelo JS -->
                     </div>
@@ -284,33 +282,36 @@
         <div class="footer-container container">
             <div class="footer-col-identidade">
                 <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
-                <p>Conferência oficial da International Society for Hunter-Gatherer Research (ISHGR) - conectando ensino, inovação e tradição na Amazônia brasileira.</p>
+                <p>Official conference of the International Society for Hunter-Gatherer Research (ISHGR) - connecting education, innovation, and tradition in the Brazilian Amazon.</p>
             </div>
             <div class="footer-col-nav">
-                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <h4 class="footer-title">NAVIGATION</h4>
                 <ul class="footer-links-grid">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="chamadas.html">Chamadas</a></li>
-                    <li><a href="artigos-aceitos.html">Trabalhos</a></li>
-                    <li><a href="programacao.html">Programação</a></li>
-                    <li><a href="atracoes.html">Atrações</a></li>
-                    <li><a href="inscricoes.html">Inscrições</a></li>
-                    <li><a href="evento.html">O Evento</a></li>
-                    <li><a href="belem.html" class="active">Sobre Belém</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="chamadas.html">Calls for Papers</a></li>
+                    <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                    <li><a href="programacao.html">Schedule</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Registration</a></li>
+                    <li><a href="evento.html">The Event</a></li>
+                    <li><a href="belem.html">About Belém</a></li>
+                    <li><a href="contato.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
-                <h4 class="footer-title">INFORMAÇÕES</h4>
+                <h4 class="footer-title">INFORMATION</h4>
                 <ul class="footer-links-grid footer-col-unica">
-                    <li><a href="sistema-login.html">Área do Participante</a></li>
-                    <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
+                    <li><a href="sistema-login.html">Participant Area</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">ISHGR Website</a></li>
                 </ul>
             </div>
         </div>
-        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - All rights reserved</p><p>July 12 to 16 - Belém, Pará - Brazil</p></div></div>
     </footer>
-    <script src="../script.js?v=12"></script>
-
+    <!-- Removido o ../ do Script -->
+    <script src="script.js"></script>
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
+        ↑
+    </button>
 </body>
 </html>

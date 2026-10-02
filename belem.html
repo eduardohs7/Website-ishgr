@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | About Belém</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Removido o ../ pois este arquivo ficará na raiz -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- CSS Exclusivo da Página Sobre Belém -->
+    <style>
+        /* Centralização Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .texto-centralizado {
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        /* Espaçamentos de Seção */
+        .secao-padding-padrao {
+            padding: 40px 0;
+        }
+        .secao-padding-grande {
+            padding-bottom: 100px;
+        }
+
+        /* Introdução e Turismo */
+        .belem-intro {
+            max-width: 900px;
+            margin-bottom: 50px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-body);
+        }
+        .turismo-header {
+            margin-bottom: 40px;
+        }
+        .turismo-header p {
+            color: var(--text-body);
+            margin-top: 10px;
+        }
+        .dados-galeria {
+            display: none;
+        }
+
+        /* Gastronomia */
+        .badge-gastronomia {
+            color: var(--accent);
+        }
+        .gastronomia-titulo {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-title);
+        }
+        .gastronomia-desc {
+            max-width: 700px;
+            color: #CBD5E0;
+            font-size: 1.05rem;
+        }
+
+        /* Sustentabilidade */
+        .sust-header-area {
+            margin-bottom: 40px;
+        }
+        .badge-sust {
+            color: #2F855A;
+        }
+        .sust-titulo {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+        .sust-desc {
+            max-width: 800px;
+            font-size: 1.05rem;
+            color: var(--text-body);
+        }
+        .sust-icon {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens corrigidas para buscar na pasta raiz -->
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chamadas.html">Calls for Papers</a></li>
+                <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="atracoes.html">Attractions</a></li>
+                <li><a href="inscricoes.html">Registration</a></li>
+                <li><a href="evento.html">The Event</a></li>
+                <li><a href="belem.html" class="active">About Belém</a></li>
+                <li><a href="contato.html">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Seletor de Idiomas (Efeito Bolha) -->
+                <div class="lang-selector">
+                    <a href="pt-br/belem.html">PT-BR</a> | 
+                    <a href="#" class="active">EN</a> | 
+                    <a href="es/belem.html">ES</a> | 
+                    <a href="fr/belem.html">FR</a>
+                </div>
+                <a href="sistema-login.html" class="btn-nav-login">Participant Area</a>
+            </div>
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">CHAGS 14 VENUE</span>
+                <h1 class="page-title">Welcome to Belém.</h1>
+                <p class="page-desc">Discover the metropolis of the Amazon. A city where history, nature, and one of the richest gastronomies in the world meet.</p>
+            </div>
+        </div>
+
+        <section class="container secao-padding-padrao card hidden">
+            <p class="belem-intro texto-centralizado">
+                Founded in 1616, Belém is the capital of the state of Pará and the main gateway to the Brazilian Amazon. Washed by the Guajará Bay, the city offers <strong>CHAGS 14</strong> participants a unique experience, combining the rigor of scientific debates with the experience in a territory of deep indigenous heritage, European architecture from the rubber cycle, and a vibrant culture.
+            </p>
+
+            <div class="turismo-header texto-centralizado">
+                <h2>Culture and Tourism</h2>
+                <p>Must-see places to visit during your stay. Click on the images to expand.</p>
+            </div>
+
+            <div class="turismo-grid">
+                <!-- Card 1: Ver-o-Peso -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-veropeso">
+                        <img src="images/img-sobrebelem/Ver-oPeso-Belem.jpg" alt="Ver-o-Peso Market">
+                        <div class="turismo-gallery-badge"> 3 photos</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Ver-o-Peso Market</h3>
+                        <p>The largest open-air market in Latin America. A historical complex where you can find medicinal herbs, Amazonian fish, handicrafts, and the essence of Pará's culture on the riverbanks.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-veropeso" class="dados-galeria">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/Ver-oPeso-Belem.jpg" data-desc="<strong>Meat and Fish Market:</strong> Iron architecture imported from Europe during the Belle Époque. Fresh fish caught in the region's rivers arrive here."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/rua-das-erveiras-belem-Ver-o-peso-acervo-pessoal-scaled-e1646361754878-1536x1170-1.jpg" data-desc="<strong>Herbalists' Sector:</strong> Traditional stalls selling aromatic baths, roots, bark, and oils extracted from the forest for physical and spiritual healing."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/images.jpeg" data-desc="<strong>Ver-o-Peso Açaí:</strong> The place where boats dock at dawn bringing tons of fresh fruit directly from the neighboring islands."></div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Estação das Docas -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-docas">
+                        <img src="images/img-sobrebelem/doca/por-do-sol2.jpg" alt="Estação das Docas">
+                        <div class="turismo-gallery-badge"> 2 photos</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Estação das Docas</h3>
+                        <p>A restored old river port that has become a modern tourist complex. An excellent option for a late afternoon with high-end restaurants, craft beers, and a view of the bay.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-docas" class="dados-galeria">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/doca/por-do-sol2.jpg" data-desc="<strong>Sunset at Guajará Bay:</strong> The boardwalk of Estação das Docas offers one of the most sought-after views in the city in the late afternoon."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/doca/espaco-gastromico.jpg" data-desc="<strong>Gastronomy and Culture:</strong> The old iron warehouses house regional restaurants, craft breweries, and art exhibitions."></div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Theatro da Paz -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-teatro">
+                        <img src="images/img-sobrebelem/theatro/images.jpeg" alt="Theatro da Paz">
+                        <div class="turismo-gallery-badge">2 photos</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Theatro da Paz</h3>
+                        <p>Inaugurated in 1878 during the Rubber Cycle, it is one of the most beautiful theaters in Brazil, with neoclassical architecture and materials imported from Europe at the height of the Amazonian Belle Époque.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-teatro" class="dados-galeria">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/theatro/images.jpeg" data-desc="<strong>Neoclassical Facade:</strong> The ultimate symbol of the wealth generated by latex exports at the turn of the 19th to the 20th century."></div>
+                        <div class="gallery-item" data-src="images/img-sobrebelem/theatro/interior-luxuoso.jpg" data-desc="<strong>Luxurious Interior:</strong> Crystal chandeliers, Italian marble, and detailed frescoes preserve the perfect acoustics of the main performance hall."></div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Mangal das Garças -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-mangal">
+                        <img src="images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" alt="Mangal das Garças">
+                        <div class="turismo-gallery-badge"> 1 photo</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Mangal das Garças</h3>
+                        <p>A zoobotanical park in the heart of the city that reproduces the different ecosystems of the Amazon, housing free-flying birds, a butterfly garden, and the Belém Lighthouse.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-mangal" class="dados-galeria">
+                        <div class="gallery-item" data-src="images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" data-desc="<strong>Preserved Ecosystem:</strong> Mangal das Garças allows direct contact with flora and fauna, including scarlet ibises, iguanas, and herons roaming free in the park."></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Gastronomia -->
+        <section class="gastronomia-section card hidden">
+            <div class="container header-centralizado">
+                <span class="badge-text badge-gastronomia">AMAZONIAN FLAVORS</span>
+                <h2 class="gastronomia-titulo">Pará Cuisine</h2>
+                <p class="gastronomia-desc texto-centralizado">
+                    Internationally recognized and awarded by UNESCO, Belém's gastronomy is a fusion of ancestral forest ingredients.
+                </p>
+
+                <div class="gastronomia-grid">
+                    <div class="gastro-item">
+                        <h4>Traditional Açaí</h4>
+                        <p>Unlike the rest of the world, in Belém, açaí is consumed pure, without sugar, serving as the main accompaniment for fried fish, shrimp, or jerky, always with cassava flour.</p>
+                    </div>
+                    <div class="gastro-item">
+                        <h4>Tacacá</h4>
+                        <p>Indigenous broth served hot in a gourd, made with tucupi (yellow juice from wild cassava), tapioca starch, jambu leaves (which cause mouth numbness), and dried shrimp.</p>
+                    </div>
+                    <div class="gastro-item">
+                        <h4>Maniçoba</h4>
+                        <p>Known as the "Amazonian feijoada", it takes up to seven days to prepare, boiling ground wild cassava leaves with various smoked and salted meats.</p>
+                    </div>
+                    <div class="gastro-item">
+                        <h4>Filhote and Tambaqui</h4>
+                        <p>Noble fish from the Amazonian rivers, usually served roasted over coals, in stews, or accompanied by regional sauces and jambu rice.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sustentabilidade e Meio Ambiente -->
+        <section class="container secao-padding-grande card hidden">
+            <div class="sustentabilidade-box">
+                <div class="sust-header-area header-centralizado">
+                    <span class="badge-text badge-sust">ECOSYSTEM AND CLIMATE</span>
+                    <h2 class="sust-titulo">Sustainability and the Environment in the Amazon</h2>
+                    <p class="sust-desc texto-centralizado">
+                        Hosting CHAGS 14 in Belém places the event at the epicenter of global debates on forest conservation, bioeconomy, and the rights of indigenous peoples and traditional communities.
+                    </p>
+                </div>
+
+                <div class="sustentabilidade-grid">
+                    <div class="sust-card">
+                        <div class="sust-icon">🌳</div>
+                        <h4>The Forest and the Estuary</h4>
+                        <p>Belém is surrounded by waters and islands that make up the estuarine floodplain ecosystem. The relationship between the city and the Amazon forest is a living laboratory of sustainable management and human adaptation.</p>
+                    </div>
+
+                    <div class="sust-card">
+                        <div class="sust-icon">🌱</div>
+                        <h4>Bioeconomy and Knowledge</h4>
+                        <p>The state of Pará leads initiatives transitioning to an economy based on the standing forest, valuing the sustainable extraction of açaí, native cocoa, oils, and essences managed for generations.</p>
+                    </div>
+
+                    <div class="sust-card">
+                        <div class="sust-icon">🤝</div>
+                        <h4>Traditional Protagonism</h4>
+                        <p>Indigenous peoples, riverside dwellers, quilombolas, and extractivists are the historical guardians of sociobiodiversity. The conference acts as a bridge to integrate these ancestral knowledges into global scientific discussions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX / CARROSSEL HTML -->
+        <div class="lightbox-overlay" id="turismo-lightbox">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lb-close">&times;</button>
+                <button class="lightbox-nav lightbox-prev" id="lb-prev">&#10094;</button>
+                
+                <img src="" alt="Expanded image" class="lightbox-img" id="lb-img">
+                <p class="lightbox-caption" id="lb-caption"></p>
+                
+                <button class="lightbox-nav lightbox-next" id="lb-next">&#10095;</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Official conference of the International Society for Hunter-Gatherer Research (ISHGR) - connecting education, innovation, and tradition in the Brazilian Amazon.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVIGATION</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Calls for Papers</a></li>
+                    <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                    <li><a href="programacao.html">Schedule</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Registration</a></li>
+                    <li><a href="evento.html">The Event</a></li>
+                    <li><a href="belem.html" class="active">About Belém</a></li>
+                    <li><a href="contato.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMATION</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Participant Area</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">ISHGR Website</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - All rights reserved</p><p>July 12 to 16 - Belém, Pará - Brazil</p></div></div>
+    </footer>
+    
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
+        ↑
+    </button>
+
+    <script src="script.js?v=12"></script>
+</body>
+</html>

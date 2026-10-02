@@ -6,7 +6,7 @@
     <title>CHAGS 14 - Still We Rise | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- CSS na raiz (sem ../) -->
-    <link rel="stylesheet" href="style.css?v=15">
+    <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
     <header>
@@ -51,7 +51,7 @@
 
     <main>
         <div class="banner-gradient">
-            <section class="hero-section container card hidden">
+            <section class="hero-section container hidden">
                 <div class="hero-content">
                     <span class="badge-top">14TH EDITION - 2027</span>
                     <h1 class="hero-title">CHAGS 14<br><span class="hero-subtitle">Still We Rise</span></h1>
@@ -86,7 +86,7 @@
             </section>
         </div>
 
-        <section class="container" style="padding: 40px 0 20px;">
+        <section class="container hidden" style="padding: 40px 0 20px;">
             <div style="background-color: var(--bg-section); border: 1px solid var(--border-color); border-radius: 4px; padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
                 <div>
                     <span class="badge-text" style="margin-bottom: 5px;">INTERNATIONAL SOCIETY</span>
@@ -99,7 +99,7 @@
             </div>
         </section>
 
-        <section class="sobre-section container">
+        <section class="sobre-section container hidden">
             <div class="sobre-top">
                 <div class="sobre-titulo-area">
                     <span class="badge-text">About the Event</span>
@@ -135,7 +135,7 @@
             </div>
         </section>
         
-        <section class="noticias-carousel-section">
+        <section class="noticias-carousel-section hidden">
             <div class="container">
                 <div class="secao-header" style="margin-bottom: 40px; text-align: center;">
                     <span class="badge-text">EVENT UPDATES</span>
@@ -171,7 +171,7 @@
             </div>
         </section>
 
-        <section class="organizacao-section">
+        <section class="organizacao-section hidden">
             <div class="container">
                 <div class="org-top">
                     <div class="org-titulo-area">
@@ -255,8 +255,9 @@
             </div>
         </div>
     </footer>
-    
-    <!-- JS na raiz (sem ../) -->
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
+        ↑
+    </button>
     <script src="script.js"></script>
 </body>
 </html>

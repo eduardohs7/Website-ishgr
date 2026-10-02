@@ -5,21 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Submissão de Trabalhos</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css"></head>
 </head>
 <body>
-<header>
+    <header>
+    <!-- Cabeçalho e Navbar -->
         <nav class="navbar">
             <div class="logos-realizacao">
-               <a href="index.html">
-                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
-                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
-                <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
-               </a>
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
             
             <ul class="nav-links">
-                <li><a href="index_ingles.html">Home</a></li>
+                <!-- Estes links ficam normais, pois navegam dentro da pasta pt-br -->
+                <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
                 <li><a href="artigos-aceitos.html">Trabalhos</a></li>
                 <li><a href="programacao.html">Programação</a></li>
@@ -31,16 +32,19 @@
             </ul>
             
             <div class="nav-actions">
-                <!-- Seletor de Idiomas Atualizado -->
+                <!-- Seletor de Idiomas (O Efeito Bolha) -->
                 <div class="lang-selector">
-                    <a href="#">PT-BR</a> | <a href="#">ES</a> | <a href="#">FR</a>
+                    <!-- O PT-BR fica inativo pois já estamos nele -->
+                    <a href="#" class="active">PT-BR</a> | 
+                    <!-- Os outros voltam uma pasta (../) e entram na pasta certa -->
+                    <a href="../index.html">EN</a> | 
+                    <a href="../es/index.html">ES</a> | 
+                    <a href="../fr/index.html">FR</a>
                 </div>
                 <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
             </div>
             
-            <div class="hamburger">
-                <span></span><span></span><span></span>
-            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>
 
@@ -151,6 +155,6 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
     </footer>
-    <script src="script.js"></script>
+    <script src="../script.js?v=12"></script>
 </body>
 </html>

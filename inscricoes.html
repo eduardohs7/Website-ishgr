@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAGS 14 | Inscrições</title>
+    <title>CHAGS 14 | Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css"></head>
+    <!-- Removido o ../ pois este arquivo ficará na raiz -->
+    <link rel="stylesheet" href="style.css">
     
     <!-- CSS Exclusivo da Página de Inscrições -->
     <style>
@@ -98,36 +99,33 @@
     <!-- Cabeçalho e Navbar -->
         <nav class="navbar">
             <div class="logos-realizacao">
-                <!-- Imagens com ../ para buscar na pasta raiz -->
-                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
-                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
-                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+                <!-- Imagens corrigidas para buscar na pasta raiz -->
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
             
             <ul class="nav-links">
-                <!-- Estes links ficam normais, pois navegam dentro da pasta pt-br -->
                 <li><a href="index.html">Home</a></li>
-                <li><a href="chamadas.html">Chamadas</a></li>
-                <li><a href="artigos-aceitos.html">Trabalhos</a></li>
-                <li><a href="programacao.html">Programação</a></li>
-                <li><a href="atracoes.html">Atrações</a></li>
-                <li><a href="inscricoes.html">Inscrições</a></li>
-                <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html">Sobre Belém</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="chamadas.html">Calls for Papers</a></li>
+                <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="atracoes.html">Attractions</a></li>
+                <li><a href="inscricoes.html" class="active">Registration</a></li>
+                <li><a href="evento.html">The Event</a></li>
+                <li><a href="belem.html">About Belém</a></li>
+                <li><a href="contato.html">Contact</a></li>
             </ul>
             
             <div class="nav-actions">
-                <!-- Seletor de Idiomas (O Efeito Bolha) -->
+                <!-- Seletor de Idiomas (Efeito Bolha) -->
                 <div class="lang-selector">
-                    <!-- O PT-BR fica inativo pois já estamos nele -->
-                    <a href="#" class="active">PT-BR</a> | 
-                    <!-- Os outros voltam uma pasta (../) e entram na pasta certa -->
-                    <a href="../index.html">EN</a> | 
-                    <a href="../es/index.html">ES</a> | 
-                    <a href="../fr/index.html">FR</a>
+                    <a href="pt-br/inscricoes.html">PT-BR</a> | 
+                    <a href="#" class="active">EN</a> | 
+                    <a href="es/inscricoes.html">ES</a> | 
+                    <a href="fr/inscricoes.html">FR</a>
                 </div>
-                <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
+                <a href="sistema-login.html" class="btn-nav-login">Participant Area</a>
             </div>
             
             <div class="hamburger"><span></span><span></span><span></span></div>
@@ -137,9 +135,9 @@
     <main>
         <div class="page-header">
             <div class="container header-centralizado">
-                <span class="badge-text">PARTICIPE DO CHAGS 14</span>
-                <h1 class="page-title">Inscrições.</h1>
-                <p class="page-desc">As inscrições para a 14ª Conferência Internacional serão abertas em breve. Confira abaixo as categorias, lotes e valores previstos.</p>
+                <span class="badge-text">JOIN CHAGS 14</span>
+                <h1 class="page-title">Registration.</h1>
+                <p class="page-desc">Registration for the 14th International Conference will open soon. Check the categories, batches, and expected fees below.</p>
             </div>
         </div>
 
@@ -147,19 +145,19 @@
             <div class="secao-numerada">
                 <div class="secao-header-flex">
                     <span class="num">01</span>
-                    <h2>Categorias e Valores</h2>
+                    <h2>Categories and Fees</h2>
                 </div>
                 
                 <div class="tabela-categoria">
                     <div class="tabela-header">
-                        <span class="tabela-cabecalho-texto">CATEGORIA</span>
-                        <span class="tabela-cabecalho-texto">VALOR (BRL)</span>
+                        <span class="tabela-cabecalho-texto">CATEGORY</span>
+                        <span class="tabela-cabecalho-texto">FEE (BRL)</span>
                     </div>
                     
                     <div class="tabela-linha">
                         <div class="linha-info">
-                            <span class="linha-titulo">Pesquisadores e Professores</span>
-                            <span class="linha-subtitulo">Vínculo institucional ativo obrigatório</span>
+                            <span class="linha-titulo">Researchers and Professors</span>
+                            <span class="linha-subtitulo">Active institutional affiliation required</span>
                         </div>
                         <div class="linha-valores">
                             <span>R$ 300,00</span>
@@ -168,8 +166,8 @@
 
                     <div class="tabela-linha">
                         <div class="linha-info">
-                            <span class="linha-titulo">Estudantes de Pós-Graduação</span>
-                            <span class="linha-subtitulo">Mestrado e Doutorado (com comprovante)</span>
+                            <span class="linha-titulo">Graduate Students</span>
+                            <span class="linha-subtitulo">Master's and PhD (with proof)</span>
                         </div>
                         <div class="linha-valores">
                             <span>R$ 200,00</span>
@@ -178,8 +176,8 @@
 
                     <div class="tabela-linha">
                         <div class="linha-info">
-                            <span class="linha-titulo">Estudantes de Graduação</span>
-                            <span class="linha-subtitulo">Com comprovante de matrícula</span>
+                            <span class="linha-titulo">Undergraduate Students</span>
+                            <span class="linha-subtitulo">With proof of enrollment</span>
                         </div>
                         <div class="linha-valores">
                             <span>R$ 100,00</span>
@@ -188,7 +186,7 @@
 
                     <div class="tabela-linha">
                         <div class="linha-info">
-                            <span class="linha-titulo">Público em Geral</span>
+                            <span class="linha-titulo">General Public</span>
                         </div>
                         <div class="linha-valores">
                             <span>R$ 100,00</span>
@@ -197,7 +195,7 @@
 
                     <div class="tabela-linha destaque">
                         <div class="linha-info">
-                            <span class="linha-titulo">Públicos especificos</span>
+                            <span class="linha-titulo">Specific Publics</span>
                         </div>
                         <div class="linha-valores">
                             <span class="valor-destaque">R$ 75,00</span>
@@ -209,35 +207,35 @@
             <div class="secao-numerada card hidden">
                 <div class="secao-header-flex">
                     <span class="num">02</span>
-                    <h2>Informações de Pagamento</h2>
+                    <h2>Payment Information</h2>
                 </div>
                 
                 <div class="info-grid">
                     <div class="info-bloco">
-                        <h4>Métodos Aceitos</h4>
-                        <p class="desc-principal">O pagamento poderá ser realizado diretamente pela Área do Participante utilizando:</p>
+                        <h4>Accepted Methods</h4>
+                        <p class="desc-principal">Payment can be made directly through the Participant Area using:</p>
                         <ul>
-                            <li>Cartão de Crédito (Visa, Mastercard, Amex)</li>
-                            <li>PIX (exclusivo para residentes no Brasil)</li>
-                            <li>Transferência Bancária Internacional (Wire Transfer)</li>
+                            <li>Credit Card (Visa, Mastercard, Amex)</li>
+                            <li>PIX (exclusive for residents in Brazil)</li>
+                            <li>International Bank Transfer (Wire Transfer)</li>
                         </ul>
                     </div>
 
                     <div class="info-bloco">
-                        <h4>Política de Isenção</h4>
-                        <p class="desc-principal">A organização oferecerá cotas de isenção total para:</p>
+                        <h4>Exemption Policy</h4>
+                        <p class="desc-principal">The organization will offer full exemption quotas for:</p>
                         <ul>
-                            <li>Lideranças e representantes indígenas</li>
-                            <li>Estudantes em situação de vulnerabilidade comprovada</li>
+                            <li>Indigenous leaders and representatives</li>
+                            <li>Students in proven vulnerable situations</li>
                         </ul>
-                        <p class="nota-rodape">* O edital para solicitação de isenção será publicado na aba Notícias em fevereiro de 2027.</p>
+                        <p class="nota-rodape">* The call for exemption requests will be published in the News tab in February 2027.</p>
                     </div>
                 </div>
             </div>
             
             <div class="cta-container">
-                <p>Acesse o sistema para criar seu perfil e realizar o pagamento.</p>
-                <a href="sistema-login.html" class="btn-large">Acessar Área do Participante</a>
+                <p>Access the system to create your profile and make the payment.</p>
+                <a href="sistema-login.html" class="btn-large">Access Participant Area</a>
             </div>
         </section>
     </main>
@@ -246,32 +244,37 @@
         <div class="footer-container container">
             <div class="footer-col-identidade">
                 <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
-                <p>Conferência oficial da International Society for Hunter-Gatherer Research (ISHGR) - conectando ensino, inovação e tradição na Amazônia brasileira.</p>
+                <p>Official conference of the International Society for Hunter-Gatherer Research (ISHGR) - connecting education, innovation, and tradition in the Brazilian Amazon.</p>
             </div>
             <div class="footer-col-nav">
-                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <h4 class="footer-title">NAVIGATION</h4>
                 <ul class="footer-links-grid">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="chamadas.html">Chamadas</a></li>
-                    <li><a href="artigos-aceitos.html">Trabalhos</a></li>
-                    <li><a href="programacao.html">Programação</a></li>
-                    <li><a href="atracoes.html">Atrações</a></li>
-                    <li><a href="inscricoes.html">Inscrições</a></li>
-                    <li><a href="evento.html">O Evento</a></li>
-                    <li><a href="belem.html" class="active">Sobre Belém</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="chamadas.html">Calls for Papers</a></li>
+                    <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                    <li><a href="programacao.html">Schedule</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Registration</a></li>
+                    <li><a href="evento.html">The Event</a></li>
+                    <li><a href="belem.html">About Belém</a></li>
+                    <li><a href="contato.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
-                <h4 class="footer-title">INFORMAÇÕES</h4>
+                <h4 class="footer-title">INFORMATION</h4>
                 <ul class="footer-links-grid footer-col-unica">
-                    <li><a href="sistema-login.html">Área do Participante</a></li>
-                    <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
+                    <li><a href="sistema-login.html">Participant Area</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">ISHGR Website</a></li>
                 </ul>
             </div>
         </div>
-        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - All rights reserved</p><p>July 12 to 16 - Belém, Pará - Brazil</p></div></div>
     </footer>
-    <script src="../script.js?v=12"></script>
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
+        ↑
+    </button>
+    
+    <!-- Removido o ../ do Script -->
+    <script src="script.js?v=12"></script>
 </body>
 </html>
