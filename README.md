@@ -1,4 +1,4 @@
-link do site pages https://eduardohs7.github.io/Website-ishgr/index.html
+link do site pages https://eduardohs7.github.io/Website-ishgr/
 
 nossa proxima missão é criar uma pagina para as pessoas que vem de fora de belém, será necessario a implementação de uma pagina com sugestões de hoteis e luhgares de hospeção para as pessoas analisarem coisas como localização, comparar preços e etc. Dito isso:
 
