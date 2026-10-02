@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAGS 14 | Trabalhos Aceitos</title>
+    <title>CHAGS 14 | Accepted Papers</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,68 +15,81 @@
                 <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
                 <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
-            <ul class="nav-links">
+            
+           <ul class="nav-links">
+                <!-- Link corrigido para index.html -->
                 <li><a href="index.html">Home</a></li>
-                <li><a href="chamadas.html">Chamadas</a></li>
-                <li><a href="programacao.html">Programação</a></li>
-                <li><a href="atracoes.html">Atrações</a></li>
-                <li><a href="inscricoes.html">Inscrições</a></li>
-                <li><a href="evento.html">O Evento</a></li>
-                <li><a href="belem.html" class="active">Sobre Belém</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="chamadas.html">Calls for Papers</a></li>
+                <li><a href="artigos-aceitos.html" class="active">Accepted Papers</a></li>
+                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="atracoes.html">Attractions</a></li>
+                <li><a href="inscricoes.html">Registration</a></li>
+                <li><a href="evento.html">The Event</a></li>
+                <li><a href="belem.html">About Belém</a></li>
+                <li><a href="contato.html">Contact</a></li>
             </ul>
+            
             <div class="nav-actions">
-                <div class="lang-selector"><a href="#" class="active">PT</a> | <a href="#">EN</a> | <a href="#">ES</a></div>
-                <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
+                <!-- Seletor de Idiomas: Inglês na Raiz -->
+                <div class="lang-selector">
+                    <a href="pt-br/artigos-aceitos.html">PT-BR</a> | 
+                    <a href="#" class="active">EN</a> | 
+                    <a href="es/artigos-aceitos.html">ES</a> | 
+                    <a href="fr/artigos-aceitos.html">FR</a>
+                </div>
+                <a href="sistema-login.html" class="btn-nav-login">Participant Area</a>
             </div>
-            <div class="hamburger"><span></span><span></span><span></span></div>
+            
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
         </nav>
     </header>
 
     <main>
         <div class="page-header">
             <div class="container">
-                <span class="badge-text">RESULTADOS</span>
-                <h1 class="page-title">Trabalhos Aceitos.</h1>
-                <p class="page-desc">Confira as pautas aprovadas para compor as mesas redondas e rodas de conversa do CHAGS 14.</p>
+                <span class="badge-text">RESULTS</span>
+                <h1 class="page-title">Accepted Papers.</h1>
+                <p class="page-desc">Check out the approved proposals that will make up the roundtables and conversation circles of CHAGS 14.</p>
             </div>
         </div>
 
         <section class="container" style="padding-bottom: 80px;">
             <div class="filtros-box">
                 <div class="filtro-item">
-                    <label>BUSCAR TRABALHO</label>
-                    <div class="input-wrapper"><input type="text" placeholder="Título, autor ou instituição" class="filtro-busca"></div>
+                    <label>SEARCH PAPERS</label>
+                    <div class="input-wrapper"><input type="text" placeholder="Title, author, or institution" class="filtro-busca"></div>
                 </div>
                 <div class="filtro-item">
-                    <label>FILTRAR POR TÓPICO</label>
+                    <label>FILTER BY TOPIC</label>
                     <select class="filtro-topico">
-                        <option>Todos os tópicos</option>
-                        <option>Antropologia e Arqueologia</option>
-                        <option>Bioeconomia e Sustentabilidade</option>
-                        <option>Gestão de Recursos Naturais</option>
+                        <option>All topics</option>
+                        <option>Anthropology and Archaeology</option>
+                        <option>Bioeconomy and Sustainability</option>
+                        <option>Natural Resource Management</option>
                     </select>
                 </div>
             </div>
             
-            <p class="resultados-count" style="margin-bottom: 20px;"><strong>03</strong> trabalhos encontrados</p>
+            <p class="resultados-count" style="margin-bottom: 20px;"><strong>03</strong> papers found</p>
 
             <div class="trabalhos-lista">
                 <div class="trabalho-card">
                     <div class="trabalho-numero">01</div>
                     <div class="trabalho-conteudo">
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PAUTA:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">Gestão Territorial e Sustentabilidade nas Comunidades da Calha Norte</h3></div>
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTORES:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Maria de Fátima Souza (UFPA, Brasil), Carlos Eduardo Almeida (MPEG, Brasil)</p></div>
-                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TÓPICO:</span><span class="topico-badge">Gestão de Recursos Naturais</span></div>
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PROPOSAL:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">Territorial Management and Sustainability in the Calha Norte Communities</h3></div>
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTHORS:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Maria de Fátima Souza (UFPA, Brazil), Carlos Eduardo Almeida (MPEG, Brazil)</p></div>
+                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TOPIC:</span><span class="topico-badge">Natural Resource Management</span></div>
                     </div>
                 </div>
 
                 <div class="trabalho-card">
                     <div class="trabalho-numero">02</div>
                     <div class="trabalho-conteudo">
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PAUTA:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">O papel dos saberes ancestrais frente às mudanças climáticas globais</h3></div>
-                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTORES:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Richard Lee (University of Nevada, EUA), Ana Clara Nunes (UFPA, Brasil)</p></div>
-                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TÓPICO:</span><span class="topico-badge">Mudanças Climáticas e Impactos</span></div>
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PROPOSAL:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">The role of ancestral knowledge in the face of global climate change</h3></div>
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTHORS:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Richard Lee (University of Nevada, USA), Ana Clara Nunes (UFPA, Brazil)</p></div>
+                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TOPIC:</span><span class="topico-badge">Climate Change and Impacts</span></div>
                     </div>
                 </div>
             </div>
@@ -87,30 +100,30 @@
         <div class="footer-container container">
             <div class="footer-col-identidade">
                 <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
-                <p>Conferência oficial da International Society for Hunter-Gatherer Research (ISHGR) - conectando ensino, inovação e tradição na Amazônia brasileira.</p>
+                <p>Official conference of the International Society for Hunter-Gatherer Research (ISHGR) - connecting education, innovation, and tradition in the Brazilian Amazon.</p>
             </div>
             <div class="footer-col-nav">
-                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <h4 class="footer-title">NAVIGATION</h4>
                 <ul class="footer-links-grid">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="chamadas.html">Chamadas</a></li>
-                    <li><a href="artigos-aceitos.html">Trabalhos</a></li>
-                    <li><a href="programacao.html">Programação</a></li>
-                    <li><a href="atracoes.html">Atrações</a></li>
-                    <li><a href="inscricoes.html">Inscrições</a></li>
-                    <li><a href="evento.html">O Evento</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="chamadas.html">Calls for Papers</a></li>
+                    <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                    <li><a href="programacao.html">Schedule</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Registration</a></li>
+                    <li><a href="evento.html">The Event</a></li>
+                    <li><a href="contato.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
-                <h4 class="footer-title">INFORMAÇÕES</h4>
+                <h4 class="footer-title">INFORMATION</h4>
                 <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
-                    <li><a href="sistema-login.html">Área do Participante</a></li>
-                    <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
+                    <li><a href="sistema-login.html">Participant Area</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">ISHGR Website</a></li>
                 </ul>
             </div>
         </div>
-        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - All rights reserved</p><p>July 12 to 16 - Belém, Pará - Brazil</p></div></div>
     </footer>
     <script src="script.js"></script>
 </body>

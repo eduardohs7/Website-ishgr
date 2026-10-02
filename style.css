@@ -112,20 +112,26 @@ a {
     gap: 20px;
 }
 
+/* ==========================================================================
+   SELETOR DE IDIOMAS
+   ========================================================================== */
 .lang-selector {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-body);
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaçamento flexível entre as opções */
+    color: var(--border-color);
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 .lang-selector a {
     color: var(--text-body);
-    padding: 0 4px;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
 }
 
-.lang-selector a.active, .lang-selector a:hover {
-    color: var(--text-dark);
+.lang-selector a:hover,
+.lang-selector a.active {
+    color: var(--accent);
     font-weight: 700;
 }
 
