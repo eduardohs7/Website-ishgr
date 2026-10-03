@@ -282,101 +282,157 @@ a {
 }
 
 .hero-image-container {
-    flex: 0.8;
+    flex: 0.9;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    margin-left: -20px;
 }
 
 .hero-img-placeholder {
     width: 100%;
-    max-width: 450px;
+    max-width: 520px;
     height: auto;
-    border-radius: 4px; /* Mais quadrado, menos arredondado */
+    border-radius: 4px;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-
 /* ==========================================================================
-   SEÇÃO SOBRE E ESTATÍSTICAS (MINIMALISTA)
+   BANNER PRINCIPAL (GRADIENTE ISHGR)
    ========================================================================== */
-.sobre-section {
-    padding: 100px 0;
-    background-color: var(--bg-color);
+.banner-gradient {
+    background: var(--header-gradient);
+    width: 100%;
 }
 
-.sobre-top {
+.hero-section {
     display: flex;
     justify-content: space-between;
-    gap: 60px;
-    margin-bottom: 60px;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    min-height: 60vh;
+    gap: 50px;
 }
 
-.badge-text {
-    font-size: 0.85rem;
+/* O BLOCO DE TEXTO */
+.hero-content {
+    flex: 0 1 550px; /* Tamanho base fixo, impede o crescimento para a direita */
+    max-width: 550px; 
+    color: #fff;
+}
+
+.hero-content h1, .hero-content p, .hero-content .info-data {
+    color: #fff;
+}
+
+.badge-top {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    font-size: 0.75rem;
     font-weight: 700;
-    color: var(--text-body);
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.sobre-titulo-area {
-    flex: 1;
-}
-
-.sobre-titulo-area h2 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
-}
-
-.sobre-texto-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
-}
-
-.sobre-texto-area p {
-    font-size: 1.05rem;
-    color: var(--text-body);
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-}
-
-.stat-card {
-    background-color: var(--bg-section);
-    padding: 35px 30px;
-    border-radius: 4px;
-    border: none;
-    transition: transform 0.2s;
-}
-
-.stat-card:hover {
-    transform: translateY(-2px);
-}
-
-.icon-placeholder {
-    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color: var(--accent);
     margin-bottom: 20px;
-    color: var(--text-dark);
 }
 
-.stat-card h4 {
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-weight: 400;
+    font-size: 2rem;
+    display: block;
+    margin-top: 5px;
+    color: #E2E8F0;
+}
+
+.hero-desc {
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    color: #F8F9FA;
+    line-height: 1.6;
 }
 
-.stat-card p {
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+/* Botões do Banner */
+.btn-accent, .btn-outline {
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+    white-space: nowrap; 
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    color: #000;
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-outline {
+    background-color: gainsboro;
+    color: black;
+    border: 1px solid #fff;
+}
+
+.btn-outline:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Rodapé do Banner */
+.hero-footer-info {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+    flex-wrap: nowrap; 
+}
+
+.info-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #CBD5E0;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    white-space: nowrap; 
+}
+
+.info-data {
     font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap; 
 }
 
+/* O BLOCO DA IMAGEM */
+.hero-image-container {
+    flex: 0 1 650px; /* Limite de segurança para a área da imagem */
+    display: flex;
+    justify-content: flex-end; 
+    margin-left: auto; /* Empurra o contentor com força máxima para a margem direita */
+}
+
+.hero-img-placeholder {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
 /* ==========================================================================
    SEÇÃO ORGANIZAÇÃO
    ========================================================================== */

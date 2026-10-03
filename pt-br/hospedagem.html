@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Hospedagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    
+    <!-- CSS Exclusivo da Página de Hospedagem -->
+    <style>
+        /* Centralização do Cabeçalho */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+
+        /* Espaçamentos e Layout Base */
+        .secao-hospedagem {
+            padding: 60px 0 100px;
+        }
+        .intro-hospedagem {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        /* Grid de Hotéis */
+        .hospedagem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Card de Hospedagem */
+        .hotel-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Imagem do Hotel */
+        .hotel-img-container {
+            width: 100%;
+            height: 220px;
+            background-color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .hotel-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .badge-categoria {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: #fff;
+            padding: 5px 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* Informações do Hotel */
+        .hotel-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .hotel-nome {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        .hotel-endereco {
+            font-size: 0.9rem;
+            color: var(--text-body);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        /* Contatos e Reservas */
+        .hotel-contato-box {
+            background: var(--bg-section);
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .hotel-contato-item {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hotel-contato-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Botões de Ação */
+        .hotel-actions {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .map-links {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-map {
+            flex: 1;
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            background: #fff;
+            transition: background 0.3s;
+        }
+        .btn-map:hover {
+            background: var(--bg-section);
+        }
+        .btn-reserva {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: var(--text-dark);
+            color: #fff;
+            padding: 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+        .btn-reserva:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* Rodapé */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chamadas.html">Chamadas</a></li>
+                <li><a href="programacao.html">Programação</a></li>
+                <li><a href="atracoes.html">Atrações</a></li>
+                <li><a href="inscricoes.html">Inscrições</a></li>
+                <li><a href="evento.html">O Evento</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
+                <!-- Adicionado o menu Hospedagem -->
+                <li><a href="hospedagem.html" class="active">Hospedagem</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="lang-selector">
+                    <a href="#" class="active">PT-BR</a> | 
+                    <a href="../hospedagem.html">EN</a> | 
+                    <a href="../es/hospedagem.html">ES</a> | 
+                    <a href="../fr/hospedagem.html">FR</a>
+                </div>
+                <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
+            </div>
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">PLANEJE SUA VIAGEM</span>
+                <h1 class="page-title">Onde ficar em Belém.</h1>
+                <p class="page-desc">Preparamos uma seleção de hotéis com excelente localização, infraestrutura e fácil acesso aos locais da conferência.</p>
+            </div>
+        </div>
+
+        <section class="container secao-hospedagem card hidden">
+            <p class="intro-hospedagem">
+                Para garantir a melhor experiência durante o CHAGS 14, recomendamos opções de hospedagem nas regiões centrais de Belém (bairros Batista Campos, Nazaré, Umarizal e Campina). Confira abaixo algumas sugestões para comparar preços, localizações e realizar sua reserva diretamente com os estabelecimentos.
+            </p>
+
+            <div class="hospedagem-grid">
+                
+                <!-- Hotel 01 -->
+                <div class="hotel-card">
+                    <div class="hotel-img-container">
+                        <!-- Substitua o src pela foto real do hotel -->
+                        <img src="../images/hoteis/princesa-louca.jpg" alt="Hotel Princesa Louçã" onerror="this.style.display='none'">
+                        <span class="badge-categoria">PREMIUM</span>
+                    </div>
+                    <div class="hotel-info">
+                        <h3 class="hotel-nome">Hotel Princesa Louçã</h3>
+                        <p class="hotel-endereco">📍 Av. Pres. Vargas, 882 - Campina, Belém - PA. (Em frente à Praça da República)</p>
+                        
+                        <div class="hotel-contato-box">
+                            <span class="hotel-contato-item">📞 (91) 3201-2000</span>
+                            <span class="hotel-contato-item">✉️ reservas@princesalouca.com.br</span>
+                        </div>
+
+                        <div class="hotel-actions">
+                            <div class="map-links">
+                                <a href="https://maps.google.com/?q=Hotel+Princesa+Louca+Belem" target="_blank" class="btn-map">Google Maps</a>
+                                <a href="http://maps.apple.com/?q=Hotel+Princesa+Louca+Belem" target="_blank" class="btn-map">Apple Maps</a>
+                            </div>
+                            <a href="https://www.hotelprincesalouca.com.br" target="_blank" class="btn-reserva">Acessar Site e Reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 02 -->
+                <div class="hotel-card">
+                    <div class="hotel-img-container">
+                        <img src="../images/hoteis/radisson.jpg" alt="Radisson Hotel Maiorana" onerror="this.style.display='none'">
+                        <span class="badge-categoria">EXECUTIVO</span>
+                    </div>
+                    <div class="hotel-info">
+                        <h3 class="hotel-nome">Radisson Hotel Maiorana</h3>
+                        <p class="hotel-endereco">📍 Av. Brás de Aguiar, 321 - Nazaré, Belém - PA. (Região arborizada e gastronômica)</p>
+                        
+                        <div class="hotel-contato-box">
+                            <span class="hotel-contato-item">📞 (91) 3205-0505</span>
+                            <span class="hotel-contato-item">✉️ reservas.rmbe@atlanticahotels.com.br</span>
+                        </div>
+
+                        <div class="hotel-actions">
+                            <div class="map-links">
+                                <a href="https://maps.google.com/?q=Radisson+Hotel+Maiorana+Belem" target="_blank" class="btn-map">Google Maps</a>
+                                <a href="http://maps.apple.com/?q=Radisson+Hotel+Maiorana+Belem" target="_blank" class="btn-map">Apple Maps</a>
+                            </div>
+                            <a href="https://www.atlanticahotels.com.br" target="_blank" class="btn-reserva">Acessar Site e Reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 03 -->
+                <div class="hotel-card">
+                    <div class="hotel-img-container">
+                        <img src="../images/hoteis/ibis-styles.jpg" alt="Ibis Styles Belém" onerror="this.style.display='none'">
+                        <span class="badge-categoria">CUSTO-BENEFÍCIO</span>
+                    </div>
+                    <div class="hotel-info">
+                        <h3 class="hotel-nome">Ibis Styles Belém do Pará</h3>
+                        <p class="hotel-endereco">📍 Tv. Marechal Hermes, 421 - Campina, Belém - PA. (Próximo à Estação das Docas)</p>
+                        
+                        <div class="hotel-contato-box">
+                            <span class="hotel-contato-item">📞 (91) 3321-8000</span>
+                            <span class="hotel-contato-item">✉️ h9207-re@accor.com</span>
+                        </div>
+
+                        <div class="hotel-actions">
+                            <div class="map-links">
+                                <a href="https://maps.google.com/?q=Ibis+Styles+Belem+Campina" target="_blank" class="btn-map">Google Maps</a>
+                                <a href="http://maps.apple.com/?q=Ibis+Styles+Belem+Campina" target="_blank" class="btn-map">Apple Maps</a>
+                            </div>
+                            <a href="https://all.accor.com" target="_blank" class="btn-reserva">Acessar Site e Reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 04 -->
+                <div class="hotel-card">
+                    <div class="hotel-img-container">
+                        <img src="../images/hoteis/mercure.jpg" alt="Grand Mercure Belém" onerror="this.style.display='none'">
+                        <span class="badge-categoria">PREMIUM</span>
+                    </div>
+                    <div class="hotel-info">
+                        <h3 class="hotel-nome">Grand Mercure Belém</h3>
+                        <p class="hotel-endereco">📍 Av. Nazaré, 375 - Nazaré, Belém - PA. (Centro histórico e comercial)</p>
+                        
+                        <div class="hotel-contato-box">
+                            <span class="hotel-contato-item">📞 (91) 3202-2000</span>
+                            <span class="hotel-contato-item">✉️ h7858-re@accor.com</span>
+                        </div>
+
+                        <div class="hotel-actions">
+                            <div class="map-links">
+                                <a href="https://maps.google.com/?q=Grand+Mercure+Belem" target="_blank" class="btn-map">Google Maps</a>
+                                <a href="http://maps.apple.com/?q=Grand+Mercure+Belem" target="_blank" class="btn-map">Apple Maps</a>
+                            </div>
+                            <a href="https://all.accor.com" target="_blank" class="btn-reserva">Acessar Site e Reservar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conferência oficial da International Society for Hunter-Gatherer Research (ISHGR) - conectando ensino, inovação e tradição na Amazônia brasileira.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGAÇÃO</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Chamadas</a></li>
+                    <li><a href="programacao.html">Programação</a></li>
+                    <li><a href="atracoes.html">Atrações</a></li>
+                    <li><a href="inscricoes.html">Inscrições</a></li>
+                    <li><a href="evento.html">O Evento</a></li>
+                    <li><a href="belem.html">Sobre Belém</a></li>
+                    <li><a href="hospedagem.html" class="active">Hospedagem</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMAÇÕES</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Área do Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos os direitos reservados</p><p>12 a 16 de julho - Belém, Pará - Brasil</p></div></div>
+    </footer>
+    <script src="../script.js?v=13"></script>
+</body>
+</html>
