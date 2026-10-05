@@ -119,17 +119,18 @@
             </ul>
             
             <div class="nav-actions">
-                <!-- Seletor de Idiomas (O Efeito Bolha) -->
-                <div class="lang-selector">
-                    <!-- O PT-BR fica inativo pois já estamos nele -->
-                    <a href="#" class="active">PT-BR</a> | 
-                    <!-- Os outros voltam uma pasta (../) e entram na pasta certa -->
-                    <a href="../index.html">EN</a> | 
-                    <a href="../es/index.html">ES</a> | 
-                    <a href="../fr/index.html">FR</a>
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Área do participante</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">PT-BR <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="index.html">EN</a>
+                        <a href="es/index.html">ES</a>
+                        <a href="fr/index.html">FR</a>
+                    </div>
                 </div>
-                <a href="sistema-login.html" class="btn-nav-login">Área do Participante</a>
-            </div>
             
             <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>

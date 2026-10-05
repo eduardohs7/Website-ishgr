@@ -138,8 +138,8 @@ a {
     background-color: var(--accent);
     color: #000;
     font-weight: 600;
-    font-size: 0.8rem; /* Botão menor e mais delicado */
-    padding: 6px 16px; /* Menos preenchimento */
+    font-size: 0.75rem; /* Fonte menor */
+    padding: 6px 14px; /* Preenchimento reduzido */
     border-radius: 20px;
     transition: background 0.3s;
     white-space: nowrap;
@@ -147,6 +147,89 @@ a {
 
 .btn-nav-login:hover {
     background-color: var(--accent-hover);
+}
+
+/* ==========================================================================
+   DROPDOWN DE IDIOMAS
+   ========================================================================== */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* A MÁGICA: Ponte invisível para o rato não cair na "zona morta" */
+.lang-dropdown::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 15px; /* Altura do espaço vazio */
+    bottom: -15px; /* Posiciona logo abaixo do botão */
+    left: 0;
+    background: transparent;
+    z-index: 1002;
+}
+
+/* O botão que fica visível */
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.lang-btn:hover {
+    border-color: var(--text-dark);
+    background-color: var(--bg-section);
+}
+
+.lang-btn span {
+    font-size: 0.55rem;
+}
+
+/* A lista oculta que aparece ao passar o rato */
+.lang-content {
+    display: none; 
+    position: absolute;
+    right: 0;
+    top: calc(100% + 5px); /* Afastamento visual seguro do botão */
+    background-color: var(--bg-color);
+    min-width: 80px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.lang-content a {
+    color: var(--text-body);
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.lang-content a:hover {
+    background-color: var(--bg-section);
+    color: var(--accent-hover);
+    font-weight: 700;
+}
+
+/* Faz a lista aparecer quando se passa o rato no dropdown */
+.lang-dropdown:hover .lang-content {
+    display: block;
 }
 
 .hamburger {
@@ -1758,10 +1841,6 @@ a {
     .nav-actions {
         gap: 10px;
     }
-    .lang-selector {
-        font-size: 0.75rem;
-        gap: 4px;
-    }
     .btn-nav-login {
         padding: 5px 12px;
         font-size: 0.75rem;
@@ -1848,7 +1927,7 @@ a {
         margin: 0; /* Zera qualquer margem fantasma que estivesse a empurrar o botão */
         box-sizing: border-box; 
     }
-    
+
     /* Informações do rodapé organizadas verticalmente */
     .hero-footer-info {
         flex-direction: column;
