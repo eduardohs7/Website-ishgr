@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Create Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <!-- Navbar Simplificada -->
+    <nav class="navbar" style="justify-content: center; padding: 20px 5%;">
+        <a href="index.html">
+            <h2 style="color: var(--text-dark); letter-spacing: -1px; font-size: 2rem;">CHAGS 14</h2>
+        </a>
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown" style="margin-left: auto;">
+                    <button class="lang-btn">EN <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="pt-br/cadastro.html">PT-BR</a>
+                        <a href="es/index.html">ES</a>
+                        <a href="fr/index.html">FR</a>
+                    </div>
+                </div>
+            </div>
+    </nav>
+
+    <!-- Área de Registo -->
+    <div class="auth-wrapper" style="padding: 40px 0;"> <!-- Ajuste de padding para não ficar muito alto -->
+        <div class="auth-card" style="max-width: 600px;"> <!-- Cartão ligeiramente mais largo para mais campos -->
+            <h2 class="auth-title">Create an Account</h2>
+            <p class="auth-desc">Join the CHAGS 14 platform to manage your submissions and schedule.</p>
+            
+            <form action="#" method="POST">
+                <!-- Organização em duas colunas para ecrãs maiores -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" class="form-control" placeholder="your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" class="form-control" placeholder="Last name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="institution">Institution / Affiliation</label>
+                    <input type="text" id="institution" class="form-control" placeholder="Universidade Federal do Pará" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" class="form-control" placeholder="Repeat password" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-submit-full" style="margin-top: 20px;">Register</button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-body);">
+                Already have an account? <a href="login.html" style="color: var(--text-dark); font-weight: 700;">Log in</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
