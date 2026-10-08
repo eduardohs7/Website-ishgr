@@ -6,17 +6,30 @@
     <title>CHAGS 14 | Chamadas</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css"></head>
+
+    <style>
+        /* Ajuste exclusivo para a navbar em português respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+
 </head>
 <body>
     <header>
     <!-- Cabeçalho e Navbar -->
         <nav class="navbar">
             <div class="logos-realizacao">
-                <!-- Imagens com ../ para buscar na pasta raiz -->
-                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
-                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
-                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+                    <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                    <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                    <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
+
             
             <ul class="nav-links">
                 <!-- Estes links ficam normais, pois navegam dentro da pasta pt-br -->

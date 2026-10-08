@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Attractions</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Removido o ../ pois este arquivo ficará na raiz -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- CSS Exclusivo da Página de Atrações -->
     <style>
         /* Centralização e Layout Geral */
         .header-centralizado {
@@ -144,6 +141,15 @@
         .footer-col-unica {
             grid-template-columns: 1fr;
         }
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -165,6 +171,7 @@
                 <li><a href="inscricoes.html">Registration</a></li>
                 <li><a href="evento.html">The Event</a></li>
                 <li><a href="belem.html">About Belém</a></li>
+                <li><a href="hospedagem.html">Accommodation</a></li>
                 <li><a href="contato.html">Contact</a></li>
             </ul>
             
@@ -195,7 +202,7 @@
             </div>
         </div>
 
-        <section class="atracoes-tabs-section container card hidden">
+        <section class="atracoes-tabs-section container hidden">
             <div class="tabs-wrapper">
                 <!-- Mantendo o data-filter em pt-br para não quebrar o JS existente -->
                 <button class="tab-btn active" data-filter="todos">ALL</button>
@@ -258,7 +265,6 @@
                 </div>
             </div>
             
-            <p class="nota-rodape-atracoes">The title and final content of the panels are subject to adjustments by the scientific committee.</p>
         </section>
 
         <!-- ESTRUTURA DO MODAL -->
@@ -299,6 +305,7 @@
                     <li><a href="inscricoes.html">Registration</a></li>
                     <li><a href="evento.html">The Event</a></li>
                     <li><a href="belem.html">About Belém</a></li>
+                    <li><a href="hospedagem.html">Accommodation</a></li>
                     <li><a href="contato.html">Contact</a></li>
                 </ul>
             </div>

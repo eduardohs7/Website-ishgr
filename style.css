@@ -95,7 +95,7 @@ a {
 
 .nav-links a {
     color: var(--text-dark);
-    font-size: 0.85rem; /* Letras menores igual à referência */
+    font-size: 0.85rem !important; /* Letras menores igual à referência */
     font-weight: 500;
     white-space: nowrap; /* Proíbe terminantemente a quebra de linha */
     transition: color 0.3s ease;
@@ -971,6 +971,7 @@ a {
 
 .tabs-wrapper { 
     display: flex; 
+    justify-content: center; /* ADICIONE ESTA LINHA para centralizar os botões */
     gap: 30px; 
     border-bottom: 1px solid var(--border-color); 
     margin-bottom: 40px; 
@@ -985,6 +986,7 @@ a {
     cursor: pointer; 
     position: relative; 
 }
+
 .tab-btn.active {
     color: var(--text-dark); 
 }

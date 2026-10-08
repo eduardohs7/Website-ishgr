@@ -197,6 +197,16 @@
 
         /* Rodapé */
         .footer-col-unica { grid-template-columns: 1fr; }
+
+        /* Ajuste exclusivo para a navbar em português respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
     </style>
 </head>
 <body>

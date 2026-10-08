@@ -195,17 +195,27 @@
 
         /* Rodapé */
         .footer-col-unica { grid-template-columns: 1fr; }
+
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+
     </style>
+
+
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logos-realizacao">
-               <a href="index.html">
                 <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
                 <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
                 <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
-               </a>
             </div>
             
             <ul class="nav-links">
@@ -217,18 +227,24 @@
                 <li><a href="inscricoes.html">Registration</a></li>
                 <li><a href="evento.html">The Event</a></li>
                 <li><a href="belem.html">About Belém</a></li>
+                <li><a href="hospedagem.html">Accommodation</a></li>
                 <li><a href="contato.html">Contact</a></li>
             </ul>
-            
+
+
             <div class="nav-actions">
-                <!-- Seletor de Idiomas -->
-                <div class="lang-selector">
-                    <a href="pt-br/programacao.html">PT-BR</a> | 
-                    <a href="#" class="active">EN</a> | 
-                    <a href="es/programacao.html">ES</a> | 
-                    <a href="fr/programacao.html">FR</a>
-                </div>
+                <!-- Botão da Área do Participante agora vem primeiro -->
                 <a href="sistema-login.html" class="btn-nav-login">Participant Area</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">EN <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="pt-br/index.html">PT-BR</a>
+                        <a href="es/index.html">ES</a>
+                        <a href="fr/index.html">FR</a>
+                    </div>
+                </div>
             </div>
             
             <div class="hamburger">
