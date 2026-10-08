@@ -6,7 +6,20 @@
     <title>CHAGS 14 - Still We Rise | Home</title>
     <!-- Fonte única Sans-Serif para visual moderno e acadêmico -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css"></head>
+    <link rel="stylesheet" href="../style.css">
+    
+    <style>
+        /* Ajuste exclusivo para a navbar em português respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
 <body>
     <header>
     <!-- Cabeçalho e Navbar -->
@@ -34,7 +47,7 @@
             
             <div class="nav-actions">
                 <!-- Botão da Área do Participante agora vem primeiro -->
-                <a href="sistema-login.html" class="btn-nav-login">Área do participante</a>
+                <a href="cadastro.html" class="btn-nav-login">Área do participante</a>
                 
                 <!-- Novo Dropdown de Idiomas à direita -->
                 <div class="lang-dropdown">
@@ -60,14 +73,15 @@
                     <h1 class="hero-title">CHAGS 14<br><span class="hero-subtitle">Still We Rise</span></h1>
                     <p class="hero-desc">Pesquisa, ensino e inovação sobre sociedades caçadoras-coletoras reunidos no coração de Belém - Pará, Brasil.</p>
                     
-                    <div class="hero-buttons">
-                        <a href="evento.html" class="btn-accent">Conheça o Evento</a>
-                        <a href="chamadas.html" class="btn-outline">Chamada de Trabalhos</a>
-                        <!-- Novo botão para o site oficial da ISHGR -->
-                        <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline" style="display: inline-flex; align-items: center; gap: 8px;">
-                            <span>Conheça a ISHGR</span>
-                        </a>
+                    <!-- ESTRUTURA DE BOTÕES CORRIGIDA: Força o 3º botão para a linha de baixo -->
+                    <div class="hero-buttons" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 50px;">
+                        <!-- Linha 1: Dois botões principais -->
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                            <a href="evento.html" class="btn-accent">Conheça o Evento</a>
+                            <a href="chamadas.html" class="btn-outline">Chamada de Trabalhos</a>
+                        </div>
                     </div>
+                    
                     <div class="hero-footer-info">
                         <div class="info-block">
                             <span class="info-label">DATA</span>
@@ -90,7 +104,7 @@
             </section>
         </div>
 
-<!-- Bloco de Acesso Institucional ISHGR -->
+        <!-- Bloco de Acesso Institucional ISHGR -->
         <section class="container" style="padding: 40px 0 20px;">
             <div style="background-color: var(--bg-section); border: 1px solid var(--border-color); border-radius: 4px; padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
                 <div>
@@ -151,7 +165,7 @@
 
                 <div class="carousel-wrapper">
                     <div class="carousel-track" id="news-track">
-                        <!-- Notícia 2 -->
+                        <!-- Notícia 1 -->
                         <div class="carousel-slide">
                             <img src="../images/divulgacao.jpg" alt="Projeto ISHGR">
                             <div class="slide-info">
@@ -213,7 +227,7 @@
 
                     <div class="org-card">
                         <div class="org-card-header">
-                            <span class="org-sigla">UFPA</span>
+                            <span class="org-sigla">MPEG</span>
                         </div>
                         <div class="org-card-body">
                             <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="org-logo">
@@ -267,7 +281,7 @@
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMAÇÕES</h4>
                 <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
-                    <li><a href="sistema-login.html">Área do Participante</a></li>
+                    <li><a href="cadastro.html">Área do Participante</a></li>
                     <li><a href="https://ishgr.org" target="_blank">Site da ISHGR</a></li>
                 </ul>
             </div>

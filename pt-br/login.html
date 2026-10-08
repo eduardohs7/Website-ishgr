@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Login do Participante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css"> <!-- Puxando o CSS da pasta principal -->
+</head>
+<body>
+    <!-- Navbar Simplificada -->
+    <nav class="navbar" style="justify-content: center; padding: 20px 5%;">
+        <a href="index.html">
+            <h2 style="color: var(--text-dark); letter-spacing: -1px; font-size: 2rem;">CHAGS 14</h2>
+        </a>
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown" style="margin-left: auto;">
+                    <button class="lang-btn">PT-BR <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../login.html">EN</a>
+                        <a href="es/index.html">ES</a>
+                        <a href="fr/index.html">FR</a>
+                    </div>
+                </div>
+            </div>
+    </nav>
+
+    <!-- Área de Login -->
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <span class="badge-text">Portal do Congressista</span>
+            <h2 class="auth-title">Entrar na Área</h2>
+            <p class="auth-desc">Faça login para acessar a Área do Participante e gerenciar seus trabalhos.</p>
+            
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="email">Endereço de E-mail</label>
+                    <input type="email" id="email" class="form-control" placeholder="Digite seu e-mail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; font-size: 0.85rem;">
+                    <label style="display: flex; align-items: center; gap: 5px; font-weight: 500; cursor: pointer;">
+                        <input type="checkbox"> Lembrar-me
+                    </label>
+                    <a href="#" style="color: var(--accent); font-weight: 600;">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="btn-submit-full">Entrar</button>
+            </form>
+            
+            <div style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-body);">
+                Ainda não tem uma conta? <a href="cadastro.html" style="color: var(--text-dark); font-weight: 700;">Cadastre-se aqui</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
