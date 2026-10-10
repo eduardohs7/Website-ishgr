@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Convocatorias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                    <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                    <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                    <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="chamadas.html">Convocatorias</a></li>
+                <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                <li><a href="programacao.html">Programa</a></li>
+                <li><a href="atracoes.html">Atracciones</a></li>
+                <li><a href="inscricoes.html">Inscripciones</a></li>
+                <li><a href="evento.html">El Evento</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
+                <li><a href="hospedagem.html">Alojamiento</a></li>
+                <li><a href="contato.html">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Área del participante</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">ES <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../fr/index.html">FR</a>
+                    </div>
+                </div>
+                
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="chamadas-hero container">
+            <div class="chamadas-texto-area">
+                <span class="badge-text">CONVOCATORIA 2027</span>
+                <h1 class="page-title">Convocatoria de Trabajos.</h1>
+                <p>En su 14ª edición, que se llevará a cabo del <strong>12 al 16 de julio de 2027, en Belém-PA</strong>, el evento aceptará documentos breves sobre trabajos en curso o posibles propuestas de temas para la composición de mesas, sesiones y conversatorios.</p>
+                <a href="sistema-login.html" class="btn-large" style="margin-top: 20px;">Enviar Trabajo Aquí</a>
+            </div>
+            <div class="datas-card">
+                <div class="datas-header">FECHAS IMPORTANTES</div>
+                <ul class="datas-list">
+                    <li><span class="data-numero">01</span><div class="data-info"><span class="data-titulo">Apertura de submisiones</span><span class="data-valor">15/02/2027</span></div></li>
+                    <li><span class="data-numero">02</span><div class="data-info"><span class="data-titulo">Cierre de envíos</span><span class="data-valor">30/04/2027</span></div></li>
+                    <li><span class="data-numero">03</span><div class="data-info"><span class="data-titulo">Resultados de evaluación</span><span class="data-valor">30/05/2027</span></div></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="topicos-section">
+            <div class="container">
+                <h2 style="margin-bottom: 20px;">Temas de interés.</h2>
+                <div class="topicos-grid">
+                    <div class="topico-item"><span class="topico-num">01</span> Antropología y Arqueología</div>
+                    <div class="topico-item"><span class="topico-num">02</span> Bioeconomía y Sostenibilidad</div>
+                    <div class="topico-item"><span class="topico-num">03</span> Derechos Territoriales e Indígenas</div>
+                    <div class="topico-item"><span class="topico-num">04</span> Cambio Climático e Impactos</div>
+                    <div class="topico-item"><span class="topico-num">05</span> Tecnologías Sociales e Inclusión</div>
+                    <div class="topico-item"><span class="topico-num">06</span> Salud y Prácticas Tradicionales</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 80px;">
+            <div class="instrucoes-box">
+                <span class="badge-text">PARA AUTORES</span>
+                <h2 style="margin-bottom: 15px;">Instrucciones de envío.</h2>
+                <p style="margin-bottom: 15px;">Los trabajos enviados deben tener el formato de <strong>documentos explicativos breves</strong> (3 a 5 páginas en PDF), que contengan resúmenes de las investigaciones o propuestas de temas para las mesas del evento.</p>
+                <p>El envío es exclusivamente electrónico a través del <strong>Área del Participante</strong>. Los idiomas aceptados son portugués, inglés y español.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conferencia oficial de la International Society for Hunter-Gatherer Research (ISHGR) - conectando enseñanza, innovación y tradición en la Amazonía brasileña.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGACIÓN</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="chamadas.html">Convocatorias</a></li>
+                    <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                    <li><a href="programacao.html">Programa</a></li>
+                    <li><a href="atracoes.html">Atracciones</a></li>
+                    <li><a href="inscricoes.html">Inscripciones</a></li>
+                    <li><a href="evento.html">El Evento</a></li>
+                    <li><a href="contato.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMACIÓN</h4>
+                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                    <li><a href="sistema-login.html">Área del Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Sitio web de la ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos los derechos reservados</p><p>12 al 16 de julio - Belém, Pará - Brasil</p></div></div>
+    </footer>
+    
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Volver arriba"> 
+        ↑
+    </button>
+
+    <script src="../script.js?v=12"></script>
+</body>
+</html>
