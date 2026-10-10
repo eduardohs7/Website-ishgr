@@ -1,0 +1,12 @@
+{% extends 'admin/index.html' %}
+{% block content %}
+  <div class="module">
+    <h2>Gestão do evento</h2>
+    <ul>
+      {% if perms.registrations.view_registration %}<li><a href="{% url 'operations:registrations' %}">Consultar e gerir inscrições</a></li>{% endif %}
+      {% if perms.registrations.view_registration_indicators %}<li><a href="{% url 'operations:indicators' %}">Indicadores de inscrições</a></li>{% endif %}
+      {% if perms.registrations.export_registration and perms.registrations.view_registration %}<li><a href="{% url 'operations:exports' %}">Exportar inscrições</a></li>{% endif %}
+    </ul>
+  </div>
+  {{ block.super }}
+{% endblock %}

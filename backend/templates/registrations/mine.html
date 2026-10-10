@@ -1,0 +1,28 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block title %}{% translate "Minha inscrição" %}{% endblock %}
+{% block content %}
+  <h1 class="auth-title">{% translate "Minha inscrição" %}</h1>
+  {% if registration %}
+    <dl>
+      <dt>{% translate "Número" %}</dt><dd>{{ registration.id }}</dd>
+      <dt>{% translate "Evento" %}</dt><dd>{{ event.title }}</dd>
+      <dt>{% translate "Categoria" %}</dt><dd>{{ registration.localized_category_name }}</dd>
+      <dt>{% translate "Valor da inscrição" %}</dt><dd>{{ registration.amount }} {{ registration.currency }}</dd>
+      <dt>{% translate "Situação" %}</dt><dd>{{ registration.get_status_display }}</dd>
+      <dt>{% translate "Revisão de categoria" %}</dt><dd>{{ registration.get_category_review_display }}</dd>
+    </dl>
+    {% if registration.status == 'cancelled' %}
+      <p>{% translate "Esta inscrição foi cancelada. Entre em contato com a comissão para orientação." %}</p>
+    {% else %}
+      <p>{% translate "A inscrição está registrada. A confirmação depende dos requisitos do evento. O pagamento será disponibilizado após a abertura desse serviço." %}</p>
+      {% if registration.review_required %}<p>{% translate "A comissão revisará a categoria escolhida. Aguarde as instruções sobre comprovação." %}</p>{% endif %}
+    {% endif %}
+  {% elif form %}
+    <p>{% blocktranslate with title=event.title %}Escolha uma categoria para {{ title }}. O valor exibido será mantido na sua inscrição.{% endblocktranslate %}</p>
+    <form method="post">{% csrf_token %}{% include 'accounts/fields.html' %}<button class="btn-submit-full" type="submit">{% translate "Registrar inscrição" %}</button></form>
+  {% else %}
+    <p>{% translate "As inscrições ainda não estão disponíveis. Acompanhe as informações no site do evento." %}</p>
+  {% endif %}
+  <p class="account-help"><a href="{% url 'accounts:dashboard' %}">{% translate "Voltar à minha conta" %}</a></p>
+{% endblock %}

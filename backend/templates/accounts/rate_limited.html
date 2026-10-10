@@ -1,0 +1,7 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block content %}
+  <h1 class="auth-title">{% translate "Aguarde um pouco" %}</h1>
+  <p class="auth-desc">{% translate "Recebemos muitas tentativas. Aguarde antes de tentar novamente." %}</p>
+  <a href="{% url 'accounts:login' %}">{% translate "Voltar para entrar" %}</a>
+{% endblock %}

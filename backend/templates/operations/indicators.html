@@ -1,0 +1,13 @@
+{% extends 'operations/base.html' %}
+{% load operation_labels %}
+{% block operation_content %}
+  <h2>Indicadores{% if event %} — {{ event.title }}{% endif %}</h2>
+  <p>Total de inscrições: {{ total }}</p>
+  <h3>Situação</h3>
+  <ul>{% for item in by_status %}<li>{{ status_labels|label:item.status }}: {{ item.total }}</li>{% empty %}<li>Sem inscrições.</li>{% endfor %}</ul>
+  <h3>Revisão de categoria</h3>
+  <ul>{% for item in by_review %}<li>{{ review_labels|label:item.category_review }}: {{ item.total }}</li>{% empty %}<li>Sem inscrições.</li>{% endfor %}</ul>
+  <h3>Valores das inscrições não canceladas</h3>
+  <ul>{% for item in amounts %}<li>{{ item.currency }}: {{ item.total }} ({{ item.count }} inscrição(ões))</li>{% empty %}<li>Sem valores.</li>{% endfor %}</ul>
+  <p>Os valores representam inscrições registradas. Não representam pagamentos recebidos ou receita.</p>
+{% endblock %}

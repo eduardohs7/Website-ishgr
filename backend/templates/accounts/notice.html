@@ -1,0 +1,7 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block content %}
+  <h1 class="auth-title">{{ title }}</h1>
+  <p class="auth-desc">{{ text }}</p>
+  <a class="btn-submit-full account-button" href="{% url 'accounts:login' %}">{% translate "Voltar para entrar" %}</a>
+{% endblock %}

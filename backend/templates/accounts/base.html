@@ -1,0 +1,53 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% translate "Área do participante" as default_title %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <title>{% block title %}{{ title|default:default_title }}{% endblock %} — CHAGS 14</title>
+  <link rel="stylesheet" href="{% static 'portal/style.css' %}">
+  <link rel="stylesheet" href="{% static 'accounts/account.css' %}">
+  <script src="{% static 'accounts/account.js' %}" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar" aria-label="{% translate 'Navegação principal' %}">
+      <a href="{% if LANGUAGE_CODE == 'pt-br' %}/pt-br/{% else %}/{% endif %}" class="account-brand">CHAGS 14</a>
+      <ul class="nav-links">
+        <li><a href="{% if LANGUAGE_CODE == 'pt-br' %}/pt-br/{% else %}/{% endif %}">{% translate "Site do evento" %}</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'accounts:dashboard' %}">{% translate "Área do participante" %}</a></li>
+          <li><a href="{% url 'accounts:profile' %}">{% translate "Meu perfil" %}</a></li>
+          <li><form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button class="account-link-button" type="submit">{% translate "Sair" %}</button></form></li>
+        {% else %}
+          <li><a href="{% url 'accounts:login' %}">{% translate "Entrar" %}</a></li>
+          <li><a href="{% url 'accounts:signup' %}">{% translate "Criar conta" %}</a></li>
+        {% endif %}
+      </ul>
+      <button class="hamburger" type="button" aria-label="{% translate 'Abrir menu' %}" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <main class="auth-wrapper account-wrapper">
+    <section class="account-card-wrapper">
+    <form method="post" action="{% url 'accounts:set_language' %}" class="account-language">
+      {% csrf_token %}<input type="hidden" name="next" value="{{ request.path }}">
+      <label for="account-language">{% translate 'Idioma' %}</label>
+      <select id="account-language" name="language">
+        <option value="pt-br" {% if LANGUAGE_CODE == 'pt-br' %}selected{% endif %}>Português</option>
+        <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+        <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
+      </select><button type="submit">{% translate 'Alterar idioma' %}</button>
+    </form>
+    <section class="auth-card account-card">
+      <span class="badge-text">{% translate "PORTAL DO CONGRESSISTA" %}</span>
+      {% for message in messages %}<p class="account-message" role="status">{{ message }}</p>{% endfor %}
+      {% block content %}{% endblock %}
+    </section>
+    </section>
+  </main>
+  <footer class="account-footer">CHAGS 14 · Belém, Pará · {% translate '12 a 16 de julho de 2027' %}</footer>
+</body>
+</html>

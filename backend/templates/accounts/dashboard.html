@@ -1,0 +1,12 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block title %}{% translate "Minha conta" %}{% endblock %}
+{% block content %}
+  <h1 class="auth-title">{% blocktranslate with name=user.get_short_name %}Olá, {{ name }}.{% endblocktranslate %}</h1>
+  <p class="auth-desc">{% translate "Bem-vindo à área do participante do CHAGS 14." %}</p>
+  <p class="account-help">{{ user.email }}</p>
+  <a class="btn-submit-full account-button" href="{% url 'accounts:profile' %}">{% translate "Consultar meu perfil" %}</a>
+  <a class="btn-submit-full account-button" href="{% url 'registrations:mine' %}">{% translate "Minha inscrição" %}</a>
+  <p><a href="{% url 'registrations:jems' %}">{% translate "Submeter trabalho no JEMS" %}</a></p>
+  <p class="account-help">{% translate "Consulte as novidades e informações de inscrição no" %} <a href="{% if LANGUAGE_CODE == 'pt-br' %}/pt-br/inscricoes.html{% else %}/inscricoes.html{% endif %}">{% translate "site do evento" %}</a>.</p>
+{% endblock %}

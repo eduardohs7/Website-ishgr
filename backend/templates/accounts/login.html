@@ -1,0 +1,17 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block title %}{% translate "Entrar" %}{% endblock %}
+{% block content %}
+  <h1 class="auth-title">{% translate "Entrar na área" %}</h1>
+  <p class="auth-desc">{% translate "Acesse com o e-mail confirmado e sua senha." %}</p>
+  <form method="post">{% csrf_token %}
+    {% include 'accounts/fields.html' %}
+    {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+    <button type="submit" class="btn-submit-full">{% translate "Entrar" %}</button>
+  </form>
+  <div class="account-actions">
+    <a href="{% url 'accounts:signup' %}">{% translate "Criar conta" %}</a>
+    <a href="{% url 'accounts:request_reset' %}">{% translate "Esqueci minha senha" %}</a>
+    <a href="{% url 'accounts:resend_confirmation' %}">{% translate "Reenviar confirmação" %}</a>
+  </div>
+{% endblock %}

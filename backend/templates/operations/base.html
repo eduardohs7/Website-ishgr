@@ -1,0 +1,12 @@
+{% extends 'accounts/base.html' %}
+{% block title %}Gestão de inscrições{% endblock %}
+{% block content %}
+  <h1 class="auth-title">Gestão de inscrições</h1>
+  <nav aria-label="Gestão">
+    {% if perms.registrations.view_registration %}<a href="{% url 'operations:registrations' %}">Inscrições</a>{% endif %}
+    {% if perms.registrations.view_registration_indicators %}<a href="{% url 'operations:indicators' %}">Indicadores</a>{% endif %}
+    {% if perms.registrations.export_registration and perms.registrations.view_registration %}<a href="{% url 'operations:exports' %}">Exportação</a>{% endif %}
+    <a href="{% url 'admin:index' %}">Administração</a>
+  </nav>
+  {% block operation_content %}{% endblock %}
+{% endblock %}
