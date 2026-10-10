@@ -7,7 +7,7 @@ from django.views.csrf import csrf_failure as html_csrf_failure
 from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_variables
 
-API_PREFIX = "/api/v1/auth/"
+API_PREFIXES = ("/api/v1/auth/", "/api/v1/participant/")
 MAX_BODY_BYTES = 32 * 1024
 
 
@@ -25,6 +25,24 @@ def error_response(code, *, status, errors=None):
 
 def success_response(data=None, *, status=200):
     return JsonResponse({"ok": True, "data": data or {}}, status=status)
+
+
+def participant_access_error(user):
+    if not user.is_authenticated or not user.is_active:
+        return error_response("authentication_required", status=401)
+    if user.email_verified_at is None:
+        return error_response("email_not_verified", status=403)
+    return None
+
+
+def verified_api_participant(view):
+    @wraps(view)
+    def wrapped(request, *args, **kwargs):
+        error = participant_access_error(request.user)
+        if error is not None:
+            return error
+        return view(request, *args, **kwargs)
+    return wrapped
 
 
 @sensitive_variables("*")
@@ -98,7 +116,7 @@ def form_errors(form):
 
 
 def csrf_failure(request, reason=""):
-    if request.path.startswith(API_PREFIX):
+    if request.path.startswith(API_PREFIXES):
         response = error_response("csrf_failed", status=403)
         response["Cache-Control"] = "no-store"
         return response

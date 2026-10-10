@@ -14,5 +14,6 @@ backend. O front é mantido por outro desenvolvedor.
 - Não registrar senhas, cookies ou tokens em arquivos de entrega ou logs.
 
 O contrato atual da autenticação está em `docs/integracao-autenticacao.md`.
+O contrato da área do participante está em `docs/integracao-participante.md`.
 Para desenvolvimento no Windows, consulte `docs/desenvolvimento-windows.md`;
 para a nuvem Linux, consulte `backend/README.md`.

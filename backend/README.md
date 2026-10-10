@@ -36,6 +36,10 @@ Para validar essa integração isoladamente:
 .venv/bin/python backend/manage.py test accounts.tests.test_auth_api --noinput
 ```
 
+A API privada em `/api/v1/participant/` oferece perfil próprio (consulta e atualização completa), opções de país/idioma, evento atual, catálogo de preços elegíveis e criação/consulta da própria inscrição. Todas as rotas exigem conta ativa e e-mail confirmado. POSTs mantêm CSRF; categoria, valor, moeda e situação da inscrição são definidos pelo servidor. Repetições retornam a inscrição existente sem alterar seu histórico.
+
+O [contrato da área do participante](../docs/integracao-participante.md) explica os campos, retornos, erros de disponibilidade e os estados que o front precisa tratar. Não oferece checkout nem confirmação de pagamento e não exige novas migrações ou dependências.
+
 ## Desenvolvimento no Windows
 
 Siga o [passo a passo para PowerShell](../docs/desenvolvimento-windows.md), com PostgreSQL local e o arquivo `requirements-windows.txt`.

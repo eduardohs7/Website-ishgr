@@ -1,4 +1,5 @@
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.db.models import Q
@@ -7,6 +8,10 @@ from django.utils import timezone
 from accounts.models import User
 from operations.services import audit, require_operator
 from .models import Event, Registration, RegistrationCategory, RegistrationPrice
+
+
+def current_event():
+    return Event.objects.filter(code=settings.REGISTRATION_EVENT_CODE).first()
 
 
 def available_prices(event, at=None):
@@ -21,19 +26,21 @@ def available_prices(event, at=None):
 def register(*, user, event_id, price_id):
     # Same user/event concurrent submissions serialize before checking uniqueness.
     user = User.objects.select_for_update().get(pk=user.pk)
-    if not user.is_active or user.email_verified_at is None:
-        raise ValidationError(_("Confirme seu e-mail antes de se inscrever."))
+    if not user.is_active:
+        raise ValidationError(_("Confirme seu e-mail antes de se inscrever."), code="authentication_required")
+    if user.email_verified_at is None:
+        raise ValidationError(_("Confirme seu e-mail antes de se inscrever."), code="email_not_verified")
     event = Event.objects.select_for_update().get(pk=event_id)
     existing = Registration.objects.filter(user=user, event=event).first()
     if existing:
         return existing, False
     if not event.registrations_open():
-        raise ValidationError(_("As inscrições não estão abertas neste momento."))
+        raise ValidationError(_("As inscrições não estão abertas neste momento."), code="registrations_closed")
     # Administrative configuration changes also lock the event first.
     try:
         price = available_prices(event).select_for_update(of=("self",)).get(pk=price_id)
     except (RegistrationPrice.DoesNotExist, ValueError, ValidationError):
-        raise ValidationError(_("O preço selecionado não está disponível. Atualize a página e escolha novamente."))
+        raise ValidationError(_("O preço selecionado não está disponível. Atualize a página e escolha novamente."), code="price_unavailable")
     category = RegistrationCategory.objects.select_for_update().get(pk=price.category_id)
     registration = Registration.objects.create(
         user=user, event=event, category=category, source_price=price,
