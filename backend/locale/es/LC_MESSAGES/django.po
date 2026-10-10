@@ -1,0 +1,272 @@
+msgid ""
+msgstr "Project-Id-Version: CHAGS 14\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid " — exige revisão da comissão"
+msgstr " — requiere revisión del comité"
+
+msgid "12 a 16 de julho de 2027"
+msgstr "12–16 de julio de 2027"
+
+msgid "A comissão revisará a categoria escolhida. Aguarde as instruções sobre comprovação."
+msgstr "El comité revisará la categoría elegida. Espere las instrucciones sobre la documentación justificativa."
+
+msgid "A inscrição está registrada. A confirmação depende dos requisitos do evento. O pagamento será disponibilizado após a abertura desse serviço."
+msgstr "Su inscripción está registrada. La confirmación depende de los requisitos del evento. El pago estará disponible cuando se habilite este servicio."
+
+msgid "Abrir menu"
+msgstr "Abrir menú"
+
+msgid "Acesse com o e-mail confirmado e sua senha."
+msgstr "Acceda con su correo confirmado y su contraseña."
+
+msgid "Aguardando requisitos"
+msgstr "Pendiente de requisitos"
+
+msgid "Aguardando revisão"
+msgstr "Pendiente de revisión"
+
+msgid "Aguarde um pouco"
+msgstr "Espere un momento"
+
+msgid "Alterar idioma"
+msgstr "Cambiar idioma"
+
+msgid "Aprovada"
+msgstr "Aprobada"
+
+msgid "As inscrições ainda não estão disponíveis. Acompanhe as informações no site do evento."
+msgstr "Las inscripciones aún no están disponibles. Consulte la información en el sitio del evento."
+
+msgid "As inscrições não estão abertas neste momento."
+msgstr "Las inscripciones no están abiertas en este momento."
+
+msgid "As senhas não coincidem."
+msgstr "Las contraseñas no coinciden."
+
+msgid "Bem-vindo à área do participante do CHAGS 14."
+msgstr "Bienvenido al área del participante de CHAGS 14."
+
+msgid "Cancelada"
+msgstr "Cancelada"
+
+msgid "Categoria"
+msgstr "Categoría"
+
+msgid "Categoria e preço"
+msgstr "Categoría y precio"
+
+msgid "Confira seu e-mail"
+msgstr "Revise su correo"
+
+msgid "Confirmada"
+msgstr "Confirmada"
+
+msgid "Confirmar e-mail"
+msgstr "Confirmar correo"
+
+msgid "Confirme a senha"
+msgstr "Confirme la contraseña"
+
+msgid "Confirme seu e-mail"
+msgstr "Confirme su correo"
+
+msgid "Confirme seu e-mail antes de se inscrever."
+msgstr "Confirme su correo antes de inscribirse."
+
+msgid "Confirme seu e-mail — CHAGS 14"
+msgstr "Confirme su correo — CHAGS 14"
+
+msgid "Consultar meu perfil"
+msgstr "Consultar mi perfil"
+
+msgid "Consulte as novidades e informações de inscrição no"
+msgstr "Consulte las novedades y la información de inscripción en el"
+
+msgid "Criar conta"
+msgstr "Crear cuenta"
+
+msgid "Código de confirmação"
+msgstr "Código de confirmación"
+
+msgid "Código de recuperação"
+msgstr "Código de recuperación"
+
+msgid "Código inválido, expirado ou já utilizado. Solicite uma nova confirmação."
+msgstr "Código inválido, vencido o ya utilizado. Solicite una nueva confirmación."
+
+msgid "Código inválido, expirado ou já utilizado. Solicite uma nova recuperação."
+msgstr "Código inválido, vencido o ya utilizado. Solicite una nueva recuperación."
+
+msgid "E-mail"
+msgstr "Correo electrónico"
+
+msgid "E-mail confirmado. Você já pode entrar na sua conta."
+msgstr "Correo confirmado. Ya puede iniciar sesión en su cuenta."
+
+msgid "E-mail da conta:"
+msgstr "Correo de la cuenta:"
+
+msgid "E-mail ou senha inválidos, ou conta ainda não confirmada."
+msgstr "Correo o contraseña incorrectos, o cuenta aún no confirmada."
+
+msgid "Entrar"
+msgstr "Iniciar sesión"
+
+msgid "Entrar na área"
+msgstr "Acceder a su cuenta"
+
+msgid "Enviar instruções"
+msgstr "Enviar instrucciones"
+
+#, python-format
+msgid "Escolha uma categoria para %(title)s. O valor exibido será mantido na sua inscrição."
+msgstr "Elija una categoría para %(title)s. El importe mostrado se conservará en su inscripción."
+
+msgid "Esqueci minha senha"
+msgstr "Olvidé mi contraseña"
+
+msgid "Esta inscrição foi cancelada. Entre em contato com a comissão para orientação."
+msgstr "Esta inscripción ha sido cancelada. Contacte al comité para recibir orientación."
+
+msgid "Evento"
+msgstr "Evento"
+
+msgid "Idioma"
+msgstr "Idioma"
+
+msgid "Idioma preferido"
+msgstr "Idioma preferido"
+
+msgid "Instituição"
+msgstr "Institución"
+
+msgid "Meu perfil"
+msgstr "Mi perfil"
+
+msgid "Minha conta"
+msgstr "Mi cuenta"
+
+msgid "Minha inscrição"
+msgstr "Mi inscripción"
+
+msgid "Navegação principal"
+msgstr "Navegación principal"
+
+msgid "Nome completo"
+msgstr "Nombre completo"
+
+msgid "Não necessária"
+msgstr "No necesaria"
+
+msgid "Número"
+msgstr "Número"
+
+msgid "O link de acesso ao JEMS será disponibilizado pela organização. A conta no JEMS é independente da conta neste portal."
+msgstr "La organización proporcionará el enlace a JEMS. La cuenta de JEMS es independiente de la cuenta de este portal."
+
+msgid "O preço selecionado não está disponível. Atualize a página e escolha novamente."
+msgstr "El precio seleccionado no está disponible. Actualice la página y vuelva a elegir."
+
+#, python-format
+msgid "Olá,\n\n%(instruction)s pelo link:\n%(url)s\n\nSe precisar informar o código manualmente: %(code)s\nVálido até %(expires)s. O código só pode ser utilizado uma vez.\n\nSe você não solicitou esta mensagem, ignore-a.\nEquipe CHAGS 14\n"
+msgstr "Hola,\n\n%(instruction)s mediante este enlace:\n%(url)s\n\nSi necesita introducir el código manualmente: %(code)s\nVálido hasta %(expires)s. El código solo se puede utilizar una vez.\n\nSi no solicitó este mensaje, ignórelo.\nEquipo CHAGS 14\n"
+
+#, python-format
+msgid "Olá, %(name)s."
+msgstr "Hola, %(name)s."
+
+msgid "PORTAL DO CONGRESSISTA"
+msgstr "PORTAL DEL PARTICIPANTE"
+
+msgid "País"
+msgstr "País"
+
+msgid "Perfil atualizado."
+msgstr "Perfil actualizado."
+
+msgid "Recebemos muitas tentativas. Aguarde antes de tentar novamente."
+msgstr "Hemos recibido demasiados intentos. Espere antes de volver a intentarlo."
+
+msgid "Recuperar senha"
+msgstr "Recuperar contraseña"
+
+msgid "Recupere sua senha — CHAGS 14"
+msgstr "Recupere su contraseña — CHAGS 14"
+
+msgid "Redefina sua senha"
+msgstr "Restablezca su contraseña"
+
+msgid "Redefinir senha"
+msgstr "Restablecer contraseña"
+
+msgid "Reenviar confirmação"
+msgstr "Reenviar confirmación"
+
+msgid "Registrar inscrição"
+msgstr "Inscribirse en el evento"
+
+msgid "Rejeitada"
+msgstr "Rechazada"
+
+msgid "Revisão de categoria"
+msgstr "Revisión de categoría"
+
+msgid "Sair"
+msgstr "Cerrar sesión"
+
+msgid "Salvar nova senha"
+msgstr "Guardar nueva contraseña"
+
+msgid "Salvar perfil"
+msgstr "Guardar perfil"
+
+msgid "Se houver uma conta aguardando confirmação, enviaremos um novo link. Confira também a pasta de spam."
+msgstr "Si hay una cuenta pendiente de confirmación, enviaremos un nuevo enlace. Revise también la carpeta de correo no deseado."
+
+msgid "Se houver uma conta confirmada com esse endereço, enviaremos instruções de recuperação. Confira também a pasta de spam."
+msgstr "Si existe una cuenta confirmada con esta dirección, enviaremos instrucciones de recuperación. Revise también la carpeta de correo no deseado."
+
+msgid "Se os dados permitirem o cadastro, enviaremos um link de confirmação. Se você já tiver conta, entre ou recupere sua senha."
+msgstr "Si los datos permiten el registro, enviaremos un enlace de confirmación. Si ya tiene una cuenta, inicie sesión o recupere su contraseña."
+
+msgid "Selecione uma categoria"
+msgstr "Seleccione una categoría"
+
+msgid "Senha"
+msgstr "Contraseña"
+
+msgid "Senha atualizada"
+msgstr "Contraseña actualizada"
+
+msgid "Site do evento"
+msgstr "Sitio del evento"
+
+msgid "Situação"
+msgstr "Estado"
+
+msgid "Sua senha foi atualizada. Entre novamente para acessar sua conta."
+msgstr "Su contraseña ha sido actualizada. Inicie sesión de nuevo para acceder a su cuenta."
+
+msgid "Submeter trabalho no JEMS"
+msgstr "Enviar un trabajo en JEMS"
+
+msgid "Submissão de trabalhos"
+msgstr "Envío de trabajos"
+
+msgid "Use pelo menos 12 caracteres e evite dados pessoais."
+msgstr "Use al menos 12 caracteres y evite datos personales."
+
+msgid "Valor da inscrição"
+msgstr "Importe de la inscripción"
+
+msgid "Voltar para entrar"
+msgstr "Volver al inicio de sesión"
+
+msgid "Voltar à minha conta"
+msgstr "Volver a mi cuenta"
+
+msgid "site do evento"
+msgstr "sitio del evento"
+
+msgid "Área do participante"
+msgstr "Área del participante"

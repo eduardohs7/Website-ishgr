@@ -1,0 +1,12 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block content %}
+  <h1 class="auth-title">{{ title }}</h1>
+  <form method="post">{% csrf_token %}
+    {% include 'accounts/fields.html' %}
+    <button type="submit" class="btn-submit-full">{{ button }}</button>
+  </form>
+  <p class="account-help"><a href="{% url 'accounts:login' %}">{% translate "Voltar para entrar" %}</a></p>
+  {% if title == 'Confirmar e-mail' %}<p class="account-help"><a href="{% url 'accounts:resend_confirmation' %}">Solicitar novo código</a></p>{% endif %}
+  {% if title == 'Redefinir senha' %}<p class="account-help"><a href="{% url 'accounts:request_reset' %}">Solicitar novo código</a></p>{% endif %}
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'operations/base.html' %}
+{% block operation_content %}
+  <h2>Inscrições do evento</h2>
+  <form method="get">{% include 'accounts/fields.html' %}<button class="btn-submit-full" type="submit">Filtrar</button></form>
+  <p>{{ page.paginator.count }} inscrição(ões) encontrada(s).</p>
+  {% for registration in page %}
+    <article>
+      <h3><a href="{% url 'operations:registration' registration.id %}">{{ registration.user.full_name }}</a></h3>
+      <p>{{ registration.user.email }} · {{ registration.category_name }}</p>
+      <p>{{ registration.get_status_display }} · {{ registration.get_category_review_display }}</p>
+    </article>
+  {% empty %}<p>Nenhuma inscrição.</p>{% endfor %}
+  {% if page.has_previous %}<a href="?{{ filters }}&amp;page={{ page.previous_page_number }}">Anterior</a>{% endif %}
+  <span>Página {{ page.number }} de {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a href="?{{ filters }}&amp;page={{ page.next_page_number }}">Próxima</a>{% endif %}
+{% endblock %}

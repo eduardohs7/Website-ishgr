@@ -1,0 +1,24 @@
+.account-brand { font-weight: 800; color: var(--text-dark); font-size: 1.35rem; text-decoration: none; }
+.account-wrapper { min-height: calc(100vh - 190px); padding: 70px 20px 40px; }
+.account-card { width: 100%; max-width: 600px; }
+.account-card-wrapper { width: 100%; max-width: 600px; }
+.account-language { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 8px; margin-bottom: 16px; }
+.account-language select, .account-language button { padding: 7px 10px; font: inherit; }
+.account-help { color: var(--text-body); margin: 14px 0; line-height: 1.6; font-size: .92rem; }
+.account-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.account-errors { color: #9b1c1c; margin: 8px 0; font-size: .92rem; }
+.account-errors ul { padding-left: 20px; }
+.account-message { background: #edf8ef; color: #215a30; border: 1px solid #a5cfad; padding: 12px; border-radius: 5px; margin: 16px 0; }
+.account-link-button { border: 0; background: transparent; cursor: pointer; font: inherit; color: var(--text-dark); }
+.account-button { display: block; text-align: center; text-decoration: none; margin-top: 20px; }
+.account-footer { text-align: center; padding: 24px 16px; color: var(--text-body); font-size: .9rem; }
+.account-card .form-control { width: 100%; }
+.account-card select, .account-card textarea { width: 100%; padding: 10px; font: inherit; }
+.account-card dt { font-weight: 600; margin-top: 12px; }
+.account-card dd { margin: 4px 0; overflow-wrap: anywhere; }
+.account-card article { border-top: 1px solid #ddd; margin: 18px 0; padding-top: 12px; }
+.account-card nav[aria-label="Gestão"] { display: flex; flex-wrap: wrap; gap: 12px; margin: 16px 0; }
+.account-card :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.account-link-button:focus-visible, .hamburger:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.hamburger { background: transparent; border: 0; padding: 8px; }
+@media (max-width: 600px) { .account-card { padding: 28px 22px; } }

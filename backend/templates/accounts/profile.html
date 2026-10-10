@@ -1,0 +1,10 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block content %}
+  <h1 class="auth-title">{% translate "Meu perfil" %}</h1>
+  <p class="account-help">{% translate "E-mail da conta:" %} {{ user.email }}</p>
+  <form method="post">{% csrf_token %}
+    {% include 'accounts/fields.html' %}
+    <button type="submit" class="btn-submit-full">{% translate "Salvar perfil" %}</button>
+  </form>
+{% endblock %}

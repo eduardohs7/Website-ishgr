@@ -1,0 +1,17 @@
+{% extends 'operations/base.html' %}
+{% block operation_content %}
+  <h2>{{ registration.user.full_name }}</h2>
+  <dl>
+    <dt>Inscrição</dt><dd>{{ registration.id }}</dd>
+    <dt>E-mail</dt><dd>{{ registration.user.email }}</dd>
+    <dt>Categoria</dt><dd>{{ registration.category_name }}</dd>
+    <dt>Valor da inscrição</dt><dd>{{ registration.amount }} {{ registration.currency }}</dd>
+    <dt>Situação</dt><dd>{{ registration.get_status_display }}</dd>
+    <dt>Revisão</dt><dd>{{ registration.get_category_review_display }}</dd>
+  </dl>
+  {% if registration.status == 'cancelled' %}<p>Cancelamento: {{ registration.cancellation_reason }}</p>{% endif %}
+  {% if can_act %}
+    <form method="post">{% csrf_token %}{% include 'accounts/fields.html' %}<button class="btn-submit-full" type="submit">Registrar operação</button></form>
+    <p>Aprovar a categoria não confirma pagamento. Cancelar a inscrição não solicita reembolso.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'operations/base.html' %}
+{% block operation_content %}
+  <h2>Exportar inscrições</h2>
+  <p>O arquivo CSV inclui nome e e-mail dos participantes. Use os filtros para selecionar os dados necessários e mantenha o arquivo em local restrito.</p>
+  <form method="post">{% csrf_token %}{% include 'accounts/fields.html' %}<button class="btn-submit-full" type="submit">Baixar CSV</button></form>
+{% endblock %}
