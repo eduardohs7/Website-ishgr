@@ -2,7 +2,7 @@
 {% load i18n %}
 {% block content %}
   <h1 class="auth-title">{{ title }}</h1>
-  <form method="post">{% csrf_token %}
+  <form method="post" class="account-form">{% csrf_token %}
     {% include 'accounts/fields.html' %}
     <button type="submit" class="btn-submit-full">{{ button }}</button>
   </form>
