@@ -44,6 +44,10 @@ O [contrato da área do participante](../docs/integracao-participante.md) explic
 
 Siga o [passo a passo para PowerShell](../docs/desenvolvimento-windows.md), com PostgreSQL local e o arquivo `requirements-windows.txt`.
 
+## Testes automáticos no GitHub
+
+O workflow **Backend CI** instala o lockfile com hashes, cria um PostgreSQL 17.11 descartável, verifica configuração/migrações, executa a suíte completa e valida a coleta de estáticos. A role de teste não é superusuária; senhas são geradas por execução e não há conexão com serviços de produção. Consulte o [guia de testes no GitHub](../docs/testes-github.md) para disparos, leitura dos checks e limitações.
+
 ## Preparar o ambiente de nuvem
 
 Execute a partir da raiz `Website-ishgr`:

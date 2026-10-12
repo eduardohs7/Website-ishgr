@@ -2,7 +2,7 @@ from concurrent.futures import ThreadPoolExecutor
 from decimal import Decimal
 from threading import Barrier
 
-from django.db import IntegrityError, connections
+from django.db import IntegrityError, OperationalError, connections
 from django.test import TransactionTestCase
 from django.utils import timezone
 
@@ -41,11 +41,22 @@ class RegistrationConcurrencyTests(TransactionTestCase):
         RegistrationPrice.objects.all().delete()
 
         def insert():
-            try:
-                RegistrationPrice.objects.create(category=category, amount=Decimal("99.99"), currency="BRL", valid_from=timezone.now())
-            except IntegrityError:
-                return "blocked"
-            return "created"
+            for attempt in range(2):
+                try:
+                    RegistrationPrice.objects.create(category=category, amount=Decimal("99.99"), currency="BRL", valid_from=timezone.now())
+                except IntegrityError as error:
+                    # Only the expected exclusion constraint proves overlap was blocked.
+                    if (error.__cause__.sqlstate != "23P01"
+                            or error.__cause__.diag.constraint_name != "price_no_active_overlap"):
+                        raise
+                    return "blocked"
+                except OperationalError as error:
+                    # Simultaneous GiST exclusion checks can deadlock. Autocommit
+                    # rolls back the victim; retry once to test the constraint.
+                    if error.__cause__.sqlstate != "40P01" or attempt:
+                        raise
+                else:
+                    return "created"
 
         self.assertCountEqual(self.concurrent(insert), ["created", "blocked"])
         self.assertEqual(RegistrationPrice.objects.count(), 1)
