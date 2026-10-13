@@ -69,6 +69,32 @@ class ParticipantProfile(models.Model):
     )
 
 
+class StaffMFA(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="staff_mfa")
+    secret_ciphertext = models.TextField(blank=True)
+    enabled = models.BooleanField(default=False)
+    version = models.UUIDField(default=uuid.uuid4)
+    last_step = models.BigIntegerField(default=-1)
+    pending_ciphertext = models.TextField(blank=True)
+    pending_expires_at = models.DateTimeField(null=True, blank=True)
+    pending_auth_hash = models.CharField(max_length=64, blank=True)
+    pending_challenge_hash = models.CharField(max_length=64, blank=True)
+
+    class Meta:
+        default_permissions = ()
+        constraints = [models.CheckConstraint(condition=models.Q(enabled=False) | ~models.Q(secret_ciphertext=""),
+                                             name="staff_mfa_enabled_has_secret")]
+
+
+class StaffMFARecoveryCode(models.Model):
+    factor = models.ForeignKey(StaffMFA, on_delete=models.CASCADE, related_name="recovery_codes")
+    digest = models.CharField(max_length=64, unique=True)
+    used_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        default_permissions = ()
+
+
 class AccountActionToken(models.Model):
     class Purpose(models.TextChoices):
         CONFIRM = "confirm", "Confirmar e-mail"

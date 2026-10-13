@@ -5,7 +5,7 @@ O workflow **Backend CI**, em `.github/workflows/backend-ci.yml`, verifica o bac
 ## Quando executa
 
 - Push que altere arquivos em `backend/` ou o próprio workflow, em qualquer branch.
-- Pull request destinado à `main`, quando esses mesmos arquivos forem alterados.
+- Pull request destinado a qualquer branch, quando esses mesmos arquivos forem alterados.
 - Disparo manual por `workflow_dispatch`, quando disponível no GitHub.
 
 Alterações exclusivas no front ou na documentação não iniciam essa suíte. Push e PR da mesma branch compartilham o grupo de concorrência: uma execução mais recente cancela a anterior, evitando dois jobs ativos para a mesma origem. O cancelamento de uma execução substituída não representa falha de teste.
