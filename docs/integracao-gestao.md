@@ -21,7 +21,9 @@ O [segundo fator da comissão](integracao-mfa.md) também protege a gestão e a 
 
 Os grupos existentes preparados por `setup_registration_roles` continuam aplicáveis. Atendimento pode consultar/revisar/cancelar; Indicadores recebe somente agregados; Exportação pode consultar e baixar CSV. A rota de CSV da gestão tradicional continua disponível e compartilha a geração/auditoria com a API. Não atribua superusuário para contornar permissões ausentes.
 
-Depois do login, execute `GET /api/v1/management/session/`. O retorno contém `operator` (`id`, `full_name`), `permissions` e `csrf_token` mascarado. As capacidades são `view_registrations`, `review_category`, `cancel_registration`, `view_indicators` e `export_registrations`. Use-as para habilitar controles no front; o backend verifica novamente todas as permissões em cada operação. A sessão autenticada vem do cookie, não de um ID enviado pelo navegador.
+Depois do login, execute `GET /api/v1/management/session/`. O retorno contém `operator` (`id`, `full_name`), `permissions` e `csrf_token` mascarado. As capacidades são `view_registrations`, `review_category`, `cancel_registration`, `view_indicators`, `export_registrations` e `view_audit`. Use-as para habilitar controles no front; o backend verifica novamente todas as permissões em cada operação. A sessão autenticada vem do cookie, não de um ID enviado pelo navegador.
+
+A [consulta de auditoria](integracao-auditoria.md) usa permissão própria e proteção de MFA, sem conceder acesso automaticamente aos grupos de inscrições. Seu histórico é global e inclui ações de segurança; conceda essa permissão somente à equipe autorizada.
 
 Nos POSTs, envie `Content-Type: application/json`, `X-CSRFToken` com o token recebido e o cookie da sessão, seguindo o fluxo dos contratos de autenticação. Não coloque token em URL nem em logs. `application/x-www-form-urlencoded` também é aceito. `multipart/form-data` não é aceito. Todos os valores do corpo são strings. Campos desconhecidos, repetidos ou valores de tipos diferentes são recusados. O limite de corpo é 32 KiB no protocolo compartilhado.
 

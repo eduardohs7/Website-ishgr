@@ -20,7 +20,9 @@ Backend em Python 3.12, Django 5.2 LTS e PostgreSQL. O Django serve as páginas 
 - Histórico de categoria/valor/moeda/revisão preservado na inscrição. PostgreSQL impede alterações dos snapshots e dos campos comerciais de preços existentes, inclusive via `QuerySet.update`. Períodos ativos não podem se sobrepor por categoria/moeda, nem em inserções simultâneas.
 - Auditoria transacional de criação, revisão, cancelamento, configuração e exportação. A interface de auditoria permite somente consulta autorizada; a role de execução do banco ainda tem acesso de escrita, por isso esse histórico não equivale a um registro externo inviolável.
 
-Pagamentos, recibos, certificados, MFA administrativo e papéis financeiro/certificados ainda não foram implementados. Revisar categoria não confirma participação; não há operação para marcar pagamento como recebido. A aplicação foi validada localmente e não está liberada como sistema final de produção.
+Pagamentos, recibos, certificados e papéis financeiro/certificados ainda não foram implementados. Revisar categoria não confirma participação; não há operação para marcar pagamento como recebido. O backend de MFA administrativo está implementado, com integração das telas e configuração de produção ainda pendentes. A aplicação foi validada localmente e não está liberada como sistema final de produção.
+
+A [consulta de auditoria por API](../docs/integracao-auditoria.md) permite acompanhar ações administrativas e de segurança com filtros e paginação. Exige conta staff, permissão própria e o segundo fator conforme a política do ambiente. Não concede acesso automaticamente aos grupos existentes nem altera telas.
 
 Próxima etapa: [escolha do serviço de pagamentos](../docs/escolha-pagamentos.md), considerando a conta bancária que a organização pretende abrir no Brasil e o recebedor ainda não definido.
 
@@ -208,7 +210,7 @@ Produção exige também `CHAGS_PUBLIC_URL` como origem HTTPS presente nos hosts
 
 Por padrão, limites de IP usam apenas `REMOTE_ADDR` e ignoram X-Forwarded-For. Atrás de um proxy, configure `CHAGS_TRUSTED_PROXY_NETWORKS` somente com CIDRs dos proxies controlados que sobrescrevem o header, após confirmar a topologia do CTIC. A seleção percorre a cadeia pela direita até o primeiro endereço não confiável. Não confiar indiscriminadamente no header enviado pelo cliente. `CHAGS_TRUST_HTTPS_PROXY` controla HTTPS e é uma configuração distinta.
 
-MFA administrativo, revisão visual, traduções do portal estático/gestão e validação completa no CTIC ainda são etapas anteriores à liberação pública. A liberação de certificados e os pagamentos exigem os módulos e testes definidos na arquitetura.
+A integração das telas de MFA, sua chave de criptografia de produção, revisão visual, traduções do portal estático/gestão e validação completa no CTIC ainda são etapas anteriores à liberação pública. Consulte o [guia de MFA](../docs/integracao-mfa.md). A liberação de certificados e os pagamentos exigem os módulos e testes definidos na arquitetura.
 
 Com configuração e infraestrutura reais fornecidas pelo CTIC, os comandos previstos são:
 
