@@ -48,6 +48,10 @@ Siga o [passo a passo para PowerShell](../docs/desenvolvimento-windows.md), com 
 
 O workflow **Backend CI** instala o lockfile com hashes, cria um PostgreSQL 17.11 descartável, verifica configuração/migrações, executa a suíte completa e valida a coleta de estáticos. A role de teste não é superusuária; senhas são geradas por execução e não há conexão com serviços de produção. Consulte o [guia de testes no GitHub](../docs/testes-github.md) para disparos, leitura dos checks e limitações.
 
+## Backup e recuperação do banco
+
+Os comandos `backup_database` e `verify_database_backup` geram uma cópia consistente do PostgreSQL e ensaiam sua restauração em um banco novo descartável. O segundo nunca restaura sobre um banco existente. O [guia de backup e recuperação](../docs/backup-recuperacao.md) descreve uso no Windows/Linux, permissões, proteção dos arquivos e as tarefas que ainda dependem do CTIC.
+
 ## Preparar o ambiente de nuvem
 
 Execute a partir da raiz `Website-ishgr`:

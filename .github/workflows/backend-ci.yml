@@ -41,6 +41,14 @@ jobs:
       - name: Instalar dependências com hashes
         run: python -m pip install --require-hashes -r backend/requirements.txt
 
+      - name: Preparar clientes PostgreSQL para os testes de backup
+        run: |
+          if [ ! -x /usr/lib/postgresql/17/bin/pg_dump ] || [ ! -x /usr/lib/postgresql/17/bin/pg_restore ]; then
+            sudo apt-get update
+            sudo apt-get install --no-install-recommends --yes postgresql-client-17
+          fi
+          echo "CHAGS_PG_BIN=/usr/lib/postgresql/17/bin" >> "$GITHUB_ENV"
+
       - name: Iniciar PostgreSQL de testes
         run: python backend/scripts/ci-postgres.py start
 
