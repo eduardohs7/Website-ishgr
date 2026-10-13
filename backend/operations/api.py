@@ -7,7 +7,7 @@ from django import forms
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.core.paginator import EmptyPage, Paginator
 from django.db import DatabaseError, transaction
-from django.db.models import Count, Q, Sum
+from django.db.models import Count, Sum
 from django.middleware.csrf import get_token
 from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
 
@@ -19,6 +19,8 @@ from registrations.api import registration_data
 from registrations.forms import RegistrationFilterForm
 from registrations.models import Registration
 from registrations.services import cancel_registration, current_event, review_category
+from .exports import ExportLimitExceeded, csv_response, registration_csv
+from .queries import registration_queryset
 from .services import require_operator
 
 
@@ -26,6 +28,7 @@ VIEW = "registrations.view_registration"
 REVIEW = "registrations.review_registration"
 CANCEL = "registrations.cancel_registration"
 INDICATORS = "registrations.view_registration_indicators"
+EXPORT = "registrations.export_registration"
 
 
 def operator_access_error(user, permissions=()):
@@ -67,6 +70,7 @@ def capabilities(user):
         "review_category": user.has_perms((VIEW, REVIEW)),
         "cancel_registration": user.has_perms((VIEW, CANCEL)),
         "view_indicators": user.has_perm(INDICATORS),
+        "export_registrations": user.has_perms((VIEW, EXPORT)),
     }
 
 
@@ -132,17 +136,7 @@ def registrations(request):
     if configured is None:
         return error_response("event_not_configured", status=404)
     values = form.cleaned_data
-    queryset = Registration.objects.filter(event=configured).select_related("user")
-    for field, lookup in (("status", "status"), ("review", "category_review")):
-        if values[field]:
-            queryset = queryset.filter(**{lookup: values[field]})
-    if values["q"]:
-        condition = Q(user__full_name__icontains=values["q"]) | Q(user__email__icontains=values["q"])
-        try:
-            condition |= Q(pk=uuid.UUID(values["q"]))
-        except ValueError:
-            pass
-        queryset = queryset.filter(condition)
+    queryset = registration_queryset(configured, values)
     paginator = Paginator(queryset.order_by("-created_at", "pk"), values["page_size"] or 50)
     try:
         page = paginator.page(values["page"] or 1)
@@ -217,6 +211,32 @@ def review(request, registration_id):
 @sensitive_post_parameters("*")
 def cancel(request, registration_id):
     return mutate(request, registration_id, permission=CANCEL, form_class=CancelInputForm, service=cancel_registration)
+
+
+@api_methods("POST")
+@operator_api(VIEW, EXPORT)
+@sensitive_post_parameters("*")
+@sensitive_variables("*")
+def export(request):
+    query_data(request)
+    data = request_data(request)
+    if data.keys() - {"q", "status", "review"}:
+        return error_response("unknown_fields", status=400)
+    form = RegistrationFilterForm(data)
+    if not form.is_valid():
+        return error_response("validation_error", status=422, errors=form_errors(form))
+    configured = current_event()
+    if configured is None:
+        return error_response("event_not_configured", status=404)
+    try:
+        content = registration_csv(actor=request.user, event=configured, filters=form.cleaned_data)
+    except User.DoesNotExist:
+        return error_response("authentication_required", status=401)
+    except ExportLimitExceeded:
+        return error_response("export_limit_exceeded", status=413)
+    except DatabaseError:
+        return error_response("operation_unavailable", status=503)
+    return csv_response(content)
 
 
 @api_methods("GET")

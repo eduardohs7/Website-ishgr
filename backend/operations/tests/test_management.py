@@ -12,7 +12,7 @@ from django.urls import reverse
 
 from accounts.models import User
 from operations.models import AuditEntry
-from operations.views import csv_cell
+from operations.exports import csv_cell
 from registrations.models import Registration
 from registrations.services import cancel_registration, register, review_category
 from registrations.tests import factories
@@ -184,7 +184,7 @@ class ManagementTests(TestCase):
 
     def test_export_audit_failure_prevents_delivery(self):
         self.grant("view_registration", "export_registration")
-        with patch("operations.views.audit", side_effect=RuntimeError("Synthetic database failure")):
+        with patch("operations.exports.audit", side_effect=RuntimeError("Synthetic database failure")):
             with self.assertRaises(RuntimeError):
                 self.client.post(reverse("operations:exports"), {})
 

@@ -1,16 +1,10 @@
-import csv
-import io
-import uuid
 from functools import wraps
 
-from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
-from django.db import transaction
-from django.db.models import Count, Q, Sum
-from django.http import HttpResponse
+from django.db.models import Count, Sum
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_http_methods
@@ -19,7 +13,9 @@ from registrations.forms import RegistrationActionForm, RegistrationFilterForm
 from registrations.models import Registration
 from registrations.services import cancel_registration, review_category
 from registrations.views import current_event
-from .services import audit, require_operator
+from .exports import ExportLimitExceeded, csv_response, registration_csv
+from .queries import registration_queryset
+from .services import require_operator
 
 
 def operator(*permissions):
@@ -35,21 +31,10 @@ def operator(*permissions):
 
 def filtered_registrations(data):
     form = RegistrationFilterForm(data)
-    queryset = Registration.objects.filter(event=current_event()).select_related("user", "event")
+    event = current_event()
     if not form.is_valid():
-        return form, queryset.none()
-    for field, lookup in [("status", "status"), ("review", "category_review")]:
-        if form.cleaned_data[field]:
-            queryset = queryset.filter(**{lookup: form.cleaned_data[field]})
-    query = form.cleaned_data["q"].strip()
-    if query:
-        condition = Q(user__full_name__icontains=query) | Q(user__email__icontains=query)
-        try:
-            condition |= Q(pk=uuid.UUID(query))
-        except ValueError:
-            pass
-        queryset = queryset.filter(condition)
-    return form, queryset
+        return form, Registration.objects.none()
+    return form, registration_queryset(event, form.cleaned_data)
 
 
 @never_cache
@@ -101,51 +86,17 @@ def indicators(request):
     })
 
 
-def csv_cell(value):
-    text = str(value)
-    # Excel can interpret formulas after leading whitespace, BOM or controls.
-    probe = text
-    while probe and (probe[0].isspace() or ord(probe[0]) < 32 or probe[0] == "\ufeff"):
-        probe = probe[1:]
-    text = "".join(" " if ord(char) < 32 else char for char in text)
-    if probe.startswith(("=", "+", "-", "@")):
-        text = "'" + text
-    return text
-
-
 @never_cache
 @operator("registrations.view_registration", "registrations.export_registration")
 @require_http_methods(["GET", "POST"])
 def exports(request):
     data = request.POST if request.method == "POST" else request.GET
-    form, queryset = filtered_registrations(data)
+    form = RegistrationFilterForm(data)
     if request.method == "GET" or not form.is_valid():
         return render(request, "operations/export.html", {"form": form})
-    if queryset.count() > settings.REGISTRATION_EXPORT_MAX_ROWS:
+    try:
+        content = registration_csv(actor=request.user, event=current_event(), filters=form.cleaned_data)
+    except ExportLimitExceeded:
         form.add_error(None, "Há inscrições demais para este arquivo. Refine os filtros.")
         return render(request, "operations/export.html", {"form": form}, status=413)
-    # One in-memory response and matching count, audited before delivering PII.
-    output = io.StringIO(newline="")
-    output.write("\ufeff")
-    writer = csv.writer(output)
-    writer.writerow(["Inscrição", "Nome", "E-mail", "Categoria", "Situação", "Revisão", "Valor da inscrição", "Moeda", "Criada em (UTC)"])
-    with transaction.atomic():
-        count = 0
-        for obj in queryset.order_by("created_at", "pk").iterator(chunk_size=500):
-            writer.writerow([csv_cell(value) for value in [
-                obj.id, obj.user.full_name, obj.user.email, obj.category_name,
-                obj.get_status_display(), obj.get_category_review_display(),
-                f"{obj.amount:.2f}", obj.currency, obj.created_at.isoformat(),
-            ]])
-            count += 1
-            if count > settings.REGISTRATION_EXPORT_MAX_ROWS:
-                return HttpResponse("Refine os filtros para reduzir o arquivo.", status=413)
-        event = current_event()
-        if event:
-            # Do not retain the free-text search: it can contain personal data.
-            audit(actor=request.user, action="registration.exported", target=event,
-                  details={"rows": count, "status": form.cleaned_data["status"], "review": form.cleaned_data["review"],
-                           "search_applied": bool(form.cleaned_data["q"].strip())})
-    response = HttpResponse(output.getvalue(), content_type="text/csv; charset=utf-8")
-    response["Content-Disposition"] = 'attachment; filename="chags14-inscricoes.csv"'
-    return response
+    return csv_response(content)

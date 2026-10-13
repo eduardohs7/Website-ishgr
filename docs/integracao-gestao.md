@@ -15,10 +15,11 @@ As regras de acesso são as mesmas da gestão existente. Sessões técnicas do a
 | Revisar categoria | `registrations.view_registration` + `registrations.review_registration` |
 | Cancelar | `registrations.view_registration` + `registrations.cancel_registration` |
 | Indicadores | `registrations.view_registration_indicators` |
+| Exportar CSV | `registrations.view_registration` + `registrations.export_registration` |
 
-Os grupos existentes preparados por `setup_registration_roles` continuam aplicáveis. Atendimento pode consultar/revisar/cancelar; Indicadores recebe somente agregados; Exportação mantém suas permissões anteriores. A rota de CSV existente permanece separada desta entrega. Não atribua superusuário para contornar permissões ausentes.
+Os grupos existentes preparados por `setup_registration_roles` continuam aplicáveis. Atendimento pode consultar/revisar/cancelar; Indicadores recebe somente agregados; Exportação pode consultar e baixar CSV. A rota de CSV da gestão tradicional continua disponível e compartilha a geração/auditoria com a API. Não atribua superusuário para contornar permissões ausentes.
 
-Depois do login, execute `GET /api/v1/management/session/`. O retorno contém `operator` (`id`, `full_name`), `permissions` e `csrf_token` mascarado. As capacidades são `view_registrations`, `review_category`, `cancel_registration` e `view_indicators`. Use-as para habilitar controles no front; o backend verifica novamente todas as permissões em cada operação. A sessão autenticada vem do cookie, não de um ID enviado pelo navegador.
+Depois do login, execute `GET /api/v1/management/session/`. O retorno contém `operator` (`id`, `full_name`), `permissions` e `csrf_token` mascarado. As capacidades são `view_registrations`, `review_category`, `cancel_registration`, `view_indicators` e `export_registrations`. Use-as para habilitar controles no front; o backend verifica novamente todas as permissões em cada operação. A sessão autenticada vem do cookie, não de um ID enviado pelo navegador.
 
 Nos POSTs, envie `Content-Type: application/json`, `X-CSRFToken` com o token recebido e o cookie da sessão, seguindo o fluxo dos contratos de autenticação. Não coloque token em URL nem em logs. `application/x-www-form-urlencoded` também é aceito. `multipart/form-data` não é aceito. Todos os valores do corpo são strings. Campos desconhecidos, repetidos ou valores de tipos diferentes são recusados. O limite de corpo é 32 KiB no protocolo compartilhado.
 
@@ -30,6 +31,7 @@ O middleware CSRF pode devolver 403 antes da verificação da sessão em um POST
 | --- | --- | --- |
 | GET | `session/` | Própria identificação, permissões e token CSRF. |
 | GET | `registrations/` | Busca, filtros e paginação. |
+| POST | `registrations/export/` | Arquivo CSV dos filtros informados, com permissão própria e auditoria. |
 | GET | `registrations/<uuid>/` | Detalhes da inscrição. |
 | POST | `registrations/<uuid>/review/` | Aprovar ou rejeitar categoria, com motivo. |
 | POST | `registrations/<uuid>/cancel/` | Cancelar inscrição, com motivo. |
@@ -87,7 +89,7 @@ Não há operação para confirmar pagamento, alterar dono/categoria/valor/moeda
 
 ## Erros e integração
 
-Sucesso: `{"ok": true, "data": {...}}`. Erro controlado: `{"ok": false, "error": {"code": "..."}}`. Validação de campos também inclui `error.fields`, com códigos e mensagens.
+Sucesso das consultas/ações: `{"ok": true, "data": {...}}`. O sucesso da exportação retorna o próprio CSV, conforme a seção abaixo. Erro controlado: `{"ok": false, "error": {"code": "..."}}`. Validação de campos também inclui `error.fields`, com códigos e mensagens.
 
 | HTTP | Código | Tratamento sugerido |
 | --- | --- | --- |
@@ -97,17 +99,37 @@ Sucesso: `{"ok": true, "data": {...}}`. Erro controlado: `{"ok": false, "error":
 | 404 | `event_not_configured`, `registration_not_found`, `page_not_found` | Informar indisponibilidade e atualizar a consulta. |
 | 405 | `method_not_allowed` | Usar o método indicado em `Allow`. |
 | 409 | `registration_action_unavailable` | Atualizar detalhes; o estado não permite a revisão solicitada. |
-| 413 | `payload_too_large` | Reduzir o corpo enviado. |
+| 413 | `payload_too_large`, `export_limit_exceeded` | Reduzir o corpo ou refinar os filtros da exportação. |
 | 415 | `unsupported_media_type` | Usar JSON ou formulário URL-encoded. |
 | 422 | `validation_error` | Exibir os erros nos campos correspondentes. |
 | 503 | `operation_unavailable` | Informar falha e consultar o estado antes de repetir. |
 
 Falhas inesperadas fora desses casos continuam sujeitas ao tratamento global do Django/servidor; o front deve conferir HTTP e Content-Type antes de interpretar JSON. Use HTTPS e settings de produção na implantação. Consultas `q` podem conter dados pessoais; configure o proxy para evitar sua gravação em logs. Renderize textos de participantes como texto, sem interpretá-los como HTML.
 
+## Download do CSV
+
+O botão mantido pelo responsável do front deve fazer um POST à rota de exportação, enviando filtros **no corpo**, junto com sessão e CSRF. Exemplo de corpo JSON:
+
+```json
+{"q": "", "status": "pending", "review": ""}
+```
+
+Os campos permitidos são somente `q`, `status` e `review`, com as mesmas regras da lista. Envie `{}` para todos os registros do evento atual dentro do limite. Não envie `page`, `page_size`, `event_id`, `filename` ou parâmetros na URL. Abrir a URL como uma página faz GET, que retorna 405 e não gera um arquivo.
+
+Em caso de sucesso, o servidor retorna HTTP 200, `Content-Type: text/csv; charset=utf-8` e `Content-Disposition: attachment; filename="chags14-inscricoes.csv"`. O corpo é o arquivo CSV em UTF-8 com BOM, separado por vírgulas, com valores decimais usando ponto. O front deve tratar esse corpo como arquivo para download, sem tentar interpretá-lo como JSON. Em erro, o corpo segue o envelope JSON acima; confira o HTTP e o Content-Type antes de escolher o tratamento.
+
+As nove colunas são: Inscrição (UUID), Nome, E-mail, Categoria, Situação, Revisão, Valor da inscrição, Moeda e Criada em (UTC). O formato é o mesmo da exportação tradicional: categoria histórica em português e rótulos de situação/revisão no idioma da requisição. Não inclui senha, tokens, motivo de cancelamento, país ou instituição. A ordem é criação crescente, com UUID para desempate. Textos são neutralizados contra fórmulas de planilha; vírgulas/aspas são escapadas pelo escritor CSV e controles são substituídos por espaços.
+
+O arquivo inclui todos os registros que correspondem aos filtros, com limite de `REGISTRATION_EXPORT_MAX_ROWS` (padrão 10.000). Se ultrapassar, retorna `export_limit_exceeded` com HTTP 413; refine os filtros. Não devolve arquivo parcial nem gera auditoria de uma exportação reprovada. A verificação também ocorre durante a leitura das linhas, para não depender somente da contagem preliminar. Quando nenhum registro corresponde, devolve apenas o cabeçalho e audita zero linhas.
+
+Cada geração bem-sucedida é auditada antes de disponibilizar o CSV, com operador da sessão, evento, número de linhas, filtros de situação/revisão e indicação de que houve busca. O texto de `q` não é gravado na auditoria. Repetir o download gera outra auditoria; a auditoria comprova a geração, não o recebimento completo pelo navegador. Falha de banco/auditoria impede a entrega e retorna 503. A conta e suas permissões são recarregadas antes da geração; flags enviadas pelo front não autorizam a operação.
+
+Não há arquivo público, token na URL, envio por e-mail ou cópia persistida pela API. Respostas não permitem cache. Depois do download, a cópia contém dados pessoais e deve permanecer sob acesso restrito da comissão. O recurso está disponível quando a branch/PR estiver integrado ao backend em execução; não configura uma publicação de produção nem um botão automaticamente.
+
 Para testar somente a entrega:
 
 ```powershell
-.\.venv\Scripts\python.exe backend\manage.py test operations.tests.test_api operations.tests.test_api_concurrency --noinput
+.\.venv\Scripts\python.exe backend\manage.py test operations.tests.test_api operations.tests.test_api_concurrency operations.tests.test_export_api --noinput
 ```
 
 No Linux, troque o executável por `.venv/bin/python`. Os testes usam PostgreSQL real e banco temporário, cobrindo permissões, CSRF, isolamento entre eventos, filtros, paginação, campos históricos, auditoria e concorrência. A conexão das telas será feita pelo responsável do front. Este contrato não exige novas migrações nem dependências.
