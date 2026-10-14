@@ -2,6 +2,8 @@
 
 O workflow **Backend CI**, em `.github/workflows/backend-ci.yml`, verifica o backend sem publicar o site, fazer merge ou acessar dados de produção. HTML, CSS e JavaScript não são modificados pela execução. A coleta de arquivos estáticos cria somente arquivos temporários do runner.
 
+A consulta de vulnerabilidades conhecidas dos pacotes ocorre em um workflow separado, **Backend Security**, descrito no [guia de auditoria de dependências](seguranca-dependencias.md). Ele também executa semanalmente após ser integrado à `main`.
+
 ## Quando executa
 
 - Push que altere arquivos em `backend/` ou o próprio workflow, em qualquer branch.

@@ -1,0 +1,68 @@
+name: Backend Security
+
+on:
+  push:
+    paths:
+      - "backend/requirements*.in"
+      - "backend/requirements*.txt"
+      - "backend/security/**"
+      - ".github/workflows/backend-security.yml"
+  pull_request:
+    paths:
+      - "backend/requirements*.in"
+      - "backend/requirements*.txt"
+      - "backend/security/**"
+      - ".github/workflows/backend-security.yml"
+  schedule:
+    - cron: "0 9 * * 1" # Segunda-feira, 09:00 UTC.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-security-${{ github.event.pull_request.head.repo.full_name || github.repository }}-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Auditoria (${{ matrix.target.name }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - name: Linux
+            requirements: backend/requirements.txt
+          - name: Windows
+            requirements: backend/requirements-windows.txt
+          - name: Ferramenta de auditoria
+            requirements: backend/security/requirements.txt
+    steps:
+      - name: Obter o código
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Preparar Python 3.12
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+
+      - name: Instalar auditor em ambiente separado, com hashes
+        run: |
+          python -m venv "$RUNNER_TEMP/chags-audit-venv"
+          "$RUNNER_TEMP/chags-audit-venv/bin/python" -m pip install --require-hashes -r backend/security/requirements.txt
+
+      # Os lockfiles têm versões exatas e todas as dependências transitivas.
+      # Não instalar, compilar nem resolver os pacotes auditados.
+      - name: Consultar vulnerabilidades conhecidas no PyPI
+        env:
+          AUDIT_REQUIREMENTS: ${{ matrix.target.requirements }}
+        run: |
+          "$RUNNER_TEMP/chags-audit-venv/bin/python" -m pip_audit \
+            --require-hashes --disable-pip --strict \
+            --vulnerability-service pypi --progress-spinner off --timeout 30 \
+            --cache-dir "$RUNNER_TEMP/chags-audit-cache" \
+            --requirement "$AUDIT_REQUIREMENTS"
