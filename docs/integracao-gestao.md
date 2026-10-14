@@ -8,6 +8,8 @@ Use uma conta individual da comissão, ativa e com `is_staff`, autenticada pela 
 
 As regras de acesso são as mesmas da gestão existente. Sessões técnicas do admin não exigem confirmação de e-mail adicional. Isso não altera a exigência de confirmação nas APIs do participante.
 
+O [segundo fator da comissão](integracao-mfa.md) também protege a gestão e a exportação. Depois do login com senha, consulte `/api/v1/auth/mfa/status/` e conclua o cadastro/desafio quando exigido, antes de consultar a sessão de gestão. `mfa_required` e `mfa_enrollment_required` retornam 403; a regra também vale para as rotas tradicionais do admin e da comissão.
+
 | Operação | Permissões necessárias, além de conta ativa e staff |
 | --- | --- |
 | Sessão/capacidades | Nenhuma permissão operacional; retorna somente a própria identificação e capacidades. |
