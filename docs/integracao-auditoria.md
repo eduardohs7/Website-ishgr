@@ -2,7 +2,7 @@
 
 Esta API consulta ações já registradas pelo backend: criação, revisão e cancelamento
 de inscrições, geração de CSV e operações de segundo fator. Não cria telas.
-Pagamentos e certificados terão suas próprias ações quando forem implementados.
+Inclui a preparação de rascunhos internos de certificados. Pagamentos e emissão de certificados terão suas próprias ações quando forem implementados.
 
 ## Acesso
 
@@ -103,6 +103,7 @@ Os detalhes publicados são selecionados por ação **e tipo do objeto**:
 | `registration.category_reviewed` / `registrations.registration` | `previous`, `decision`. |
 | `registration.exported` / `registrations.event` | `rows`, `status`, `review`, `search_applied` como booleano. O texto da busca não é publicado. |
 | `security.mfa_verified` / `accounts.user` | `method`: `totp` ou `recovery`. |
+| `certificate.draft_prepared` / `certificates.certificatedraft` | `registration_id`, `kind` (`participation`). Não inclui nome copiado nem caminho de arquivos. |
 | Demais ações / alvos | Objeto vazio `{}`. O motivo e os metadados continuam disponíveis. |
 
 Campos internos adicionais, valores inválidos e JSON com tipos inesperados são

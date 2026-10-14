@@ -52,6 +52,10 @@ class AuditFilterForm(forms.Form):
 
 # Deliberately explicit schemas: adding data to internal logs does not expose it.
 DETAIL_FIELDS = {
+    ("certificate.draft_prepared", "certificates.certificatedraft"): {
+        "registration_id": forms.UUIDField(),
+        "kind": forms.ChoiceField(choices=[("participation", "")]),
+    },
     ("registration.created", "registrations.registration"): {
         "category_id": forms.UUIDField(),
         "amount": forms.DecimalField(min_value=0, max_digits=10, decimal_places=2),

@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "registrations.apps.RegistrationsConfig",
     "operations.apps.OperationsConfig",
+    "certificates.apps.CertificatesConfig",
 ]
 
 MIDDLEWARE = [

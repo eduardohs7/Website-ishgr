@@ -93,7 +93,7 @@ A administração fica em `/gestao/`. Essa conta administra configurações; use
 Para executar a suíte automatizada:
 
 ```powershell
-.\.venv\Scripts\python.exe backend\manage.py test accounts registrations operations config.tests --noinput
+.\.venv\Scripts\python.exe backend\manage.py test accounts registrations operations certificates config.tests --noinput
 ```
 
 Os catálogos de tradução compilados já acompanham o código. Editar traduções exige instalar GNU gettext e recompilá-las posteriormente. Os scripts `.sh` do projeto preparam o ambiente Linux da nuvem e não são os comandos para Windows.

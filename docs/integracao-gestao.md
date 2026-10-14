@@ -25,6 +25,8 @@ Depois do login, execute `GET /api/v1/management/session/`. O retorno contém `o
 
 A [consulta de auditoria](integracao-auditoria.md) usa permissão própria e proteção de MFA, sem conceder acesso automaticamente aos grupos de inscrições. Seu histórico é global e inclui ações de segurança; conceda essa permissão somente à equipe autorizada.
 
+O [módulo de certificados](integracao-certificados.md) acrescenta `view_certificate_drafts` e `prepare_certificate_drafts` às capacidades, com permissões específicas além da consulta de inscrições. São rascunhos internos; emissão permanece indisponível.
+
 Nos POSTs, envie `Content-Type: application/json`, `X-CSRFToken` com o token recebido e o cookie da sessão, seguindo o fluxo dos contratos de autenticação. Não coloque token em URL nem em logs. `application/x-www-form-urlencoded` também é aceito. `multipart/form-data` não é aceito. Todos os valores do corpo são strings. Campos desconhecidos, repetidos ou valores de tipos diferentes são recusados. O limite de corpo é 32 KiB no protocolo compartilhado.
 
 O middleware CSRF pode devolver 403 antes da verificação da sessão em um POST sem token. Não há isenção de CSRF nem liberação de CORS. Todas as respostas controladas usam JSON e impedem cache. Métodos não previstos retornam 405 e o header `Allow`.

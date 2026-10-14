@@ -18,6 +18,8 @@ O contrato da área do participante está em `docs/integracao-participante.md`.
 O contrato da gestão de inscrições está em `docs/integracao-gestao.md`.
 O contrato/configuração do segundo fator está em `docs/integracao-mfa.md`.
 O contrato de consulta restrita da auditoria está em `docs/integracao-auditoria.md`.
+O contrato da estrutura de certificados está em `docs/integracao-certificados.md`.
+Não liberar emissão/PDF nem aprovar elegibilidade antes das regras da organização.
 Preservar o requisito de MFA nas rotas de administração/gestão; não expor serviços
 privilegiados fora dos caminhos protegidos sem verificação equivalente.
 Para desenvolvimento no Windows, consulte `docs/desenvolvimento-windows.md`;

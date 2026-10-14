@@ -73,6 +73,8 @@ def capabilities(user):
         "view_indicators": user.has_perm(INDICATORS),
         "export_registrations": user.has_perms((VIEW, EXPORT)),
         "view_audit": user.has_perm(VIEW_AUDIT),
+        "view_certificate_drafts": user.has_perms((VIEW, "certificates.view_certificatedraft")),
+        "prepare_certificate_drafts": user.has_perms((VIEW, "certificates.view_certificatedraft", "certificates.prepare_certificatedraft")),
     }
 
 
