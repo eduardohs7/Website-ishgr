@@ -29,6 +29,7 @@ REVIEW = "registrations.review_registration"
 CANCEL = "registrations.cancel_registration"
 INDICATORS = "registrations.view_registration_indicators"
 EXPORT = "registrations.export_registration"
+VIEW_AUDIT = "operations.view_auditentry"
 
 
 def operator_access_error(user, permissions=()):
@@ -71,6 +72,7 @@ def capabilities(user):
         "cancel_registration": user.has_perms((VIEW, CANCEL)),
         "view_indicators": user.has_perm(INDICATORS),
         "export_registrations": user.has_perms((VIEW, EXPORT)),
+        "view_audit": user.has_perm(VIEW_AUDIT),
     }
 
 
