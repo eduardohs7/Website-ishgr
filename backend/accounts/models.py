@@ -5,6 +5,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models.functions import Lower
 from django.utils import timezone
+from django.utils.crypto import salted_hmac
 from django_countries.fields import CountryField
 
 from .managers import UserManager
@@ -18,6 +19,7 @@ class User(AbstractUser):
     email = models.EmailField("e-mail", unique=True)
     full_name = models.CharField("nome completo", max_length=255)
     email_verified_at = models.DateTimeField("e-mail confirmado em", null=True, blank=True)
+    session_version = models.UUIDField(null=True, editable=False)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["full_name"]
@@ -47,10 +49,30 @@ class User(AbstractUser):
                 self.email_verified_at = None
                 if update_fields is not None:
                     kwargs["update_fields"] = set(update_fields) | {"email_verified_at"}
+        if not self._state.adding and self.pk is not None and kwargs.get("update_fields") is None and not kwargs.get("force_insert"):
+            # Ordinary saves (including a stale admin form) must not restore an
+            # old revocation version. Security services save it explicitly.
+            deferred = self.get_deferred_fields()
+            protected = {"session_version"}
+            if self._password is None:
+                # set_password() or explicit update_fields is required to change
+                # an existing hash; a stale read-only form must not restore it.
+                protected.add("password")
+            kwargs["update_fields"] = {
+                field.attname for field in self._meta.concrete_fields
+                if not field.primary_key and field.attname not in protected and field.attname not in deferred
+            }
         return super().save(*args, **kwargs)
 
     def get_full_name(self):
         return self.full_name
+
+    def _get_session_auth_hash(self, secret=None):
+        # Preserve existing sessions/tokens until this account first revokes them.
+        if self.session_version is None:
+            return super()._get_session_auth_hash(secret=secret)
+        return salted_hmac("accounts.User.session", f"{self.password}:{self.session_version}",
+                           secret=secret, algorithm="sha256").hexdigest()
 
     def get_short_name(self):
         return self.full_name.split(" ", 1)[0]

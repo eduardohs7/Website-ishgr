@@ -2,7 +2,7 @@ from datetime import timedelta
 from ipaddress import ip_address, ip_network
 
 from django.conf import settings
-from django.db import transaction
+from django.db import DatabaseError, transaction
 from django.shortcuts import render
 from django.utils import timezone
 from django.utils.crypto import salted_hmac
@@ -18,6 +18,7 @@ ROUTE_SCOPES = {
     "auth_api:login": "login", "auth_api:signup": "signup",
     "auth_api:request_reset": "request_email", "auth_api:resend_confirmation": "request_email",
     "auth_api:confirm": "confirm", "auth_api:reset": "reset",
+    "auth_api:change_password": "account_security", "auth_api:logout_all": "account_security",
     "staff_mfa:enroll": "mfa_sensitive", "staff_mfa:confirm": "mfa_code",
     "staff_mfa:verify": "mfa_code", "staff_mfa:recovery_codes": "mfa_sensitive",
     "staff_mfa:disable": "mfa_sensitive",
@@ -65,11 +66,14 @@ class AccountRateLimitMiddleware:
         if not scope:
             return None
         request.sensitive_post_parameters = (
-            "password", "password1", "password2", "new_password1", "new_password2", "token", "code",
+            "password", "current_password", "password1", "password2", "new_password1", "new_password2", "token", "code",
         )
         policies = settings.ACCOUNT_RATE_LIMITS[scope]
         values = {"ip": client_ip(request)}
         is_mfa = request.resolver_match.namespace == "staff_mfa"
+        is_security = scope == "account_security"
+        if is_security and (not request.user.is_authenticated or not request.user.is_active):
+            return None
         if is_mfa and (not request.user.is_authenticated or not request.user.is_active or not request.user.is_staff):
             return None
         is_api = request.resolver_match.namespace in ("auth_api", "staff_mfa")
@@ -84,24 +88,31 @@ class AccountRateLimitMiddleware:
         else:
             identity_field = "username" if scope == "login" else "email"
             email = request.POST.get(identity_field, "")
-        values["identity"] = str(request.user.pk) if is_mfa else User.objects.normalize_email(email)[:254]
+        values["identity"] = str(request.user.pk) if is_mfa or is_security else User.objects.normalize_email(email)[:254]
         now = timezone.now()
         retry_after = 0
         # The same PostgreSQL buckets serve all workers and both login endpoints.
-        with transaction.atomic():
-            keys = [
-                (salted_hmac("accounts.throttle", f"{scope}:{kind}:{values[kind]}", algorithm="sha256").hexdigest(), rule)
-                for kind, rule in policies.items()
-            ]
-            for key, (limit, seconds) in sorted(keys):
-                bucket, _ = AuthThrottleBucket.objects.get_or_create(key=key)
-                bucket = AuthThrottleBucket.objects.select_for_update().get(pk=bucket.pk)
-                if bucket.window_start + timedelta(seconds=seconds) <= now:
-                    bucket.window_start, bucket.count = now, 0
-                bucket.count = min(bucket.count + 1, limit + 1)
-                bucket.save(update_fields=["window_start", "count"])
-                if bucket.count > limit:
-                    retry_after = max(retry_after, int((bucket.window_start + timedelta(seconds=seconds) - now).total_seconds()) + 1)
+        try:
+            with transaction.atomic():
+                keys = [
+                    (salted_hmac("accounts.throttle", f"{scope}:{kind}:{values[kind]}", algorithm="sha256").hexdigest(), rule)
+                    for kind, rule in policies.items()
+                ]
+                for key, (limit, seconds) in sorted(keys):
+                    bucket, _ = AuthThrottleBucket.objects.get_or_create(key=key)
+                    bucket = AuthThrottleBucket.objects.select_for_update().get(pk=bucket.pk)
+                    if bucket.window_start + timedelta(seconds=seconds) <= now:
+                        bucket.window_start, bucket.count = now, 0
+                    bucket.count = min(bucket.count + 1, limit + 1)
+                    bucket.save(update_fields=["window_start", "count"])
+                    if bucket.count > limit:
+                        retry_after = max(retry_after, int((bucket.window_start + timedelta(seconds=seconds) - now).total_seconds()) + 1)
+        except DatabaseError:
+            if not is_api:
+                raise
+            response = error_response("operation_unavailable", status=503)
+            response["Cache-Control"] = "no-store"
+            return response
         if retry_after:
             response = error_response("rate_limited", status=429) if is_api else render(request, "accounts/rate_limited.html", status=429)
             response["Retry-After"] = str(retry_after)

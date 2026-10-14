@@ -14,6 +14,7 @@ backend. O front é mantido por outro desenvolvedor.
 - Não registrar senhas, cookies ou tokens em arquivos de entrega ou logs.
 
 O contrato atual da autenticação está em `docs/integracao-autenticacao.md`.
+O contrato de troca de senha/logout global está em `docs/integracao-seguranca-conta.md`.
 O contrato da área do participante está em `docs/integracao-participante.md`.
 O contrato da gestão de inscrições está em `docs/integracao-gestao.md`.
 O contrato/configuração do segundo fator está em `docs/integracao-mfa.md`.

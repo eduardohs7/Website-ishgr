@@ -108,3 +108,11 @@ Verificação específica (Linux):
 ```
 
 Windows usa `.\.venv\Scripts\python.exe` e o PostgreSQL local. Foram usados PostgreSQL real, vetores públicos RFC 6238, testes de recuperação/replay, concorrência, criptografia, provas de sessão, permissões, CSRF e rollback. HTTPS, relógio/segredos do CTIC e integração das telas ainda exigem validação na implantação.
+
+## Operações de segurança da conta
+
+O [contrato de segurança da conta](integracao-seguranca-conta.md) oferece troca de
+senha autenticada e logout global. A troca para staff com MFA exige prova recente;
+preserva o fator e seus códigos de recuperação, invalida provas anteriores e
+descarta cadastros pendentes. Logout global confirma a senha atual e encerra todos
+os acessos, inclusive o atual, sem exigir desafio MFA e sem desativar o fator.

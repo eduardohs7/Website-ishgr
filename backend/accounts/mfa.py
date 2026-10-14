@@ -6,7 +6,7 @@ import uuid
 from datetime import timedelta
 
 from cryptography.fernet import Fernet, InvalidToken
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import HASH_SESSION_KEY, update_session_auth_hash
 from django.conf import settings
 from django.db import transaction
 from django.middleware.csrf import get_token, rotate_token
@@ -38,6 +38,9 @@ def actor_for(request):
         raise MFAError("authentication_required", 401)
     if not user.is_staff:
         raise MFAError("permission_denied")
+    session_hash = request.session.get(HASH_SESSION_KEY)
+    if not isinstance(session_hash, str) or not constant_time_compare(session_hash, user.get_session_auth_hash()):
+        raise MFAError("authentication_required", 401)
     return user
 
 

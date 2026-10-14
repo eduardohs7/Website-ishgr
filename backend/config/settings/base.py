@@ -101,6 +101,7 @@ ACCOUNT_RATE_LIMITS = {
     "reset": {"ip": (30, 900)},
     "mfa_code": {"ip": (30, 300), "identity": (5, 300)},
     "mfa_sensitive": {"ip": (20, 300), "identity": (5, 300)},
+    "account_security": {"ip": (30, 300), "identity": (5, 300)},
 }
 STAFF_MFA_MAX_AGE = 3600
 STAFF_MFA_RECENT_AGE = 300
