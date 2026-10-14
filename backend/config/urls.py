@@ -5,6 +5,11 @@ from django.views.generic import RedirectView
 from .views import liveness, readiness
 from .portal import public_asset, public_image, public_page
 
+handler400 = "config.errors.bad_request"
+handler403 = "config.errors.permission_denied"
+handler404 = "config.errors.page_not_found"
+handler500 = "config.errors.server_error"
+
 admin.site.site_header = "CHAGS 14 — Administração"
 admin.site.site_title = "CHAGS 14"
 admin.site.index_title = "Administração"
