@@ -66,7 +66,7 @@ jobs:
           python backend/manage.py migrate --check
 
       - name: Executar testes do backend
-        run: python backend/manage.py test accounts registrations operations config.tests --noinput
+        run: python backend/manage.py test accounts registrations operations certificates config.tests --noinput
 
       - name: Verificar coleta dos arquivos estáticos
         run: python backend/manage.py collectstatic --noinput
