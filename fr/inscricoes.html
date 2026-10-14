@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Inscriptions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css"></head>
+    
+    <!-- CSS Exclusivo da Página de Inscrições -->
+    <style>
+        /* Centralização do cabeçalho */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+
+        /* Centralização da Tabela e do Conteúdo Principal */
+        .secao-numerada {
+            max-width: 850px; /* Define uma largura máxima elegante */
+            margin: 0 auto 60px auto; /* Centraliza todo o bloco no meio da tela */
+        }
+        
+        .secao-header-flex {
+            display: flex;
+            gap: 20px;
+            align-items: baseline;
+            margin-bottom: 30px;
+            justify-content: center; /* Centraliza os títulos "01" e "02" */
+        }
+
+        /* Estilos estruturais e tipográficos */
+        .secao-padding {
+            padding-bottom: 80px;
+        }
+        .tabela-cabecalho-texto {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .linha-titulo {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        .linha-subtitulo {
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+        .valor-destaque {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .info-bloco {
+            background: var(--bg-section);
+            padding: 30px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        .info-bloco h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .info-bloco p.desc-principal {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .info-bloco ul {
+            padding-left: 20px;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+        .info-bloco p.nota-rodape {
+            font-size: 0.85rem;
+            margin-top: 15px;
+            color: var(--text-body);
+        }
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .cta-container p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="chamadas.html">Appels</a></li>
+                <li><a href="artigos-aceitos.html">Contributions</a></li>
+                <li><a href="programacao.html">Programme</a></li>
+                <li><a href="atracoes.html">Intervenants</a></li>
+                <li><a href="inscricoes.html">Inscriptions</a></li>
+                <li><a href="evento.html">L'Événement</a></li>
+                <li><a href="belem.html">À propos de Belém</a></li>
+                <li><a href="hospedagem.html">Hébergement</a></li>
+                <li><a href="contato.html">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Espace participant</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">FR <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../es/index.html">ES</a>
+                    </div>
+                </div>
+            </div> <!-- 🚨 Correção estrutural: div nav-actions fechada aqui -->
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">PARTICIPEZ À CHAGS 14</span>
+                <h1 class="page-title">Inscriptions.</h1>
+                <p class="page-desc">Les inscriptions pour la 14e Conférence Internationale ouvriront bientôt. Consultez ci-dessous les catégories, les phases et les tarifs prévus.</p>
+            </div>
+        </div>
+
+        <section class="container secao-padding card hidden">
+            <div class="secao-numerada">
+                <div class="secao-header-flex">
+                    <span class="num">01</span>
+                    <h2>Catégories et Tarifs</h2>
+                </div>
+                
+                <div class="tabela-categoria">
+                    <div class="tabela-header">
+                        <span class="tabela-cabecalho-texto">CATÉGORIE</span>
+                        <span class="tabela-cabecalho-texto">TARIF (BRL)</span>
+                    </div>
+                    
+                    <div class="tabela-linha">
+                        <div class="linha-info">
+                            <span class="linha-titulo">Chercheurs et Professeurs</span>
+                            <span class="linha-subtitulo">Affiliation institutionnelle active obligatoire</span>
+                        </div>
+                        <div class="linha-valores">
+                            <span>300,00 R$</span>
+                        </div>
+                    </div>
+
+                    <div class="tabela-linha">
+                        <div class="linha-info">
+                            <span class="linha-titulo">Étudiants de Troisième Cycle (Master/Doctorat)</span>
+                            <span class="linha-subtitulo">Master et Doctorat (sur justificatif)</span>
+                        </div>
+                        <div class="linha-valores">
+                            <span>200,00 R$</span>
+                        </div>
+                    </div>
+
+                    <div class="tabela-linha">
+                        <div class="linha-info">
+                            <span class="linha-titulo">Étudiants de Premier Cycle (Licence)</span>
+                            <span class="linha-subtitulo">Sur présentation d'un certificat de scolarité</span>
+                        </div>
+                        <div class="linha-valores">
+                            <span>100,00 R$</span>
+                        </div>
+                    </div>
+
+                    <div class="tabela-linha">
+                        <div class="linha-info">
+                            <span class="linha-titulo">Grand Public</span>
+                        </div>
+                        <div class="linha-valores">
+                            <span>100,00 R$</span>
+                        </div>
+                    </div>
+
+                    <div class="tabela-linha destaque">
+                        <div class="linha-info">
+                            <span class="linha-titulo">Publics spécifiques</span>
+                        </div>
+                        <div class="linha-valores">
+                            <span class="valor-destaque">75,00 R$</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="secao-numerada card hidden">
+                <div class="secao-header-flex">
+                    <span class="num">02</span>
+                    <h2>Informations de Paiement</h2>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-bloco">
+                        <h4>Méthodes Acceptées</h4>
+                        <p class="desc-principal">Le paiement pourra être effectué directement depuis l'Espace Participant en utilisant :</p>
+                        <ul>
+                            <li>Carte de Crédit (Visa, Mastercard, Amex)</li>
+                            <li>PIX (exclusif pour les résidents au Brésil)</li>
+                            <li>Virement Bancaire International (Wire Transfer)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-bloco">
+                        <h4>Politique d'

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Sobre Belém</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    
+    <!-- CSS Exclusivo da Página Sobre Belém -->
+    <style>
+        /* Centralização Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .texto-centralizado {
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        /* Espaçamentos de Seção */
+        .secao-padding-padrao {
+            padding: 40px 0;
+        }
+        .secao-padding-grande {
+            padding-bottom: 100px;
+        }
+
+        /* Introdução e Turismo */
+        .belem-intro {
+            max-width: 900px;
+            margin-bottom: 50px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-body);
+        }
+        .turismo-header {
+            margin-bottom: 40px;
+        }
+        .turismo-header p {
+            color: var(--text-body);
+            margin-top: 10px;
+        }
+        .dados-galeria {
+            display: none;
+        }
+
+        /* Gastronomia */
+        .badge-gastronomia {
+            color: var(--accent);
+        }
+        .gastronomia-titulo {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-title);
+        }
+        .gastronomia-desc {
+            max-width: 700px;
+            color: #CBD5E0;
+            font-size: 1.05rem;
+        }
+
+        /* Sustentabilidade */
+        .sust-header-area {
+            margin-bottom: 40px;
+        }
+        .badge-sust {
+            color: #2F855A;
+        }
+        .sust-titulo {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+        }
+        .sust-desc {
+            max-width: 800px;
+            font-size: 1.05rem;
+            color: var(--text-body);
+        }
+        .sust-icon {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="chamadas.html">Convocatorias</a></li>
+                <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                <li><a href="programacao.html">Programa</a></li>
+                <li><a href="atracoes.html">Atracciones</a></li>
+                <li><a href="inscricoes.html">Inscripciones</a></li>
+                <li><a href="evento.html">El Evento</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
+                <li><a href="hospedagem.html">Alojamiento</a></li>
+                <li><a href="contato.html">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante -->
+                <a href="sistema-login.html" class="btn-nav-login">Área del participante</a>
+                
+                <!-- Dropdown de Idiomas -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">ES <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../fr/index.html">FR</a>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">SEDE DE CHAGS 14</span>
+                <h1 class="page-title">Bienvenido a Belém.</h1>
+                <p class="page-desc">Conozca la metrópolis de la Amazonía. Una ciudad donde la historia, la naturaleza y una de las gastronomías más ricas del mundo se encuentran.</p>
+            </div>
+        </div>
+
+        <section class="container secao-padding-padrao card hidden">
+            <p class="belem-intro texto-centralizado">
+                Fundada en 1616, Belém es la capital del estado de Pará y la principal puerta de entrada a la Amazonía brasileña. Bañada por la Bahía de Guajará, la ciudad ofrece a los participantes de <strong>CHAGS 14</strong> una experiencia única, combinando el rigor de los debates científicos con la vivencia en un territorio de profunda herencia indígena, arquitectura europea del ciclo del caucho y una cultura vibrante.
+            </p>
+
+            <div class="turismo-header texto-centralizado">
+                <h2>Cultura y Turismo</h2>
+                <p>Lugares imprescindibles para visitar durante su estancia. Haga clic en las imágenes para ampliarlas.</p>
+            </div>
+
+            <div class="turismo-grid">
+                <!-- Card 1: Ver-o-Peso -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-veropeso">
+                        <img src="../images/img-sobrebelem/Ver-oPeso-Belem.jpg" alt="Mercado Ver-o-Peso">
+                        <div class="turismo-gallery-badge"> 3 fotos</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Mercado Ver-o-Peso</h3>
+                        <p>La mayor feria al aire libre de América Latina. Un complejo histórico donde encontrará hierbas medicinales, peces amazónicos, artesanía y la esencia de la cultura paraense a orillas del río.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-veropeso" class="dados-galeria">
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/Ver-oPeso-Belem.jpg" data-desc="<strong>Mercado de Carne y Pescado:</strong> Arquitectura en hierro importada de Europa durante la Belle Époque. Aquí llegan los pescados frescos capturados en los ríos de la región."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/rua-das-erveiras-belem-Ver-o-peso-acervo-pessoal-scaled-e1646361754878-1536x1170-1.jpg" data-desc="<strong>Sector de las Yerveras:</strong> Puestos tradicionales que venden baños de olor, raíces, cortezas y aceites extraídos de la selva para curas físicas y espirituales."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/images.jpeg" data-desc="<strong>Açaí del Ver-o-Peso:</strong> El lugar donde los barcos atracan de madrugada trayendo toneladas del fruto fresco directamente de las islas vecinas."></div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Estação das Docas -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-docas">
+                        <img src="../images/img-sobrebelem/doca/por-do-sol2.jpg" alt="Estação das Docas">
+                        <div class="turismo-gallery-badge"> 2 fotos</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Estação das Docas</h3>
+                        <p>Antiguo puerto fluvial restaurado que se ha transformado en un moderno complejo turístico. Excelente opción para el final de la tarde, con restaurantes de alta gastronomía, cervezas artesanales y vistas a la bahía.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-docas" class="dados-galeria">
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/doca/por-do-sol2.jpg" data-desc="<strong>Puesta de sol en la Bahía de Guajará:</strong> El paseo de la Estação das Docas ofrece una de las vistas más codiciadas de la ciudad al atardecer."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/doca/espaco-gastromico.jpg" data-desc="<strong>Gastronomía y Cultura:</strong> Los antiguos almacenes de hierro albergan restaurantes regionales, cervecerías artesanales y exposiciones artísticas."></div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Theatro da Paz -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-teatro">
+                        <img src="../images/img-sobrebelem/theatro/images.jpeg" alt="Theatro da Paz">
+                        <div class="turismo-gallery-badge">2 fotos</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Theatro da Paz</h3>
+                        <p>Inaugurado en 1878 durante el Ciclo del Caucho, es uno de los teatros más hermosos de Brasil, con arquitectura neoclásica y materiales importados de Europa en el apogeo de la Belle Époque amazónica.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-teatro" class="dados-galeria">
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/theatro/images.jpeg" data-desc="<strong>Fachada Neoclásica:</strong> Símbolo máximo de la riqueza generada por la exportación de látex a fines del siglo XIX y principios del XX."></div>
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/theatro/interior-luxuoso.jpg" data-desc="<strong>Interior lujoso:</strong> Candelabros de cristal, mármoles italianos y frescos detallados preservan la acústica perfecta de la sala principal de espectáculos."></div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Mangal das Garças -->
+                <div class="card-turismo">
+                    <div class="turismo-img-cover" data-gallery-target="gallery-mangal">
+                        <img src="../images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" alt="Mangal das Garças">
+                        <div class="turismo-gallery-badge"> 1 foto</div>
+                    </div>
+                    <div class="turismo-info">
+                        <h3>Mangal das Garças</h3>
+                        <p>Un parque zoobotánico en el corazón de la ciudad que reproduce los diferentes ecosistemas de la Amazonía, albergando aves en libertad, un mariposario y el Faro de Belém.</p>
+                    </div>
+                    <!-- Dados Ocultos da Galeria -->
+                    <div id="gallery-mangal" class="dados-galeria">
+                        <div class="gallery-item" data-src="../images/img-sobrebelem/mangal-garcas/mangal-garcas.jpg" data-desc="<strong>Ecosistema preservado:</strong> El Mangal das Garças permite el contacto directo con la flora y fauna, incluyendo ibis escarlatas (guarás), iguanas y garzas sueltas por el parque."></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Gastronomia -->
+        <section class="gastronomia-section card hidden">
+            <div class="container header-centralizado">
+                <span class="badge-text badge-gastronomia">SABORES DE LA AMAZONÍA</span>
+                <h2 class="gastronomia-titulo">Culinaria Paraense</h2>
+                <p class="gastronomia-desc texto-centralizado">
+                    Reconocida internacionalmente y premiada por la UNESCO, la gastronomía de Belém es una fusión de ingredientes forestales ancestrales.
+                </p>
+
+                <div class="gastronomia-grid">
+                    <div class="gastro-item">
+                        <h4>Açaí Tradicional</h4>
+                        <p>A diferencia del resto del mundo, en Belém el açaí se consume puro, sin azúcar, sirviendo como acompañamiento principal para pescado frito, camarones o charqui, siempre con harina de yuca.</p>
+                    </div>
+                    <div class="gastro-item">
+                        <h4>Tacacá</h4>
+                        <p>Caldo indígena servido caliente en una cuia (cuenco tradicional), hecho con tucupí (jugo amarillo de la yuca brava), almidón de tapioca, hojas de jambu (que causan adormecimiento en la boca) y camarón seco.</p>
+                    </div>
+                    <div class="gastro-item">
+                        <h4>Maniçoba</h4>
+                        <p>Conocida como la "feijoada amazónica", tarda hasta siete días en prepararse, cocinando las hojas molidas de la yuca brava con diversas carnes ahumadas y saladas.</p>
+                    </div>
+                    <div class="gastro-item">
+                        <h4>Filhote y Tambaqui</h4>
+                        <p>Pescados nobles de los ríos amazónicos, generalmente servidos asados a la brasa, en calderetas (guisos) o acompañados de salsas regionales y arroz con jambu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sustentabilidade e Meio Ambiente -->
+        <section class="container secao-padding-grande card hidden">
+            <div class="sustentabilidade-box">
+                <div class="sust-header-area header-centralizado">
+                    <span class="badge-text badge-sust">ECOSISTEMA Y CLIMA</span>
+                    <h2 class="sust-titulo">Sostenibilidad y Medio Ambiente en la Amazonía</h2>
+                    <p class="sust-desc texto-centralizado">
+                        Acoger CHAGS 14 en Belém sitúa el evento en el epicentro de los debates globales sobre conservación forestal, bioeconomía y los derechos de los pueblos originarios y comunidades tradicionales.
+                    </p>
+                </div>
+
+                <div class="sustentabilidade-grid">
+                    <div class="sust-card">
+                        <div class="sust-icon">🌳</div>
+                        <h4>La Selva y el Estuario</h4>
+                        <p>Belém está rodeada de aguas e islas que componen el ecosistema de llanura aluvial estuarina. La relación entre la urbe y la selva amazónica es un laboratorio vivo de manejo sostenible y adaptación humana.</p>
+                    </div>
+
+                    <div class="sust-card">
+                        <div class="sust-icon">🌱</div>
+                        <h4>Bioeconomía y Saberes</h4>
+                        <p>El estado de Pará lidera iniciativas de transición hacia una economía basada en el bosque en pie, valorando el extractivismo sostenible del açaí, cacao nativo, aceites y esencias manejadas por generaciones.</p>
+                    </div>
+
+                    <div class="sust-card">
+                        <div class="sust-icon">🤝</div>
+                        <h4>Protagonismo Tradicional</h4>
+                        <p>Pueblos indígenas, ribereños, quilombolas y extractivistas son los guardianes históricos de la sociobiodiversidad. El congreso actúa como puente para integrar estos saberes ancestrales a las discusiones científicas globales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX / CARROSSEL HTML -->
+        <div class="lightbox-overlay" id="turismo-lightbox">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="lb-close">&times;</button>
+                <button class="lightbox-nav lightbox-prev" id="lb-prev">&#10094;</button>
+                
+                <img src="" alt="Imagen ampliada" class="lightbox-img" id="lb-img">
+                <p class="lightbox-caption" id="lb-caption"></p>
+                
+                <button class="lightbox-nav lightbox-next" id="lb-next">&#10095;</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conferencia oficial de la International Society for Hunter-Gatherer Research (ISHGR) - conectando enseñanza, innovación y tradición en la Amazonía brasileña.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGACIÓN</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="chamadas.html">Convocatorias</a></li>
+                    <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                    <li><a href="programacao.html">Programa</a></li>
+                    <li><a href="atracoes.html">Atracciones</a></li>
+                    <li><a href="inscricoes.html">Inscripciones</a></li>
+                    <li><a href="evento.html">El Evento</a></li>
+                    <li><a href="belem.html" class="active">Sobre Belém</a></li>
+                    <li><a href="contato.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMACIÓN</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Área del Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Sitio web de la ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos los derechos reservados</p><p>12 al 16 de julio - Belém, Pará - Brasil</p></div></div>
+    </footer>
+
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Volver arriba"> 
+        ↑
+    </button>
+    
+    <script src="../script.js?v=12"></script>
+</body>
+</html>

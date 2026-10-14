@@ -20,7 +20,11 @@ Backend em Python 3.12, Django 5.2 LTS e PostgreSQL. O Django serve as páginas 
 - Histórico de categoria/valor/moeda/revisão preservado na inscrição. PostgreSQL impede alterações dos snapshots e dos campos comerciais de preços existentes, inclusive via `QuerySet.update`. Períodos ativos não podem se sobrepor por categoria/moeda, nem em inserções simultâneas.
 - Auditoria transacional de criação, revisão, cancelamento, configuração e exportação. A interface de auditoria permite somente consulta autorizada; a role de execução do banco ainda tem acesso de escrita, por isso esse histórico não equivale a um registro externo inviolável.
 
-Pagamentos, recibos, certificados, MFA administrativo e papéis financeiro/certificados ainda não foram implementados. Revisar categoria não confirma participação; não há operação para marcar pagamento como recebido. A aplicação foi validada localmente e não está liberada como sistema final de produção.
+Pagamentos, recibos e emissão de certificados ainda não foram implementados. Revisar categoria não confirma participação; não há operação para marcar pagamento como recebido. O backend de MFA administrativo está implementado, com integração das telas e configuração de produção ainda pendentes. A aplicação foi validada localmente e não está liberada como sistema final de produção.
+
+O módulo de certificados possui a [estrutura de elegibilidade e rascunhos internos](../docs/integracao-certificados.md), com permissões próprias, auditoria e consulta de disponibilidade pelo participante. Preparar rascunho não aprova elegibilidade nem gera documento. Critérios, modelo, assinatura e carga horária continuam dependendo da organização; não há emissão ou download nesta fase.
+
+A [consulta de auditoria por API](../docs/integracao-auditoria.md) permite acompanhar ações administrativas e de segurança com filtros e paginação. Exige conta staff, permissão própria e o segundo fator conforme a política do ambiente. Não concede acesso automaticamente aos grupos existentes nem altera telas.
 
 Próxima etapa: [escolha do serviço de pagamentos](../docs/escolha-pagamentos.md), considerando a conta bancária que a organização pretende abrir no Brasil e o recebedor ainda não definido.
 
@@ -48,13 +52,17 @@ Siga o [passo a passo para PowerShell](../docs/desenvolvimento-windows.md), com 
 
 O workflow **Backend CI** instala o lockfile com hashes, cria um PostgreSQL 17.11 descartável, verifica configuração/migrações, executa a suíte completa e valida a coleta de estáticos. A role de teste não é superusuária; senhas são geradas por execução e não há conexão com serviços de produção. Consulte o [guia de testes no GitHub](../docs/testes-github.md) para disparos, leitura dos checks e limitações.
 
+## Backup e recuperação do banco
+
+Os comandos `backup_database` e `verify_database_backup` geram uma cópia consistente do PostgreSQL e ensaiam sua restauração em um banco novo descartável. O segundo nunca restaura sobre um banco existente. O [guia de backup e recuperação](../docs/backup-recuperacao.md) descreve uso no Windows/Linux, permissões, proteção dos arquivos e as tarefas que ainda dependem do CTIC.
+
 ## Preparar o ambiente de nuvem
 
 Execute a partir da raiz `Website-ishgr`:
 
 ```bash
 bash backend/scripts/setup-dev.sh
-.venv/bin/python backend/manage.py test accounts registrations operations config.tests --noinput
+.venv/bin/python backend/manage.py test accounts registrations operations certificates config.tests --noinput
 .venv/bin/python backend/manage.py runserver 127.0.0.1:8001 --noreload
 ```
 
@@ -120,7 +128,7 @@ O formulário do admin valida senhas com mínimo de 12 caracteres e as demais re
 .venv/bin/python backend/manage.py check
 .venv/bin/python backend/manage.py makemigrations --check --dry-run
 .venv/bin/python backend/manage.py migrate --noinput
-.venv/bin/python backend/manage.py test accounts registrations operations config.tests --noinput
+.venv/bin/python backend/manage.py test accounts registrations operations certificates config.tests --noinput
 ```
 
 Os **115 testes** passaram no PostgreSQL real e banco temporário `test_chags_dev`; não dependem de credenciais padrão nem deixam usuários de teste no banco de desenvolvimento. Incluem contas, expiração/reuso dos códigos, revogação por mudança de senha/e-mail, concorrência, proteção CSRF, permissões, fila, snapshots, preços sobrepostos, revisão/cancelamento auditados e CSV. Não troque por SQLite para validar concorrência.
@@ -208,7 +216,7 @@ Produção exige também `CHAGS_PUBLIC_URL` como origem HTTPS presente nos hosts
 
 Por padrão, limites de IP usam apenas `REMOTE_ADDR` e ignoram X-Forwarded-For. Atrás de um proxy, configure `CHAGS_TRUSTED_PROXY_NETWORKS` somente com CIDRs dos proxies controlados que sobrescrevem o header, após confirmar a topologia do CTIC. A seleção percorre a cadeia pela direita até o primeiro endereço não confiável. Não confiar indiscriminadamente no header enviado pelo cliente. `CHAGS_TRUST_HTTPS_PROXY` controla HTTPS e é uma configuração distinta.
 
-MFA administrativo, revisão visual, traduções do portal estático/gestão e validação completa no CTIC ainda são etapas anteriores à liberação pública. A liberação de certificados e os pagamentos exigem os módulos e testes definidos na arquitetura.
+A integração das telas de MFA, sua chave de criptografia de produção, revisão visual, traduções do portal estático/gestão e validação completa no CTIC ainda são etapas anteriores à liberação pública. Consulte o [guia de MFA](../docs/integracao-mfa.md). A liberação de certificados e os pagamentos exigem os módulos e testes definidos na arquitetura.
 
 Com configuração e infraestrutura reais fornecidas pelo CTIC, os comandos previstos são:
 

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    
+    <!-- CSS Exclusivo da Página de Contato -->
+    <style>
+        /* Centralização Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .texto-centralizado {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        /* Page Header */
+        .page-header-contato {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Área de Atendimento (Hero) */
+        .contato-hero-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contato-horario {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .contato-tempo {
+            color: var(--text-body);
+            margin-bottom: 30px;
+        }
+        .contato-atalhos-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            width: 100%;
+        }
+        .atalho-card {
+            width: 100%;
+            max-width: 350px;
+        }
+        .atalho-titulo {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .atalho-email {
+            color: #CBD5E0;
+            font-size: 0.95rem;
+        }
+
+        /* Comissão Organizadora */
+        .comissao-section {
+            padding: 60px 0 100px;
+        }
+        .comissao-titulo {
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+        .equipe-info-centralizada {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .badge-equipe {
+            background: #E2E8F0;
+            color: var(--text-dark);
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 10px;
+        }
+        .equipe-nome {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .equipe-inst {
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="chamadas.html">Appels</a></li>
+                <li><a href="artigos-aceitos.html">Contributions</a></li>
+                <li><a href="programacao.html">Programme</a></li>
+                <li><a href="atracoes.html">Intervenants</a></li>
+                <li><a href="inscricoes.html">Inscriptions</a></li>
+                <li><a href="evento.html">L'Événement</a></li>
+                <li><a href="belem.html">À propos de Belém</a></li>
+                <li><a href="hospedagem.html">Hébergement</a></li>
+                <li><a href="contato.html" class="active">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Espace participant</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">FR <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../es/index.html">ES</a>
+                    </div>
+                </div>
+            </div> <!-- 🚨 A div de fecho da nav-actions foi adicionada aqui -->
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header page-header-contato">
+            <div class="container header-centralizado">
+                <span class="badge-text">CONTACTEZ-NOUS</span>
+                <h1 class="page-title">Contact et Questions.</h1>
+                <p class="page-desc">Besoin d'aide pour votre inscription, la soumission de résumés ou des informations sur l'hébergement à Belém ? L'équipe de CHAGS 14 est prête à vous aider.</p>
+            </div>
+        </div>
+
+        <section class="container">
+            <div class="contato-hero-section contato-hero-wrapper">
+                <div class="contato-info-area">
+                    <p class="contato-horario">Nos heures d'ouverture sont du lundi au vendredi, de 09h00 à 17h00 (Heure de Brasília).</p>
+                    <p class="contato-tempo">Temps de réponse moyen : 48 heures ouvrables.</p>
+                </div>
+                
+                <div class="contato-atalhos-lista">
+                    <a href="mailto:contato@chags14.org" class="atalho-card">
+                        <div class="atalho-icon">✉️</div>
+                        <h3 class="atalho-titulo">E-mail Officiel</h3>
+                        <p class="atalho-email">contato@chags14.org</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container comissao-section">
+            <h2 class="comissao-titulo texto-centralizado">Comité d'Organisation</h2>
+            
+            <div class="equipe-grid">
+                <!-- Membro 1 -->
+                <div class="equipe-card">
+                    <div class="equipe-foto">👤</div>
+                    <div class="equipe-info equipe-info-centralizada">
+                        <span class="type-badge badge-equipe">COORDINATION GÉNÉRALE</span>
+                        <h3 class="equipe-nome">Dr. Carlos Eduardo Almeida</h3>
+                        <p class="equipe-inst">Musée Paraense Emílio Goeldi (MPEG)</p>
+                    </div>
+                </div>
+
+                <!-- Membro 2 -->
+                <div class="equipe-card">
+                    <div class="equipe-foto">👤</div>
+                    <div class="equipe-info equipe-info-centralizada">
+                        <span class="type-badge badge-equipe">COMITÉ SCIENTIFIQUE</span>
+                        <h3 class="equipe-nome">Dra. Maria de Fátima Souza</h3>
+                        <p class="equipe-inst">Université Fédérale du Pará (UFPA)</p>
+                    </div>
+                </div>
+
+                <!-- Membro 3 -->
+                <div class="equipe-card">
+                    <div class="equipe-foto">👤</div>
+                    <div class="equipe-info equipe-info-centralizada">
+                        <span class="type-badge badge-equipe">RELATIONS INTERNATIONALES</span>
+                        <h3 class="equipe-nome">Dr. Louis Forline</h3>
+                        <p class="equipe-inst">University of Nevada (UNLV)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conférence officielle de l'International Society for Hunter-Gatherer Research (ISHGR) - reliant enseignement, innovation et tradition dans l'Amazonie brésilienne.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVIGATION</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="chamadas.html">Appels</a></li>
+                    <li><a href="artigos-aceitos.html">Contributions</a></li>
+                    <li><a href="programacao.html">Programme</a></li>
+                    <li><a href="atracoes.html">Intervenants</a></li>
+                    <li><a href="inscricoes.html">Inscriptions</a></li>
+                    <li><a href="evento.html">L'Événement</a></li>
+                    <li><a href="belem.html">À propos de Belém</a></li>
+                    <li><a href="contato.html" class="active">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMATIONS</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Espace Participant</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Site de l'ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Tous droits réservés</p><p>12 au 16 juillet - Belém, Pará - Brésil</p></div></div>
+    </footer>
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Retour en haut"> 
+        ↑
+    </button>
+
+    <script src="../script.js?v=12"></script>
+</body>
+</html>

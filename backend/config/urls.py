@@ -10,8 +10,11 @@ admin.site.site_title = "CHAGS 14"
 admin.site.index_title = "Administração"
 
 urlpatterns = [
+    path("api/v1/auth/mfa/", include("accounts.mfa_urls")),
     path("api/v1/auth/", include("accounts.api_urls")),
     path("api/v1/participant/", include("accounts.participant_api_urls")),
+    path("api/v1/management/certificates/", include("certificates.management_urls")),
+    path("api/v1/management/", include("operations.api_urls")),
     path("", include("accounts.urls")),
     path("", include("registrations.urls")),
     path("gestao/", include("operations.urls")),

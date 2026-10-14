@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Atracciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- CSS Exclusivo da Página de Atrações -->
+    <style>
+        /* Centralização e Layout Geral */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .nota-rodape-atracoes {
+            font-size: 0.8rem;
+            color: var(--text-body);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Estrutura dos Cards */
+        .info-col-padrao {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .foto-placeholder-custom {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #CBD5E0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Badges e Textos dos Cards */
+        .badge-palestra-custom {
+            background: #FEEBC8;
+            color: #C05621;
+            display: inline-block;
+            width: fit-content;
+        }
+        .badge-painel-custom {
+            background: #EBF8FF;
+            color: #2B6CB0;
+            display: inline-block;
+            width: fit-content;
+        }
+        .nome-destaque {
+            font-size: 1.4rem;
+            margin: 10px 0 5px;
+        }
+        .inst-destaque {
+            font-size: 0.85rem;
+            color: var(--text-body);
+            margin-bottom: 15px;
+        }
+        
+        /* Tema e Bio */
+        .tema-box {
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        .tema-titulo {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .tema-desc {
+            font-size: 0.9rem;
+        }
+        .hidden-bio {
+            display: none;
+        }
+        
+        /* Footer do Card */
+        .rodape-card {
+            margin-top: auto;
+            text-align: right;
+        }
+        .btn-detalhes-card {
+            color: var(--text-dark);
+            border-color: var(--border-color);
+            cursor: pointer;
+        }
+
+        /* Estilos Internos do Modal */
+        .modal-foto-custom {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 20px;
+        }
+        .modal-badge-custom {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+        .modal-inst-custom {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .modal-right-custom {
+            background: #fff;
+            padding: 40px 50px;
+        }
+        .modal-nome-custom {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .modal-tema-custom {
+            font-size: 1.05rem;
+            color: var(--text-body);
+            margin-bottom: 25px;
+        }
+        .modal-bio-custom {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-body);
+        }
+
+        /* Rodapé do Site */
+        .footer-col-unica {
+            grid-template-columns: 1fr;
+        }
+
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="chamadas.html">Convocatorias</a></li>
+                <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                <li><a href="programacao.html">Programa</a></li>
+                <li><a href="atracoes.html">Atracciones</a></li>
+                <li><a href="inscricoes.html">Inscripciones</a></li>
+                <li><a href="evento.html">El Evento</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
+                <li><a href="hospedagem.html">Alojamiento</a></li>
+                <li><a href="contato.html">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Área del participante</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">ES <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../fr/index.html">FR</a>
+                    </div>
+                </div>
+            </div>    
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">INVITADOS CONFIRMADOS - CHAGS 14</span>
+                <h1 class="page-title">Atracciones.</h1>
+                <p class="page-desc">Conozca a los invitados de las conferencias, paneles y conversatorios de la conferencia en Belém.</p>
+            </div>
+        </div>
+
+        <section class="atracoes-tabs-section containe card hidden">
+            <div class="tabs-wrapper">
+                <button class="tab-btn active" data-filter="todos">TODOS</button>
+                <button class="tab-btn" data-filter="palestra">CONFERENCIAS</button>
+                <button class="tab-btn" data-filter="painel">PANELES</button>
+                <button class="tab-btn" data-filter="oficina">TALLERES</button>
+            </div>
+        </section>
+
+        <section class="atracoes-grid-section container card hidden">
+            <div class="atracoes-lista">
+                <!-- Card 01 -->
+                <div class="atracao-card" data-category="palestra">
+                    <div class="atracao-img-col">
+                        <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
+                    </div>
+                    <div class="atracao-info-col info-col-padrao">
+                        <span class="type-badge badge-palestra-custom card-tipo">CONFERENCIA</span>
+                        <h3 class="convidado-nome card-nome nome-destaque">Dr. Louis Forline</h3>
+                        <p class="convidado-inst card-inst inst-destaque">UNIVERSITY OF NEVADA (UNLV)</p>
+                        
+                        <div class="convidado-tema tema-box">
+                            <strong class="card-tema tema-titulo">Futuros Ancestrales y Ecología Humana en la Amazonía</strong>
+                            <p class="tema-desc">Investigador sénior y uno de los mayores especialistas globales en sociedades de cazadores-recolectores.</p>
+                        </div>
+                        
+                        <div class="hidden-bio">
+                            <p>La producción científica global y el estudio de las sociedades ancestrales crecen de forma acelerada. Richard B. Lee posee una extensa experiencia analizando el comportamiento de grupos cazadores-recolectores y cómo sus dinámicas de sostenibilidad pueden guiar soluciones modernas para la crisis climática.</p>
+                        </div>
+                        
+                        <div class="card-footer-right rodape-card">
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Ver detalles &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 02 -->
+                <div class="atracao-card" data-category="painel">
+                    <div class="atracao-img-col">
+                        <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
+                    </div>
+                    <div class="atracao-info-col info-col-padrao">
+                        <span class="type-badge badge-painel-custom card-tipo">PANEL</span>
+                        <h3 class="convidado-nome card-nome nome-destaque">Profa. Dra. Maria de Fátima Souza</h3>
+                        <p class="convidado-inst card-inst inst-destaque">UNIVERSIDADE FEDERAL DO PARÁ (UFPA)</p>
+                        
+                        <div class="convidado-tema tema-box">
+                            <strong class="card-tema tema-titulo">Tecnologías Sociales e Inclusión en Comunidades Ribereñas</strong>
+                            <p class="tema-desc">Con un doctorado en Ecología, la investigadora planteará discusiones sobre innovaciones sociales aplicadas a la bioeconomía.</p>
+                        </div>
+                        
+                        <div class="hidden-bio">
+                            <p>Profesora Titular de la UFPA, trabaja desde hace más de 20 años con comunidades ribereñas del estuario amazónico, buscando soluciones de innovación social que conectan el rigor académico con un valor real para las poblaciones locales.</p>
+                        </div>
+                        
+                        <div class="card-footer-right rodape-card">
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Ver detalles &rarr;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="nota-rodape-atracoes">El título y el contenido definitivo de los paneles aún podrán recibir ajustes por parte del comité científico.</p>
+        </section>
+
+        <!-- ESTRUTURA DO MODAL -->
+        <div class="modal-overlay" id="modal-convidado">
+            <div class="modal-content">
+                <div class="modal-left">
+                    <div class="modal-foto-custom">👤</div>
+                    <span id="modal-badge" class="modal-badge-custom">CONFERENCIA</span>
+                    <p id="modal-inst" class="modal-inst-custom">INSTITUCIÓN</p>
+                </div>
+                
+                <div class="modal-right-custom">
+                    <button class="close-modal">&times;</button>
+                    <h2 id="modal-nome" class="modal-nome-custom">Nombre</h2>
+                    <h3 id="modal-tema" class="modal-tema-custom">Tema</h3>
+                    <div id="modal-bio" class="modal-bio-custom">
+                        <!-- Bio insertada por JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conferencia oficial de la International Society for Hunter-Gatherer Research (ISHGR) - conectando enseñanza, innovación y tradición en la Amazonía brasileña.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGACIÓN</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="chamadas.html">Convocatorias</a></li>
+                    <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                    <li><a href="programacao.html">Programa</a></li>
+                    <li><a href="atracoes.html">Atracciones</a></li>
+                    <li><a href="inscricoes.html">Inscripciones</a></li>
+                    <li><a href="evento.html">El Evento</a></li>
+                    <li><a href="belem.html" class="active">Sobre Belém</a></li>
+                    <li><a href="contato.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMACIÓN</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Área del Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Sitio web de la ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos los derechos reservados</p><p>12 al 16 de julio - Belém, Pará - Brasil</p></div></div>
+    </footer>
+
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Volver arriba"> 
+        ↑
+    </button>
+    
+    <script src="../script.js?v=12"></script>
+
+</body>
+</html>

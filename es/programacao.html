@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Programa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    
+    <!-- CSS Exclusivo da Página de Programação -->
+    <style>
+        /* Centralização Geral e Containers */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .timeline-container {
+            max-width: 4000px !important; /*largura  da tabela de descricao de dias*/
+
+        }
+
+        /* Legenda de Cores */
+        .prog-legenda-custom {
+            border: none;
+            padding: 25px 0 0 0;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: center; /* Centraliza os itens da legenda */
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .dot-custom {
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            display: inline-block;
+        }
+
+        /* Cores Base para Timeline e Legendas */
+        .bg-cerimonia { background-color: #0A192F; }
+        .bg-palestra { background-color: #C05621; }
+        .bg-sessao { background-color: #2B6CB0; }
+        .bg-oficina { background-color: #2F855A; }
+        .bg-intervalo { background-color: #CBD5E0; }
+
+        /* Estilos dos Textos da Timeline */
+        .dia-semana-text {
+            color: var(--text-body);
+        }
+        .titulo-atividade {
+            margin-bottom: 5px;
+        }
+        .palestrante-desc {
+            font-size: 0.85rem; 
+            color: var(--text-body);
+        }
+        .mapa-link {
+            color: var(--text-dark); 
+            font-weight: 700; 
+            font-size: 1rem; 
+            display: inline-block; 
+            margin-top: 5px;
+            padding: 12px 28px;
+            background-color: gainsboro;
+            border: 1px solid #fff;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+
+        }
+
+        .mapa-link:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Estrutura dos Cards de Atividade */
+        .card-flex-center {
+            display: flex; 
+            align-items: center; 
+            gap: 20px;
+        }
+        .card-flex-between {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 15px;
+        }
+        .card-intervalo-bg {
+            background-color: var(--bg-section);
+        }
+        .info-basica-flex {
+            display: flex; 
+            gap: 20px; 
+            align-items: center; 
+            flex: 1; 
+            min-width: 250px;
+        }
+
+        /* Badges de Atividades */
+        .badge-cerimonia-custom { background-color: #E2E8F0; color: #0A192F; }
+        .badge-palestra-custom { background-color: #FEEBC8; color: #C05621; }
+        .badge-sessao-custom { background-color: #EBF8FF; color: #2B6CB0; }
+        .badge-intervalo-custom { background-color: #E2E8F0; color: #4A5568; }
+
+        /* Ajuste visual do Badge dentro do Modal */
+        #modal-prog-tipo {
+            display: flex;
+            align-items: center;
+        }
+
+        #modal-prog-tipo span,
+        #modal-prog-tipo .type-badge {
+            white-space: nowrap !important; /* Impede absolutamente a quebra de linha */
+            padding: 6px 16px !important;
+            border-radius: 20px !important; /* Deixa o visual arredondado e elegante */
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        /* Botões */
+        .btn-detalhes-prog {
+            font-weight: 790;
+            font-size: 0.85rem;
+            color: var(--text-dark); 
+            border-color: var(--border-color); 
+            cursor: pointer; 
+            padding: 8px 15px; 
+            border-radius: 20px;
+            background-color: rgb(217, 217, 213);
+        }
+
+        /* Modal da Programação (Sobrescrevendo estilos inline sem quebrar o JS) */
+        #modal-prog {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.6); display: none; align-items: center; 
+            justify-content: center; z-index: 2000;
+        }
+        #modal-prog .modal-content {
+            background: var(--bg-color); border-radius: 4px; width: 90%; 
+            max-width: 600px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .modal-header-prog {
+            padding: 20px 30px; border-bottom: 1px solid var(--border-color); 
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        /* Botão de Fechar (X) fixado no canto superior direito */
+        .close-modal-prog-btn {
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            background: transparent; 
+            border: none; 
+            font-size: 2rem;
+            line-height: 1; 
+            cursor: pointer; 
+            color: var(--text-body);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease; 
+        }
+
+        .close-modal-prog-btn:hover {
+            background-color: #E2E8F0; 
+            color: #000000; 
+            transform: scale(1.05); 
+        }
+        
+        .modal-body-prog { padding: 30px; }
+        .modal-time-text {
+            font-weight: 900; color: black; margin-bottom: 10px; display: block; font-size: 1.1rem;
+        }
+        .modal-title-text {
+            font-size: 1.5rem; margin-bottom: 30px; color: var(--text-dark); line-height: 1.3; text-align: center;
+        }
+        .modal-section-mb { margin-bottom: 25px; }
+        .modal-section-title {
+            font-size: 0.9rem; color: var(--text-body); margin-bottom: 10px; letter-spacing: 1px;
+        }
+        .modal-section-content {
+            font-size: 0.95rem; color: var(--text-dark); line-height: 1.5;
+        }
+        .modal-location-box {
+            background: var(--bg-section); padding: 20px; border-radius: 4px; border: 1px solid var(--border-color);
+        }
+
+        /* Rodapé */
+        .footer-col-unica { grid-template-columns: 1fr; }
+
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="chamadas.html">Convocatorias</a></li>
+                <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                <li><a href="programacao.html">Programa</a></li>
+                <li><a href="atracoes.html">Atracciones</a></li>
+                <li><a href="inscricoes.html">Inscripciones</a></li>
+                <li><a href="evento.html">El Evento</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
+                <li><a href="hospedagem.html">Alojamiento</a></li>
+                <li><a href="contato.html">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Área del participante</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">ES <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../fr/index.html">FR</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">12 AL 16 DE JULIO • BELÉM</span>
+                <h1 class="page-title">Programa.</h1>
+                <p class="page-desc">Consulte el programa completo de CHAGS 14. Haga clic en las actividades para expandir detalles sobre ponentes, edificios y mapas de ubicación en el campus de la UFPA y el Museu Goeldi.</p>
+                
+                <div class="prog-legenda prog-legenda-custom">
+                    <span class="legenda-item"><span class="dot cerimonia dot-custom bg-cerimonia"></span> CEREMONIA</span>
+                    <span class="legenda-item"><span class="dot palestra dot-custom bg-palestra"></span> CONFERENCIA / MESA</span>
+                    <span class="legenda-item"><span class="dot sessao dot-custom bg-sessao"></span> SESIÓN TEMÁTICA</span>
+                    <span class="legenda-item"><span class="dot oficina dot-custom bg-oficina"></span> TALLER / WORKSHOP</span>
+                    <span class="legenda-item"><span class="dot intervalo dot-custom bg-intervalo"></span> RECESO</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="prog-timeline-section container timeline-container card hidden">
+            <!-- DIA 01 -->
+            <div class="dia-bloco">
+                <div class="dia-sidebar">
+                    <span class="dia-badge">DÍA 01</span>
+                    <h2 class="dia-data">12 jul</h2>
+                    <span class="dia-semana dia-semana-text">Lunes</span>
+                </div>
+
+                <div class="timeline-lista">
+                    <!-- Atividade 01 (Sem modal, apenas aviso) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-cerimonia"></div>
+                        <div class="atividade-card card-flex-center">
+                            <span class="atividade-horario prog-time">08h00 - 09h00</span>
+                            <div class="atividade-titulo-area">
+                                <h3 class="titulo-atividade">Acreditación y Entrega de Materiales</h3>
+                                <span class="type-badge badge-cerimonia-custom">CEREMONIA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 02 (Com Modal) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-palestra"></div>
+                        <div class="atividade-card card-flex-between">
+                            <div class="atividade-info-basica info-basica-flex">
+                                <span class="atividade-horario prog-time">09h00 - 10h30</span>
+                                <div class="atividade-titulo-area">
+                                    <h3 class="prog-title titulo-atividade">Mesa de Apertura: Futuros Ancestrales y Ecología Humana en la Amazonía</h3>
+                                    <span class="type-badge prog-type badge-palestra-custom">CONFERENCIA / MESA</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalles</button>
+
+                            <!-- Dados Ocultos para o Modal -->
+                            <div class="prog-hidden-data" style="display: none;">
+                                <div class="data-palestrante">
+                                    <strong> Dr. Louis Forline</strong><br>
+                                    <span class="palestrante-desc">Antropólogo e investigador sénior de la University of Nevada. Especialista en ecología del comportamiento y sociedades de cazadores-recolectores.</span>
+                                </div>
+                                <div class="data-local">
+                                    <strong>Edificio:</strong> Centro de Eventos Benedito Nunes<br>
+                                    <strong>Espacio:</strong> Auditorio Principal (Sector Básico)<br>
+                                    <a href="https://maps.google.com" target="_blank" class="mapa-link">Ver mapa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 03 (Intervalo) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-intervalo"></div>
+                        <div class="atividade-card card-intervalo-bg card-flex-center">
+                            <span class="atividade-horario">10h30 - 11h00</span>
+                            <div class="atividade-titulo-area">
+                                <h3 class="titulo-atividade">Receso - Coffee Break Amazónico</h3>
+                                <span class="type-badge badge-intervalo-custom">RECESO</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 04 (Com Modal) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-sessao"></div>
+                        <div class="atividade-card card-flex-between">
+                            <div class="atividade-info-basica info-basica-flex">
+                                <span class="atividade-horario prog-time">11h00 - 12h30</span>
+                                <div class="atividade-titulo-area">
+                                    <h3 class="prog-title titulo-atividade">Sesión Temática 1 — Saberes Tradicionales y Manejo Sostenible</h3>
+                                    <span class="type-badge prog-type badge-sessao-custom">SESIÓN TÉCNICA</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalles</button>
+
+                            <!-- Dados Ocultos para o Modal -->
+                            <div class="prog-hidden-data" style="display: none;">
+                                <div class="data-palestrante">
+                                    <strong>Dra. Maria de Fátima Souza</strong><br>
+                                    <span class="palestrante-desc">Profesora Titular del Instituto de Ciencias Biológicas - UFPA. Coordinación de la mesa.</span>
+                                </div>
+                                <div class="data-local">
+                                    <strong>Edificio:</strong> Auditorio del ICEN (Ciencias Exactas)<br>
+                                    <strong>Espacio:</strong> Sala de Conferencias 02<br>
+                                    <a href="https://maps.google.com" target="_blank" class="mapa-link">Ver mapa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dia-bloco">
+                <div class="dia-sidebar">
+                    <span class="dia-badge">DÍA 02</span>
+                    <h2 class="dia-data">13 jul</h2>
+                    <span class="dia-semana dia-semana-text">Martes</span>
+                </div>
+
+                <div class="timeline-lista">
+                    <!-- Atividade 01 (Sem modal, apenas aviso) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-cerimonia"></div>
+                        <div class="atividade-card card-flex-center">
+                            <span class="atividade-horario prog-time">08h00 - 09h00</span>
+                            <div class="atividade-titulo-area">
+                                <h3 class="titulo-atividade">Acreditación y Entrega de Materiales</h3>
+                                <span class="type-badge badge-cerimonia-custom">CEREMONIA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 02 (Com Modal) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-palestra"></div>
+                        <div class="atividade-card card-flex-between">
+                            <div class="atividade-info-basica info-basica-flex">
+                                <span class="atividade-horario prog-time">09h00 - 10h30</span>
+                                <div class="atividade-titulo-area">
+                                    <h3 class="prog-title titulo-atividade">Mesa de Apertura: Futuros Ancestrales y Ecología Humana en la Amazonía</h3>
+                                    <span class="type-badge prog-type badge-palestra-custom">CONFERENCIA / MESA</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalles</button>
+
+                            <!-- Dados Ocultos para o Modal -->
+                            <div class="prog-hidden-data" style="display: none;">
+                                <div class="data-palestrante">
+                                    <strong> Dr. Louis Forline</strong><br>
+                                    <span class="palestrante-desc">Antropólogo e investigador sénior de la University of Nevada. Especialista en ecología del comportamiento y sociedades de cazadores-recolectores.</span>
+                                </div>
+                                <div class="data-local">
+                                    <strong>Edificio:</strong> Centro de Eventos Benedito Nunes<br>
+                                    <strong>Espacio:</strong> Auditorio Principal (Sector Básico)<br>
+                                    <a href="https://maps.google.com" target="_blank" class="mapa-link">Ver mapa &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 03 (Intervalo) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-intervalo"></div>
+                        <div class="atividade-card card-intervalo-bg card-flex-center">
+                            <span class="atividade-horario">10h30 - 11h00</span>
+                            <div class="atividade-titulo-area">
+                                <h3 class="titulo-atividade">Receso - Coffee Break Amazónico</h3>
+                                <span class="type-badge badge-intervalo-custom">RECESO</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 04 (Com Modal) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-sessao"></div>
+                        <div class="atividade-card card-flex-between">
+                            <div class="atividade-info-basica info-basica-flex">
+                                <span class="atividade-horario prog-time">11h00 - 12h30</span>
+                                <div class="atividade-titulo-area">
+                                    <h3 class="prog-title titulo-atividade">Sesión Temática 1 — Saberes Tradicionales y Manejo Sostenible</h3>
+                                    <span class="type-badge prog-type badge-sessao-custom">SESIÓN TÉCNICA</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalles</button>
+
+                            <!-- Dados Ocultos para o Modal -->
+                            <div class="prog-hidden-data" style="display: none;">
+                                <div class="data-palestrante">
+                                    <strong>Dra. Maria de Fátima Souza</strong><br>
+                                    <span class="palestrante-desc">Profesora Titular del Instituto de Ciencias Biológicas - UFPA. Coordinación de la mesa.</span>
+                                </div>
+                                <div class="data-local">
+                                    <strong>Edificio:</strong> Auditorio del ICEN (Ciencias Exactas)<br>
+                                    <strong>Espacio:</strong> Sala de Conferencias 02<br>
+                                    <a href="https://maps.google.com" target="_blank" class="mapa-link">Ver mapa &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- MODAL DA PROGRAMAÇÃO -->
+        <div class="modal-overlay" id="modal-prog">
+            <div class="modal-content">
+                <div class="modal-header-prog">
+                    <div id="modal-prog-tipo"></div> <!-- Badge injetada aqui -->
+                    <button class="close-modal-prog close-modal-prog-btn">&times;</button>
+                </div>
+                <div class="modal-body-prog">
+                    <span id="modal-prog-horario" class="modal-time-text">Horario</span>
+                    <h2 id="modal-prog-titulo" class="modal-title-text">Título de la Actividad</h2>
+
+                    <div class="modal-section-mb">
+                        <h4 class="modal-section-title">RESPONSABLE / PONENTE</h4>
+                        <div id="modal-prog-palestrante" class="modal-section-content"></div>
+                    </div>
+
+                    <div class="modal-location-box">
+                        <h4 class="modal-section-title">UBICACIÓN EN EL CAMPUS</h4>
+                        <div id="modal-prog-local" class="modal-section-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo">
+                    <h3>CHAGS 14</h3>
+                    <span>INTERNATIONAL CONFERENCE 2027</span>
+                </div>
+                <p>Conferencia oficial de la International Society for Hunter-Gatherer Research (ISHGR) - conectando enseñanza, innovación y tradición en la Amazonía brasileña.</p>
+            </div>
+
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGACIÓN</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="chamadas.html">Convocatorias</a></li>
+                    <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                    <li><a href="programacao.html">Programa</a></li>
+                    <li><a href="atracoes.html">Atracciones</a></li>
+                    <li><a href="inscricoes.html">Inscripciones</a></li>
+                    <li><a href="evento.html">El Evento</a></li>
+                    <li><a href="belem.html" class="active">Sobre Belém</a></li>
+                    <li><a href="contato.html">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMACIÓN</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Área del Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Sitio web de la ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sub-footer">
+            <div class="container sub-footer-flex">
+                <p>&copy; CHAGS 14 2027 - Todos los derechos reservados</p>
+                <p>12 al 16 de julio - Belém, Pará - Brasil</p>
+            </div>
+        </div>
+    </footer>
+    
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Volver arriba"> 
+        ↑
+    </button>
+    
+    <script src="../script.js?v=12"></script>
+</body>
+</html>

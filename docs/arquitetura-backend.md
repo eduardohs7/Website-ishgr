@@ -1,6 +1,6 @@
 # Backend CHAGS 14 — arquitetura e plano de implementação
 
-Status: fundação Django/PostgreSQL, contas/perfis e inscrições/gestão implementados no desenvolvimento. Pagamentos, certificados e implantação estão pendentes. Veja [configuração e comandos](../backend/README.md).
+Status: fundação Django/PostgreSQL, contas/perfis, inscrições/gestão, MFA administrativo, consulta de auditoria e estrutura de certificados implementados no desenvolvimento. Integração das telas de MFA, pagamentos, emissão de certificados e implantação estão pendentes. Veja [configuração e comandos](../backend/README.md).
 
 Referências: proposta `PROPOSTA_COMERCIAL_CHAGS14_ATUALIZADA.docx` e telas do checkout. A proposta define as entregas; as escolhas técnicas abaixo são recomendações para realizá-las. Valores e regras exibidos nas telas não equivalem a regras comerciais aprovadas.
 
@@ -14,7 +14,7 @@ O sistema terá cadastro/login, perfil, inscrições, integração de pagamento,
 | Framework | Django 5.2 LTS, no patch atualizado da série na implementação | Autenticação, ORM, migrações, formulários, administração e testes integrados. |
 | Banco | PostgreSQL em versão suportada pelo CTIC e pelo Django escolhido | Transações, restrições e controle de concorrência; mesma família de banco nos testes de integração. |
 | Organização | Uma aplicação, dividida em módulos Django | Deploy e manutenção proporcionais a um evento. |
-| Frontend | HTML/CSS/JS existentes, com templates Django para a área restrita | Reaproveitar o trabalho visual e manter sessões na mesma origem. |
+| Frontend | Mantido pelo outro desenvolvedor, integrado por contratos de API | O trabalho atual do Codex é exclusivamente backend; manter sessões na mesma origem e preservar HTML/CSS/JS. |
 | Autenticação | Sessão Django no servidor e cookie seguro | Atende ao portal web sem necessidade inicial de JWT. |
 | Administração | Django Admin com permissões e ações específicas; visão de indicadores dedicada | CRUD inicial rápido, com fluxos financeiros protegidos. |
 | Pagamento | Checkout hospedado do gateway e adaptador no backend | Dados de cartão ficam com o provedor. Seleção do gateway pendente. |
@@ -80,6 +80,7 @@ Identificadores públicos de objetos restritos serão UUIDs. Isso não substitui
 | `FinancialAdjustment` | Cobrança, ID externo do ajuste, tipo, valor/moeda, data | Registra reembolso/estorno/disputa confirmados. Unicidade externa; não inventa dinheiro recebido nem permite editar livremente uma cobrança paga. |
 | `Receipt` | Cobrança paga, número único, data, dados necessários congelados, estado | Um recibo por cobrança efetivamente paga. Recibo de pagamento não é nota fiscal. Reembolso não apaga o histórico. |
 | `CertificateEligibility` | Inscrição, elegível, critério/versão, justificativa, responsável e data | Pagamento sozinho não comprova participação. Critérios e responsável definidos pela organização. |
+| `CertificateDraft` | Elegibilidade, nome/título/datas do evento copiados, tipo participação, motivo e responsável | Estrutura inicial: um rascunho interno por inscrição, auditado e idempotente. Não é documento emitido; não contém PDF, carga horária ou assinatura. |
 | `Certificate` | Elegibilidade, tipo, versão, nome/título/carga horária congelados quando aplicáveis, arquivo privado, estado, datas | Uma versão vigente por inscrição/tipo. Reemissão cria versão e preserva anterior; não fabricar carga horária ou assinatura. |
 | `AuditEntry` | Ator humano/sistema, ação, objeto, campos alterados necessários, motivo e data | Registrar ações administrativas e financeiras; consulta restrita e sem edição comum no admin. Não guardar senhas, segredos ou excesso de dados pessoais. |
 | `DeliveryJob` | Tipo, referência, chave única, estado, tentativas, próxima execução, reserva temporária, erro sanitizado | Criado na mesma transação da operação que exige notificação/arquivo. Execução idempotente, com retomada de reservas expiradas. |
@@ -194,7 +195,7 @@ O HTML original `pt-br/sistema-login.html` continua preservado. Quando servido p
 
 - Usar hash/validadores de senha, sessões e recuperação do Django. Definir modelo customizado de usuário antes da primeira migração; conferir unicidade por e-mail no banco.
 - Restringir tentativas de login/cadastro/recuperação no servidor; selecionar mecanismo compatível com o deploy. Confirmação de e-mail deve ocorrer antes de iniciar pagamento. Recuperação precisa de entrega real de e-mail em produção.
-- Desenvolvimento grava e-mails em arquivos privados, sem envio externo. Produção exige SMTP com TLS verificado, origem canônica HTTPS e worker de entrega; filas e sessões precisam permanecer privadas. MFA para equipe administrativa continua pendente antes da liberação pública.
+- Desenvolvimento grava e-mails em arquivos privados, sem envio externo. Produção exige SMTP com TLS verificado, origem canônica HTTPS e worker de entrega; filas e sessões precisam permanecer privadas. O backend de MFA administrativo está implementado; integração das telas, chave dedicada e validação no CTIC continuam pendentes antes da liberação pública.
 - `DEBUG=False`, hosts explícitos, HTTPS e cookies `Secure`/`HttpOnly`/`SameSite` apropriados em produção. Configurar proxy confiável segundo a topologia do CTIC, sem confiar cegamente em headers do cliente.
 - Validar permissões de objeto e CSRF em operações da sessão. Escapar conteúdo em templates e limitar redirects. Logs e auditoria não incluem senhas, tokens de reset, segredos de gateway ou dados completos de cartão.
 - Dados pessoais mínimos, acesso restrito, política de retenção e responsáveis definidos com a organização. Backups do PostgreSQL e de arquivos privados com restauração ensaiada; não apagar histórico financeiro por simples exclusão de perfil.
@@ -232,7 +233,7 @@ Testar comportamento e falhas relevantes, não apenas existência de endpoints. 
 
 Fundação implementada: Django 5.2.17, Python 3.12, psycopg 3.3.6, PostgreSQL local 17.11, usuário customizado, migrações, admin técnico e endpoints de saúde. Dependências fixadas com hashes; instruções em `backend/README.md`. Contas e grupos no admin ficam restritos ao superusuário técnico para evitar concessão indireta de privilégios.
 
-Conta/perfil implementados: cadastro com resposta genérica, confirmação por POST, login/logout do participante, recuperação, perfil, limites compartilhados de tentativas e fila de e-mail com retomada. Validação: 57 testes no PostgreSQL e fluxo completo por HTTP com e-mails locais. Produção SMTP/CTIC, MFA administrativo e revisão visual permanecem pendentes; as telas do participante e e-mails agora estão traduzidos em PT/EN/ES.
+Conta/perfil implementados: cadastro com resposta genérica, confirmação por POST, login/logout do participante, recuperação, perfil, limites compartilhados de tentativas e fila de e-mail com retomada. Validação inicial: 57 testes no PostgreSQL e fluxo completo por HTTP com e-mails locais. Produção SMTP/CTIC, integração das telas de MFA administrativo e revisão visual permanecem pendentes; as telas do participante e e-mails estão traduzidos em PT/EN/ES.
 
 Inscrições/gestão implementadas: evento fechado por padrão, categorias/preços configuráveis, janela explícita, inscrição única com snapshot imutável, revisão/cancelamento com motivo e auditoria transacional, admin de consulta, busca/paginação, indicadores e CSV. Comandos criam metadados do evento e grupos sem usuários/valores comerciais. Permissões distintas para atendimento, indicadores e exportação; configuração comercial continua técnica. PostgreSQL garante unicidade, janelas, valores e moedas válidos, sobreposição por exclusão GiST/`btree_gist` e proteção de histórico por triggers. Revisão/valor zero não confirmam inscrição. Aprovação/rejeição de categoria pode ser revista enquanto pendente, sempre com motivo; canceladas não reabrem. Dados reais, uploads de comprovação e políticas comerciais continuam dependendo da organização.
 
@@ -241,3 +242,7 @@ Validação acumulada: 98 testes passaram no PostgreSQL, incluindo concorrência
 Próximo passo concreto: escolher o gateway conforme os requisitos da organização e implementar pagamentos, checkout, webhook autenticado, conciliação e recibos. O provedor, recebedor, moedas/métodos, credenciais sandbox e regras de reembolso/isenção ainda precisam ser definidos. Não inferir essas decisões a partir dos preços ou formas de pagamento no HTML. O link ao JEMS é configurável e HTTPS, com autenticação independente; não implementamos gestão de artigos.
 
 Internacionalização implementada: gettext Django nas telas/mensagens PT/EN/ES, seletor protegido por POST/CSRF, cookie para visitante e preferência persistida para participante autenticado. Novas inscrições congelam os nomes das categorias nos três idiomas; dados históricos sem tradução usam português. E-mails preservam o idioma da fila, independente do worker e de alterações posteriores. 17 testes específicos validam seleção, mensagens, autorização, snapshots e valores; suíte acumulada de 115 testes. Tradução integral do portal estático/gestão, revisão visual e idiomas do futuro checkout/JEMS continuam pendentes.
+
+MFA administrativo implementado por API: TOTP, segredos criptografados, recuperação de uso único, limites de tentativas, auditoria e proteção de `/gestao/` e `/api/v1/management/`. A [consulta de auditoria](integracao-auditoria.md) é somente leitura, usa permissão global própria e publica detalhes selecionados explicitamente. Não concede permissões automaticamente nem altera frontend. Consulte os contratos de [gestão](integracao-gestao.md) e [MFA](integracao-mfa.md) para a integração pelo responsável das telas.
+
+Estrutura de certificados implementada em `certificates/`: elegibilidade começa pendente e pode ser acompanhada pelo participante; a comissão autorizada prepara rascunhos internos com snapshots e auditoria. Não há operação de avaliação, emissão, aprovação de critérios ou download, nem confirmação automática por pagamento/inscrição. O modelo de documentos emitidos/versionados e o processamento de PDF continuam planejados, sem arquivos fictícios. Veja o [contrato de certificados](integracao-certificados.md).

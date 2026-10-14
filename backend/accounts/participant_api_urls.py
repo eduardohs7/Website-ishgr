@@ -1,6 +1,7 @@
 from django.urls import path
 
 from registrations import api as registration_api
+from certificates import api as certificate_api
 from . import participant_api
 
 app_name = "participant_api"
@@ -10,4 +11,5 @@ urlpatterns = [
     path("event/", registration_api.event, name="event"),
     path("prices/", registration_api.prices, name="prices"),
     path("registration/", registration_api.registration, name="registration"),
+    path("certificates/", certificate_api.own_certificates, name="certificates"),
 ]

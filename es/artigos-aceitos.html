@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Trabajos Aceptados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+        <style>
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="chamadas.html">Convocatorias</a></li>
+                <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                <li><a href="programacao.html">Programa</a></li>
+                <li><a href="atracoes.html">Atracciones</a></li>
+                <li><a href="inscricoes.html">Inscripciones</a></li>
+                <li><a href="evento.html">El Evento</a></li>
+                <li><a href="belem.html">Sobre Belém</a></li>
+                <li><a href="hospedagem.html">Alojamiento</a></li>
+                <li><a href="contato.html">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Área del participante</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">ES <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../fr/index.html">FR</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <span class="badge-text">RESULTADOS</span>
+                <h1 class="page-title">Trabajos Aceptados.</h1>
+                <p class="page-desc">Consulte las propuestas aprobadas para conformar las mesas redondas y conversatorios de CHAGS 14.</p>
+            </div>
+        </div>
+
+        <section class="container" style="padding-bottom: 80px;">
+            <div class="filtros-box">
+                <div class="filtro-item">
+                    <label>BUSCAR TRABAJO</label>
+                    <div class="input-wrapper"><input type="text" placeholder="Título, autor o institución" class="filtro-busca"></div>
+                </div>
+                <div class="filtro-item">
+                    <label>FILTRAR POR TEMA</label>
+                    <select class="filtro-topico">
+                        <option>Todos los temas</option>
+                        <option>Antropología y Arqueología</option>
+                        <option>Bioeconomía y Sostenibilidad</option>
+                        <option>Gestión de Recursos Naturales</option>
+                    </select>
+                </div>
+            </div>
+            
+            <p class="resultados-count" style="margin-bottom: 20px;"><strong>03</strong> trabajos encontrados</p>
+
+            <div class="trabalhos-lista">
+                <div class="trabalho-card">
+                    <div class="trabalho-numero">01</div>
+                    <div class="trabalho-conteudo">
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PROPUESTA:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">Gestión Territorial y Sostenibilidad en las Comunidades de Calha Norte</h3></div>
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTORES:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Maria de Fátima Souza (UFPA, Brasil), Carlos Eduardo Almeida (MPEG, Brasil)</p></div>
+                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TEMA:</span><span class="topico-badge">Gestión de Recursos Naturales</span></div>
+                    </div>
+                </div>
+
+                <div class="trabalho-card">
+                    <div class="trabalho-numero">02</div>
+                    <div class="trabalho-conteudo">
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">PROPUESTA:</span><h3 style="font-size: 1.1rem; margin:0;" class="trabalho-titulo">El papel de los saberes ancestrales frente al cambio climático global</h3></div>
+                        <div style="display: flex; gap: 10px; align-items: baseline;"><span class="trabalho-label">AUTORES:</span><p style="margin:0; font-size: 0.95rem;" class="trabalho-autores">Richard Lee (University of Nevada, EE. UU.), Ana Clara Nunes (UFPA, Brasil)</p></div>
+                        <div style="display: flex; gap: 10px; align-items: center;"><span class="trabalho-label">TEMA:</span><span class="topico-badge">Cambio Climático e Impactos</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conferencia oficial de la International Society for Hunter-Gatherer Research (ISHGR) - conectando enseñanza, innovación y tradición en la Amazonía brasileña.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVEGACIÓN</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="chamadas.html">Convocatorias</a></li>
+                    <li><a href="artigos-aceitos.html">Trabajos</a></li>
+                    <li><a href="programacao.html">Programa</a></li>
+                    <li><a href="atracoes.html">Atracciones</a></li>
+                    <li><a href="inscricoes.html">Inscripciones</a></li>
+                    <li><a href="evento.html">El Evento</a></li>
+                    <li><a href="contato.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMACIÓN</h4>
+                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                    <li><a href="sistema-login.html">Área del Participante</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Sitio web de la ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Todos los derechos reservados</p><p>12 al 16 de julio - Belém, Pará - Brasil</p></div></div>
+    </footer>
+
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Volver arriba"> 
+        ↑
+    </button>
+
+    <script src="../script.js?v=12"></script>
+</body>
+</html>

@@ -6,7 +6,6 @@ on:
       - "backend/**"
       - ".github/workflows/backend-ci.yml"
   pull_request:
-    branches: [main]
     paths:
       - "backend/**"
       - ".github/workflows/backend-ci.yml"
@@ -41,6 +40,21 @@ jobs:
       - name: Instalar dependências com hashes
         run: python -m pip install --require-hashes -r backend/requirements.txt
 
+      - name: Preparar clientes PostgreSQL para os testes de backup
+        run: |
+          if [ ! -x /usr/lib/postgresql/17/bin/pg_dump ] || [ ! -x /usr/lib/postgresql/17/bin/pg_restore ]; then
+            curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+              https://www.postgresql.org/media/keys/ACCC4CF8.asc -o "$RUNNER_TEMP/chags-pgdg.asc"
+            fingerprint=$(gpg --batch --show-keys --with-colons "$RUNNER_TEMP/chags-pgdg.asc" | awk -F: '$1 == "fpr" { print $10; exit }')
+            test "$fingerprint" = B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
+            sudo install -m 0644 "$RUNNER_TEMP/chags-pgdg.asc" /usr/share/keyrings/chags-pgdg.asc
+            echo 'deb [signed-by=/usr/share/keyrings/chags-pgdg.asc] https://apt.postgresql.org/pub/repos/apt noble-pgdg main' \
+              | sudo tee /etc/apt/sources.list.d/chags-pgdg.list
+            sudo apt-get update
+            sudo apt-get install --no-install-recommends --yes postgresql-client-17
+          fi
+          echo "CHAGS_PG_BIN=/usr/lib/postgresql/17/bin" >> "$GITHUB_ENV"
+
       - name: Iniciar PostgreSQL de testes
         run: python backend/scripts/ci-postgres.py start
 
@@ -52,7 +66,7 @@ jobs:
           python backend/manage.py migrate --check
 
       - name: Executar testes do backend
-        run: python backend/manage.py test accounts registrations operations config.tests --noinput
+        run: python backend/manage.py test accounts registrations operations certificates config.tests --noinput
 
       - name: Verificar coleta dos arquivos estáticos
         run: python backend/manage.py collectstatic --noinput

@@ -1,5 +1,7 @@
 # API da área do participante — CHAGS 14
 
+A consulta de disponibilidade de certificados está no [contrato de certificados](integracao-certificados.md). Nesta fase, não há documentos emitidos nem downloads.
+
 Contrato v1, preparado em 10/10/2026. Complementa o [contrato de autenticação](integracao-autenticacao.md). O backend oferece perfil próprio, opções de país/idioma, evento atual, preços disponíveis e inscrição própria. O responsável pelo front implementa as telas e sua conexão; esta entrega não modifica HTML, CSS ou JavaScript.
 
 ## Sessão, permissões e formato

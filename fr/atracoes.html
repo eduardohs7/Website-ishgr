@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 | Programme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css"></head>
+    
+    <!-- CSS Exclusivo da Página de Programação -->
+    <style>
+        /* Centralização Geral e Containers */
+        .header-centralizado {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header-centralizado .page-desc {
+            margin: 0 auto;
+        }
+        .timeline-container {
+            max-width: 4000px !important; /*largura da tabela de descricao de dias*/
+        }
+
+        /* Legenda de Cores */
+        .prog-legenda-custom {
+            border: none;
+            padding: 25px 0 0 0;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: center; /* Centraliza os itens da legenda */
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .dot-custom {
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            display: inline-block;
+        }
+
+        /* Cores Base para Timeline e Legendas */
+        .bg-cerimonia { background-color: #0A192F; }
+        .bg-palestra { background-color: #C05621; }
+        .bg-sessao { background-color: #2B6CB0; }
+        .bg-oficina { background-color: #2F855A; }
+        .bg-intervalo { background-color: #CBD5E0; }
+
+        /* Estilos dos Textos da Timeline */
+        .dia-semana-text {
+            color: var(--text-body);
+        }
+        .titulo-atividade {
+            margin-bottom: 5px;
+        }
+        .palestrante-desc {
+            font-size: 0.85rem; 
+            color: var(--text-body);
+        }
+        .mapa-link {
+            color: var(--text-dark); 
+            font-weight: 700; 
+            font-size: 1rem; 
+            display: inline-block; 
+            margin-top: 5px;
+            padding: 12px 28px;
+            background-color: gainsboro;
+            border: 1px solid #fff;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .mapa-link:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Estrutura dos Cards de Atividade */
+        .card-flex-center {
+            display: flex; 
+            align-items: center; 
+            gap: 20px;
+        }
+        .card-flex-between {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 15px;
+        }
+        .card-intervalo-bg {
+            background-color: var(--bg-section);
+        }
+        .info-basica-flex {
+            display: flex; 
+            gap: 20px; 
+            align-items: center; 
+            flex: 1; 
+            min-width: 250px;
+        }
+
+        /* Badges de Atividades */
+        .badge-cerimonia-custom { background-color: #E2E8F0; color: #0A192F; }
+        .badge-palestra-custom { background-color: #FEEBC8; color: #C05621; }
+        .badge-sessao-custom { background-color: #EBF8FF; color: #2B6CB0; }
+        .badge-intervalo-custom { background-color: #E2E8F0; color: #4A5568; }
+
+        /* Ajuste visual do Badge dentro do Modal */
+        #modal-prog-tipo {
+            display: flex;
+            align-items: center;
+        }
+
+        #modal-prog-tipo span,
+        #modal-prog-tipo .type-badge {
+            white-space: nowrap !important; /* Impede absolutamente a quebra de linha */
+            padding: 6px 16px !important;
+            border-radius: 20px !important; /* Deixa o visual arredondado e elegante */
+            font-size: 0.85rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        /* Botões */
+        .btn-detalhes-prog {
+            font-weight: 790;
+            font-size: 0.85rem;
+            color: var(--text-dark); 
+            border-color: var(--border-color); 
+            cursor: pointer; 
+            padding: 8px 15px; 
+            border-radius: 20px;
+            background-color: rgb(217, 217, 213);
+        }
+
+        /* Modal da Programação */
+        #modal-prog {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.6); display: none; align-items: center; 
+            justify-content: center; z-index: 2000;
+        }
+        #modal-prog .modal-content {
+            background: var(--bg-color); border-radius: 4px; width: 90%; 
+            max-width: 600px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .modal-header-prog {
+            padding: 20px 30px; border-bottom: 1px solid var(--border-color); 
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        /* Botão de Fechar (X) fixado no canto superior direito */
+        .close-modal-prog-btn {
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            background: transparent; 
+            border: none; 
+            font-size: 2rem;
+            line-height: 1; 
+            cursor: pointer; 
+            color: var(--text-body);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease; 
+        }
+
+        .close-modal-prog-btn:hover {
+            background-color: #E2E8F0; 
+            color: #000000; 
+            transform: scale(1.05); 
+        }
+        
+        .modal-body-prog { padding: 30px; }
+        .modal-time-text {
+            font-weight: 900; color: black; margin-bottom: 10px; display: block; font-size: 1.1rem;
+        }
+        .modal-title-text {
+            font-size: 1.5rem; margin-bottom: 30px; color: var(--text-dark); line-height: 1.3; text-align: center;
+        }
+        .modal-section-mb { margin-bottom: 25px; }
+        .modal-section-title {
+            font-size: 0.9rem; color: var(--text-body); margin-bottom: 10px; letter-spacing: 1px;
+        }
+        .modal-section-content {
+            font-size: 0.95rem; color: var(--text-dark); line-height: 1.5;
+        }
+        .modal-location-box {
+            background: var(--bg-section); padding: 20px; border-radius: 4px; border: 1px solid var(--border-color);
+        }
+
+        /* Rodapé */
+        .footer-col-unica { grid-template-columns: 1fr; }
+
+        /* Ajuste exclusivo para a navbar respirar melhor */
+        @media (min-width: 1025px) {
+            .nav-links a {
+                font-size: 0.78rem !important; 
+            }
+            .nav-links {
+                gap: 1rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho e Navbar -->
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="chamadas.html">Appels</a></li>
+                <li><a href="artigos-aceitos.html">Contributions</a></li>
+                <li><a href="programacao.html">Programme</a></li>
+                <li><a href="atracoes.html">Intervenants</a></li>
+                <li><a href="inscricoes.html">Inscriptions</a></li>
+                <li><a href="evento.html">L'Événement</a></li>
+                <li><a href="belem.html">À propos de Belém</a></li>
+                <li><a href="hospedagem.html">Hébergement</a></li>
+                <li><a href="contato.html">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="sistema-login.html" class="btn-nav-login">Espace participant</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">FR <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="../index.html">EN</a>
+                        <a href="../pt-br/index.html">PT-BR</a>
+                        <a href="../es/index.html">ES</a>
+                    </div>
+                </div>
+            </div> <!-- 🚨 div nav-actions fechada corretamente aqui -->
+            
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container header-centralizado">
+                <span class="badge-text">12 AU 16 JUILLET • BELÉM</span>
+                <h1 class="page-title">Programme.</h1>
+                <p class="page-desc">Découvrez le programme complet de CHAGS 14. Cliquez sur les activités pour développer les détails sur les intervenants, les bâtiments et les cartes de localisation sur le campus de l'UFPA et au Museu Goeldi.</p>
+                
+                <div class="prog-legenda prog-legenda-custom">
+                    <span class="legenda-item"><span class="dot cerimonia dot-custom bg-cerimonia"></span> CÉRÉMONIE</span>
+                    <span class="legenda-item"><span class="dot palestra dot-custom bg-palestra"></span> CONFÉRENCE / TABLE RONDE</span>
+                    <span class="legenda-item"><span class="dot sessao dot-custom bg-sessao"></span> SESSION THÉMATIQUE</span>
+                    <span class="legenda-item"><span class="dot oficina dot-custom bg-oficina"></span> ATELIER / WORKSHOP</span>
+                    <span class="legenda-item"><span class="dot intervalo dot-custom bg-intervalo"></span> PAUSE</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="prog-timeline-section container timeline-container card hidden">
+            <!-- DIA 01 -->
+            <div class="dia-bloco">
+                <div class="dia-sidebar">
+                    <span class="dia-badge">JOUR 01</span>
+                    <h2 class="dia-data">12 juil</h2>
+                    <span class="dia-semana dia-semana-text">Lundi</span>
+                </div>
+
+                <div class="timeline-lista">
+                    <!-- Atividade 01 (Sem modal, apenas aviso) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-cerimonia"></div>
+                        <div class="atividade-card card-flex-center">
+                            <span class="atividade-horario prog-time">08h00 - 09h00</span>
+                            <div class="atividade-titulo-area">
+                                <h3 class="titulo-atividade">Accréditation et Remise du Matériel</h3>
+                                <span class="type-badge badge-cerimonia-custom">CÉRÉMONIE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 02 (Com Modal) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-palestra"></div>
+                        <div class="atividade-card card-flex-between">
+                            <div class="atividade-info-basica info-basica-flex">
+                                <span class="atividade-horario prog-time">09h00 - 10h30</span>
+                                <div class="atividade-titulo-area">
+                                    <h3 class="prog-title titulo-atividade">Table Ronde d'Ouverture : Futurs Ancestraux et Écologie Humaine en Amazonie</h3>
+                                    <span class="type-badge prog-type badge-palestra-custom">CONFÉRENCE / TABLE RONDE</span>
+                                </div>
+                            </div>
+                            <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Voir les détails</button>
+
+                            <!-- Dados Ocultos para o Modal -->
+                            <div class="prog-hidden-data" style="display: none;">
+                                <div class="data-palestrante">
+                                    <strong> Dr. Louis Forline</strong><br>
+                                    <span class="palestrante-desc">Anthropologue et chercheur principal à l'University of Nevada. Spécialiste en écologie comportementale et sociétés de chasseurs-cueilleurs.</span>
+                                </div>
+                                <div class="data-local">
+                                    <strong>Bâtiment :</strong> Centro de Eventos Benedito Nunes<br>
+                                    <strong>Espace :</strong> Auditorium Principal (Secteur de Base)<br>
+                                    <a href="https://maps.google.com" target="_blank" class="mapa-link">Voir la carte</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 03 (Intervalo) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-intervalo"></div>
+                        <div class="atividade-card card-intervalo-bg card-flex-center">
+                            <span class="atividade-horario">10h30 - 11h00</span>
+                            <div class="atividade-titulo-area">
+                                <h3 class="titulo-atividade">Pause - Pause Café Amazonienne</h3>
+                                <span class="type-badge badge-intervalo-custom">PAUSE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Atividade 04 (Com Modal) -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-sessao

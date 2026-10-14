@@ -5,7 +5,7 @@ from urllib.parse import urlsplit
 from django.core.exceptions import ImproperlyConfigured
 
 from .base import *  # noqa: F403
-from .environment import csv_setting, database_settings, required
+from .environment import csv_setting, database_settings, mfa_encryption_key, required, staff_mfa_required
 
 DEBUG = False
 SECRET_KEY = required("CHAGS_SECRET_KEY")
@@ -15,6 +15,8 @@ ALLOWED_HOSTS = csv_setting("CHAGS_ALLOWED_HOSTS")
 if not ALLOWED_HOSTS or "*" in ALLOWED_HOSTS:
     raise ImproperlyConfigured("Configure CHAGS_ALLOWED_HOSTS com os hosts da aplicação.")
 DATABASES = {"default": database_settings(production=True, defaults={"PORT": "5432"})}
+STAFF_MFA_ENCRYPTION_KEY = mfa_encryption_key()
+STAFF_MFA_REQUIRED = staff_mfa_required(True)
 CSRF_TRUSTED_ORIGINS = csv_setting("CHAGS_CSRF_TRUSTED_ORIGINS")
 
 SECURE_SSL_REDIRECT = True

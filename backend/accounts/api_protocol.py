@@ -7,7 +7,7 @@ from django.views.csrf import csrf_failure as html_csrf_failure
 from django.views.decorators.cache import never_cache
 from django.views.decorators.debug import sensitive_variables
 
-API_PREFIXES = ("/api/v1/auth/", "/api/v1/participant/")
+API_PREFIXES = ("/api/v1/auth/", "/api/v1/participant/", "/api/v1/management/")
 MAX_BODY_BYTES = 32 * 1024
 
 
@@ -116,7 +116,7 @@ def form_errors(form):
 
 
 def csrf_failure(request, reason=""):
-    if request.path.startswith(API_PREFIXES):
+    if request.path_info.startswith(API_PREFIXES):
         response = error_response("csrf_failed", status=403)
         response["Cache-Control"] = "no-store"
         return response

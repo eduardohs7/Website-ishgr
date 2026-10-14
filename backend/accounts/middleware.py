@@ -18,6 +18,9 @@ ROUTE_SCOPES = {
     "auth_api:login": "login", "auth_api:signup": "signup",
     "auth_api:request_reset": "request_email", "auth_api:resend_confirmation": "request_email",
     "auth_api:confirm": "confirm", "auth_api:reset": "reset",
+    "staff_mfa:enroll": "mfa_sensitive", "staff_mfa:confirm": "mfa_code",
+    "staff_mfa:verify": "mfa_code", "staff_mfa:recovery_codes": "mfa_sensitive",
+    "staff_mfa:disable": "mfa_sensitive",
 }
 
 
@@ -62,11 +65,14 @@ class AccountRateLimitMiddleware:
         if not scope:
             return None
         request.sensitive_post_parameters = (
-            "password", "password1", "password2", "new_password1", "new_password2", "token",
+            "password", "password1", "password2", "new_password1", "new_password2", "token", "code",
         )
         policies = settings.ACCOUNT_RATE_LIMITS[scope]
         values = {"ip": client_ip(request)}
-        is_api = request.resolver_match.namespace == "auth_api"
+        is_mfa = request.resolver_match.namespace == "staff_mfa"
+        if is_mfa and (not request.user.is_authenticated or not request.user.is_active or not request.user.is_staff):
+            return None
+        is_api = request.resolver_match.namespace in ("auth_api", "staff_mfa")
         if is_api:
             try:
                 payload = request_data(request)
@@ -78,7 +84,7 @@ class AccountRateLimitMiddleware:
         else:
             identity_field = "username" if scope == "login" else "email"
             email = request.POST.get(identity_field, "")
-        values["identity"] = User.objects.normalize_email(email)[:254]
+        values["identity"] = str(request.user.pk) if is_mfa else User.objects.normalize_email(email)[:254]
         now = timezone.now()
         retry_after = 0
         # The same PostgreSQL buckets serve all workers and both login endpoints.
