@@ -4,6 +4,7 @@ import secrets
 from pathlib import Path
 
 from django.core.exceptions import ImproperlyConfigured
+from cryptography.fernet import Fernet
 
 
 def required(name):
@@ -15,6 +16,36 @@ def required(name):
 
 def csv_setting(name):
     return [item.strip() for item in os.environ.get(name, "").split(",") if item.strip()]
+
+
+def mfa_encryption_key(base_dir=None):
+    key = os.environ.get("CHAGS_MFA_ENCRYPTION_KEY")
+    if not key and base_dir is not None:
+        directory = base_dir / ".local"
+        directory.mkdir(mode=0o700, exist_ok=True)
+        path = directory / "mfa-encryption-key"
+        try:
+            fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        except FileExistsError:
+            pass
+        else:
+            with os.fdopen(fd, "wb") as stream:
+                stream.write(Fernet.generate_key())
+        key = path.read_text().strip()
+    if not key:
+        raise ImproperlyConfigured("Configure a variável CHAGS_MFA_ENCRYPTION_KEY.")
+    try:
+        Fernet(key.encode("ascii"))
+    except (ValueError, UnicodeError):
+        raise ImproperlyConfigured("CHAGS_MFA_ENCRYPTION_KEY deve ser uma chave Fernet válida.") from None
+    return key
+
+
+def staff_mfa_required(default):
+    value = os.environ.get("CHAGS_REQUIRE_STAFF_MFA", str(default).lower())
+    if value not in ("true", "false"):
+        raise ImproperlyConfigured("CHAGS_REQUIRE_STAFF_MFA deve ser true ou false.")
+    return value == "true"
 
 
 def development_secret_key(base_dir: Path):

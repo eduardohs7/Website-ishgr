@@ -1,3 +1,4 @@
+import base64
 import os
 import secrets
 import subprocess
@@ -62,12 +63,14 @@ class EnvironmentTests(SimpleTestCase):
             CHAGS_PUBLIC_URL="https://portal.example.org",
             CHAGS_EMAIL_HOST="smtp.example.org",
             CHAGS_DEFAULT_FROM_EMAIL="no-reply@example.org",
+            CHAGS_MFA_ENCRYPTION_KEY=base64.urlsafe_b64encode(b"0" * 32).decode("ascii"),
         )
         script = (
             "import config.settings.production as s; "
             "assert not s.DEBUG; "
             "assert s.SESSION_COOKIE_SECURE and s.CSRF_COOKIE_SECURE; "
             "assert s.SECURE_SSL_REDIRECT; "
+            "assert s.STAFF_MFA_REQUIRED; "
             "assert not hasattr(s, 'SECURE_PROXY_SSL_HEADER')"
         )
         for hosts, expected in (("", False), ("*", False), ("portal.example.org", True)):

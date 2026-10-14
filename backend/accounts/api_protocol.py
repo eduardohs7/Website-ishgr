@@ -116,7 +116,7 @@ def form_errors(form):
 
 
 def csrf_failure(request, reason=""):
-    if request.path.startswith(API_PREFIXES):
+    if request.path_info.startswith(API_PREFIXES):
         response = error_response("csrf_failed", status=403)
         response["Cache-Control"] = "no-store"
         return response

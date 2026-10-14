@@ -24,6 +24,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "accounts.language.ParticipantLanguageMiddleware",
     "accounts.middleware.AccountRateLimitMiddleware",
+    "accounts.mfa_middleware.StaffMFAMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -98,7 +99,13 @@ ACCOUNT_RATE_LIMITS = {
     "request_email": {"ip": (20, 3600), "identity": (3, 3600)},
     "confirm": {"ip": (30, 900)},
     "reset": {"ip": (30, 900)},
+    "mfa_code": {"ip": (30, 300), "identity": (5, 300)},
+    "mfa_sensitive": {"ip": (20, 300), "identity": (5, 300)},
 }
+STAFF_MFA_MAX_AGE = 3600
+STAFF_MFA_RECENT_AGE = 300
+STAFF_MFA_ENROLLMENT_AGE = 600
+STAFF_MFA_ISSUER = "CHAGS 14"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     ("portal/images", BASE_DIR.parent / "images"),
