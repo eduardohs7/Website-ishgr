@@ -1,0 +1,2 @@
+# Ferramenta de auditoria; instalar em ambiente separado da aplicação.
+pip-audit==2.10.1
