@@ -4,10 +4,13 @@ from urllib.parse import urlsplit
 
 from django.core.exceptions import ImproperlyConfigured
 
+from config.observability import production_logging
+
 from .base import *  # noqa: F403
 from .environment import csv_setting, database_settings, mfa_encryption_key, required, staff_mfa_required
 
 DEBUG = False
+LOGGING = production_logging()
 SECRET_KEY = required("CHAGS_SECRET_KEY")
 if len(SECRET_KEY) < 50:
     raise ImproperlyConfigured("CHAGS_SECRET_KEY deve ter pelo menos 50 caracteres.")

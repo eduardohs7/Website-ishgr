@@ -17,6 +17,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "config.observability.RequestDiagnosticsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
@@ -33,6 +34,14 @@ MIDDLEWARE = [
 ROOT_URLCONF = "config.urls"
 WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
+
+# Production replaces this with the safe JSON console configuration.
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"null": {"class": "logging.NullHandler"}},
+    "loggers": {"chags.http": {"handlers": ["null"], "level": "INFO", "propagate": False}},
+}
 
 TEMPLATES = [
     {

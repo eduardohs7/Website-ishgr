@@ -206,6 +206,10 @@ Links de confirmação/recuperação usam `#token=...`, evitando códigos no pat
 
 Os links legados `sistema-login.html` e `pt-br/sistema-login.html` redirecionam ao login real. `sistema-submissao.html` redireciona à área protegida: o formulário estático de artigos não é servido nessa rota. O JEMS continuará independente. Os HTML originais são servidos por uma lista explícita de páginas públicas; apenas CSS/JS públicos e o diretório de imagens entram na coleta de estáticos. GitHub Pages continua servindo somente a versão estática; esses fluxos funcionam quando o portal é servido pelo Django.
 
+## Diagnóstico de falhas
+
+Respostas incluem `X-Request-ID` gerado pelo servidor. Em produção, logs JSON relacionam requisições e falhas por esse identificador, com campos permitidos explicitamente e sem serializar mensagens privadas, payloads ou credenciais. Erros gerais da API usam JSON com `DEBUG=False`. Consulte o [contrato e guia de diagnóstico](../docs/diagnostico-backend.md), incluindo a verificação no Windows e os limites dos logs externos.
+
 ## Preparação de produção
 
 `manage.py` usa desenvolvimento por padrão. WSGI/ASGI usam produção por padrão; um servidor WSGI de desenvolvimento deve receber explicitamente `DJANGO_SETTINGS_MODULE=config.settings.development`. Em produção, forneça as variáveis pelo gerenciador do serviço; `.env.example` documenta nomes e não é carregado automaticamente.
