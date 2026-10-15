@@ -208,3 +208,10 @@ Checklist para o responsável pelo front:
 Em desenvolvimento, o worker `send_account_emails` grava mensagens em `backend/.local/emails`, sem enviar e-mail externo. Execute-o separadamente conforme o [guia Windows](desenvolvimento-windows.md). Credenciais SMTP reais continuam pendentes para produção.
 
 Esta entrega não exige novas dependências nem migrações além das já existentes no backend. Ela exige levar os arquivos novos e modificados de **backend** para a cópia que executará a API. Atualizar o código na nuvem não atualiza automaticamente o GitHub ou o computador do desenvolvedor; use a branch publicada para obter a versão correspondente.
+
+## Troca de senha e encerramento de todas as sessões
+
+As operações autenticadas `change-password/` e `logout-all/` estão descritas no
+[contrato de segurança da conta](integracao-seguranca-conta.md). Não dependem de
+e-mail, exigem senha atual e CSRF e preservam o cadastro de MFA. A troca para staff
+protegido exige MFA recente; as provas precisam ser renovadas após trocar senha.
