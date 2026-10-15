@@ -235,3 +235,7 @@ Com configuração e infraestrutura reais fornecidas pelo CTIC, os comandos prev
 ```
 
 Esses comandos de deploy dependem de HTTPS, configuração de proxy e banco do CTIC; não representam publicação realizada. Não usar `runserver` em produção. O servidor web serve apenas os arquivos coletados em `STATIC_ROOT`; `MEDIA_ROOT` continuará privado.
+
+## Ensaio HTTP de carga e recuperação
+
+O comando `backend/scripts/check-resilience.py` e o workflow **Backend Resilience** testam concorrência, limites de tentativas, idempotência de inscrições e perda/retomada de acesso ao banco por HTTP real. Criam seu próprio PostgreSQL/Gunicorn descartável, sem aceitar um destino de produção. Consulte o [guia de resistência](../docs/testes-resistencia.md) e os [resultados locais](../docs/resultados-resistencia.md); os números não representam a capacidade do CTIC.

@@ -11,7 +11,7 @@ class ParticipantLanguageMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        if request.user.is_authenticated and request.path.startswith(("/conta/", "/participante/", "/api/v1/auth/", "/api/v1/participant/")):
+        if request.path.startswith(("/conta/", "/participante/", "/api/v1/auth/", "/api/v1/participant/")) and request.user.is_authenticated:
             language = ParticipantProfile.objects.filter(user=request.user).values_list("preferred_language", flat=True).first()
             if language in dict(settings.LANGUAGES):
                 with translation.override(language):

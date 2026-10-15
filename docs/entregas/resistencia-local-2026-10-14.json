@@ -1,0 +1,109 @@
+{
+  "cleanup": true,
+  "environment": {
+    "connection_health_checks": true,
+    "cpu_count_visible": 5,
+    "database_create_role": false,
+    "database_superuser": false,
+    "django": "5.2.17",
+    "gunicorn": "23.0.0",
+    "gunicorn_threads_per_worker": 4,
+    "gunicorn_workers": 2,
+    "persistent_connections_seconds": 60,
+    "postgresql": "17.11 (Debian 17.11-1.pgdg13+2)",
+    "python": "3.12.14",
+    "read_seconds_per_level": 10
+  },
+  "integrity_after_recovery": {
+    "profiles": 6,
+    "queued_emails": 1,
+    "registration_audit_entries": 5,
+    "registrations": 5,
+    "snapshots_intact": true,
+    "users": 6
+  },
+  "integrity_before_outage": {
+    "profiles": 6,
+    "queued_emails": 1,
+    "registration_audit_entries": 4,
+    "registrations": 4,
+    "snapshots_intact": true,
+    "users": 6
+  },
+  "outage": {
+    "anonymous_liveness": 200,
+    "anonymous_readiness": 503,
+    "authenticated_liveness": 200,
+    "authenticated_readiness": 503,
+    "blocked_registration_status": 500
+  },
+  "phases": {
+    "duplicate_registration": {
+      "concurrency": 8,
+      "elapsed_seconds": 0.116,
+      "max_ms": 75.093,
+      "p50_ms": 37.758,
+      "p95_ms": 75.093,
+      "requests": 16,
+      "requests_per_second": 138.05,
+      "statuses": {
+        "200": 12,
+        "201": 4
+      }
+    },
+    "duplicate_signup": {
+      "concurrency": 4,
+      "elapsed_seconds": 0.208,
+      "max_ms": 196.037,
+      "p50_ms": 186.389,
+      "p95_ms": 196.037,
+      "requests": 4,
+      "requests_per_second": 19.21,
+      "statuses": {
+        "202": 3,
+        "429": 1
+      }
+    },
+    "login_rate_limit": {
+      "concurrency": 8,
+      "elapsed_seconds": 0.532,
+      "max_ms": 411.464,
+      "p50_ms": 289.12,
+      "p95_ms": 411.464,
+      "requests": 12,
+      "requests_per_second": 22.55,
+      "statuses": {
+        "200": 9,
+        "429": 3
+      }
+    },
+    "participant_reads_1": {
+      "concurrency": 1,
+      "elapsed_seconds": 10.013,
+      "max_ms": 46.96,
+      "p50_ms": 5.206,
+      "p95_ms": 7.498,
+      "requests": 1842,
+      "requests_per_second": 183.96,
+      "statuses": {
+        "200": 1842
+      }
+    },
+    "participant_reads_8": {
+      "concurrency": 8,
+      "elapsed_seconds": 10.066,
+      "max_ms": 79.051,
+      "p50_ms": 18.111,
+      "p95_ms": 30.209,
+      "requests": 4212,
+      "requests_per_second": 418.42,
+      "statuses": {
+        "200": 4212
+      }
+    }
+  },
+  "recovery_ready_and_session_ms": 26.508,
+  "schema": 1,
+  "source_sha256": "b6ea33dd1225e364dbdd44f5f3a12b95319873ef2763a8c16b25407adaae92c1",
+  "status": "passed"
+}

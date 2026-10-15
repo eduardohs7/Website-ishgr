@@ -1,0 +1,41 @@
+name: Backend Resilience
+
+on:
+  push:
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-resilience.yml"
+  pull_request:
+    paths:
+      - "backend/**"
+      - ".github/workflows/backend-resilience.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-resilience-${{ github.event.pull_request.head.repo.full_name || github.repository }}-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  resilience:
+    name: HTTP concorrente e recuperação
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Obter o código
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Preparar Python 3.12
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências com hashes
+        run: python -m pip install --require-hashes -r backend/requirements.txt
+
+      - name: Testar HTTP real, integridade e recuperação em ambiente descartável
+        run: python backend/scripts/check-resilience.py --duration 5 --report backend/.local/resilience-report.json
