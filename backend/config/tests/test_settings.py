@@ -22,7 +22,8 @@ class EnvironmentTests(SimpleTestCase):
             self.assertEqual(first, second)
             self.assertGreaterEqual(len(first), 50)
             path = Path(directory) / ".local" / "django-secret-key"
-            self.assertEqual(path.stat().st_mode & 0o777, 0o600)
+            if os.name != "nt":
+             self.assertEqual(path.stat().st_mode & 0o777, 0o600)
 
     def test_production_database_requires_configuration_and_tls(self):
         with patch.dict(os.environ, {}, clear=True):
