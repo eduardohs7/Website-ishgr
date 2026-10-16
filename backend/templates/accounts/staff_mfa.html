@@ -1,6 +1,7 @@
 {% extends 'accounts/base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% block title %}{% translate "Segurança da equipe" %}{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'accounts/staff_mfa.css' %}"><script src="{% static 'accounts/staff_mfa.js' %}" defer></script>{% endblock %}
 {% block content %}
   <h1 class="auth-title">{% translate "Segurança da equipe" %}</h1>
   <p class="auth-desc">{% translate "Configure seu aplicativo autenticador ou confirme sua identidade para acessar a gestão do evento." %}</p>
