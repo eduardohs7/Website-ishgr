@@ -1,0 +1,76 @@
+{% extends 'accounts/base.html' %}
+{% load i18n %}
+{% block title %}{% translate "Segurança da equipe" %}{% endblock %}
+{% block content %}
+  <h1 class="auth-title">{% translate "Segurança da equipe" %}</h1>
+  <p class="auth-desc">{% translate "Configure seu aplicativo autenticador ou confirme sua identidade para acessar a gestão do evento." %}</p>
+  <div id="staff-mfa" data-status-url="{% url 'staff_mfa:status' %}"
+       data-enroll-url="{% url 'staff_mfa:enroll' %}"
+       data-confirm-url="{% url 'staff_mfa:confirm' %}"
+       data-verify-url="{% url 'staff_mfa:verify' %}"
+       data-recovery-url="{% url 'staff_mfa:recovery_codes' %}"
+       data-disable-url="{% url 'staff_mfa:disable' %}"
+       data-management-url="/gestao/">
+    <p id="mfa-status" class="account-help" role="status" aria-live="polite">{% translate "Verificando o estado da segurança…" %}</p>
+    <div id="mfa-errors" class="account-errors" role="alert" hidden></div>
+    <section id="mfa-enroll-start" hidden>
+      <h2>{% translate "Ativar autenticação em duas etapas" %}</h2>
+      <p class="account-help">{% translate "Use a senha atual da sua conta e um aplicativo autenticador compatível com códigos TOTP." %}</p>
+      <form id="mfa-enroll-form" class="account-form">
+        {% csrf_token %}
+        <label for="mfa-enroll-password">{% translate "Senha atual" %}</label>
+        <input class="form-control" id="mfa-enroll-password" type="password" autocomplete="current-password" required>
+        <button class="btn-submit-full" type="submit">{% translate "Iniciar configuração" %}</button>
+      </form>
+    </section>
+    <section id="mfa-enroll-confirm" hidden>
+      <h2>{% translate "Concluir configuração" %}</h2>
+      <p class="account-help">{% translate "Adicione esta chave ao aplicativo autenticador. Trate-a como uma senha e não compartilhe." %}</p>
+      <label for="mfa-secret">{% translate "Chave de configuração" %}</label>
+      <input class="form-control" id="mfa-secret" readonly>
+      <p class="account-help"><a id="mfa-otpauth" href="#" rel="nofollow">{% translate "Abrir URI no aplicativo compatível" %}</a></p>
+      <form id="mfa-confirm-form" class="account-form">
+        {% csrf_token %}
+        <label for="mfa-confirm-code">{% translate "Código de seis dígitos" %}</label>
+        <input class="form-control" id="mfa-confirm-code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required>
+        <button class="btn-submit-full" type="submit">{% translate "Confirmar e ativar" %}</button>
+      </form>
+    </section>
+    <section id="mfa-challenge" hidden>
+      <h2>{% translate "Confirmar identidade" %}</h2>
+      <p class="account-help">{% translate "Digite o código atual do seu aplicativo autenticador. Se não tiver acesso ao dispositivo, use um código de recuperação." %}</p>
+      <form id="mfa-verify-form" class="account-form">
+        {% csrf_token %}
+        <label for="mfa-verify-code">{% translate "Código" %}</label>
+        <input class="form-control" id="mfa-verify-code" autocomplete="one-time-code" required>
+        <label for="mfa-verify-method">{% translate "Tipo de código" %}</label>
+        <select id="mfa-verify-method" class="form-control">
+          <option value="totp">{% translate "Aplicativo autenticador" %}</option>
+          <option value="recovery">{% translate "Código de recuperação" %}</option>
+        </select>
+        <button class="btn-submit-full" type="submit">{% translate "Verificar e continuar" %}</button>
+      </form>
+    </section>
+    <section id="mfa-recovery-panel" hidden>
+      <h2>{% translate "Códigos de recuperação" %}</h2>
+      <p class="account-help">{% translate "Os códigos só são exibidos quando emitidos. Guarde-os em local privado; gerar novos códigos invalida os anteriores." %}</p>
+      <form id="mfa-recovery-form" class="account-form">
+        {% csrf_token %}
+        <label for="mfa-recovery-password">{% translate "Senha atual" %}</label>
+        <input class="form-control" id="mfa-recovery-password" type="password" autocomplete="current-password" required>
+        <button class="btn-submit-full" type="submit">{% translate "Gerar novos códigos" %}</button>
+      </form>
+    </section>
+    <section id="mfa-recovery-result" hidden>
+      <h2>{% translate "Guarde estes códigos agora" %}</h2>
+      <p class="account-help">{% translate "Esta é a única exibição destes códigos. A renovação invalida os códigos anteriores." %}</p>
+      <ul id="mfa-recovery-list"></ul>
+      <button id="mfa-recovery-done" class="btn-submit-full" type="button">{% translate "Já guardei os códigos" %}</button>
+    </section>
+    <section id="mfa-ready" hidden>
+      <p class="account-message">{% translate "A autenticação em duas etapas está ativa nesta sessão." %}</p>
+      <p id="mfa-recovery-count" class="account-help"></p>
+      <a class="account-button" href="/gestao/">{% translate "Ir para a gestão" %}</a>
+    </section>
+  </div>
+{% endblock %}
