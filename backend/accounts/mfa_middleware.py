@@ -1,4 +1,5 @@
 from django.db import DatabaseError, transaction
+from django.shortcuts import redirect
 
 from .api_protocol import error_response
 from .mfa import access_code
@@ -28,6 +29,14 @@ class StaffMFAMiddleware:
                 if request.user.is_active and request.user.is_staff:
                     code = access_code(request)
                     if code:
+                        # Browser page requests should land on the MFA screen. API
+                        # calls keep the documented JSON error contract.
+                        accepts_html = "text/html" in request.headers.get("Accept", "")
+                        is_api = path.startswith("/api/")
+                        if request.method == "GET" and accepts_html and not is_api:
+                            response = redirect("accounts:staff_mfa")
+                            response["Cache-Control"] = "no-store"
+                            return response
                         return failure(code)
                 response = self.get_response(request)
                 if response.status_code >= 500:
