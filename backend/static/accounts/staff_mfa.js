@@ -106,12 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
   byId("mfa-verify-form").addEventListener("submit", (event) => {
     event.preventDefault();
     submit("mfa-verify-form", async () => {
-      const data = await api(root.dataset.verifyUrl, "POST", {
+      await api(root.dataset.verifyUrl, "POST", {
         code: byId("mfa-verify-code").value.trim(),
         method: byId("mfa-verify-method").value
       });
       byId("mfa-verify-code").value = "";
-      if (data.verified) window.location.assign(root.dataset.managementUrl);
+      // A successful response means the server granted the MFA proof.
+      window.location.assign(root.dataset.managementUrl);
     });
   });
   byId("mfa-recovery-form").addEventListener("submit", (event) => {
