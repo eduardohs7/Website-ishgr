@@ -26,6 +26,8 @@ O módulo de certificados possui a [estrutura de elegibilidade e rascunhos inter
 
 A [consulta de auditoria por API](../docs/integracao-auditoria.md) permite acompanhar ações administrativas e de segurança com filtros e paginação. Exige conta staff, permissão própria e o segundo fator conforme a política do ambiente. Não concede acesso automaticamente aos grupos existentes nem altera telas.
 
+A [gestão cadastral de participantes](../docs/integracao-gestao-participantes.md) permite à comissão consultar contas, inclusive sem inscrição, e corrigir nome, instituição, país e idioma com motivo obrigatório, histórico e proteção contra alterações simultâneas. Exige permissões próprias e MFA conforme a política existente. Após aplicar a migração de permissões, `setup_participant_roles` prepara os grupos sem atribuir contas; o contrato descreve a integração com o painel.
+
 Próxima etapa: [escolha do serviço de pagamentos](../docs/escolha-pagamentos.md), considerando a conta bancária que a organização pretende abrir no Brasil e o recebedor ainda não definido.
 
 ## Integração com o front mantido separadamente
