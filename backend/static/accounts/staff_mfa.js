@@ -115,6 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.assign(root.dataset.managementUrl);
     });
   });
+  byId("mfa-recovery-open").addEventListener("click", () => {
+    clearError();
+    showPanel("mfa-recovery-panel");
+  });
   byId("mfa-recovery-form").addEventListener("submit", (event) => {
     event.preventDefault();
     submit("mfa-recovery-form", async () => {
