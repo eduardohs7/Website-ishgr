@@ -27,6 +27,8 @@ A [consulta de auditoria](integracao-auditoria.md) usa permissão própria e pro
 
 O [módulo de certificados](integracao-certificados.md) acrescenta `view_certificate_drafts` e `prepare_certificate_drafts` às capacidades, com permissões específicas além da consulta de inscrições. São rascunhos internos; emissão permanece indisponível.
 
+A [gestão cadastral de participantes](integracao-gestao-participantes.md) acrescenta `view_participants` e `correct_participants`. Possui permissões e grupos próprios para consultar contas, inclusive sem inscrição, e corrigir nome/instituição/país/idioma com motivo, auditoria e proteção contra alterações simultâneas. As permissões de inscrições não concedem esse acesso automaticamente.
+
 Nos POSTs, envie `Content-Type: application/json`, `X-CSRFToken` com o token recebido e o cookie da sessão, seguindo o fluxo dos contratos de autenticação. Não coloque token em URL nem em logs. `application/x-www-form-urlencoded` também é aceito. `multipart/form-data` não é aceito. Todos os valores do corpo são strings. Campos desconhecidos, repetidos ou valores de tipos diferentes são recusados. O limite de corpo é 32 KiB no protocolo compartilhado.
 
 O middleware CSRF pode devolver 403 antes da verificação da sessão em um POST sem token. Não há isenção de CSRF nem liberação de CORS. Todas as respostas controladas usam JSON e impedem cache. Métodos não previstos retornam 405 e o header `Allow`.
@@ -43,7 +45,7 @@ O middleware CSRF pode devolver 403 antes da verificação da sessão em um POST
 | POST | `registrations/<uuid>/cancel/` | Cancelar inscrição, com motivo. |
 | GET | `indicators/` | Totais agregados do evento atual. |
 
-Lista, detalhes, ações e indicadores estão limitados ao evento configurado por `REGISTRATION_EVENT_CODE`. Não aceitam `event_id` para escolher outro evento. Um UUID inexistente, malformado ou pertencente a outro evento recebe o mesmo erro de inscrição não encontrada. Não há operação nesta API para criar inscrição em nome de terceiros ou alterar perfil/preços.
+Lista, detalhes, ações e indicadores de inscrições estão limitados ao evento configurado por `REGISTRATION_EVENT_CODE`. Não aceitam `event_id` para escolher outro evento. Um UUID inexistente, malformado ou pertencente a outro evento recebe o mesmo erro de inscrição não encontrada. As rotas de inscrições não criam inscrição em nome de terceiros nem alteram perfil/preços; as correções cadastrais usam o módulo separado acima.
 
 ## Lista e detalhes
 

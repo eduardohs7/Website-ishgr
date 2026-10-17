@@ -28,6 +28,10 @@ class User(AbstractUser):
     class Meta:
         verbose_name = "usuário"
         verbose_name_plural = "usuários"
+        permissions = [
+            ("view_participant", "Pode consultar participantes na gestão"),
+            ("correct_participant", "Pode corrigir cadastros de participantes na gestão"),
+        ]
         constraints = [
             models.UniqueConstraint(Lower("email"), name="accounts_user_email_ci_unique"),
             models.CheckConstraint(
