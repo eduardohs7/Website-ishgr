@@ -1,0 +1,10 @@
+
+#mfa-enroll-start, #mfa-enroll-confirm, #mfa-challenge, #mfa-recovery-panel, #mfa-recovery-result, #mfa-ready { margin-top: 1.25rem; }
+#staff-mfa h2 { font-size: 1.1rem; margin: 1rem 0; }
+#staff-mfa form { margin-top: 1rem; }
+#staff-mfa label { display: block; margin: 12px 0 6px; font-weight: 600; }
+#staff-mfa button:disabled { opacity: .65; cursor: wait; }
+#mfa-recovery-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; padding-left: 1.5rem; overflow-wrap: anywhere; }
+#mfa-recovery-list code { font-size: .9rem; }
+#mfa-secret { font-family: monospace; letter-spacing: .04em; }
+@media (max-width: 420px) { #mfa-recovery-list { grid-template-columns: minmax(0, 1fr); } }
