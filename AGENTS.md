@@ -17,6 +17,7 @@ O contrato atual da autenticação está em `docs/integracao-autenticacao.md`.
 O contrato de troca de senha/logout global está em `docs/integracao-seguranca-conta.md`.
 O contrato da área do participante está em `docs/integracao-participante.md`.
 O contrato da gestão de inscrições está em `docs/integracao-gestao.md`.
+O contrato da gestão cadastral pela comissão está em `docs/integracao-gestao-participantes.md`.
 O contrato/configuração do segundo fator está em `docs/integracao-mfa.md`.
 O contrato de consulta restrita da auditoria está em `docs/integracao-auditoria.md`.
 O contrato da estrutura de certificados está em `docs/integracao-certificados.md`.

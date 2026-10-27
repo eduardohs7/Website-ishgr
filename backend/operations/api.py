@@ -67,6 +67,8 @@ def query_data(request, allowed=()):
 
 def capabilities(user):
     return {
+        "view_participants": user.has_perm("accounts.view_participant"),
+        "correct_participants": user.has_perms(("accounts.view_participant", "accounts.correct_participant")),
         "view_registrations": user.has_perm(VIEW),
         "review_category": user.has_perms((VIEW, REVIEW)),
         "cancel_registration": user.has_perms((VIEW, CANCEL)),
