@@ -4,210 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Programação</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css"></head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=8"></head>
     
     <!-- CSS Exclusivo da Página de Programação -->
-    <style>
-        /* Centralização Geral e Containers */
-        .header-centralizado {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .header-centralizado .page-desc {
-            margin: 0 auto;
-        }
-        .timeline-container {
-            max-width: 4000px !important; /*largura  da tabela de descricao de dias*/
-
-        }
-
-        /* Legenda de Cores */
-        .prog-legenda-custom {
-            border: none;
-            padding: 25px 0 0 0;
-            margin-bottom: 0;
-            display: flex;
-            justify-content: center; /* Centraliza os itens da legenda */
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .dot-custom {
-            width: 12px; 
-            height: 12px; 
-            border-radius: 50%; 
-            display: inline-block;
-        }
-
-        /* Cores Base para Timeline e Legendas */
-        .bg-cerimonia { background-color: #0A192F; }
-        .bg-palestra { background-color: #C05621; }
-        .bg-sessao { background-color: #2B6CB0; }
-        .bg-oficina { background-color: #2F855A; }
-        .bg-intervalo { background-color: #CBD5E0; }
-
-        /* Estilos dos Textos da Timeline */
-        .dia-semana-text {
-            color: var(--text-body);
-        }
-        .titulo-atividade {
-            margin-bottom: 5px;
-        }
-        .palestrante-desc {
-            font-size: 0.85rem; 
-            color: var(--text-body);
-        }
-        .mapa-link {
-            color: var(--text-dark); 
-            font-weight: 700; 
-            font-size: 1rem; 
-            display: inline-block; 
-            margin-top: 5px;
-            padding: 12px 28px;
-            background-color: gainsboro;
-            border: 1px solid #fff;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s;
-
-        }
-
-        .mapa-link:hover {
-            background-color: var(--border-color);
-        }
-
-        /* Estrutura dos Cards de Atividade */
-        .card-flex-center {
-            display: flex; 
-            align-items: center; 
-            gap: 20px;
-        }
-        .card-flex-between {
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            gap: 15px;
-        }
-        .card-intervalo-bg {
-            background-color: var(--bg-section);
-        }
-        .info-basica-flex {
-            display: flex; 
-            gap: 20px; 
-            align-items: center; 
-            flex: 1; 
-            min-width: 250px;
-        }
-
-        /* Badges de Atividades */
-        .badge-cerimonia-custom { background-color: #E2E8F0; color: #0A192F; }
-        .badge-palestra-custom { background-color: #FEEBC8; color: #C05621; }
-        .badge-sessao-custom { background-color: #EBF8FF; color: #2B6CB0; }
-        .badge-intervalo-custom { background-color: #E2E8F0; color: #4A5568; }
-
-        /* Ajuste visual do Badge dentro do Modal */
-        #modal-prog-tipo {
-            display: flex;
-            align-items: center;
-        }
-
-        #modal-prog-tipo span,
-        #modal-prog-tipo .type-badge {
-            white-space: nowrap !important; /* Impede absolutamente a quebra de linha */
-            padding: 6px 16px !important;
-            border-radius: 20px !important; /* Deixa o visual arredondado e elegante */
-            font-size: 0.85rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.5px;
-            display: inline-block;
-        }
-
-        /* Botões */
-        .btn-detalhes-prog {
-            font-weight: 790;
-            font-size: 0.85rem;
-            color: var(--text-dark); 
-            border-color: var(--border-color); 
-            cursor: pointer; 
-            padding: 8px 15px; 
-            border-radius: 20px;
-            background-color: rgb(217, 217, 213);
-        }
-
-        /* Modal da Programação (Sobrescrevendo estilos inline sem quebrar o JS) */
-        #modal-prog {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.6); display: none; align-items: center; 
-            justify-content: center; z-index: 2000;
-        }
-        #modal-prog .modal-content {
-            background: var(--bg-color); border-radius: 4px; width: 90%; 
-            max-width: 600px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .modal-header-prog {
-            padding: 20px 30px; border-bottom: 1px solid var(--border-color); 
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        /* Botão de Fechar (X) fixado no canto superior direito */
-        .close-modal-prog-btn {
-            position: absolute; 
-            top: 15px; 
-            right: 15px; 
-            background: transparent; 
-            border: none; 
-            font-size: 2rem;
-            line-height: 1; 
-            cursor: pointer; 
-            color: var(--text-body);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease; 
-        }
-
-        .close-modal-prog-btn:hover {
-            background-color: #E2E8F0; 
-            color: #000000; 
-            transform: scale(1.05); 
-        }
-        
-        .modal-body-prog { padding: 30px; }
-        .modal-time-text {
-            font-weight: 900; color: black; margin-bottom: 10px; display: block; font-size: 1.1rem;
-        }
-        .modal-title-text {
-            font-size: 1.5rem; margin-bottom: 30px; color: var(--text-dark); line-height: 1.3; text-align: center;
-        }
-        .modal-section-mb { margin-bottom: 25px; }
-        .modal-section-title {
-            font-size: 0.9rem; color: var(--text-body); margin-bottom: 10px; letter-spacing: 1px;
-        }
-        .modal-section-content {
-            font-size: 0.95rem; color: var(--text-dark); line-height: 1.5;
-        }
-        .modal-location-box {
-            background: var(--bg-section); padding: 20px; border-radius: 4px; border: 1px solid var(--border-color);
-        }
-
-        /* Rodapé */
-        .footer-col-unica { grid-template-columns: 1fr; }
-
-        /* Ajuste exclusivo para a navbar em português respirar melhor */
-        @media (min-width: 1025px) {
-            .nav-links a {
-                font-size: 0.78rem !important; 
-            }
-            .nav-links {
-                gap: 1rem !important;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -305,7 +105,7 @@
                             <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalhes</button>
 
                             <!-- Dados Ocultos para o Modal -->
-                            <div class="prog-hidden-data" style="display: none;">
+                            <div class="prog-hidden-data">
                                 <div class="data-palestrante">
                                     <strong> Dr. Louis Forline</strong><br>
                                     <span class="palestrante-desc">Antropólogo e pesquisador sênior da University of Nevada. Especialista em ecologia comportamental e sociedades de caçadores-coletores.</span>
@@ -345,7 +145,7 @@
                             <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalhes</button>
 
                             <!-- Dados Ocultos para o Modal -->
-                            <div class="prog-hidden-data" style="display: none;">
+                            <div class="prog-hidden-data">
                                 <div class="data-palestrante">
                                     <strong>Dra. Maria de Fátima Souza</strong><br>
                                     <span class="palestrante-desc">Professora Titular do Instituto de Ciências Biológicas - UFPA. Coordenação da mesa.</span>
@@ -395,7 +195,7 @@
                             <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalhes</button>
 
                             <!-- Dados Ocultos para o Modal -->
-                            <div class="prog-hidden-data" style="display: none;">
+                            <div class="prog-hidden-data">
                                 <div class="data-palestrante">
                                     <strong> Dr. Louis Forline</strong><br>
                                     <span class="palestrante-desc">Antropólogo e pesquisador sênior da University of Nevada. Especialista em ecologia comportamental e sociedades de caçadores-coletores.</span>
@@ -435,7 +235,7 @@
                             <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Ver detalhes</button>
 
                             <!-- Dados Ocultos para o Modal -->
-                            <div class="prog-hidden-data" style="display: none;">
+                            <div class="prog-hidden-data">
                                 <div class="data-palestrante">
                                     <strong>Dra. Maria de Fátima Souza</strong><br>
                                     <span class="palestrante-desc">Professora Titular do Instituto de Ciências Biológicas - UFPA. Coordenação da mesa.</span>
@@ -528,6 +328,6 @@
         ↑
     </button>
     
-    <script src="../script.js?v=12"></script>
+    <script src="../script.js?v=13"></script>
 </body>
 </html>

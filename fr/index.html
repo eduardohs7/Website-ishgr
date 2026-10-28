@@ -5,20 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 - Still We Rise | Accueil</title>
     <!-- Fonte única Sans-Serif para visual moderno e acadêmico -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-    
-    <style>
-        /* Ajuste exclusivo para a navbar respirar melhor */
-        @media (min-width: 1025px) {
-            .nav-links a {
-                font-size: 0.78rem !important; 
-            }
-            .nav-links {
-                gap: 1rem !important;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=8">
 </head>
 <body>
     <header>
@@ -73,12 +61,9 @@
                     <p class="hero-desc">Recherche, enseignement et innovation sur les sociétés de chasseurs-cueilleurs réunis au cœur de Belém - Pará, Brésil.</p>
                     
                     <!-- ESTRUTURA DE BOTÕES CORRIGIDA: Força o 3º botão para a linha de baixo -->
-                    <div class="hero-buttons" style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 50px;">
-                        <!-- Linha 1: Dois botões principais -->
-                        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                            <a href="evento.html" class="btn-accent">Découvrir l'Événement</a>
-                            <a href="chamadas.html" class="btn-outline">Appel à Contributions</a>
-                        </div>
+                    <div class="hero-buttons">
+                        <a href="evento.html" class="btn-accent">Découvrir l'Événement</a>
+                        <a href="chamadas.html" class="btn-outline">Appel à Contributions</a>
                     </div>
                     
                     <div class="hero-footer-info">
@@ -104,14 +89,14 @@
         </div>
 
         <!-- Bloco de Acesso Institucional ISHGR -->
-        <section class="container" style="padding: 40px 0 20px;">
-            <div style="background-color: var(--bg-section); border: 1px solid var(--border-color); border-radius: 4px; padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <section class="container ishgr-portal-section">
+            <div class="ishgr-portal-banner">
                 <div>
-                    <span class="badge-text" style="margin-bottom: 5px;">SOCIÉTÉ INTERNATIONALE</span>
-                    <h3 style="font-size: 1.3rem; color: var(--text-dark);">Découvrez le portail officiel de l'ISHGR</h3>
-                    <p style="font-size: 0.95rem; color: var(--text-body);">Accédez aux publications, à la direction et à l'historique complet de la société.</p>
+                    <span class="badge-text">SOCIÉTÉ INTERNATIONALE</span>
+                    <h3>Découvrez le portail officiel de l'ISHGR</h3>
+                    <p>Accédez aux publications, à la direction et à l'historique complet de la société.</p>
                 </div>
-                <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline" style="border-color: var(--text-dark); color: var(--text-dark);">
+                <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline">
                     Accéder à ishgr.org 
                 </a>
             </div>
@@ -152,7 +137,7 @@
         <!-- Seção de Notícias e Projetos (Carrossel) -->
         <section class="noticias-carousel-section">
             <div class="container">
-                <div class="secao-header" style="margin-bottom: 40px; text-align: center;">
+                <div class="secao-header secao-header-editorial">
                     <span class="badge-text">MISES À JOUR DE L'ÉVÉNEMENT</span>
                     <h2>Mur d'Actualités et de Projets.</h2>
                 </div>
@@ -274,7 +259,7 @@
 
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMATIONS</h4>
-                <ul class="footer-links-grid" style="grid-template-columns: 1fr;">
+                <ul class="footer-links-grid footer-col-unica">
                     <li><a href="cadastro.html">Espace Participant</a></li>
                     <li><a href="https://ishgr.org" target="_blank">Site de l'ISHGR</a></li>
                 </ul>
@@ -293,6 +278,6 @@
         ↑
     </button>
     
-    <script src="../script.js?v=12"></script>
+    <script src="../script.js?v=13"></script>
 </body>
 </html>

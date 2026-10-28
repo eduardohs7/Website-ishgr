@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Criar Conta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=8"> 
 </head>
 <body>
         <!-- Navbar Simplificada -->
-    <nav class="navbar" style="justify-content: center; padding: 20px 5%;">
+    <nav class="navbar auth-navbar">
         <a href="index.html">
-            <h2 style="color: var(--text-dark); letter-spacing: -1px; font-size: 2rem;">CHAGS 14</h2>
+            <h2 class="auth-brand-title">CHAGS 14</h2>
         </a>
                 <!-- Novo Dropdown de Idiomas à direita -->
-                <div class="lang-dropdown" style="margin-left: auto;">
+                <div class="lang-dropdown">
                     <button class="lang-btn">PT-BR <span>▼</span></button>
                     <div class="lang-content">
                         <a href="../index.html">EN</a>
@@ -25,14 +25,14 @@
             </div>
     </nav>
     <!-- Área de Registo -->
-    <div class="auth-wrapper" style="padding: 40px 0;"> 
-        <div class="auth-card" style="max-width: 600px;"> 
+    <div class="auth-wrapper"> 
+        <div class="auth-card auth-card-wide"> 
             <h2 class="auth-title">Criar uma Conta</h2>
             <p class="auth-desc">Junte-se à plataforma do CHAGS 14 para submeter e acompanhar os seus trabalhos.</p>
             
             <form action="#" method="POST">
                 <!-- Organização em duas colunas para telas maiores -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-grid-asymmetric">
                     <div class="form-group">
                         <label for="firstname">Nome</label>
                         <input type="text" id="firstname" class="form-control" placeholder="Ex: João" required>
@@ -53,7 +53,7 @@
                     <input type="email" id="email" class="form-control" placeholder="nome@exemplo.com" required>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-grid-asymmetric">
                     <div class="form-group">
                         <label for="password">Senha</label>
                         <input type="password" id="password" class="form-control" placeholder="Crie uma senha" required>
@@ -64,11 +64,11 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="btn-submit-full" style="margin-top: 20px;">Cadastrar</button>
+                <button type="submit" class="btn-submit-full mt-20">Cadastrar</button>
             </form>
             
-            <div style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-body);">
-                Já tem uma conta? <a href="/conta/entrar/" style="color: var(--text-dark); font-weight: 700;">Entrar</a>
+            <div class="auth-footer-note">
+                Já tem uma conta? <a href="/conta/entrar/" class="auth-link-strong">Entrar</a>
             </div>
         </div>
     </div>

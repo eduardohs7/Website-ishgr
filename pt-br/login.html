@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Login do Participante</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css"> <!-- Puxando o CSS da pasta principal -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=8"> <!-- Puxando o CSS da pasta principal -->
 </head>
 <body>
     <!-- Navbar Simplificada -->
-    <nav class="navbar" style="justify-content: center; padding: 20px 5%;">
+    <nav class="navbar auth-navbar">
         <a href="index.html">
-            <h2 style="color: var(--text-dark); letter-spacing: -1px; font-size: 2rem;">CHAGS 14</h2>
+            <h2 class="auth-brand-title">CHAGS 14</h2>
         </a>
                 <!-- Novo Dropdown de Idiomas à direita -->
-                <div class="lang-dropdown" style="margin-left: auto;">
+                <div class="lang-dropdown">
                     <button class="lang-btn">PT-BR <span>▼</span></button>
                     <div class="lang-content">
                         <a href="../index.html">EN</a>
@@ -43,18 +43,18 @@
                     <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required>
                 </div>
                 
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; font-size: 0.85rem;">
-                    <label style="display: flex; align-items: center; gap: 5px; font-weight: 500; cursor: pointer;">
+                <div class="auth-remember-row">
+                    <label class="auth-checkbox-label">
                         <input type="checkbox"> Lembrar-me
                     </label>
-                    <a href="#" style="color: var(--accent); font-weight: 600;">Esqueceu a senha?</a>
+                    <a href="#" class="auth-link-accent">Esqueceu a senha?</a>
                 </div>
                 
                 <button type="submit" class="btn-submit-full">Entrar</button>
             </form>
             
-            <div style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-body);">
-                Ainda não tem uma conta? <a href="/conta/cadastro/" style="color: var(--text-dark); font-weight: 700;">Cadastre-se aqui</a>
+            <div class="auth-footer-note">
+                Ainda não tem uma conta? <a href="/conta/cadastro/" class="auth-link-strong">Cadastre-se aqui</a>
             </div>
         </div>
     </div>

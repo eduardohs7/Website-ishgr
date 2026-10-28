@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Créer un compte</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css?v=8"> 
 </head>
 <body>
     <!-- Navbar Simplificada -->
-    <nav class="navbar" style="justify-content: center; padding: 20px 5%;">
+    <nav class="navbar auth-navbar">
         <a href="index.html">
-            <h2 style="color: var(--text-dark); letter-spacing: -1px; font-size: 2rem;">CHAGS 14</h2>
+            <h2 class="auth-brand-title">CHAGS 14</h2>
         </a>
         <!-- Novo Dropdown de Idiomas à direita -->
-        <div class="nav-actions" style="margin-left: auto;">
+        <div class="nav-actions">
             <div class="lang-dropdown">
                 <button class="lang-btn">FR <span>▼</span></button>
                 <div class="lang-content">
@@ -27,14 +27,14 @@
     </nav>
     
     <!-- Área de Registro -->
-    <div class="auth-wrapper" style="padding: 40px 0;"> 
-        <div class="auth-card" style="max-width: 600px;"> 
+    <div class="auth-wrapper"> 
+        <div class="auth-card auth-card-wide"> 
             <h2 class="auth-title">Créer un compte</h2>
             <p class="auth-desc">Rejoignez la plateforme de CHAGS 14 pour soumettre et suivre vos travaux.</p>
             
             <form action="#" method="POST">
                 <!-- Organização em duas colunas para telas maiores -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-grid-asymmetric">
                     <div class="form-group">
                         <label for="firstname">Prénom</label>
                         <input type="text" id="firstname" class="form-control" placeholder="Ex : Jean" required>
@@ -55,7 +55,7 @@
                     <input type="email" id="email" class="form-control" placeholder="nom@exemple.com" required>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-grid-asymmetric">
                     <div class="form-group">
                         <label for="password">Mot de passe</label>
                         <input type="password" id="password" class="form-control" placeholder="Créez un mot de passe" required>
@@ -66,11 +66,11 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="btn-submit-full" style="margin-top: 20px;">S'inscrire</button>
+                <button type="submit" class="btn-submit-full mt-20">S'inscrire</button>
             </form>
             
-            <div style="text-align: center; margin-top: 30px; font-size: 0.9rem; color: var(--text-body);">
-                Vous avez déjà un compte ? <a href="login.html" style="color: var(--text-dark); font-weight: 700;">Se connecter</a>
+            <div class="auth-footer-note">
+                Vous avez déjà un compte ? <a href="login.html" class="auth-link-strong">Se connecter</a>
             </div>
         </div>
     </div>
