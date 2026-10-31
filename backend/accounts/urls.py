@@ -16,6 +16,7 @@ urlpatterns = [
     path("conta/recuperacao-enviada/", views.notice, {"kind": "reset"}, name="reset_sent"),
     path("conta/redefinir-senha/", views.reset_password, name="reset"),
     path("conta/senha-atualizada/", views.notice, {"kind": "reset_complete"}, name="reset_complete"),
+    path("conta/seguranca/mfa/", views.staff_mfa, name="staff_mfa"),
     path("participante/", views.dashboard, name="dashboard"),
     path("participante/perfil/", views.profile, name="profile"),
 ]

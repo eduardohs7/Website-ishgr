@@ -111,6 +111,17 @@ def reset_password(request):
     return render(request, "accounts/form.html", {"form": form, "title": _("Redefinir senha"), "button": _("Salvar nova senha")})
 
 
+
+@never_cache
+@login_required
+@require_http_methods(["GET"])
+def staff_mfa(request):
+    if not request.user.is_active or not request.user.is_staff:
+        from django.http import HttpResponseForbidden
+        return HttpResponseForbidden("Acesso restrito à equipe do evento.")
+    return render(request, "accounts/staff_mfa.html")
+
+
 @never_cache
 @verified_participant
 @require_http_methods(["GET"])
