@@ -52,6 +52,11 @@ class AuditFilterForm(forms.Form):
 
 # Deliberately explicit schemas: adding data to internal logs does not expose it.
 DETAIL_FIELDS = {
+    ("participant.profile_updated", "accounts.user"): {
+        "fields": forms.MultipleChoiceField(choices=[(name, name) for name in (
+            "full_name", "institution", "country", "preferred_language",
+        )]),
+    },
     ("certificate.draft_prepared", "certificates.certificatedraft"): {
         "registration_id": forms.UUIDField(),
         "kind": forms.ChoiceField(choices=[("participation", "")]),
@@ -86,7 +91,10 @@ def public_details(obj):
             continue
         raw = obj.details[name]
         # Do not let form coercion turn nested JSON or booleans into text/numbers.
-        if isinstance(field, forms.BooleanField):
+        if isinstance(field, forms.MultipleChoiceField):
+            if not isinstance(raw, list) or any(not isinstance(value, str) for value in raw):
+                continue
+        elif isinstance(field, forms.BooleanField):
             if type(raw) is not bool:
                 continue
         elif isinstance(field, forms.DecimalField):
