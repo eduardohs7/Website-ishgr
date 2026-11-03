@@ -1,0 +1,457 @@
+# French translations for CHAGS 14.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CHAGS 14\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-02 14:23-0300\n"
+"PO-Revision-Date: 2026-11-02 14:23-0300\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Área do participante"
+msgstr "Espace participant"
+
+msgid "Nome completo"
+msgstr "Nom complet"
+
+msgid "E-mail"
+msgstr "Adresse e-mail"
+
+msgid "Senha"
+msgstr "Mot de passe"
+
+msgid "Confirme a senha"
+msgstr "Confirmez le mot de passe"
+
+msgid "Use pelo menos 12 caracteres e evite dados pessoais."
+msgstr "Utilisez au moins 12 caractères et évitez les données personnelles."
+
+msgid "As senhas não coincidem."
+msgstr "Les mots de passe ne correspondent pas."
+
+msgid "E-mail ou senha inválidos, ou conta ainda não confirmada."
+msgstr "Adresse e-mail ou mot de passe invalide, ou compte non encore confirmé."
+
+msgid "Código de confirmação"
+msgstr "Code de confirmation"
+
+msgid "Código de recuperação"
+msgstr "Code de récupération"
+
+msgid "Instituição"
+msgstr "Institution"
+
+msgid "País"
+msgstr "Pays"
+
+msgid "Idioma preferido"
+msgstr "Langue préférée"
+
+msgid "Confirme seu e-mail — CHAGS 14"
+msgstr "Confirmez votre adresse e-mail — CHAGS 14"
+
+msgid "Recupere sua senha — CHAGS 14"
+msgstr "Récupérez votre mot de passe — CHAGS 14"
+
+msgid "Confirme seu e-mail"
+msgstr "Confirmez votre adresse e-mail"
+
+msgid "Redefina sua senha"
+msgstr "Réinitialisez votre mot de passe"
+
+msgid ""
+"Olá,\n"
+"\n"
+"%(instruction)s pelo link:\n"
+"%(url)s\n"
+"\n"
+"Se precisar informar o código manualmente: %(code)s\n"
+"Válido até %(expires)s. O código só pode ser utilizado uma vez.\n"
+"\n"
+"Se você não solicitou esta mensagem, ignore-a.\n"
+"Equipe CHAGS 14\n"
+msgstr ""
+"Bonjour,\n"
+"\n"
+"%(instruction)s via le lien :\n"
+"%(url)s\n"
+"\n"
+"Si vous devez saisir le code manuellement : %(code)s\n"
+"Valable jusqu'au %(expires)s. Ce code ne peut être utilisé qu'une seule fois.\n"
+"\n"
+"Si vous n'avez pas demandé ce message, veuillez l'ignorer.\n"
+"Équipe CHAGS 14\n"
+
+msgid "Criar conta"
+msgstr "Créer un compte"
+
+msgid "Confira seu e-mail"
+msgstr "Consultez votre boîte e-mail"
+
+msgid ""
+"Se os dados permitirem o cadastro, enviaremos um link de confirmação. Se "
+"você já tiver conta, entre ou recupere sua senha."
+msgstr ""
+"Si les informations fournies permettent la création d'un compte, nous vous "
+"enverrons un lien de confirmation. Si vous avez déjà un compte, connectez-vous "
+"ou réinitialisez votre mot de passe."
+
+msgid ""
+"Se houver uma conta aguardando confirmação, enviaremos um novo link. Confira "
+"também a pasta de spam."
+msgstr ""
+"Si un compte est en attente de confirmation, nous vous enverrons un nouveau "
+"lien. Vérifiez également votre dossier de courriers indésirables."
+
+msgid ""
+"Se houver uma conta confirmada com esse endereço, enviaremos instruções de "
+"recuperação. Confira também a pasta de spam."
+msgstr ""
+"Si une compte confirmé existe avec cette adresse, nous vous enverrons les "
+"instructions de récupération. Vérifiez également votre dossier de courriers "
+"indésirables."
+
+msgid "Senha atualizada"
+msgstr "Mot de passe mis à jour"
+
+msgid "Sua senha foi atualizada. Entre novamente para acessar sua conta."
+msgstr "Votre mot de passe a été mis à jour. Connectez-vous à nouveau pour accéder à votre compte."
+
+msgid "Reenviar confirmação"
+msgstr "Renvoyer la confirmation"
+
+msgid "Recuperar senha"
+msgstr "Récupérer le mot de passe"
+
+msgid "Enviar instruções"
+msgstr "Envoyer les instructions"
+
+msgid "E-mail confirmado. Você já pode entrar na sua conta."
+msgstr "Adresse e-mail confirmée. Vous pouvez maintenant vous connecter à votre compte."
+
+msgid ""
+"Código inválido, expirado ou já utilizado. Solicite uma nova confirmação."
+msgstr ""
+"Code invalide, expiré ou déjà utilisé. Veuillez demander une nouvelle confirmation."
+
+msgid "Confirmar e-mail"
+msgstr "Confirmer l'adresse e-mail"
+
+msgid ""
+"Código inválido, expirado ou já utilizado. Solicite uma nova recuperação."
+msgstr ""
+"Code invalide, expiré ou déjà utilisé. Veuillez demander une nouvelle procédure de récupération."
+
+msgid "Redefinir senha"
+msgstr "Réinitialiser le mot de passe"
+
+msgid "Salvar nova senha"
+msgstr "Enregistrer le nouveau mot de passe"
+
+msgid "Perfil atualizado."
+msgstr "Profil mis à jour."
+
+msgid "Meu perfil"
+msgstr "Mon profil"
+
+msgid " — exige revisão da comissão"
+msgstr " — nécessite une vérification par le comité"
+
+msgid "Categoria e preço"
+msgstr "Catégorie et tarif"
+
+msgid "Selecione uma categoria"
+msgstr "Sélectionnez une catégorie"
+
+msgid "Situação"
+msgstr "Statut"
+
+msgid "Aguardando requisitos"
+msgstr "En attente des conditions requises"
+
+msgid "Confirmada"
+msgstr "Confirmée"
+
+msgid "Cancelada"
+msgstr "Annulée"
+
+msgid "Não necessária"
+msgstr "Non requise"
+
+msgid "Aguardando revisão"
+msgstr "En attente de vérification"
+
+msgid "Aprovada"
+msgstr "Approuvée"
+
+msgid "Rejeitada"
+msgstr "Rejetée"
+
+msgid "Confirme seu e-mail antes de se inscrever."
+msgstr "Confirmez votre adresse e-mail avant de vous inscrire."
+
+msgid "As inscrições não estão abertas neste momento."
+msgstr "Les inscriptions ne sont pas ouvertes pour le moment."
+
+msgid ""
+"O preço selecionado não está disponível. Atualize a página e escolha "
+"novamente."
+msgstr ""
+"Le tarif sélectionné n'est pas disponible. Actualisez la page et faites "
+"un nouveau choix."
+
+msgid "Submissão de trabalhos"
+msgstr "Soumission des travaux"
+
+msgid ""
+"O link de acesso ao JEMS será disponibilizado pela organização. A conta no "
+"JEMS é independente da conta neste portal."
+msgstr ""
+"Le lien d'accès à JEMS sera mis à disposition par l'organisation. Le compte "
+"JEMS est indépendant du compte créé sur ce portail."
+
+msgid "Navegação principal"
+msgstr "Navigation principale"
+
+msgid "Site do evento"
+msgstr "Site de l'événement"
+
+msgid "Sair"
+msgstr "Déconnexion"
+
+msgid "Entrar"
+msgstr "Connexion"
+
+msgid "Abrir menu"
+msgstr "Ouvrir le menu"
+
+msgid "Idioma"
+msgstr "Langue"
+
+msgid "Alterar idioma"
+msgstr "Changer de langue"
+
+msgid "PORTAL DO CONGRESSISTA"
+msgstr "PORTAIL DES PARTICIPANTS"
+
+msgid "12 a 16 de julho de 2027"
+msgstr "Du 12 au 16 juillet 2027"
+
+msgid "Minha conta"
+msgstr "Mon compte"
+
+#, python-format
+msgid "Olá, %(name)s."
+msgstr "Bonjour, %(name)s."
+
+msgid "Bem-vindo à área do participante do CHAGS 14."
+msgstr "Bienvenue dans l'espace participant de CHAGS 14."
+
+msgid "Consultar meu perfil"
+msgstr "Consulter mon profil"
+
+msgid "Minha inscrição"
+msgstr "Mon inscription"
+
+msgid "Submeter trabalho no JEMS"
+msgstr "Soumettre un travail sur JEMS"
+
+msgid "Consulte as novidades e informações de inscrição no"
+msgstr "Consultez les actualités et les informations sur les inscriptions sur le"
+
+msgid "site do evento"
+msgstr "site de l'événement"
+
+msgid "Voltar para entrar"
+msgstr "Retour à la connexion"
+
+msgid "Entrar na área"
+msgstr "Accéder à l'espace participant"
+
+msgid "Acesse com o e-mail confirmado e sua senha."
+msgstr "Connectez-vous avec votre adresse e-mail confirmée et votre mot de passe."
+
+msgid "Esqueci minha senha"
+msgstr "J'ai oublié mon mot de passe"
+
+msgid "E-mail da conta:"
+msgstr "Adresse e-mail du compte :"
+
+msgid "Salvar perfil"
+msgstr "Enregistrer le profil"
+
+msgid "Aguarde um pouco"
+msgstr "Veuillez patienter"
+
+msgid "Recebemos muitas tentativas. Aguarde antes de tentar novamente."
+msgstr "Trop de tentatives ont été effectuées. Veuillez patienter avant de réessayer."
+
+msgid "Segurança da equipe"
+msgstr "Sécurité de l'équipe"
+
+msgid ""
+"Configure seu aplicativo autenticador ou confirme sua identidade para "
+"acessar a gestão do evento."
+msgstr ""
+"Configurez votre application d'authentification ou confirmez votre identité "
+"pour accéder à l'administration de l'événement."
+
+msgid "Verificando o estado da segurança…"
+msgstr "Vérification de l'état de la sécurité…"
+
+msgid "Ativar autenticação em duas etapas"
+msgstr "Activer l'authentification à deux facteurs"
+
+msgid ""
+"Use a senha atual da sua conta e um aplicativo autenticador compatível com "
+"códigos TOTP."
+msgstr ""
+"Utilisez le mot de passe actuel de votre compte et une application "
+"d'authentification compatible avec les codes TOTP."
+
+msgid "Senha atual"
+msgstr "Mot de passe actuel"
+
+msgid "Iniciar configuração"
+msgstr "Commencer la configuration"
+
+msgid "Concluir configuração"
+msgstr "Terminer la configuration"
+
+msgid ""
+"Adicione esta chave ao aplicativo autenticador. Trate-a como uma senha e não "
+"compartilhe."
+msgstr ""
+"Ajoutez cette clé à votre application d'authentification. Traitez-la comme "
+"un mot de passe et ne la partagez pas."
+
+msgid "Chave de configuração"
+msgstr "Clé de configuration"
+
+msgid "Abrir URI no aplicativo compatível"
+msgstr "Ouvrir l'URI dans une application compatible"
+
+msgid "Código de seis dígitos"
+msgstr "Code à six chiffres"
+
+msgid "Confirmar e ativar"
+msgstr "Confirmer et activer"
+
+msgid "Confirmar identidade"
+msgstr "Confirmer l'identité"
+
+msgid ""
+"Digite o código atual do seu aplicativo autenticador. Se não tiver acesso ao "
+"dispositivo, use um código de recuperação."
+msgstr ""
+"Saisissez le code actuel de votre application d'authentification. Si vous "
+"n'avez pas accès à votre appareil, utilisez un code de récupération."
+
+msgid "Código"
+msgstr "Code"
+
+msgid "Tipo de código"
+msgstr "Type de code"
+
+msgid "Aplicativo autenticador"
+msgstr "Application d'authentification"
+
+msgid "Verificar e continuar"
+msgstr "Vérifier et continuer"
+
+msgid "Códigos de recuperação"
+msgstr "Codes de récupération"
+
+msgid ""
+"Os códigos só são exibidos quando emitidos. Guarde-os em local privado; "
+"gerar novos códigos invalida os anteriores."
+msgstr ""
+"Les codes ne sont affichés qu'au moment de leur génération. Conservez-les "
+"dans un endroit privé ; la génération de nouveaux codes invalide les précédents."
+
+msgid "Gerar novos códigos"
+msgstr "Générer de nouveaux codes"
+
+msgid "Guarde estes códigos agora"
+msgstr "Conservez ces codes maintenant"
+
+msgid ""
+"Esta é a única exibição destes códigos. A renovação invalida os códigos "
+"anteriores."
+msgstr ""
+"C'est la seule fois où ces codes seront affichés. Leur renouvellement "
+"invalide les codes précédents."
+
+msgid "Já guardei os códigos"
+msgstr "J'ai enregistré les codes"
+
+msgid "A autenticação em duas etapas está ativa nesta sessão."
+msgstr "L'authentification à deux facteurs est active pour cette session."
+
+msgid "Gerar novos códigos de recuperação"
+msgstr "Générer de nouveaux codes de récupération"
+
+msgid "Ir para a gestão"
+msgstr "Accéder à l'administration"
+
+msgid "Número"
+msgstr "Numéro"
+
+msgid "Evento"
+msgstr "Événement"
+
+msgid "Categoria"
+msgstr "Catégorie"
+
+msgid "Valor da inscrição"
+msgstr "Frais d'inscription"
+
+msgid "Revisão de categoria"
+msgstr "Vérification de la catégorie"
+
+msgid ""
+"Esta inscrição foi cancelada. Entre em contato com a comissão para "
+"orientação."
+msgstr ""
+"Cette inscription a été annulée. Veuillez contacter le comité pour obtenir "
+"des conseils."
+
+msgid ""
+"A inscrição está registrada. A confirmação depende dos requisitos do evento. "
+"O pagamento será disponibilizado após a abertura desse serviço."
+msgstr ""
+"L'inscription a été enregistrée. Sa confirmation dépend des conditions "
+"requises pour l'événement. Le paiement sera disponible lorsque ce service "
+"sera ouvert."
+
+msgid ""
+"A comissão revisará a categoria escolhida. Aguarde as instruções sobre "
+"comprovação."
+msgstr ""
+"Le comité examinera la catégorie choisie. Veuillez attendre les instructions "
+"concernant les justificatifs."
+
+#, python-format
+msgid ""
+"Escolha uma categoria para %(title)s. O valor exibido será mantido na sua "
+"inscrição."
+msgstr ""
+"Choisissez une catégorie pour %(title)s. Le tarif affiché sera conservé "
+"dans votre inscription."
+
+msgid "Registrar inscrição"
+msgstr "S'inscrire"
+
+msgid ""
+"As inscrições ainda não estão disponíveis. Acompanhe as informações no site "
+"do evento."
+msgstr ""
+"Les inscriptions ne sont pas encore disponibles. Consultez le site de "
+"l'événement pour suivre les informations."
+
+msgid "Voltar à minha conta"
+msgstr "Retour à mon compte"

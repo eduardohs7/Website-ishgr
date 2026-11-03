@@ -102,7 +102,7 @@ class AuthApiTests(TestCase):
             ({"first_name": "a" * 128}, "first_name"),
             ({"password1": "123", "password2": "123"}, "password1"),
             ({"password2": NEW_PASSWORD}, "password2"),
-            ({"country": "ZZ"}, "country"), ({"language": "fr"}, "language"),
+            ({"country": "ZZ"}, "country"), ({"language": "de"}, "language"),
             ({"institution": "a" * 256}, "institution"), ({"email": "invalid"}, "email"),
         ]
         # Avoid testing the limiter instead of each validation case.

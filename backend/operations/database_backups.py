@@ -65,7 +65,6 @@ def run_client(tool, arguments, environment=None):
         raise CommandError(f"{tool.stem} falhou (código {result.returncode}); confira acesso, espaço e versão.")
     return result.stdout
 
-
 def client_major(tool):
     match = re.search(rb"PostgreSQL\) (\d+)\.", run_client(tool, ["--version"]))
     if not match:

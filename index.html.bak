@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAGS 14 - Still We Rise | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS na raiz (sem ../) -->
+    <link rel="stylesheet" href="style.css?v=9">
+        
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logos-realizacao">
+                <!-- Imagens na raiz (sem ../) -->
+                <img src="images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
+                <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
+            </div>
+            
+            <ul class="nav-links">
+                <!-- Link corrigido para index.html -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="chamadas.html">Calls for Papers</a></li>
+                <li><a href="artigos-aceitos.html">Accepted Papers</a></li>
+                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="atracoes.html">Attractions</a></li>
+                <li><a href="inscricoes.html">Registration</a></li>
+                <li><a href="evento.html">The Event</a></li>
+                <li><a href="belem.html">About Belém</a></li>
+                <li><a href="hospedagem.html">Accommodation</a></li>
+                <li><a href="contato.html">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Botão da Área do Participante agora vem primeiro -->
+                <a href="register.html" class="btn-nav-login">Participant Area</a>
+                
+                <!-- Novo Dropdown de Idiomas à direita -->
+                <div class="lang-dropdown">
+                    <button class="lang-btn">EN <span>▼</span></button>
+                    <div class="lang-content">
+                        <a href="pt-br/index.html">PT-BR</a>
+                        <a href="es/index.html">ES</a>
+                        <a href="fr/index.html">FR</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="banner-gradient">
+            <section class="hero-section container">
+                <div class="hero-content">
+                    <span class="badge-top">14TH EDITION - 2027</span>
+                    <h1 class="hero-title">CHAGS 14<br><span class="hero-subtitle">Still We Rise</span></h1>
+                    <p class="hero-desc">Research, education, and innovation on hunter-gatherer societies brought together in the heart of Belém - Pará, Brazil.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="evento.html" class="btn-accent">About the Event</a>
+                        <a href="chamadas.html" class="btn-outline">Call for Papers</a>
+                    </div>
+                    <div class="hero-footer-info">
+                        <div class="info-block">
+                            <span class="info-label">DATE</span>
+                            <span class="info-data">July 12–16</span>
+                        </div>
+                        <div class="info-block">
+                            <span class="info-label">LOCATION</span>
+                            <span class="info-data">Belém - PA, Brazil</span>
+                        </div>
+                        <div class="info-block">
+                            <span class="info-label">VENUE</span>
+                            <span class="info-data">UFPA & Goeldi Museum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image-container">
+                    <img src="images/logos/Imagemlogoish0pn.png" alt="Featured Event Image" class="hero-img-placeholder">
+                </div>
+            </section>
+        </div>
+
+        <section class="container ishgr-portal-section hidden">
+            <div class="ishgr-portal-banner">
+                <div>
+                    <span class="badge-text">INTERNATIONAL SOCIETY</span>
+                    <h3>Visit the official ISHGR portal</h3>
+                    <p>Access publications, board members, and the complete history of the society.</p>
+                </div>
+                <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline">
+                    Visit ishgr.org
+                </a>
+            </div>
+        </section>
+
+        <section class="organizacao-section container hidden">
+            <div class="org-top">
+                <div class="org-titulo-area h2">
+                    <span class="org-desc-area">About the Event</span>
+                    <h2>A global gathering on the banks of the Guamá River.</h2>
+                </div>
+                <div class="sobre-texto-area ">
+                    <p>The 14th International Conference of the ISHGR (CHAGS 14) stands as the premier global forum for research on traditional populations, ancestry, and human ecology.</p>
+                    <p>With a central theme focused on sustainability and social innovation, the event in the Amazon connects academia, leaders, and civil society to design collaborative structural solutions.</p>
+                </div>
+            </div>
+
+            <div class="org-grid">
+                <div class="org-item">
+                    <h4>Global Research</h4>
+                    <p>Cutting-edge presentations and worldwide comparative studies.</p>
+                </div>
+                <div class="org-item">
+                    <h4>Inclusion</h4>
+                    <p>Social technologies and methodologies connecting diverse knowledges.</p>
+                </div>
+                <div class="org-item">
+                    <h4>ISHGR Connection</h4>
+                    <p>Building ongoing networks among global researchers.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="noticias-carousel-section hidden">
+            <div class="container">
+                <div class="secao-header secao-header-editorial">
+                    <span class="badge-text">EVENT UPDATES</span>
+                    <h2>News and Projects Board.</h2>
+                </div>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="news-track">
+                        <div class="carousel-slide">
+                            <img src="images/divulgacao.jpg" alt="ISHGR Project">
+                            <div class="slide-info">
+                                <span class="slide-tag">OFFICIAL EVENT</span>
+                                <h3>CHAGS 14: A 50-year legacy arrives in Belém</h3>
+                                <p>From July 12 to 16, 2027, the capital of Pará will host the 14th ISHGR Conference. Continuing a historic legacy, the event will gather global researchers and activists in an inclusive space to discuss the future of hunter-gatherer societies.</p>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <img src="images/moda-home/Captura de tela 2026-09-22 150911.png" alt="Call for Submissions">
+                            <div class="slide-info">
+                                <span class="slide-tag">DEADLINE ALERT</span>
+                                <h3>Submissions Open in February</h3>
+                                <p>The deadline for submitting papers, posters, and discussion circle proposals begins on February 15, 2027. Access the Participant Area to review guidelines and accepted formats.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn prev-btn" id="news-prev">&#10094;</button>
+                    <button class="carousel-btn next-btn" id="news-next">&#10095;</button>
+                </div>
+                
+                <div class="carousel-dots" id="news-dots"></div>
+            </div>
+        </section>
+
+        <section class="organizacao-section hidden">
+            <div class="container">
+                <div class="org-top">
+                    <div class="org-titulo-area">
+                        <span class="badge-text">Institutions</span>
+                        <h2>Organizers.</h2>
+                    </div>
+                    <div class="org-desc-area">
+                        <p>Institutional support and executive coordination for the 2027 edition in Belém.</p>
+                    </div>
+                </div>
+
+                <div class="org-grid">
+                    <div class="org-item">
+                        <div class="org-item-header"><span class="org-sigla">UFPA</span></div>
+                        <div class="org-item-body"><img src="images/logos/logoufpa.png" alt="UFPA Logo" class="org-logo"></div>
+                        <div class="org-item-footer"><p>Federal University of Pará</p></div>
+                    </div>
+
+                    <div class="org-item">
+                        <div class="org-item-header"><span class="org-sigla">MPEG</span></div>
+                        <div class="org-item-body"><img src="images/logos/logo-museu.png" alt="Emílio Goeldi Museum Logo" class="org-logo"></div>
+                        <div class="org-item-footer"><p>Emílio Goeldi Paraense Museum</p></div>
+                    </div>
+
+                    <div class="org-item">
+                        <div class="org-item-header"><span class="org-sigla">University of Nevada</span></div>
+                        <div class="org-item-body"><img src="images/logos/logo-nevada.jpg" alt="University of Nevada Logo" class="org-logo"></div>
+                        <div class="org-item-footer"><p>University of Nevada</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX DAS NOTÍCIAS -->
+        <div class="lightbox-overlay" id="news-lightbox">
+            <div class="lightbox-content">
+                <button class="lightbox-close" id="news-lb-close">&times;</button>
+                <img src="" alt="Imagem ampliada" class="lightbox-img" id="news-lb-img">
+                <p class="lightbox-caption" id="news-lb-caption"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo">
+                    <h3>CHAGS 14</h3>
+                    <span>INTERNATIONAL CONFERENCE 2027</span>
+                </div>
+                <p>Official conference of the International Society for Hunter-Gatherer Research (ISHGR) - connecting education, innovation, and tradition in the Brazilian Amazon.</p>
+            </div>
+
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVIGATION</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chamadas.html">Calls</a></li>
+                    <li><a href="artigos-aceitos.html">Papers</a></li>
+                    <li><a href="programacao.html">Schedule</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Registration</a></li>
+                    <li><a href="evento.html">The Event</a></li>
+                    <li><a href="contato.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMATION</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="register.html">Participant Area</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">ISHGR Website</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="sub-footer">
+            <div class="container sub-footer-flex">
+                <p>&copy; CHAGS 14 2027 - All rights reserved</p>
+                <p>July 12–16 - Belém, Pará - Brazil</p>
+            </div>
+        </div>
+    </footer>
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
+        ↑
+    </button>
+    <script src="script.js?v=13"></script>
+</body>
+</html>
+

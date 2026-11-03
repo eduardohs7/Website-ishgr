@@ -1,4 +1,6 @@
+import os
 from pathlib import Path
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -75,7 +77,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = "pt-br"
-LANGUAGES = [("pt-br", "Português"), ("en", "English"), ("es", "Español")]
+LANGUAGES = [
+    ("pt-br", "Português"),
+    ("en", "English"),
+    ("es", "Español"),
+    ("fr", "Français"),
+]
 TIME_ZONE = "America/Belem"
 USE_I18N = True
 LOCALE_PATHS = [BASE_DIR / "locale"]
@@ -119,9 +126,10 @@ STAFF_MFA_ENROLLMENT_AGE = 600
 STAFF_MFA_ISSUER = "CHAGS 14"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    ("portal/images", BASE_DIR.parent / "images"),
+    (os.path.normpath("portal/images"), BASE_DIR.parent / "images"),
 ]
 STATICFILES_FINDERS = [
+    "config.staticfiles.PortalImageFinder",
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     "config.staticfiles.PortalStyleFinder",

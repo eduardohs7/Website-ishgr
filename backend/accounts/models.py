@@ -86,14 +86,20 @@ class User(AbstractUser):
 
 
 class ParticipantProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
+    user = models.OneToOneField(
+        User,
+        on_delete=models.CASCADE,
+        related_name="profile",
+    )
     institution = models.CharField("instituição", max_length=255, blank=True)
     country = CountryField("país", blank=True)
-    preferred_language = models.CharField(
-        "idioma preferido", max_length=5, default="pt-br",
-        choices=[("pt-br", "Português"), ("en", "English"), ("es", "Español")],
-    )
 
+    preferred_language = models.CharField(
+        "idioma preferido",
+        max_length=5,
+        default="pt-br",
+        choices=settings.LANGUAGES,
+    )
 
 class StaffMFA(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="staff_mfa")

@@ -89,7 +89,7 @@ class ParticipantProfileApiTests(TestCase):
         self.assertEqual(self.owner.profile.institution, "Original")
 
     def test_invalid_profile_is_not_partially_saved(self):
-        for extra, field in [({"country": "ZZ"}, "country"), ({"preferred_language": "fr"}, "preferred_language"), ({"full_name": " "}, "full_name"), ({"institution": "x" * 256}, "institution")]:
+        for extra, field in [({"country": "ZZ"}, "country"), ({"preferred_language": "de"}, "preferred_language"), ({"full_name": " "}, "full_name"), ({"institution": "x" * 256}, "institution")]:
             response = self.post(self.payload(**extra))
             self.assertEqual(response.status_code, 422)
             self.assertIn(field, response.json()["error"]["fields"])
@@ -118,7 +118,10 @@ class ParticipantProfileApiTests(TestCase):
         response = self.client.get(reverse("participant_api:profile_options"), HTTP_ACCEPT_LANGUAGE="en")
         options = response.json()["data"]
         self.assertEqual(response["Content-Language"], "es")
-        self.assertEqual([item["code"] for item in options["languages"]], ["pt-br", "en", "es"])
+        self.assertEqual(
+            [item["code"] for item in options["languages"]],
+            ["pt-br", "en", "es", "fr"],
+        )        
         countries = {item["code"]: item["name"] for item in options["countries"]}
         self.assertEqual(countries["BR"], "Brasil")
         self.assertIn("US", countries)

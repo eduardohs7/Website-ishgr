@@ -227,7 +227,7 @@ class ParticipantManagementTests(TestCase):
     def test_validations_and_unknown_fields_cannot_change_protected_state(self):
         self.grant("view_participant", "correct_participant")
         original = self.payload()
-        for field, value in (("country", "ZZ"), ("preferred_language", "fr"), ("full_name", " "),
+        for field, value in (("country", "ZZ"), ("preferred_language", "de"), ("full_name", " "),
                              ("reason", " "), ("reason", "a"*1001), ("revision", "invalid"), ("institution", "a"*256)):
             with self.subTest(field=field):
                 self.assert_error(self.post({**original, field: value}), 422, "validation_error")

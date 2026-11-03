@@ -70,9 +70,19 @@ def notice(request, kind):
 @require_http_methods(["GET", "POST"])
 def email_request(request, purpose):
     form = EmailRequestForm(request.POST if request.method == "POST" else None)
+
     if request.method == "POST" and form.is_valid():
-        request_account_email(form.cleaned_data["email"], purpose)
-        return redirect("accounts:confirmation_sent" if purpose == "confirm" else "accounts:reset_sent")
+        request_account_email(
+            form.cleaned_data["email"],
+            purpose,
+            language=request.LANGUAGE_CODE,
+        )
+        return redirect(
+            "accounts:confirmation_sent"
+            if purpose == "confirm"
+            else "accounts:reset_sent"
+        )
+
     return render(request, "accounts/form.html", {
         "form": form,
         "title": _("Reenviar confirmação") if purpose == "confirm" else _("Recuperar senha"),
