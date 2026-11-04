@@ -1,10 +1,46 @@
 {% extends 'accounts/base.html' %}
 {% load i18n %}
+
 {% block content %}
-  <h1 class="auth-title">{% translate "Meu perfil" %}</h1>
-  <p class="account-help">{% translate "E-mail da conta:" %} {{ user.email }}</p>
-  <form method="post">{% csrf_token %}
-    {% include 'accounts/fields.html' %}
-    <button type="submit" class="btn-submit-full">{% translate "Salvar perfil" %}</button>
-  </form>
+  <div class="profile-page">
+    <div class="profile-header">
+      <h1 class="auth-title">{% translate "Meu perfil" %}</h1>
+      <p class="account-help">
+        {% translate "Visualize seus dados e mantenha suas informações atualizadas." %}
+      </p>
+    </div>
+
+    <section class="profile-section">
+      <div class="profile-section-header">
+        <h2>{% translate "Dados da conta" %}</h2>
+        <p>{% translate "Informações utilizadas para acessar o portal." %}</p>
+      </div>
+
+      <div class="profile-email">
+        <label>{% translate "E-mail da conta" %}</label>
+        <div class="profile-email-value">
+          {{ user.email }}
+        </div>
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <div class="profile-section-header">
+        <h2>{% translate "Dados pessoais" %}</h2>
+        <p>{% translate "Você pode atualizar os campos abaixo." %}</p>
+      </div>
+
+      <form method="post">
+        {% csrf_token %}
+
+        {% include 'accounts/fields.html' %}
+
+        <div class="profile-form-actions">
+          <button type="submit" class="btn-submit-full">
+            {% translate "Salvar perfil" %}
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
 {% endblock %}

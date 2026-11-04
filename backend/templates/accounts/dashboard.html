@@ -1,12 +1,132 @@
 {% extends 'accounts/base.html' %}
 {% load i18n %}
 {% block title %}{% translate "Minha conta" %}{% endblock %}
+
 {% block content %}
-  <h1 class="auth-title">{% blocktranslate with name=user.get_short_name %}Olá, {{ name }}.{% endblocktranslate %}</h1>
-  <p class="auth-desc">{% translate "Bem-vindo à área do participante do CHAGS 14." %}</p>
-  <p class="account-help">{{ user.email }}</p>
-  <a class="btn-submit-full account-button" href="{% url 'accounts:profile' %}">{% translate "Consultar meu perfil" %}</a>
-  <a class="btn-submit-full account-button" href="{% url 'registrations:mine' %}">{% translate "Minha inscrição" %}</a>
-  <p><a href="{% url 'registrations:jems' %}">{% translate "Submeter trabalho no JEMS" %}</a></p>
-  <p class="account-help">{% translate "Consulte as novidades e informações de inscrição no" %} <a href="{% if LANGUAGE_CODE == 'pt-br' %}/pt-br/inscricoes.html{% else %}/inscricoes.html{% endif %}">{% translate "site do evento" %}</a>.</p>
+<section class="dashboard">
+
+    <header class="dashboard-header">
+        <div>
+            <span class="dashboard-eyebrow">
+                {% translate "CHAGS 14 · BELÉM, BRASIL" %}
+            </span>
+
+            <h1 class="dashboard-title">
+                {% blocktranslate with name=user.get_short_name %}
+                    Olá, {{ name }}.
+                {% endblocktranslate %}
+            </h1>
+
+            <p class="dashboard-description">
+                {% translate "Bem-vindo à área do participante do CHAGS 14." %}
+            </p>
+        </div>
+
+        <span class="dashboard-date">
+            12 — 16 JUL 2027
+        </span>
+    </header>
+
+    <div class="dashboard-welcome">
+        <div class="dashboard-welcome-content">
+            <span class="dashboard-label">
+                {% translate "ÁREA DO PARTICIPANTE" %}
+            </span>
+
+            <h2>
+                {% translate "Seu espaço no CHAGS 14" %}
+            </h2>
+
+            <p>
+                {% translate "Acompanhe seus dados, consulte sua inscrição e acesse os recursos do evento." %}
+            </p>
+
+            <span class="dashboard-email">
+                {{ user.email }}
+            </span>
+        </div>
+
+        <div class="dashboard-welcome-mark" aria-hidden="true">
+            <span>14</span>
+            <small>CHAGS</small>
+        </div>
+    </div>
+
+    <div class="dashboard-section-heading">
+        <h2>{% translate "Acesso rápido" %}</h2>
+        <p>{% translate "O que você deseja fazer?" %}</p>
+    </div>
+
+    <div class="dashboard-actions">
+
+        <a href="{% url 'accounts:profile' %}"
+           class="dashboard-action">
+            <span class="dashboard-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 21a8 8 0 0 1 16 0"></path>
+                </svg>
+            </span>
+
+            <span class="dashboard-action-content">
+                <strong>{% translate "Meu perfil" %}</strong>
+                <small>
+                    {% translate "Consulte seus dados pessoais." %}
+                </small>
+            </span>
+
+            <span class="dashboard-action-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a href="{% url 'registrations:mine' %}"
+           class="dashboard-action">
+            <span class="dashboard-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+                    <path d="M8 8h8M8 12h8M8 16h5"></path>
+                </svg>
+            </span>
+
+            <span class="dashboard-action-content">
+                <strong>{% translate "Minha inscrição" %}</strong>
+                <small>
+                    {% translate "Acompanhe sua inscrição no evento." %}
+                </small>
+            </span>
+
+            <span class="dashboard-action-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a href="{% url 'registrations:jems' %}"
+           class="dashboard-action">
+            <span class="dashboard-action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 3v12"></path>
+                    <path d="m7 10 5 5 5-5"></path>
+                    <path d="M5 17v4h14v-4"></path>
+                </svg>
+            </span>
+
+            <span class="dashboard-action-content">
+                <strong>{% translate "Submeter trabalho no JEMS" %}</strong>
+                <small>
+                    {% translate "Acesse o sistema de submissão de trabalhos." %}
+                </small>
+            </span>
+
+            <span class="dashboard-action-arrow" aria-hidden="true">↗</span>
+        </a>
+
+    </div>
+
+    <div class="dashboard-event-link">
+        <p>
+            {% translate "Consulte as novidades e informações de inscrição no" %}
+            <a href="{% if LANGUAGE_CODE == 'pt-br' %}/pt-br/inscricoes.html{% else %}/inscricoes.html{% endif %}">
+                {% translate "site do evento" %}
+            </a>.
+        </p>
+    </div>
+
+</section>
 {% endblock %}
