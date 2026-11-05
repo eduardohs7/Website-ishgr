@@ -3000,3 +3000,533 @@ a {
         top: 125px;
     }
 }
+
+
+/* ==========================================================================
+   CHAGS 14 — IDENTIDADE VISUAL “STILL WE RISE”
+   Camada de ajustes visuais. Mantém os estilos e componentes já existentes.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #F3EFE7;
+    --bg-section: #E9E3D8;
+    --bg-dark: #292C27;
+    --bg-indigo: #66705B;
+    --text-dark: #292C27;
+    --text-body: #45483F;
+    --text-muted: #77786E;
+    --text-light: #F8F5EF;
+    --text-light-muted: #D9D5CB;
+    --accent-color: #A94F3D;
+    --accent-hover: #873D30;
+    --border-color: #D8D0C2;
+    --header-gradient: linear-gradient(125deg, #292C27 0%, #45483F 58%, #66705B 100%);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-body);
+    font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3, h4,
+.hero-title,
+.section-title {
+    font-family: "DM Serif Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    color: var(--text-dark);
+}
+
+p {
+    line-height: 1.75;
+}
+
+a {
+    transition: color .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+/* Navegação: discreta, editorial e legível */
+.navbar {
+    background: rgba(243, 239, 231, .96);
+    border-bottom: 1px solid rgba(41, 44, 39, .12);
+    backdrop-filter: blur(12px);
+}
+
+.nav-links a,
+.nav-actions a {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+}
+
+.nav-links a.active::after {
+    background: var(--accent-color);
+}
+
+/* Abertura do evento */
+.banner-gradient {
+    background: var(--header-gradient);
+    color: var(--text-light);
+}
+
+.hero-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--header-gradient);
+    color: var(--text-light);
+    padding: clamp(72px, 9vw, 124px) clamp(24px, 6vw, 88px);
+    gap: clamp(36px, 6vw, 80px);
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: min(52vw, 680px);
+    aspect-ratio: 1;
+    right: -12%;
+    top: -28%;
+    border: 1px solid rgba(243, 239, 231, .16);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 48px rgba(243, 239, 231, .035),
+        0 0 0 96px rgba(243, 239, 231, .025);
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(243, 239, 231, .34);
+    border-radius: 999px;
+    background: rgba(243, 239, 231, .08);
+    color: #F3EFE7;
+    padding: 9px 15px;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    color: #F8F5EF;
+    font-size: clamp(3.25rem, 7.2vw, 6.8rem);
+    line-height: .98;
+    margin: 24px 0;
+}
+
+.hero-title span,
+.hero-title strong {
+    color: #D8A18F;
+}
+
+.hero-subtitle {
+    color: #E4DED3;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    line-height: 1.55;
+    max-width: 620px;
+}
+
+.hero-desc {
+    color: #D9D5CB;
+    max-width: 620px;
+    line-height: 1.8;
+}
+
+.hero-image-container {
+    border: 1px solid rgba(243, 239, 231, .25);
+    border-radius: 4px;
+    overflow: hidden;
+    background: #45483F;
+}
+
+.hero-image-container img,
+.hero-img-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-img-placeholder {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.hero-footer-info {
+    border-top: 1px solid rgba(243, 239, 231, .22);
+    padding-top: 26px;
+    margin-top: 38px;
+}
+
+.info-block {
+    color: #F3EFE7;
+}
+
+.info-block small,
+.info-block .label {
+    color: #D9D5CB;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: .72rem;
+    font-weight: 700;
+}
+
+/* Botões */
+.btn-accent,
+button.btn-accent {
+    background: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: #FFF9F2;
+    border-radius: 3px;
+    font-weight: 700;
+    padding: 14px 22px;
+}
+
+.btn-accent:hover,
+button.btn-accent:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #FFF9F2;
+    transform: translateY(-1px);
+}
+
+.btn-outline,
+button.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(243, 239, 231, .6);
+    color: #F3EFE7;
+    border-radius: 3px;
+    font-weight: 700;
+    padding: 14px 22px;
+}
+
+.btn-outline:hover,
+button.btn-outline:hover {
+    background: rgba(243, 239, 231, .1);
+    border-color: #F3EFE7;
+    color: #FFF9F2;
+}
+
+/* Seções e hierarquia editorial */
+section:not(.hero-section) {
+    background-color: var(--bg-color);
+}
+
+section:nth-of-type(even):not(.hero-section) {
+    background-color: var(--bg-section);
+}
+
+.section-title {
+    font-size: clamp(2.1rem, 4vw, 3.6rem);
+    line-height: 1.08;
+}
+
+.section-subtitle,
+.section-description {
+    color: var(--text-muted);
+    max-width: 760px;
+    line-height: 1.75;
+}
+
+/* Cartões: borda sutil, sem sombras pesadas */
+.card,
+.org-card,
+.noticia-card,
+.atracao-card,
+.trabalho-card,
+.equipe-card,
+.equipe-item,
+.dia-bloco {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: #F8F5EF;
+    box-shadow: none;
+}
+
+.card:hover,
+.org-card:hover,
+.noticia-card:hover,
+.atracao-card:hover,
+.trabalho-card:hover {
+    border-color: rgba(169, 79, 61, .55);
+    box-shadow: none;
+}
+
+.card h3,
+.org-card h3,
+.noticia-card h3,
+.atracao-card h3 {
+    color: var(--text-dark);
+}
+
+.card p,
+.org-card p,
+.noticia-card p {
+    color: var(--text-body);
+}
+
+/* Chamadas e links de destaque */
+a:not(.btn-accent):not(.btn-outline):hover {
+    color: var(--accent-color);
+}
+
+.organizacao-section,
+.noticias-carousel-section {
+    background: var(--bg-section);
+}
+
+.site-footer {
+    background: var(--bg-dark);
+    color: #F3EFE7;
+    border-top: 4px solid var(--accent-color);
+}
+
+.site-footer a {
+    color: #E4DED3;
+}
+
+.site-footer a:hover {
+    color: #D8A18F;
+}
+
+/* Elementos de interface */
+input,
+select,
+textarea {
+    border: 1px solid #C9C1B4;
+    border-radius: 3px;
+    background: #FBF9F5;
+    color: var(--text-dark);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid rgba(169, 79, 61, .25);
+    border-color: var(--accent-color);
+}
+
+.modal,
+.modal-content {
+    border-radius: 4px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 900px) {
+    .hero-section {
+        padding: 72px 28px;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 10vw, 5rem);
+    }
+
+    .hero-section::before {
+        width: 75vw;
+        right: -28%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 56px 20px 64px;
+        gap: 32px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.7rem, 13vw, 4rem);
+        line-height: 1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .hero-footer-info {
+        gap: 18px;
+    }
+
+    .section-title {
+        font-size: 2.25rem;
+    }
+
+    .btn-accent,
+    .btn-outline {
+        min-height: 46px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* ==========================================================================
+   AJUSTES PONTUAIS DA HOME — sem ornamento no banner e navbar branca
+   ========================================================================== */
+
+/* Remove o desenho decorativo que ficava atrás do conteúdo do painel principal */
+.hero-section::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* A navbar volta ao branco para combinar com o fundo das logos institucionais */
+.navbar {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+/* ==========================================================================
+   AJUSTE DOS CARDS DE LOGOS INSTITUCIONAIS
+   As imagens com fundo branco ficam sobre uma superfície branca coerente.
+   ========================================================================== */
+
+.org-item,
+.org-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E1D9;
+    border-radius: 6px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(41, 44, 39, 0.035);
+}
+
+.org-item-body,
+.org-card-body {
+    background: #FFFFFF;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 22px;
+}
+
+.org-logo {
+    opacity: 1;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.org-item:hover,
+.org-card:hover {
+    background: #FFFFFF !important;
+    border-color: #D8D0C2;
+    box-shadow: 0 4px 14px rgba(41, 44, 39, 0.06);
+}
+
+.org-item-footer,
+.org-card-footer {
+    border-top: 1px solid #EEEAE3;
+    padding-top: 14px;
+}
+
+
+/* ==========================================================================
+   HOME — PAINEL PRINCIPAL MAIS COMPACTO E COM VERDE SÓLIDO
+   ========================================================================== */
+
+/* Remove o degradê: uma cor sólida, sem efeitos decorativos de fundo */
+:root {
+    --header-gradient: #353B32;
+}
+
+.banner-gradient,
+.hero-section {
+    background: #353B32 !important;
+    background-image: none !important;
+}
+
+/* Reduz o espaço vertical para a seção caber melhor em notebooks */
+.hero-section {
+    padding-top: clamp(38px, 5vh, 64px) !important;
+    padding-bottom: clamp(38px, 5vh, 64px) !important;
+    gap: clamp(28px, 4vw, 56px) !important;
+    min-height: 0 !important;
+}
+
+/* Mantém o texto e a imagem proporcionais */
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-title {
+    font-size: clamp(2.8rem, 5.5vw, 5.2rem) !important;
+    line-height: .96 !important;
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.25rem) !important;
+    line-height: 1.45 !important;
+}
+
+.hero-desc {
+    line-height: 1.65 !important;
+}
+
+.hero-footer-info {
+    margin-top: 26px !important;
+    padding-top: 20px !important;
+}
+
+.hero-image-container {
+    max-width: 100%;
+}
+
+/* Em telas menores, empilha o conteúdo sem deixar o hero excessivamente alto */
+@media (max-width: 900px) {
+    .hero-section {
+        padding: 42px 26px 48px !important;
+        gap: 28px !important;
+    }
+
+    .hero-title {
+        font-size: clamp(2.7rem, 8vw, 4.4rem) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 34px 20px 40px !important;
+        gap: 24px !important;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 3.6rem) !important;
+    }
+
+    .hero-footer-info {
+        margin-top: 22px !important;
+        padding-top: 16px !important;
+    }
+}
