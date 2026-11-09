@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAGS 14 | Inscriptions</title>
+    <title>CHAGS 14 - Still We Rise | Accueil</title>
+    <!-- Fonte única Sans-Serif para visual moderno e acadêmico -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=15"></head>
+    <link rel="stylesheet" href="../style.css?v=16">
+</head>
+<body>
     
     <!-- CSS Exclusivo da Página de Inscrições -->
 </head>
@@ -14,14 +17,13 @@
     <!-- Cabeçalho e Navbar -->
         <nav class="navbar">
             <div class="logos-realizacao">
-                <!-- Imagens com ../ para buscar na pasta raiz -->
+                <!-- Imagens corrigidas para buscar na pasta raiz -->
                 <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
-                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Musée Goeldi" class="logo-placeholder">
                 <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
             
             <ul class="nav-links">
-                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="chamadas.html">Appels</a></li>
                 <li><a href="artigos-aceitos.html">articles acceptés</a></li>
@@ -30,24 +32,25 @@
                 <li><a href="inscricoes.html">Inscriptions</a></li>
                 <li><a href="evento.html">L'Événement</a></li>
                 <li><a href="belem.html">À propos de Belém</a></li>
-                <li><a href="hospedagem.html">Hébergement</a></li>
+                <!-- Menu Hébergement -->
+                <li><a href="hospedagem.html" class="active">Hébergement</a></li>
                 <li><a href="contato.html">Contact</a></li>
             </ul>
             
             <div class="nav-actions">
                 <!-- Botão da Área do Participante agora vem primeiro -->
-                <a href="sistema-login.html" class="btn-nav-login">Espace participant</a>
+                <a href="/sistema-login.html" class="btn-nav-login">Espace Participant</a>
                 
                 <!-- Novo Dropdown de Idiomas à direita -->
                 <div class="lang-dropdown">
                     <button class="lang-btn">FR <span>▼</span></button>
                     <div class="lang-content">
-                        <a href="../index.html">EN</a>
-                        <a href="../pt-br/index.html">PT-BR</a>
-                        <a href="../es/index.html">ES</a>
+                        <a href="index.html">EN</a>
+                        <a href="pt-br/index.html">PT-BR</a>
+                        <a href="es/index.html">ES</a>
                     </div>
                 </div>
-            </div> <!-- 🚨 Correção estrutural: div nav-actions fechada aqui -->
+            </div>
             
             <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
@@ -60,89 +63,63 @@
             <div class="container header-centralizado">
                 <span class="badge-text">PARTICIPEZ À CHAGS 14</span>
                 <h1 class="page-title">Inscriptions.</h1>
-                <p class="page-desc">Les inscriptions pour la 14e Conférence Internationale ouvriront bientôt. Consultez ci-dessous les catégories, les phases et les tarifs prévus.</p>
+                <p class="page-desc">Les inscriptions pour CHAGS 14 ne sont pas encore ouvertes. Les catégories officielles, les tarifs et les instructions de paiement seront annoncés ici par les organisateurs.</p>
             </div>
         </div>
 
-        <section class="container secao-padding hidden">
+        <section class="container secao-padding">
             <div class="secao-numerada">
                 <div class="secao-header-flex">
                     <span class="num">01</span>
-                    <h2>Catégories et Tarifs</h2>
+                    <h2>Ouverture prochaine des inscriptions</h2>
                 </div>
-                
-                <div class="tabela-categoria">
-                    <div class="tabela-header">
-                        <span class="tabela-cabecalho-texto">CATÉGORIE</span>
-                        <span class="tabela-cabecalho-texto">TARIF (BRL)</span>
-                    </div>
-                    
-                    <div class="tabela-linha">
-                        <div class="linha-info">
-                            <span class="linha-titulo">Chercheurs et Professeurs</span>
-                            <span class="linha-subtitulo">Affiliation institutionnelle active obligatoire</span>
-                        </div>
-                        <div class="linha-valores">
-                            <span>300,00 R$</span>
-                        </div>
-                    </div>
-
-                    <div class="tabela-linha">
-                        <div class="linha-info">
-                            <span class="linha-titulo">Étudiants de Troisième Cycle (Master/Doctorat)</span>
-                            <span class="linha-subtitulo">Master et Doctorat (sur justificatif)</span>
-                        </div>
-                        <div class="linha-valores">
-                            <span>200,00 R$</span>
-                        </div>
-                    </div>
-
-                    <div class="tabela-linha">
-                        <div class="linha-info">
-                            <span class="linha-titulo">Étudiants de Premier Cycle (Licence)</span>
-                            <span class="linha-subtitulo">Sur présentation d'un certificat de scolarité</span>
-                        </div>
-                        <div class="linha-valores">
-                            <span>100,00 R$</span>
-                        </div>
-                    </div>
-
-                    <div class="tabela-linha">
-                        <div class="linha-info">
-                            <span class="linha-titulo">Grand Public</span>
-                        </div>
-                        <div class="linha-valores">
-                            <span>100,00 R$</span>
-                        </div>
-                    </div>
-
-                    <div class="tabela-linha destaque">
-                        <div class="linha-info">
-                            <span class="linha-titulo">Publics spécifiques</span>
-                        </div>
-                        <div class="linha-valores">
-                            <span class="valor-destaque">75,00 R$</span>
-                        </div>
-                    </div>
+                <div class="info-bloco">
+                    <p class="desc-principal">Les inscriptions pour CHAGS 14 ne sont pas encore ouvertes. Les organisateurs publieront les catégories officielles, les tarifs et les instructions de paiement sur cette page une fois qu'ils auront été confirmés.</p>
+                    <p class="nota-rodape">Pour le moment, l'inscription et le paiement ne peuvent pas être effectués via le portail.</p>
+                </div>
+                <div class="cta-container">
+                    <p>Vous pouvez d'ores et déjà créer un compte ou accéder à votre espace participant.</p>
+                    <a href="/sistema-login.html" class="btn-large">Accéder à l'Espace Participant</a>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="secao-numerada hidden">
-                <div class="secao-header-flex">
-                    <span class="num">02</span>
-                    <h2>Informations de Paiement</h2>
-                </div>
-                
-                <div class="info-grid">
-                    <div class="info-bloco">
-                        <h4>Méthodes Acceptées</h4>
-                        <p class="desc-principal">Le paiement pourra être effectué directement depuis l'Espace Participant en utilisant :</p>
-                        <ul>
-                            <li>Carte de Crédit (Visa, Mastercard, Amex)</li>
-                            <li>PIX (exclusif pour les résidents au Brésil)</li>
-                            <li>Virement Bancaire International (Wire Transfer)</li>
-                        </ul>
-                    </div>
-
-                    <div class="info-bloco">
-                        <h4>Politique d'
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conférence officielle de l'International Society for Hunter-Gatherer Research (ISHGR) - connectant l'enseignement, l'innovation et la tradition en Amazonie brésilienne.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVIGATION</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="chamadas.html">Appels</a></li>
+                    <li><a href="artigos-aceitos.html">Travaux</a></li>
+                    <li><a href="programacao.html">Programme</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Inscriptions</a></li>
+                    <li><a href="evento.html">L'Événement</a></li>
+                    <li><a href="belem.html">À propos de Belém</a></li>
+                    <li><a href="contato.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMATIONS</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Espace Participant</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Site de l'ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Tous droits réservés</p><p>12 au 16 juillet - Belém, Pará - Brésil</p></div></div>
+    </footer>
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Retour en haut"> 
+        ↑
+    </button>
+    
+    <!-- Removido o ../ do Script -->
+    <script src="script.js?v=13"></script>
+</body>
+</html>
