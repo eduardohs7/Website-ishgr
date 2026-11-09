@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAGS 14 | Programme</title>
+    <title>CHAGS 14 | Attractions</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=15"></head>
+    <link rel="stylesheet" href="../style.css?v=15">
     
-    <!-- CSS Exclusivo da Página de Programação -->
+    <!-- CSS Exclusivo da Página de Atrações -->
 </head>
 <body>
     <header>
@@ -16,15 +16,15 @@
             <div class="logos-realizacao">
                 <!-- Imagens com ../ para buscar na pasta raiz -->
                 <img src="../images/logos/logoufpa.png" alt="Logo UFPA" class="logo-placeholder">
-                <img src="../images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
+                <img src="../images/logos/logo-museu.png" alt="Logo Musée Goeldi" class="logo-placeholder">
                 <img src="../images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
             
             <ul class="nav-links">
-                <!-- Estes links ficam normais, pois navegam dentro da pasta -->
+                <!-- Estes links ficam normais, pois navegam dentro da pasta pt-br -->
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="chamadas.html">Appels</a></li>
-                <li><a href="artigos-aceitos.html">Contributions</a></li>
+                <li><a href="artigos-aceitos.html">articles acceptés</a></li>
                 <li><a href="programacao.html">Programme</a></li>
                 <li><a href="atracoes.html">Intervenants</a></li>
                 <li><a href="inscricoes.html">Inscriptions</a></li>
@@ -44,118 +44,146 @@
                     <div class="lang-content">
                         <a href="../index.html">EN</a>
                         <a href="../pt-br/index.html">PT-BR</a>
-                        <a href="../es/index.html">ES</a>
+                        <a href="../fr/index.html">FR</a>
                     </div>
                 </div>
-            </div> <!-- 🚨 div nav-actions fechada corretamente aqui -->
-            
+                
             <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>
-
     <main>
-    <div class="banner-gradient">
-      <section class="hero-section container" aria-labelledby="hero-title">
-        <div class="hero-content">
-          <span class="badge-top">14e ÉDITION <span aria-hidden="true">·</span> 2027</span>
-          <p class="hero-kicker">International Society for Hunter-Gatherer Research</p>
-          <h1 class="hero-title" id="hero-title">CHAGS 14<span class="hero-subtitle">Still We Rise</span></h1>
-          <p class="hero-desc">Recherche, enseignement et innovation sur les sociétés de chasseurs-cueilleurs réunis au cœur de Belém, Pará, Brésil.</p>
-          <div class="hero-buttons">
-            <a href="evento.html" class="btn-accent">Découvrir l'Événement</a>
-            <a href="chamadas.html" class="btn-outline">Appel à Contributions</a>
-          </div>
-          <div class="hero-footer-info" aria-label="Détails de la conférence">
-            <div class="info-block"><span class="info-label">DATE</span><span class="info-data">12 au 16 juil</span></div>
-            <div class="info-block"><span class="info-label">LIEU</span><span class="info-data">Belém, Pará, Brésil</span></div>
-            <div class="info-block"><span class="info-label">SITE</span><span class="info-data">UFPA et Museu Goeldi</span></div>
-          </div>
-        </div>
-        <div class="hero-image-container">
-          <img src="../images/logos/Imagemlogoish0pn.png" alt="Visuel officiel CHAGS 14 – Still We Rise" class="hero-img-placeholder">
-          <span class="hero-image-caption"></span>
-        </div>
-      </section>
-    </div>
+
 
         <div class="page-header">
             <div class="container header-centralizado">
-                <span class="badge-text">12 AU 16 JUILLET • BELÉM</span>
-                <h1 class="page-title">Programme.</h1>
-                <p class="page-desc">Découvrez le programme complet de CHAGS 14. Cliquez sur les activités pour développer les détails sur les intervenants, les bâtiments et les cartes de localisation sur le campus de l'UFPA et au Museu Goeldi.</p>
-                
-                <div class="prog-legenda prog-legenda-custom">
-                    <span class="legenda-item"><span class="dot cerimonia dot-custom bg-cerimonia"></span> CÉRÉMONIE</span>
-                    <span class="legenda-item"><span class="dot palestra dot-custom bg-palestra"></span> CONFÉRENCE / TABLE RONDE</span>
-                    <span class="legenda-item"><span class="dot sessao dot-custom bg-sessao"></span> SESSION THÉMATIQUE</span>
-                    <span class="legenda-item"><span class="dot oficina dot-custom bg-oficina"></span> ATELIER / WORKSHOP</span>
-                    <span class="legenda-item"><span class="dot intervalo dot-custom bg-intervalo"></span> PAUSE</span>
-                </div>
+                <span class="badge-text">INVITÉS CONFIRMÉS - CHAGS 14</span>
+                <h1 class="page-title">Attractions.</h1>
+                <p class="page-desc">Découvrez les invités des conférences, panels et tables rondes de la conférence à Belém.</p>
             </div>
         </div>
 
-        <section class="prog-timeline-section container timeline-container hidden">
-            <!-- DIA 01 -->
-            <div class="dia-bloco">
-                <div class="dia-sidebar">
-                    <span class="dia-badge">JOUR 01</span>
-                    <h2 class="dia-data">12 juil</h2>
-                    <span class="dia-semana dia-semana-text">Lundi</span>
+        <section class="atracoes-tabs-section container hidden">
+            <div class="tabs-wrapper">
+                <button class="tab-btn active" data-filter="todos">TOUS</button>
+                <button class="tab-btn" data-filter="palestra">CONFÉRENCES</button>
+                <button class="tab-btn" data-filter="painel">PANELS</button>
+                <button class="tab-btn" data-filter="oficina">ATELIERS</button>
+            </div>
+        </section>
+
+        <section class="atracoes-grid-section container hidden">
+            <div class="atracoes-lista">
+                <!-- Card 01 -->
+                <div class="atracao-card" data-category="palestra">
+                    <div class="atracao-img-col">
+                        <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
+                    </div>
+                    <div class="atracao-info-col info-col-padrao">
+                        <span class="type-badge badge-palestra-custom card-tipo">CONFÉRENCE</span>
+                        <h3 class="convidado-nome card-nome nome-destaque">Dr. Louis Forline</h3>
+                        <p class="convidado-inst card-inst inst-destaque">UNIVERSITY OF NEVADA (UNLV)</p>
+                        
+                        <div class="convidado-tema tema-box">
+                            <strong class="card-tema tema-titulo">Futurs Ancestraux et Écologie Humaine en Amazonie</strong>
+                            <p class="tema-desc">Chercheur principal et l'un des plus grands experts mondiaux des sociétés de chasseurs-cueilleurs.</p>
+                        </div>
+                        
+                        <div class="hidden-bio">
+                            <p>La production scientifique mondiale et l'étude des sociétés ancestrales croissent à un rythme accéléré. Richard B. Lee possède une vaste expérience dans l'analyse du comportement des groupes de chasseurs-cueilleurs et de la manière dont leurs dynamiques de durabilité peuvent guider des solutions modernes face à la crise climatique.</p>
+                        </div>
+                        
+                        <div class="card-footer-right rodape-card">
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Voir les détails &rarr;</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="timeline-lista">
-                    <!-- Atividade 01 (Sem modal, apenas aviso) -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-cerimonia"></div>
-                        <div class="atividade-card card-flex-center">
-                            <span class="atividade-horario prog-time">08h00 - 09h00</span>
-                            <div class="atividade-titulo-area">
-                                <h3 class="titulo-atividade">Accréditation et Remise du Matériel</h3>
-                                <span class="type-badge badge-cerimonia-custom">CÉRÉMONIE</span>
-                            </div>
+                <!-- Card 02 -->
+                <div class="atracao-card" data-category="painel">
+                    <div class="atracao-img-col">
+                        <div class="img-decorativa"><div class="foto-placeholder-custom card-foto">👤</div></div>
+                    </div>
+                    <div class="atracao-info-col info-col-padrao">
+                        <span class="type-badge badge-painel-custom card-tipo">PANEL</span>
+                        <h3 class="convidado-nome card-nome nome-destaque">Pr. Dr. Maria de Fátima Souza</h3>
+                        <p class="convidado-inst card-inst inst-destaque">UNIVERSIDADE FEDERAL DO PARÁ (UFPA)</p>
+                        
+                        <div class="convidado-tema tema-box">
+                            <strong class="card-tema tema-titulo">Technologies Sociales et Inclusion dans les Communautés Riveraines</strong>
+                            <p class="tema-desc">Titulaire d'un doctorat en écologie, la chercheuse animera des discussions sur les innovations sociales appliquées à la bioéconomie.</p>
+                        </div>
+                        
+                        <div class="hidden-bio">
+                            <p>Professeure titulaire à l'UFPA, elle travaille depuis plus de 20 ans avec les communautés riveraines de l'estuaire amazonien, à la recherche de solutions d'innovation sociale qui relient la rigueur académique à une valeur réelle pour les populations locales.</p>
+                        </div>
+                        
+                        <div class="card-footer-right rodape-card">
+                            <button class="btn-outline btn-small btn-detalhes btn-detalhes-card">Voir les détails &rarr;</button>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <p class="nota-rodape-atracoes">Le titre et le contenu définitif des panels pourront encore faire l'objet d'ajustements par le comité scientifique.</p>
+        </section>
 
-                    <!-- Atividade 02 (Com Modal) -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-palestra"></div>
-                        <div class="atividade-card card-flex-between">
-                            <div class="atividade-info-basica info-basica-flex">
-                                <span class="atividade-horario prog-time">09h00 - 10h30</span>
-                                <div class="atividade-titulo-area">
-                                    <h3 class="prog-title titulo-atividade">Table Ronde d'Ouverture : Futurs Ancestraux et Écologie Humaine en Amazonie</h3>
-                                    <span class="type-badge prog-type badge-palestra-custom">CONFÉRENCE / TABLE RONDE</span>
-                                </div>
-                            </div>
-                            <button class="btn-outline btn-small btn-abrir-modal-prog btn-detalhes-prog">Voir les détails</button>
-
-                            <!-- Dados Ocultos para o Modal -->
-                            <div class="prog-hidden-data">
-                                <div class="data-palestrante">
-                                    <strong> Dr. Louis Forline</strong><br>
-                                    <span class="palestrante-desc">Anthropologue et chercheur principal à l'University of Nevada. Spécialiste en écologie comportementale et sociétés de chasseurs-cueilleurs.</span>
-                                </div>
-                                <div class="data-local">
-                                    <strong>Bâtiment :</strong> Centro de Eventos Benedito Nunes<br>
-                                    <strong>Espace :</strong> Auditorium Principal (Secteur de Base)<br>
-                                    <a href="https://maps.google.com" target="_blank" class="mapa-link">Voir la carte</a>
-                                </div>
-                            </div>
-                        </div>
+        <!-- ESTRUTURA DO MODAL -->
+        <div class="modal-overlay" id="modal-convidado">
+            <div class="modal-content">
+                <div class="modal-left">
+                    <div class="modal-foto-custom">👤</div>
+                    <span id="modal-badge" class="modal-badge-custom">CONFÉRENCE</span>
+                    <p id="modal-inst" class="modal-inst-custom">INSTITUTION</p>
+                </div>
+                
+                <div class="modal-right-custom">
+                    <button class="close-modal">&times;</button>
+                    <h2 id="modal-nome" class="modal-nome-custom">Nom</h2>
+                    <h3 id="modal-tema" class="modal-tema-custom">Thème</h3>
+                    <div id="modal-bio" class="modal-bio-custom">
+                        <!-- Bio inserida pelo JS -->
                     </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-                    <!-- Atividade 03 (Intervalo) -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-intervalo"></div>
-                        <div class="atividade-card item-intervalo card-flex-center">
-                            <span class="atividade-horario">10h30 - 11h00</span>
-                            <div class="atividade-titulo-area">
-                                <h3 class="titulo-atividade">Pause - Pause Café Amazonienne</h3>
-                                <span class="type-badge badge-intervalo-custom">PAUSE</span>
-                            </div>
-                        </div>
-                    </div>
+    <footer class="site-footer">
+        <div class="footer-container container">
+            <div class="footer-col-identidade">
+                <div class="footer-logo"><h3>CHAGS 14</h3><span>INTERNATIONAL CONFERENCE 2027</span></div>
+                <p>Conférence officielle de l'International Society for Hunter-Gatherer Research (ISHGR) - connectant l'enseignement, l'innovation et la tradition en Amazonie brésilienne.</p>
+            </div>
+            <div class="footer-col-nav">
+                <h4 class="footer-title">NAVIGATION</h4>
+                <ul class="footer-links-grid">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="chamadas.html">Appels</a></li>
+                    <li><a href="artigos-aceitos.html">Travaux</a></li>
+                    <li><a href="programacao.html">Programme</a></li>
+                    <li><a href="atracoes.html">Attractions</a></li>
+                    <li><a href="inscricoes.html">Inscriptions</a></li>
+                    <li><a href="evento.html">L'Événement</a></li>
+                    <li><a href="belem.html" class="active">À propos de Belém</a></li>
+                    <li><a href="contato.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-redes">
+                <h4 class="footer-title">INFORMATIONS</h4>
+                <ul class="footer-links-grid footer-col-unica">
+                    <li><a href="sistema-login.html">Espace Participant</a></li>
+                    <li><a href="https://ishgr.org" target="_blank">Site de l'ISHGR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Tous droits réservés</p><p>12 au 16 juillet - Belém, Pará - Brésil</p></div></div>
+    </footer>
 
-                    <!-- Atividade 04 (Com Modal) -->
-                    <div class="timeline-item">
-                        <div class="timeline-marker bg-sessao
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Retour en haut"> 
+        ↑
+    </button>
+    
+    <script src="../script.js?v=13"></script>
+
+</body>
+</html>
