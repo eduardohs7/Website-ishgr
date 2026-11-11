@@ -1239,7 +1239,7 @@ a {
     width: 64px;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center; /* Mudou aqui de flex-start para center */
     padding-top: 2px;
 }
 
@@ -1344,8 +1344,14 @@ a {
 }
 
 .dia-sidebar {
-    width: 160px;
-    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    justify-content: center; 
+    text-align: center;
+    
+    /* Empurra o bloco inteiro para a direita */
+    padding-left: 40px; /* Ajusta este valor (20px, 30px, 40px) até ficar alinhado com o teu olho */
 }
 
 .dia-badge {
@@ -1354,6 +1360,8 @@ a {
     color: var(--bg-indigo);
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    text-align: center; /* Centraliza o texto */
+    display: block; /* Adicione esta linha */
 }
 
 .dia-data {
@@ -1361,11 +1369,14 @@ a {
     line-height: 1.05;
     margin: 6px 0;
     color: var(--text-dark);
+    text-align: center; /* Centraliza o texto */
 }
 
 .dia-semana-text {
     color: var(--text-muted);
     font-size: 0.9rem;
+    text-align: center; /* Centraliza o texto */
+    display: block; /* Adicione esta linha */
 }
 
 .timeline-lista {

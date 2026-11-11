@@ -23,7 +23,10 @@ class PortalIntegrationTests(TestCase):
         self.assertNotContains(response, "Nova Submissão de Trabalho")
 
     def test_only_public_assets_are_exposed_by_static_finders(self):
-        self.assertEqual(Path(finders.find("portal/style.css")), settings.BASE_DIR.parent / "style.css")
+        self.assertEqual(
+            Path(finders.find("portal/style.css")),
+            settings.BASE_DIR / "static" / "portal" / "style.css",
+)
         self.assertTrue(finders.find("accounts/account.js"))
         for path in ("portal/backend/.env", "portal/backend/.local/django-secret-key", "portal/README.md", "portal/../backend/manage.py"):
             self.assertIsNone(finders.find(path))

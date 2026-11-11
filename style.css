@@ -329,8 +329,9 @@ a {
 
 .hero-title {
     font-size: clamp(3rem, 5vw, 4.2rem);
-    line-height: 1.2;
+    line-height: 1.08;
     margin-bottom: 20px;
+    font-variant-numeric: lining-nums; 
 }
 
 .hero-subtitle {
@@ -3538,41 +3539,4 @@ textarea:focus {
         margin-top: 22px !important;
         padding-top: 16px !important;
     }
-}
-
-/* ==========================================================================
-   CENTRALIZAÇÃO GLOBAL DO CONTEÚDO (MONITORES GRANDES)
-   Fundos de seção continuam de borda a borda; o conteúdo fica centralizado
-   e limitado a 1280px, a mesma largura já usada em .container.
-   ========================================================================== */
-.container,
-.dashboard-container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.container {
-    max-width: 1280px;
-}
-
-/* Navbar: logos e menu alinhados à mesma coluna central do conteúdo */
-.navbar {
-    padding-left: max(4%, calc((100% - 1280px) / 2 + 4%));
-    padding-right: max(4%, calc((100% - 1280px) / 2 + 4%));
-}
-
-/* Blocos que precisam ficar no meio da tela */
-.carousel-wrapper,
-.dashboard-container {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Rodapé: colunas na mesma largura do conteúdo */
-.site-footer .footer-container,
-.site-footer .sub-footer-flex {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
 }
