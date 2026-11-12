@@ -18,8 +18,7 @@
     --accent: #FFC107;             /* Amarelo/Âmbar oficial ISHGR */
     --accent-hover: #F59E0B;       /* Âmbar vibrante para hover */
     --border-color: #E2E8F0;       /* Linha divisória sutil */
-    --footer-bg: #1E293B;          /* Rodapé em Azul Escuro sólido */
-    --footer-border: #334155;      /* Linha sutil no rodapé */
+    --footer-bg: #474747;          /* Rodapé em Cinza sólido */
 }
 
 * {
@@ -703,7 +702,7 @@ a {
    ========================================================================== */
 .site-footer {
     background-color: var(--footer-bg);
-    color: var(--text-light-muted);
+    color: var(--footer-bg);
     padding-top: 112px;
 }
 
@@ -712,6 +711,7 @@ a {
     grid-template-columns: 1.5fr 2fr 1fr;
     gap: 56px;
     padding-bottom: 64px;
+    background-color: var(--footer-bg);
 }
 
 .footer-logo h3 {
@@ -2219,12 +2219,12 @@ a {
 .gastronomia-titulo {
     font-size: 2.5rem;
     margin-bottom: 18px;
-    color: var(--text-light);
+    color: var(--accent);
 }
 
 .gastronomia-desc {
     max-width: 720px;
-    color: var(--text-light-muted);
+    color: black;
     font-size: 1.05rem;
 }
 
@@ -2233,11 +2233,15 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 48px;
     margin-top: 56px;
+    color: black;
+
 }
 
 .gastro-item {
     border-left: 2px solid var(--accent);
     padding-left: 22px;
+    color: black;
+
 }
 
 .gastro-item h4 {
@@ -2248,7 +2252,7 @@ a {
 
 .gastro-item p {
     font-size: 0.95rem;
-    color: var(--text-light-muted);
+    color: black;
     line-height: 1.7;
 }
 
@@ -2319,7 +2323,7 @@ a {
     border: none;
     border-top: 1px solid var(--border-color);
     border-radius: 0;
-    padding: 80px 0 0 0;
+    padding: 80px 40px; /* 80px em cima/baixo e 40px nas laterais */
     margin-top: 80px;
 }
 
@@ -2984,9 +2988,10 @@ a {
     }
 
     .hero-section {
-        padding-top: 64px;
-        padding-bottom: 72px;
-        gap: 36px;
+        padding-top: clamp(24px, 4vh, 40px) !important;    /* Reduzido o topo */
+        padding-bottom: clamp(24px, 4vh, 40px) !important; /* Reduzida a base */
+        gap: clamp(24px, 3vw, 40px) !important;            /* Aproxima o texto da imagem */
+        min-height: 50vh !important;    
     }
 
     .hero-content {
@@ -3110,6 +3115,7 @@ a {
     color: var(--text-light);
     padding: clamp(72px, 9vw, 124px) clamp(24px, 6vw, 88px);
     gap: clamp(36px, 6vw, 80px);
+    
 }
 
 .hero-section::before {
@@ -3173,10 +3179,10 @@ a {
 }
 
 .hero-image-container {
-    border: 1px solid rgba(243, 239, 231, .25);
-    border-radius: 4px;
+    border: none;            /* Remove a borda rígida */
+    background: transparent; /* Remove o fundo cinza/verde */
+    max-width: 100%;
     overflow: hidden;
-    background: #45483F;
 }
 
 .hero-image-container img,
@@ -3184,7 +3190,9 @@ a {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;      /* Melhor que 'cover' para não cortar as pontas do logo */
+    mix-blend-mode: multiply; /* A MÁGICA: O branco some e mistura com o fundo verde */
+    opacity: 0.85;            /* Suaviza um pouco o contraste dos traços no fundo verde */
 }
 
 .hero-img-placeholder {
@@ -3471,15 +3479,15 @@ textarea:focus {
 }
 
 
-/* ==========================================================================
-   HOME — PAINEL PRINCIPAL MAIS COMPACTO E COM VERDE SÓLIDO
-   ========================================================================== */
+/* HOME — PAINEL PRINCIPAL MAIS COMPACTO E COM VERDE SÓLIDO */
 
 /* Remove o degradê: uma cor sólida, sem efeitos decorativos de fundo */
 :root {
     --header-gradient: #353B32;
 }
-
+.hero-kicker {
+    color: #a9a8a6e1 !important;
+}
 .banner-gradient,
 .hero-section {
     background: #353B32 !important;
@@ -3550,4 +3558,93 @@ textarea:focus {
         margin-top: 22px !important;
         padding-top: 16px !important;
     }
+}
+
+
+/* ==========================================================================
+   HOME — PAINEL PRINCIPAL BRANCO (CLEAN)
+   ========================================================================== */
+
+/* Fundo branco para a seção principal */
+.banner-gradient,
+.hero-section {
+    background: #FFFFFF !important;
+    background-image: none !important;
+}
+
+/* Reduz o espaço vertical */
+.hero-section {
+    padding-top: clamp(24px, 4vh, 40px) !important;
+    padding-bottom: clamp(24px, 4vh, 40px) !important;
+    gap: clamp(24px, 3vw, 40px) !important;
+    min-height: 0 !important;
+}
+
+/* Cores dos Textos para o fundo branco */
+.hero-title {
+    color: var(--text-dark) !important; /* Verde super escuro/Quase preto */
+}
+
+/* O subtítulo ganha a cor terracota para destacar muito */
+.hero-title span,
+.hero-title strong,
+.hero-subtitle {
+    color: var(--accent-color) !important; 
+}
+
+.hero-desc {
+    color: var(--text-body) !important; /* Cinza escuro para boa leitura */
+}
+
+/* Ajuste da Badge superior */
+.badge-top {
+    color: var(--bg-indigo) !important; 
+    background: rgba(102, 112, 91, 0.08) !important; /* Fundo verde clarinho */
+    border-color: rgba(102, 112, 91, 0.2) !important;
+}
+
+/* Metadados do rodapé do banner (Data, Local) */
+.hero-footer-info {
+    border-top-color: var(--border-color) !important;
+}
+
+.info-label {
+    color: var(--text-muted) !important;
+}
+
+.info-data {
+    color: var(--text-dark) !important;
+}
+
+/* Ajuste do botão vazado para aparecer no fundo branco */
+.hero-buttons .btn-outline {
+    color: var(--text-dark) !important;
+    border-color: var(--border-color) !important;
+}
+
+.hero-buttons .btn-outline:hover {
+    background: rgba(0,0,0, 0.03) !important;
+    color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+/* A imagem se mistura perfeitamente ao fundo branco */
+.hero-image-container {
+    border: none !important;
+    background: transparent !important;
+    max-width: 100%;
+    transform: translateX(120px); /* poe mais pra direita */
+    flex: 0 1 400px !important; 
+    max-width: 400px !important;
+    
+    /* O empurrãozinho para a direita que tínhamos feito */
+    transform: translateX(40px);
+}
+
+.hero-image-container img,
+.hero-img-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
