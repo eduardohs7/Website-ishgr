@@ -700,10 +700,38 @@ a {
 /* ==========================================================================
    7. RODAPÉ EM AZUL ESCURO/ÍNDIGO SÓLIDO
    ========================================================================== */
+/* ==========================================================================
+   AJUSTE DO FOOTER CINZA
+   ========================================================================== */
 .site-footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-bg);
-    padding-top: 112px;
+    background-color: #464645 !important; /* Cinza chumbo elegante do seu tema */
+    border-top: 4px solid var(--accent-color) !important; /* Linha superior terracota */
+    padding: 100px 0 40px 0 !important; /* Espaçamento generoso */
+}
+
+/* Remove o fundo em bloco que estava quebrando o layout */
+.footer-container,
+.sub-footer,
+.sub-footer-flex {
+    background-color: transparent !important;
+}
+
+/* Força a cor branca no título para corrigir o texto escuro da imagem */
+.footer-logo h3 {
+    color: #f4f4f4 !important; 
+}
+
+/* Ajusta os textos menores e links para uma cor clara e agradável */
+.footer-title,
+.site-footer p,
+.site-footer a,
+.sub-footer p {
+    color: #F8F5EF !important;
+}
+
+/* Efeito ao passar o mouse nos links do rodapé */
+.site-footer a:hover {
+    color: #D8A18F !important; 
 }
 
 .footer-container {
@@ -715,7 +743,7 @@ a {
 }
 
 .footer-logo h3 {
-    color: var(--text-light);
+    color:#E9E3D8;
     font-size: 1.85rem;
     margin-bottom: 6px;
 }
