@@ -1158,10 +1158,31 @@ a {
     padding-bottom: 120px;
 }
 
-.marcos-header-box {
+/* CHAGS - Historical introduction */
+
+.marcos-header-box h2 {
+    margin-bottom: 22px;
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+.marcos-description {
+    width: 100%;
+    max-width: none;
+}
+
+.marcos-description p {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text-color, #555);
     text-align: left;
-    max-width: 720px;
-    margin: 0 0 48px 0;
+}
+
+.marcos-description p:last-child {
+    margin-bottom: 0;
 }
 
 .marcos-timeline {
@@ -3675,4 +3696,56 @@ textarea:focus {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+
+/* CHAGS - Historical introduction */
+.marcos-header-box {
+    padding: 42px 7%;
+}
+
+.marcos-header-box h2 {
+    margin-bottom: 22px;
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+.marcos-description {
+    width: 100%;
+    max-width: none;
+}
+
+.marcos-description p {
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: var(--text-color, #555);
+    text-align: left;
+}
+
+.marcos-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* CHAGS Milestones - corrigir largura do texto */
+.marcos-section .marcos-header-box {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.marcos-section .marcos-header-box .marcos-description {
+    display: block;
+    width: 100%;
+    max-width: none;
+}
+
+.marcos-section .marcos-header-box .marcos-description p {
+    display: block;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 18px;
 }

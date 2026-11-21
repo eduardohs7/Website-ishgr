@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Schedule</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="style.css?v=18">
     
     <!-- CSS Exclusivo da Página de Programação -->
 
@@ -23,14 +23,14 @@
             <ul class="nav-links">
                 <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="chamadas.html">Calls for Proposals</a></li>
-                <li><a href="artigos-aceitos.html">Accepted Proposals</a></li>
-                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-modal" >Accepted Proposals</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-schedule">Schedule</a></li>
                 <li><a href="atracoes.html">Attractions</a></li>
                 <li><a href="inscricoes.html">Registration</a></li>
                 <li><a href="evento.html">The Event</a></li>
                 <li><a href="belem.html">About Belém</a></li>
                 <li><a href="hospedagem.html">Accommodation</a></li>
-                <li><a href="contato.html">Contact</a></li>
+                <li><a href="contato.html">Organizing Committee</a></li>
             </ul>
 
 
@@ -304,7 +304,7 @@
                     <li><a href="inscricoes.html">Registration</a></li>
                     <li><a href="evento.html">The Event</a></li>
                     <li><a href="belem.html">About Belém</a></li>
-                    <li><a href="contato.html">Contact</a></li>
+                    <li><a href="contato.html">Organizing Committee</a></li>
                 </ul>
             </div>
 
@@ -324,7 +324,25 @@
             </div>
         </div>
     </footer>
-    <script src="script.js?v=13"></script>
+    <div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" id="modal-aviso-fechar" aria-label="Close">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">To be announced once decision is made on these proposals.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-aviso-schedule" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" aria-label="Close">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">The conference program will be posted here once decisions are made on proposals and papers and participants have registered for the conference.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=15"></script>
     <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
         ↑
     </button>

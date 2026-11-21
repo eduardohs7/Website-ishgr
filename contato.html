@@ -6,7 +6,7 @@
     <title>CHAGS 14 | Contact</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Removido o ../ pois este arquivo ficará na raiz -->
-    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="style.css?v=18">
     
     <!-- CSS Exclusivo da Página de Contato -->
 </head>
@@ -23,14 +23,14 @@
             <ul class="nav-links">
                 <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="chamadas.html">Calls for Proposals</a></li>
-                <li><a href="artigos-aceitos.html">Accepted Proposals</a></li>
-                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-modal" >Accepted Proposals</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-schedule">Schedule</a></li>
                 <li><a href="atracoes.html">Attractions</a></li>
                 <li><a href="inscricoes.html">Registration</a></li>
                 <li><a href="evento.html">The Event</a></li>
                 <li><a href="belem.html">About Belém</a></li>
                 <li><a href="hospedagem.html">Accommodation</a></li>
-                <li><a href="contato.html">Contact</a></li>
+                <li><a href="contato.html">Organizing Committee</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -84,7 +84,7 @@
             <h2 class="comissao-titulo texto-centralizado">Organizing Committee</h2>
             
             <div class="equipe-grid">
-                <!-- Membro 1 -->
+                <!-- Membro 1 
                 <div class="equipe-item">
                     <div class="equipe-foto">👤</div>
                     <div class="equipe-info equipe-info-centralizada">
@@ -92,14 +92,14 @@
                         <h3 class="equipe-nome">Dr. Carlos Eduardo Almeida</h3>
                         <p class="equipe-inst">Emílio Goeldi Museum (MPEG)</p>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Membro 2 -->
                 <div class="equipe-item">
                     <div class="equipe-foto">👤</div>
                     <div class="equipe-info equipe-info-centralizada">
-                        <span class="type-badge badge-equipe">SCIENTIFIC COMMITTEE</span>
-                        <h3 class="equipe-nome">Dr. Maria de Fátima Souza</h3>
+                        <span class="type-badge badge-equipe">Centro de Memória – UFPA</span>
+                        <h3 class="equipe-nome">Mauricio </h3>
                         <p class="equipe-inst">Federal University of Pará (UFPA)</p>
                     </div>
                 </div>
@@ -108,9 +108,9 @@
                 <div class="equipe-item">
                     <div class="equipe-foto">👤</div>
                     <div class="equipe-info equipe-info-centralizada">
-                        <span class="type-badge badge-equipe">INTERNATIONAL RELATIONS</span>
+                        <span class="type-badge badge-equipe">University of Nevada - Reno</span>
                         <h3 class="equipe-nome">Dr. Louis Forline</h3>
-                        <p class="equipe-inst">University of Nevada (UNLV)</p>
+                        <p class="equipe-inst">UNIVERSITY OF NEVADA, RENO</p>
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                     <li><a href="inscricoes.html">Registration</a></li>
                     <li><a href="evento.html">The Event</a></li>
                     <li><a href="belem.html">About Belém</a></li>
-                    <li><a href="contato.html" class="active">Contact</a></li>
+                    <li><a href="contato.html" class="active">Organizing Committee</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
@@ -151,6 +151,24 @@
         ↑
     </button>
     
-    <script src="script.js?v=13"></script>
+    <div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" id="modal-aviso-fechar" aria-label="Close">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">To be announced once decision is made on these proposals.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-aviso-schedule" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" aria-label="Close">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">The conference program will be posted here once decisions are made on proposals and papers and participants have registered for the conference.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=15"></script>
 </body>
 </html>

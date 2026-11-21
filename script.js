@@ -468,3 +468,95 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+
+/* ==========================================================================
+   MODAL DE AVISO GENÉRICO (.btn-aviso-modal)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const modalAviso = document.getElementById('modal-aviso');
+    const botoesAviso = document.querySelectorAll('.btn-aviso-modal');
+
+    if (!modalAviso || botoesAviso.length === 0) return;
+
+    const btnFecharAviso = modalAviso.querySelector('.close-modal');
+
+    const abrirAviso = () => {
+        modalAviso.style.display = 'flex';
+        modalAviso.setAttribute('aria-hidden', 'false');
+    };
+
+    const fecharAviso = () => {
+        modalAviso.style.display = 'none';
+        modalAviso.setAttribute('aria-hidden', 'true');
+    };
+
+    botoesAviso.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Fecha o menu mobile, se estiver aberto
+            const menu = document.querySelector('.nav-links.active');
+            if (menu) menu.classList.remove('active');
+            abrirAviso();
+        });
+    });
+
+    // Fechar pelo botão X
+    if (btnFecharAviso) btnFecharAviso.addEventListener('click', fecharAviso);
+
+    // Fechar clicando no fundo escuro (fora da caixa)
+    modalAviso.addEventListener('click', (e) => {
+        if (e.target === modalAviso) fecharAviso();
+    });
+
+    // Fechar com a tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalAviso.style.display === 'flex') fecharAviso();
+    });
+});
+
+
+/* ==========================================================================
+   MODAL DE AVISO - SCHEDULE / PROGRAMAÇÃO (.btn-aviso-schedule)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const modalSchedule = document.getElementById('modal-aviso-schedule');
+    const botoesSchedule = document.querySelectorAll('.btn-aviso-schedule');
+
+    if (!modalSchedule || botoesSchedule.length === 0) return;
+
+    const btnFecharSchedule = modalSchedule.querySelector('.close-modal');
+
+    const abrirSchedule = () => {
+        modalSchedule.style.display = 'flex';
+        modalSchedule.setAttribute('aria-hidden', 'false');
+    };
+
+    const fecharSchedule = () => {
+        modalSchedule.style.display = 'none';
+        modalSchedule.setAttribute('aria-hidden', 'true');
+    };
+
+    botoesSchedule.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const menu = document.querySelector('.nav-links.active');
+            if (menu) menu.classList.remove('active');
+            abrirSchedule();
+        });
+    });
+
+    // Fechar pelo botão X
+    if (btnFecharSchedule) btnFecharSchedule.addEventListener('click', fecharSchedule);
+
+    // Fechar clicando no fundo escuro (fora da caixa)
+    modalSchedule.addEventListener('click', (e) => {
+        if (e.target === modalSchedule) fecharSchedule();
+    });
+
+    // Fechar com a tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalSchedule.style.display === 'flex') fecharSchedule();
+    });
+});

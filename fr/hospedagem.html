@@ -198,15 +198,15 @@
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="chamadas.html">Appels</a></li>
-                <li><a href="artigos-aceitos.html">articles acceptés</a></li>
-                <li><a href="programacao.html">Programme</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-modal" >articles acceptés</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-schedule">Programme</a></li>
                 <li><a href="atracoes.html">Intervenants</a></li>
                 <li><a href="inscricoes.html">Inscriptions</a></li>
                 <li><a href="evento.html">L'Événement</a></li>
                 <li><a href="belem.html">À propos de Belém</a></li>
                 <!-- Menu Hébergement -->
                 <li><a href="hospedagem.html" class="active">Hébergement</a></li>
-                <li><a href="contato.html">Contact</a></li>
+                <li><a href="contato.html">Comitê Organizador</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -366,7 +366,7 @@
                     <li><a href="evento.html">L'Événement</a></li>
                     <li><a href="belem.html">À propos de Belém</a></li>
                     <li><a href="hospedagem.html" class="active">Hébergement</a></li>
-                    <li><a href="contato.html">Contact</a></li>
+                    <li><a href="contato.html">Comitê Organizador</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
@@ -379,6 +379,24 @@
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - Tous droits réservés</p><p>12 au 16 juillet - Belém, Pará - Brésil</p></div></div>
     </footer>
-    <script src="../script.js?v=13"></script>
+    <div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" id="modal-aviso-fechar" aria-label="Fermer">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">Sera annoncé une fois la décision prise sur ces propositions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-aviso-schedule" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" aria-label="Fermer">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">Le programme de la conférence sera publié ici une fois que les décisions concernant les propositions et les articles auront été prises et que les participants se seront inscrits à la conférence.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js?v=15"></script>
 </body>
 </html>

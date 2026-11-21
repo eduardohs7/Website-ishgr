@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAGS 14 | Atrações</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css?v=16"></head>
+    <link rel="stylesheet" href="../style.css?v=18"></head>
 
     <!-- CSS Exclusivo da Página de Atrações -->
 </head>
@@ -24,14 +24,14 @@
                 <!-- Estes links ficam normais, pois navegam dentro da pasta pt-br -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="chamadas.html">Chamadas</a></li>
-                <li><a href="artigos-aceitos.html">Trabalhos</a></li>
-                <li><a href="programacao.html">Programação</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-modal" >Trabalhos</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-schedule">Programação</a></li>
                 <li><a href="atracoes.html">Atrações</a></li>
                 <li><a href="inscricoes.html">Inscrições</a></li>
                 <li><a href="evento.html">O Evento</a></li>
                 <li><a href="belem.html">Sobre Belém</a></li>
                 <li><a href="hospedagem.html">Hospedagem</a></li>
-                <li><a href="contato.html">Contato</a></li>
+                <li><a href="contato.html">Comitê Organizador</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -164,7 +164,7 @@
                     <li><a href="inscricoes.html">Inscrições</a></li>
                     <li><a href="evento.html">O Evento</a></li>
                     <li><a href="belem.html" class="active">Sobre Belém</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="contato.html">Comitê Organizador</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
@@ -182,7 +182,25 @@
         ↑
     </button>
     
-    <script src="../script.js?v=13"></script>
+    <div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" id="modal-aviso-fechar" aria-label="Fechar">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">Será anunciado assim que a decisão sobre estas propostas for tomada.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-aviso-schedule" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" aria-label="Fechar">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">A programação da conferência será publicada aqui assim que as decisões sobre as propostas e artigos forem tomadas e os participantes estiverem inscritos na conferência.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../script.js?v=15"></script>
 
 </body>
 </html>

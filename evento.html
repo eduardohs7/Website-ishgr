@@ -6,7 +6,7 @@
     <title>CHAGS 14 | The Event</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Removido o ../ pois este arquivo ficará na raiz -->
-    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="style.css?v=18">
 
     <!-- CSS Exclusivo da Página O Evento -->
 </head>
@@ -18,24 +18,25 @@
                 <img src="images/logos/logo-museu.png" alt="Logo Museu Goeldi" class="logo-placeholder">
                 <img src="images/logos/logo-nevada.jpg" alt="Logo University of Nevada" class="logo-placeholder">
             </div>
-                     
+
             <ul class="nav-links">
                 <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="chamadas.html">Calls for Proposals</a></li>
-                <li><a href="artigos-aceitos.html">Accepted Proposals</a></li>
-                <li><a href="programacao.html">Schedule</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-modal">Accepted Proposals</a></li>
+                <li><a href="javascript:void(0)" class="btn-aviso-schedule">Schedule</a></li>
                 <li><a href="atracoes.html">Attractions</a></li>
                 <li><a href="inscricoes.html">Registration</a></li>
                 <li><a href="evento.html">The Event</a></li>
                 <li><a href="belem.html">About Belém</a></li>
                 <li><a href="hospedagem.html">Accommodation</a></li>
-                <li><a href="contato.html">Contact</a></li>
-            </ul>            
+                <li><a href="contato.html">Organizing Committee</a></li>
+            </ul>
+
             <div class="nav-actions">
                 <!-- Botão da Área do Participante agora vem primeiro -->
                 <a href="sistema-login.html" class="btn-nav-login">Participant Area</a>
-                
-                <!-- Novo Dropdown de Idiomas à direita -->
+
+                <!-- Dropdown de idiomas -->
                 <div class="lang-dropdown">
                     <button class="lang-btn">EN <span>▼</span></button>
                     <div class="lang-content">
@@ -45,13 +46,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="hamburger"><span></span><span></span><span></span></div>
         </nav>
     </header>
 
     <main>
-
         <div class="page-header">
             <div class="container header-centralizado">
                 <span class="badge-text">14TH EDITION - BELÉM/PA - 2027</span>
@@ -64,12 +64,13 @@
             <div class="evento-grid-top">
                 <div class="evento-texto-col">
                     <p>Held under the auspices of ISHGR, the 14th edition consolidates itself as a strategic space for debate, training, and the dissemination of scientific knowledge focused on sustainability, bioeconomy, and traditional peoples, with the Amazon as the central stage for contemporary discussions.</p>
+                    <p>The CHAGS conferences bring together researchers, anthropologists, archaeologists, activists, and other members of the international community to discuss hunter-gatherer societies, their histories, ways of life, and contemporary challenges.</p>
                 </div>
                 <div class="evento-stats-col evento-stats-grid">
                     <div class="stat-box"><span class="stat-label">EDITION</span><span class="stat-value">14th</span></div>
                     <div class="stat-box"><span class="stat-label">YEAR</span><span class="stat-value">2027</span></div>
                     <div class="stat-box"><span class="stat-label">VENUE</span><span class="stat-value">Belém/PA</span></div>
-                    <div class="stat-box"><span class="stat-label">AVERAGE</span><span class="stat-value">500+ attendees</span></div>
+                    <div class="stat-box"><span class="stat-label">AVERAGE</span><span class="stat-value">400+ attendees</span></div>
                 </div>
             </div>
         </section>
@@ -103,7 +104,7 @@
                 <span class="badge-text">INTERNATIONAL SOCIETY</span>
                 <h2>About ISHGR.</h2>
                 <p class="ishgr-desc texto-centralizado">
-                    The International Society for Hunter-Gatherer Research (ISHGR) is the leading global organization dedicated to the study, preservation, and dissemination of research on hunter-gatherer societies.
+                    The International Society for Hunter-Gatherer Research (ISHGR) was established in 2014 to promote research and a better understanding of hunter-gatherer societies, both past and present.
                 </p>
             </div>
 
@@ -111,13 +112,13 @@
                 <div class="ishgr-texto">
                     <h3>History and Mission</h3>
                     <p>
-                        Since its founding, ISHGR has been the meeting point for anthropologists, archaeologists, ecologists, and traditional populations. The society promotes the ethical exchange of knowledge, respecting the autonomy and wisdom of indigenous peoples.
+                        The Society emerged from a decision made during a plenary session at CHAGS 10, held in Liverpool in 2013. It became the first formal international network for scholars specializing in hunter-gatherer studies and took on an important role in supporting the continuity of the CHAGS conferences.
                     </p>
                     <p class="mb-grande">
-                        With each edition of CHAGS, the society renews its commitment to inclusive science, bringing urgent debates on land demarcation, food sovereignty, bioeconomy, and climate resilience to the center of global discussions.
+                        ISHGR strengthens collaboration among researchers and institutions worldwide. Its membership includes approximately 400 individual and institutional members. The Society also supports the journal <em>Hunter Gatherer Research (HGR)</em>, an international, multidisciplinary, peer-reviewed publication covering research on hunter-gatherer societies.
                     </p>
                     <a href="https://ishgr.org" target="_blank" rel="noopener noreferrer" class="btn-outline btn-ishgr-link">
-                        <span>Meet the official board on the ISHGR website</span>
+                        <span>Visit the official ISHGR website</span>
                         <span class="btn-ishgr-link-icon">&nearr;</span>
                     </a>
                 </div>
@@ -148,13 +149,123 @@
         <section class="marcos-section container marcos-wrapper hidden">
             <div class="marcos-header-box">
                 <h2>CHAGS Milestones.</h2>
-                <p>Throughout its history, the Conferences have gathered thousands of participants, establishing themselves as the premier forum on ancestral societies.</p>
+
+                <div class="marcos-description">
+                    <p>
+                        The Conferences on Hunting and Gathering Societies (CHAGS) trace
+                        their origins to the landmark <em>Man the Hunter</em> meeting,
+                        held at the University of Chicago in 1966. This gathering
+                        represented an important turning point in the development of
+                        hunter-gatherer studies and helped establish the foundations
+                        for an international academic dialogue on these societies.
+                    </p>
+
+                    <p>
+                        What began as an academic meeting gradually developed into a
+                        conference series connecting researchers from different
+                        countries and disciplines. Over more than five decades, CHAGS
+                        has brought together anthropologists, archaeologists,
+                        historians, ecologists, activists, Indigenous representatives,
+                        and other researchers interested in the diversity of
+                        hunter-gatherer societies.
+                    </p>
+
+                    <p>
+                        The conferences provide a space for sharing research and
+                        discussing different ways of life, social and cultural
+                        practices, relationships with the environment, traditional
+                        knowledge, and the transformations experienced by these
+                        communities throughout history. Their interdisciplinary
+                        approach encourages dialogue between academic research and
+                        the experiences and perspectives of the peoples who are
+                        directly connected to these discussions.
+                    </p>
+
+                    <p>
+                        CHAGS is also committed to being an inclusive and accessible
+                        international gathering. Its conferences welcome participants
+                        from different backgrounds and career stages, encouraging the
+                        participation of early-career researchers. Beyond academic
+                        presentations, they offer an important space for activism,
+                        discussion of the rights and challenges faced by
+                        hunter-gatherer peoples, and reflection on their place and
+                        future in an increasingly interconnected world.
+                    </p>
+
+                    <p>
+                        Following the establishment of the International Society for
+                        Hunter-Gatherer Research (ISHGR), the conference series
+                        regained a regular schedule, with editions planned every
+                        three years. Each meeting introduces new themes and
+                        perspectives, reinforcing the importance of international
+                        collaboration and the recognition of hunter-gatherer peoples,
+                        their knowledge, resilience, and contributions to contemporary
+                        discussions.
+                    </p>
+                </div>
             </div>
+
             <div class="marcos-timeline">
-                <div class="marco-item"><div class="marco-dot"></div><div class="marco-conteudo"><h3>1966</h3><p>Symposium "Man the Hunter" in Chicago (USA), the founding event.</p></div></div>
-                <div class="marco-item"><div class="marco-dot"></div><div class="marco-conteudo"><h3>1978</h3><p>CHAGS 1 in Paris (France). First official conference of the series.</p></div></div>
-                <div class="marco-item"><div class="marco-dot"></div><div class="marco-conteudo"><h3>2022</h3><p>CHAGS 13 in Dublin (Ireland).</p></div></div>
-                <div class="marco-item highlight"><div class="marco-dot"></div><div class="marco-conteudo"><h3>2027</h3><p>CHAGS 14 hosted in Belém/PA (Brazil). For the first time in the Amazon.</p></div></div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1966</h3><p><em>Man the Hunter</em> symposium in Chicago (USA), the meeting that inspired the CHAGS tradition.</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1978</h3><p>CHAGS I in Paris (France).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1980</h3><p>CHAGS II in Quebec (Canada).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1983</h3><p>CHAGS III in Munich (Germany).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1986</h3><p>CHAGS IV in London (United Kingdom).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1988</h3><p>CHAGS V in Darwin (Australia).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1990</h3><p>CHAGS VI in Fairbanks (USA).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1993</h3><p>CHAGS VII in Moscow (Russia).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>1998</h3><p>CHAGS VIII in Osaka (Japan).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>2001</h3><p>CHAGS IX in Edinburgh (United Kingdom).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>2013</h3><p>CHAGS X in Liverpool (United Kingdom). The decision to establish ISHGR was made during this conference.</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>2015</h3><p>CHAGS XI in Vienna (Austria), the first conference organized under the auspices of ISHGR.</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>2018</h3><p>CHAGS XII in Penang (Malaysia).</p></div>
+                </div>
+                <div class="marco-item">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>2022</h3><p>CHAGS XIII in Dublin (Ireland).</p></div>
+                </div>
+                <div class="marco-item highlight">
+                    <div class="marco-dot"></div>
+                    <div class="marco-conteudo"><h3>2027</h3><p>CHAGS XIV in Belém (Brazil), bringing the conference to the Amazon.</p></div>
+                </div>
             </div>
         </section>
     </main>
@@ -176,23 +287,42 @@
                     <li><a href="inscricoes.html">Registration</a></li>
                     <li><a href="evento.html" class="active">The Event</a></li>
                     <li><a href="belem.html">About Belém</a></li>
-                    <li><a href="contato.html">Contact</a></li>
+                    <li><a href="contato.html">Organizing Committee</a></li>
                 </ul>
             </div>
             <div class="footer-col-redes">
                 <h4 class="footer-title">INFORMATION</h4>
                 <ul class="footer-links-grid footer-col-unica">
                     <li><a href="sistema-login.html">Participant Area</a></li>
-                    <li><a href="https://ishgr.org" target="_blank">ISHGR Website</a></li>
+                    <li><a href="https://ishgr.org" target="_blank" rel="noopener noreferrer">ISHGR Website</a></li>
                 </ul>
             </div>
         </div>
         <div class="sub-footer"><div class="container sub-footer-flex"><p>&copy; CHAGS 14 2027 - All rights reserved</p><p>July 12 to 16 - Belém, Pará - Brazil</p></div></div>
     </footer>
 
-    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo"> 
+    <button id="btn-voltar-topo" class="btn-voltar-topo" aria-label="Voltar ao topo">
         ↑
     </button>
-    <script src="script.js?v=13"></script>
+
+    <div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" id="modal-aviso-fechar" aria-label="Close">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">To be announced once decision is made on these proposals.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-aviso-schedule" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" type="button" aria-label="Close">&times;</button>
+            <div class="modal-right-custom">
+                <p class="modal-bio-custom">The conference program will be posted here once decisions are made on proposals and papers and participants have registered for the conference.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=15"></script>
 </body>
 </html>
