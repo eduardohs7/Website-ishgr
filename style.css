@@ -3697,3 +3697,53 @@ textarea:focus {
     font-size: 1.05rem;
     text-align: center;
 }
+
+/* ==========================================================================
+   PÁGINA DA COMISSÃO ORGANIZADORA
+   Reaproveita .equipe-*, .type-badge e .page-header; só o que é novo abaixo.
+   ========================================================================== */
+.comissao-section {
+    padding-bottom: 72px;
+}
+
+.comissao-section + .comissao-section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 72px;
+}
+
+.comissao-subtitulo {
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.comissao-intro {
+    max-width: 720px;
+    margin-bottom: 40px;
+    color: var(--text-body);
+}
+
+.comissao-parceiros {
+    max-width: 820px;
+    font-size: 1.05rem;
+    color: var(--text-body);
+}
+
+.equipe-pendente .equipe-nome {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.equipe-pendente .equipe-foto {
+    opacity: 0.5;
+}
+
+.comissao-section:first-of-type {
+    padding-top: 0;
+}
+
+@media (max-width: 480px) {
+    .equipe-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -14,6 +14,17 @@ class PortalIntegrationTests(TestCase):
             content = b"".join(response.streaming_content)
             self.assertEqual(content, (settings.BASE_DIR.parent / filename).read_bytes())
 
+    def test_contact_and_committee_pages_are_served_in_all_languages(self):
+        for language in ("", "pt-br", "es", "fr"):
+            for page in ("contato", "comissao"):
+                url = f"/{language}/{page}.html" if language else f"/{page}.html"
+                filename = f"{language}/{page}.html" if language else f"{page}.html"
+                with self.subTest(url=url):
+                    response = self.client.get(url)
+                    self.assertEqual(response.status_code, 200)
+                    content = b"".join(response.streaming_content)
+                    self.assertEqual(content, (settings.BASE_DIR.parent / filename).read_bytes())
+
     def test_legacy_login_and_submission_paths_lead_to_real_protected_flow(self):
         self.assertRedirects(self.client.get("/sistema-login.html"), reverse("accounts:login"))
         self.assertRedirects(self.client.get("/pt-br/sistema-login.html"), reverse("accounts:login"))

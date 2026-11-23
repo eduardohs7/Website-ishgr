@@ -5,7 +5,7 @@ from django.templatetags.static import static
 
 PUBLIC_PAGES = {
     "index", "artigos-aceitos", "atracoes", "belem", "chamadas", "contato",
-    "evento", "hospedagem", "inscricoes", "programacao",
+    "evento", "hospedagem", "inscricoes", "programacao", "comissao",
 }
 
 
