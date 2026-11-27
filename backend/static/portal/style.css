@@ -73,9 +73,10 @@ a {
 }
 
 .container {
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 5%;
+    padding-inline: clamp(20px, 4vw, 56px);
 }
 
 /* ==========================================================================
@@ -434,20 +435,21 @@ a {
    5. SEÇÕES DA HOME (WHITESPACE GENEROSO, SEM CAIXAS "QUADRADONAS")
    ========================================================================== */
 .ishgr-portal-section {
-    padding: 96px 0 32px;
+    padding-block: clamp(48px, 6vw, 72px) 24px;
 }
 
 .ishgr-portal-banner {
     background-color: transparent;
     border-bottom: 1px solid var(--border-color);
-    padding: 0 0 48px 0;
+    padding: 0 0 36px 0;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 20px 32px;
 }
 
+.ishgr-portal-banner h2,
 .ishgr-portal-banner h3 {
     font-size: 1.6rem;
     color: var(--text-dark);
@@ -460,19 +462,33 @@ a {
 }
 
 .ishgr-portal-banner .btn-outline {
-    color: var(--bg-indigo);
-    border-bottom: 2px solid var(--accent);
-    padding: 8px 0;
+    width: fit-content !important;
+    max-width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dark) !important;
+    background-color: transparent;
+    border: 1px solid var(--border-color) !important;
+    border-bottom: 2px solid var(--accent-color, var(--accent)) !important;
+    border-radius: 3px;
+    padding: 10px 18px !important;
+    font-weight: 600;
 }
 
 .ishgr-portal-banner .btn-outline:hover {
-    color: var(--text-dark);
-    border-bottom-color: var(--bg-indigo);
+    color: var(--accent-color, var(--bg-indigo)) !important;
+    border-color: var(--accent-color, var(--bg-indigo)) !important;
+    background-color: rgba(0, 0, 0, 0.02) !important;
 }
 
 .organizacao-section {
-    padding: 128px 5%;
+    padding-block: clamp(72px, 8vw, 112px);
     background-color: var(--bg-color);
+}
+
+.organizacao-section:not(.container) {
+    padding-inline: 5%;
 }
 
 .organizacao-section + .organizacao-section,
@@ -511,8 +527,8 @@ a {
 
 .org-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 56px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(28px, 4vw, 56px);
 }
 
 /* Fim das caixas fechadas: fluxo limpo com linha divisória sutil no rodapé */
@@ -824,22 +840,26 @@ a {
    8. PÁGINAS INTERNAS (CLEAN, FLAT, ORIENTADAS POR ESPAÇAMENTO)
    ========================================================================== */
 .page-header {
-    padding-top: 112px;
-    padding-bottom: 72px;
+    padding-top: clamp(72px, 8vw, 104px);
+    padding-bottom: clamp(40px, 5vw, 64px);
     border-bottom: 1px solid var(--border-color);
     background-color: var(--bg-section);
-    margin-bottom: 88px;
+    margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.page-header > .container {
+    text-align: center;
 }
 
 .header-centralizado {
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .header-centralizado .page-desc {
-    margin: 0;
+    margin-inline: auto;
 }
 
 .texto-centralizado {
@@ -847,17 +867,29 @@ a {
     margin: 0;
 }
 
+.header-centralizado .texto-centralizado {
+    text-align: center;
+}
+
 .page-title {
     font-size: clamp(2.4rem, 4vw, 3.2rem);
     line-height: 1.12;
-    margin-bottom: 18px;
+    max-width: 900px;
+    margin: 0 auto 18px;
     letter-spacing: -0.025em;
 }
 
 .page-desc {
     font-size: 1.12rem;
     color: var(--text-body);
-    max-width: 780px;
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.page-header .prog-legenda,
+.page-header .prog-legenda-custom {
+    width: 100%;
+    justify-content: center;
 }
 
 .btn-large {
@@ -879,8 +911,8 @@ a {
 .chamadas-hero {
     display: flex;
     justify-content: space-between;
-    gap: 80px;
-    padding: 80px 5% 112px;
+    gap: clamp(40px, 6vw, 80px);
+    padding-block: clamp(56px, 7vw, 88px) clamp(72px, 9vw, 104px);
 }
 
 .chamadas-texto-area {
@@ -950,7 +982,7 @@ a {
 
 .topicos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 24px 48px;
 }
 
@@ -972,24 +1004,31 @@ a {
 }
 
 .instrucoes-box {
-    background-color: transparent;
-    padding: 64px 0 0 0;
-    border-top: 1px solid var(--border-color);
-    border-radius: 0;
+    background: #F8F5EF;
+    padding: clamp(28px, 4vw, 40px);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     margin-top: 32px;
 }
 
 /* O Evento */
-.evento-intro-section,
+.evento-intro-section {
+    padding-block: 0 clamp(40px, 5vw, 64px);
+}
+
 .evento-publico-section {
-    padding: 96px 5%;
+    padding-block: clamp(40px, 5vw, 64px) 0;
 }
 
 .evento-grid-top,
 .evento-grid-bottom {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 72px;
+    gap: clamp(32px, 5vw, 72px);
+    padding: clamp(24px, 3.5vw, 40px);
+    background: #F8F5EF;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
 }
 
 .evento-stats-grid {
@@ -1075,13 +1114,18 @@ a {
     max-width: 800px;
     font-size: 1.05rem;
     color: var(--text-body);
-    margin-top: 16px;
+    margin: 16px auto 0;
 }
 
 .ishgr-grid-custom {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: 72px;
+}
+
+.ishgr-texto,
+.ishgr-diretoria-box {
+    min-width: 0;
 }
 
 .ishgr-texto h3 {
@@ -1107,6 +1151,8 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    max-width: 100%;
+    white-space: normal;
     font-weight: 600;
 }
 
@@ -1169,9 +1215,9 @@ a {
 }
 
 .marcos-header-box {
-    text-align: left;
-    max-width: 720px;
-    margin: 0 0 48px 0;
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 48px;
 }
 
 .marcos-timeline {
@@ -1291,13 +1337,15 @@ a {
 
 .linha-info-baseline {
     display: flex;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 6px 12px;
     align-items: baseline;
 }
 
 .linha-info-center {
     display: flex;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 6px 12px;
     align-items: center;
 }
 
@@ -1455,8 +1503,9 @@ a {
 
 .card-flex-center {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 24px;
+    gap: 16px 24px;
 }
 
 .card-flex-between {
@@ -1469,10 +1518,11 @@ a {
 
 .info-basica-flex {
     display: flex;
-    gap: 24px;
+    flex-wrap: wrap;
+    gap: 12px 24px;
     align-items: center;
     flex: 1;
-    min-width: 250px;
+    min-width: min(100%, 240px);
 }
 
 .atividade-horario {
@@ -1567,8 +1617,9 @@ a {
 /* Atrações */
 .tabs-wrapper {
     display: flex;
-    justify-content: flex-start;
-    gap: 36px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(20px, 3vw, 36px);
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 56px;
 }
@@ -1601,17 +1652,17 @@ a {
 
 .atracoes-lista {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
-    gap: 56px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+    gap: clamp(28px, 4vw, 40px);
     margin-bottom: 48px;
 }
 
 .atracao-card {
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border-color);
-    border-radius: 0;
-    padding-bottom: 36px;
+    height: 100%;
+    background: #F8F5EF;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 24px;
     display: flex;
     gap: 28px;
 }
@@ -1706,7 +1757,11 @@ a {
 
 .secao-numerada {
     max-width: 920px;
-    margin: 0 0 88px 0;
+    margin: 0 auto 88px;
+    padding: clamp(24px, 3.5vw, 40px);
+    background: #F8F5EF;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
 }
 
 .secao-header-flex {
@@ -1741,6 +1796,8 @@ a {
     border-bottom: 1px solid var(--border-color);
     padding: 18px 0;
     display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
     justify-content: space-between;
 }
 
@@ -1755,6 +1812,8 @@ a {
     padding: 24px 0;
     border-bottom: 1px solid var(--border-color);
     display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
     justify-content: space-between;
     align-items: center;
 }
@@ -1841,10 +1900,12 @@ a {
 .contato-hero-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     max-width: 720px;
-    padding: 72px 0 96px;
+    margin-inline: auto;
+    padding: clamp(56px, 7vw, 72px) 0 clamp(72px, 9vw, 96px);
     border-bottom: 1px solid var(--border-color);
+    text-align: center;
 }
 
 .contato-horario {
@@ -1860,6 +1921,7 @@ a {
 .contato-atalhos-lista {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     width: 100%;
 }
@@ -1873,6 +1935,8 @@ a {
     display: block;
     width: 100%;
     max-width: 420px;
+    margin-inline: auto;
+    text-align: left;
 }
 
 .atalho-link:hover,
@@ -1900,7 +1964,7 @@ a {
 }
 
 .comissao-section {
-    padding: 96px 0 128px;
+    padding-block: 96px 128px;
 }
 
 .comissao-titulo {
@@ -1911,19 +1975,20 @@ a {
 
 .equipe-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 48px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: clamp(24px, 4vw, 40px);
 }
 
 .equipe-item,
 .equipe-card {
     display: flex;
+    align-items: flex-start;
     gap: 24px;
-    border: none;
-    border-bottom: 1px solid var(--border-color);
-    border-radius: 0;
-    padding-bottom: 28px;
-    background-color: transparent;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 24px;
+    background-color: #F8F5EF;
 }
 
 .equipe-foto {
@@ -1978,8 +2043,8 @@ a {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
+    width: 100% !important;
+    height: 100% !important;
     background-color: rgba(30, 41, 59, 0.88) !important;
     display: none;
     align-items: center !important;
@@ -2151,7 +2216,7 @@ a {
    12. SOBRE BELÉM, TURISMO, SUSTENTABILIDADE E HOSPEDAGEM
    ========================================================================== */
 .secao-padding-padrao {
-    padding: 80px 0;
+    padding-block: clamp(56px, 6vw, 80px) clamp(48px, 5vw, 64px);
 }
 
 .secao-padding-grande {
@@ -2163,23 +2228,29 @@ a {
     line-height: 1.8;
     color: var(--text-body);
     max-width: 880px;
-    margin-bottom: 72px;
+    margin: 0 auto 72px;
 }
 
 .turismo-header {
     margin-bottom: 48px;
+    text-align: center;
 }
 
 .turismo-header p {
+    max-width: 720px;
     color: var(--text-body);
-    margin-top: 10px;
+    margin: 10px auto 0;
 }
 
 .turismo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 48px;
-    margin-bottom: 96px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(32px, 4vw, 48px);
+    margin-bottom: 0;
+}
+
+.turismo-grid:has(> :nth-child(4)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .turismo-item,
@@ -2247,8 +2318,8 @@ a {
 .gastronomia-section {
     background-color: var(--bg-dark);
     color: var(--text-light);
-    padding: 120px 0;
-    margin-top: 64px;
+    padding: clamp(80px, 9vw, 120px) 0;
+    margin-top: clamp(32px, 4vw, 48px);
 }
 
 .badge-gastronomia {
@@ -2263,7 +2334,8 @@ a {
 
 .gastronomia-desc {
     max-width: 720px;
-    color: var(--text-dark);
+    margin-inline: auto;
+    color: var(--text-light-muted);
     font-size: 1.05rem;
 }
 
@@ -2435,17 +2507,16 @@ a {
 /* Sustentabilidade */
 .sustentabilidade-box {
     background-color: var(--bg-section);
-    border: none;
-    border-top: 1px solid var(--border-color);
-    border-radius: 0;
-    padding: 80px 40px; /* 80px em cima/baixo e 40px nas laterais */
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 40px);
     margin-top: 80px;
 }
 
 .sust-header-area,
 .sustentabilidade-header {
     max-width: 800px;
-    margin-bottom: 48px;
+    margin: 0 auto 48px;
 }
 
 .badge-sust {
@@ -2459,13 +2530,14 @@ a {
 
 .sust-desc {
     max-width: 800px;
+    margin-inline: auto;
     font-size: 1.05rem;
     color: var(--text-body);
 }
 
 .sustentabilidade-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 48px;
 }
 
@@ -2500,12 +2572,12 @@ a {
 
 /* Hospedagem */
 .secao-hospedagem {
-    padding: 80px 0 128px;
+    padding-block: 80px 128px;
 }
 
 .intro-hospedagem {
     max-width: 800px;
-    margin: 0 0 64px 0;
+    margin: 0 auto 64px;
     font-size: 1.1rem;
     color: var(--text-body);
     line-height: 1.75;
@@ -2513,9 +2585,13 @@ a {
 
 .hospedagem-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 48px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(32px, 4vw, 48px);
     margin-top: 48px;
+}
+
+.hospedagem-grid:has(> :nth-child(4)) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .hotel-item,
@@ -2974,57 +3050,112 @@ a {
 /* ==========================================================================
    15. MEDIA QUERIES (RESPONSIVIDADE)
    ========================================================================== */
-@media (max-width: 1400px) {
-    .nav-links {
-        gap: 0.65rem;
-    }
-    .nav-links a {
-        font-size: 0.82rem !important;
-        font-weight: 700 !important;
-    }
-}
-
-@media (max-width: 1280px) {
+@media (max-width: 1500px) {
     .navbar {
-        padding: 10px 2% !important;
+        padding: 12px 2.5%;
     }
     .logos-realizacao {
-        gap: 8px;
+        gap: 10px;
     }
     .logo-placeholder {
-        height: 24px;
+        height: 26px;
     }
     .nav-links {
-        gap: 0.5rem;
-        margin-left: auto;
-        margin-right: 12px;
+        gap: 0.6rem;
+        margin-right: 16px;
     }
     .nav-links a {
         font-size: 0.74rem !important;
         font-weight: 700 !important;
     }
     .nav-actions {
-        gap: 8px;
+        gap: 10px;
     }
     .btn-nav-login {
-        padding: 6px 10px;
-        font-size: 0.74rem;
+        padding: 6px 12px;
+        font-size: 0.72rem;
     }
 }
 
-@media (max-width: 1100px) and (min-width: 769px) {
+@media (max-width: 1366px) and (min-width: 1181px) {
+    .navbar {
+        padding: 10px 2% !important;
+        gap: 10px;
+    }
+    .logos-realizacao {
+        gap: 8px;
+    }
+    .logo-placeholder {
+        height: 23px;
+    }
     .nav-links {
-        gap: 0.4rem;
+        gap: 0.45rem;
         margin-left: auto;
-        margin-right: 8px;
+        margin-right: 10px;
     }
     .nav-links a {
-        font-size: 0.68rem !important;
+        font-size: 0.70rem !important;
         font-weight: 700 !important;
         letter-spacing: 0;
     }
-    .realizacao-text {
+    .nav-actions {
+        gap: 8px;
+        flex-shrink: 0;
+    }
+    .btn-nav-login {
+        padding: 6px 10px;
+        font-size: 0.70rem;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    .navbar {
+        padding: 12px clamp(16px, 3.5vw, 36px) !important;
+    }
+
+    .nav-links {
         display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        width: 100%;
+        margin: 0 !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #FFFFFF;
+        padding: 12px 20px 18px;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color);
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 0.88rem !important;
+        font-weight: 600 !important;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+        gap: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-shrink: 0;
     }
 }
 
@@ -3043,7 +3174,7 @@ a {
     .dashboard-grid,
     .info-grid,
     .form-grid-asymmetric {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .dash-sidebar {
@@ -3052,11 +3183,19 @@ a {
         padding: 0 0 24px 0;
     }
 
-    .hero-image-container {
-        justify-content: flex-start;
-        margin-top: 32px;
+    .hero-content {
+        flex: none;
         width: 100%;
-        margin-left: 0;
+        max-width: 680px;
+    }
+
+    .hero-image-container {
+        flex: none !important;
+        width: 100%;
+        max-width: 280px !important;
+        margin: 12px auto 0 !important;
+        justify-content: center;
+        transform: none !important;
     }
 
     .footer-container {
@@ -3068,33 +3207,12 @@ a {
         grid-column: 1 / -1;
     }
 
-    .lightbox-prev { left: -15px; }
-    .lightbox-next { right: -15px; }
-    .lightbox-close { right: 0; top: -50px; }
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+    .lightbox-close { right: 4px; top: -44px; }
 }
 
 @media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--bg-color);
-        padding: 1.25rem 0;
-        text-align: center;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
     .modal-content {
         flex-direction: column !important;
         overflow-y: auto !important;
@@ -3107,10 +3225,10 @@ a {
     }
 
     .hero-section {
-        padding-top: clamp(24px, 4vh, 40px) !important;    /* Reduzido o topo */
-        padding-bottom: clamp(24px, 4vh, 40px) !important; /* Reduzida a base */
-        gap: clamp(24px, 3vw, 40px) !important;            /* Aproxima o texto da imagem */
-        min-height: 50vh !important;    
+        padding-top: clamp(24px, 4vh, 40px) !important;
+        padding-bottom: clamp(24px, 4vh, 40px) !important;
+        gap: clamp(24px, 3vw, 36px) !important;
+        min-height: 0 !important;
     }
 
     .hero-content {
@@ -3124,18 +3242,19 @@ a {
     }
 
     .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .btn-accent,
-    .btn-outline {
-        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: auto;
+        gap: 14px;
     }
 
     .hero-footer-info {
+        gap: 20px 32px;
+    }
+
+    .ishgr-portal-banner {
         flex-direction: column;
-        gap: 20px;
+        align-items: flex-start;
     }
 
     .filtros-box,
@@ -3147,6 +3266,12 @@ a {
         flex-direction: column;
     }
 
+    .dia-sidebar {
+        padding-left: 0;
+        align-items: flex-start;
+        text-align: left;
+    }
+
     .atracoes-lista,
     .equipe-grid {
         grid-template-columns: 1fr;
@@ -3154,7 +3279,7 @@ a {
 
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 22px;
+        gap: 24px;
         padding-bottom: 28px;
     }
 
@@ -3168,7 +3293,8 @@ a {
 
     .sub-footer-flex {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
         gap: 6px;
     }
 
@@ -3178,6 +3304,61 @@ a {
 
     .carousel-btn {
         top: 125px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 14px !important;
+        gap: 8px;
+    }
+
+    .logos-realizacao {
+        gap: 6px;
+    }
+
+    .logo-placeholder {
+        height: 20px;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .btn-nav-login {
+        padding: 5px 8px;
+        font-size: 0.66rem;
+    }
+
+    .lang-btn {
+        padding: 4px 6px;
+        font-size: 0.68rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn-accent,
+    .hero-buttons .btn-outline {
+        width: 100%;
+    }
+
+    .hero-footer-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-voltar-topo {
+        right: 16px;
+        bottom: 16px;
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -3246,9 +3427,8 @@ a {
     overflow: hidden;
     background: var(--header-gradient);
     color: var(--text-light);
-    padding: clamp(72px, 9vw, 124px) clamp(24px, 6vw, 88px);
+    padding-block: clamp(72px, 9vw, 124px);
     gap: clamp(36px, 6vw, 80px);
-    
 }
 
 .hero-section::before {
@@ -3389,11 +3569,11 @@ button.btn-outline:hover {
 }
 
 /* Seções e hierarquia editorial */
-section:not(.hero-section) {
+section:not(.hero-section):not(.gastronomia-section) {
     background-color: var(--bg-color);
 }
 
-section:nth-of-type(even):not(.hero-section) {
+section:nth-of-type(even):not(.hero-section):not(.gastronomia-section) {
     background-color: var(--bg-section);
 }
 
@@ -3412,12 +3592,7 @@ section:nth-of-type(even):not(.hero-section) {
 /* Cartões: borda sutil, sem sombras pesadas */
 .card,
 .org-card,
-.noticia-card,
-.atracao-card,
-.trabalho-card,
-.equipe-card,
-.equipe-item,
-.dia-bloco {
+.noticia-card {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     background: #F8F5EF;
@@ -3427,8 +3602,7 @@ section:nth-of-type(even):not(.hero-section) {
 .card:hover,
 .org-card:hover,
 .noticia-card:hover,
-.atracao-card:hover,
-.trabalho-card:hover {
+.atracao-card:hover {
     border-color: rgba(169, 79, 61, .55);
     box-shadow: none;
 }
@@ -3668,7 +3842,7 @@ textarea:focus {
 /* Em telas menores, empilha o conteúdo sem deixar o hero excessivamente alto */
 @media (max-width: 900px) {
     .hero-section {
-        padding: 42px 26px 48px !important;
+        padding-block: 36px 44px !important;
         gap: 28px !important;
     }
 
@@ -3679,7 +3853,7 @@ textarea:focus {
 
 @media (max-width: 600px) {
     .hero-section {
-        padding: 34px 20px 40px !important;
+        padding-block: 28px 36px !important;
         gap: 24px !important;
     }
 
@@ -3765,21 +3939,40 @@ textarea:focus {
 .hero-image-container {
     border: none !important;
     background: transparent !important;
-    max-width: 100%;
-    transform: translateX(120px); /* poe mais pra direita */
-    flex: 0 1 400px !important; 
-    max-width: 400px !important;
-    
-    /* O empurrãozinho para a direita que tínhamos feito */
-    transform: translateX(40px);
+    flex: 0 1 360px !important;
+    width: 100%;
+    max-width: 360px !important;
+    margin-left: auto;
+    transform: none !important;
 }
 
 .hero-image-container img,
+.hero-img-placeholder,
 .hero-img-placeholder img {
     display: block;
     width: 100%;
-    height: 100%;
+    max-width: 340px;
+    height: auto;
+    max-height: 260px;
     object-fit: contain;
+    margin-inline: auto;
+}
+
+@media screen and (max-width: 1024px) {
+    .hero-image-container {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 12px auto 0 !important;
+        justify-content: center !important;
+    }
+
+    .hero-image-container img,
+    .hero-img-placeholder,
+    .hero-img-placeholder img {
+        max-width: 250px;
+        max-height: 200px;
+    }
 }
 
 /* Modal de aviso genérico (reaproveita .modal-overlay e .modal-content) */
@@ -3818,19 +4011,21 @@ textarea:focus {
 .comissao-subtitulo {
     font-size: 1.6rem;
     margin-bottom: 28px;
-    text-align: left;
+    text-align: center;
 }
 
 .comissao-intro {
     max-width: 720px;
-    margin-bottom: 40px;
+    margin: 0 auto 40px;
     color: var(--text-body);
 }
 
 .comissao-parceiros {
     max-width: 820px;
+    margin-inline: auto;
     font-size: 1.05rem;
     color: var(--text-body);
+    text-align: center;
 }
 
 .equipe-pendente .equipe-nome {
@@ -3844,6 +4039,38 @@ textarea:focus {
 
 .comissao-section:first-of-type {
     padding-top: 0;
+}
+
+@media (max-width: 900px) {
+    .hospedagem-grid,
+    .hospedagem-grid:has(> :nth-child(4)),
+    .turismo-grid,
+    .turismo-grid:has(> :nth-child(4)),
+    .sustentabilidade-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-header {
+        padding-top: 56px;
+        padding-bottom: 32px;
+        margin-bottom: 40px;
+    }
+
+    .evento-grid-top,
+    .evento-grid-bottom,
+    .secao-numerada,
+    .instrucoes-box,
+    .equipe-item,
+    .equipe-card,
+    .atracao-card {
+        padding: 20px;
+    }
+
+    .atracao-img-col {
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
